@@ -1,0 +1,68 @@
+\section{Discrimination as an error of representation}
+\label{sec:discrimination}
+
+Nothing in \S\ref{sec:model} refers to an agent's class. We now let some agents
+make a specific, minimal mistake: when they receive a message, they extend the
+representation of the issue with a feature that carries no information about the
+issue at all, and depends only on \emph{who sent it}. If that feature is
+correlated with the emitter's class label, the agent is a
+\emph{discriminating} agent, and the resulting shift of its opinion field is the
+\emph{discrimination field}:
+%
+\begin{equation}
+  \hw^{D} \;=\; \hw + D_{\kappa_r,\kappa_e},
+  \label{eq:disc-field}
+\end{equation}
+%
+where $D$ is a $2\times2$ matrix indexed by the classes of receiver and emitter.
+A fraction $\fd$ of the society discriminates, drawn independently of class; the
+rest use \eqref{eq:fields} unmodified.
+
+This is a familiar failure viewed from an unusual angle: irrelevant features
+degrade a classifier, and if one correlates with a protected attribute its errors
+become structured along that attribute. Here the classifier is one agent among
+many, and the question is what those errors do to the \emph{population}.
+
+\paragraph{What the field does.} By \eqref{eq:modulation}, the sign of perceived
+agreement decides whether trust grows or decays. A receiver that adds $+d$ to
+$\hw$ reads its counterpart as more agreeable than it is and becomes more
+trusting: it is \emph{tolerant}. A receiver that adds $-d$ manufactures
+disagreement that was not there and becomes more distrustful: it is
+\emph{intolerant}. Throughout this paper $d>0$ therefore denotes
+\textbf{tolerance towards in-group and intolerance towards out-group} emitters,
+and $d<0$ the reverse --- discrimination in favour of the other class.
+
+Geometrically, the field displaces the separatrix of the learning flow to
+$\hmu = \hw + D$ (Figure~\ref{fig:flows}, Appendix~\ref{app:flows}). The undisplaced flow has two
+symmetric consonant basins, ``trust and agree'' and ``distrust and disagree'',
+and a society whose agents fall into them polarises into two camps whose
+membership has nothing to do with class. Displacing the separatrix breaks that
+symmetry: a receiver meeting an out-group emitter has an enlarged
+``distrust and disagree'' basin, and one meeting an in-group emitter an enlarged
+``trust and agree'' basin. Every discriminating agent is thus biased towards the
+same alignment of distrust with class, and once enough of them are, the whole
+society can lock into it.
+
+
+\paragraph{Six ways to discriminate.} The matrix $D$ can be filled in six
+inequivalent ways, listed in Appendix~\ref{app:cases}: one class may favour its
+own without hostility to the other, be hostile without favouritism, or both; and
+either one class or both may discriminate. All the phase diagrams below use the
+fully symmetric case
+%
+\begin{equation}
+  D \;=\; d\begin{pmatrix} +1 & -1\\ -1 & +1\end{pmatrix},
+  \label{eq:case6}
+\end{equation}
+%
+in which both classes favour their own and are hostile to the other. It is the
+case in which the two classes play equivalent roles, so any asymmetry that
+appears in the results is spontaneous rather than imposed.
+
+\paragraph{A note on the sign convention.} An earlier version of this model
+\citep{caticha2026discrimination} tabulates $D$ with the opposite sign while
+placing the discriminatory phases at $d>0$ in its text and figures; the two are
+inconsistent, and the inconsistency exchanges the halves of the phase diagram.
+Appendix~\ref{app:sign} works this through and shows the maps under both
+readings. We use \eqref{eq:disc-field} with \eqref{eq:case6} as stated, which is
+the reading that agrees with the algorithm.

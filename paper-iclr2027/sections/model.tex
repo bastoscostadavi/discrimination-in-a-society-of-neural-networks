@@ -1,0 +1,145 @@
+\section{A society of agents that learn from each other}
+\label{sec:model}
+
+\subsection{Agents, issues and opinions}
+
+A society of $N$ agents discusses an agenda of $P$ issues. An issue is a vector
+$\hat{x}\in\mathbb{R}^{K}$: the embedding of an assertion in the $K$ dimensions
+that are relevant to the question at hand. All agents embed issues identically
+and differ only in what they make of them, so the model separates the
+representation of an issue from the opinion an agent holds about it.
+
+Each agent carries a single-layer perceptron with weights $w_I\in\mathbb{R}^{K}$
+and states the opinion $\sigma_I = \mathrm{sign}(w_I\cdot\hat{x})\in\{\pm 1\}$.
+This is the least structure that lets two agents agree on some issues and
+disagree on others; a model in which each agent is a single spin cannot do that,
+and the possibility of partial agreement turns out to drive the collective
+behaviour we report. Agents also belong to one of two classes, $A$ or $B$,
+recorded as $\kappa_I=\pm1$: a label that is visible to others and carries no
+information about any issue.
+
+An agent's state has two sectors. The \emph{ideological} sector is a Gaussian
+belief over its own weights, with mean $\hat{w}_I$ and covariance $C_I$. The
+\emph{affective} sector is a Gaussian belief, for every other agent $J$, over how
+unreliable $J$ is as a source: mean $\mu_{J|I}$ (the \emph{distrust} $I$ assigns
+to $J$) and variance $V_{J|I}$. Writing the joint belief as a product of
+Gaussians,
+%
+\begin{equation}
+  Q(w_I, z_I \mid \lambda_I) \;=\; \mathcal{N}(\hat{w}_I, C_I)
+  \prod_{J\neq I}\mathcal{N}(\mu_{J|I}, V_{J|I}),
+  \label{eq:belief}
+\end{equation}
+%
+the dynamical variables of the society are
+$\lambda_I=\{\hat{w}_I, C_I, \mu_{J|I}, V_{J|I}\}$. The means fix what an agent
+thinks; the (co)variances fix how firmly, and thereby how fast it can be moved.
+
+\subsection{One interaction}
+
+At each step an issue $\hat{x}$, an emitter $e$ and a receiver $r$ are drawn
+uniformly. The emitter states $\sigma_e$; the receiver treats it as a noisy
+report of an unknown true label, where the noise level is precisely what its
+distrust of the emitter encodes. A Bayesian step on \eqref{eq:belief} leaves the
+exponential family, and projecting the posterior back onto a Gaussian by maximum
+entropy --- relative to the prior, subject to the first two moments --- keeps the
+belief in the form \eqref{eq:belief} and yields a closed update. This is the
+entropic-dynamics construction, and it is what makes the algorithm optimal in the
+small-group (student--teacher) setting rather than merely plausible.
+Appendix~\ref{app:derivation} carries the derivation, including the two modelling
+choices that keep the algebra Gaussian: taking the probability that the emitter
+conveys the wrong label to be $\Phi(z)$ with $z$ Gaussian, and letting an
+inexperienced agent be correspondingly unsure it has parsed the issue as the
+emitter did.
+
+Two scaled fields carry everything the update depends on:
+%
+\begin{equation}
+  \hw \;=\; \frac{\hat{w}_r\cdot\hat{x}\,\sigma_e}{\gamma_C},
+  \qquad
+  \hmu \;=\; \frac{\mu_{e|r}}{\gamma_V},
+  \qquad
+  \gamma_C=\sqrt{1+\hat{x}\cdot C_r\hat{x}},\quad \gamma_V=\sqrt{1+V_{e|r}} .
+  \label{eq:fields}
+\end{equation}
+%
+We call $\hw$ the \emph{opinion field}: it is positive when the receiver already
+agrees with the message and large when it holds that opinion confidently. We
+call $\hmu$ the \emph{distrust field}: positive when the receiver distrusts the
+emitter. In these variables the evidence for the message is
+%
+\begin{equation}
+  Z \;=\; \Phi(\hw) + \Phi(\hmu) - 2\,\Phi(\hw)\Phi(\hmu),
+  \label{eq:evidence}
+\end{equation}
+%
+which is small in two quadrants --- agreeing with a distrusted emitter, and
+disagreeing with a trusted one --- and large in the other two. Low evidence is
+surprise, and surprise is what drives learning. The update is a gradient step in
+$\log Z$ in both sectors,
+%
+\begin{align}
+  \hat{w}_r &\leftarrow \hat{w}_r + \frac{\Fw}{\gamma_C}\,\sigma_e\,C_r\hat{x},
+  &
+  C_r &\leftarrow C_r + \frac{\FC}{\gamma_C^{2}}\,(C_r\hat{x})(C_r\hat{x})^{\!\top},
+  \label{eq:update-ideo}\\
+  \mu_{e|r} &\leftarrow \mu_{e|r} + \frac{\Fmu}{\gamma_V}\,V_{e|r},
+  &
+  V_{e|r} &\leftarrow V_{e|r} + \frac{\FV}{\gamma_V^{2}}\,V_{e|r}^{2},
+  \label{eq:update-aff}
+\end{align}
+%
+with the four modulation functions given by the derivatives of $\log Z$:
+%
+\begin{align}
+  \Fw &= \bigl(1-2\Phi(\hmu)\bigr)\frac{g(\hw)}{Z},
+  &\Fmu &= \bigl(1-2\Phi(\hw)\bigr)\frac{g(\hmu)}{Z},
+  \nonumber\\
+  \FC &= -\Fw(\Fw+\hw),
+  &\FV &= -\Fmu(\Fmu+\hmu),
+  \label{eq:modulation}
+\end{align}
+%
+where $g$ is the standard normal density. The first update in
+\eqref{eq:update-ideo} is a Hebbian step $\sigma_e\hat{x}$ with a tensorial,
+self-annealing learning rate; $\FC$ and $\FV$ shrink the two uncertainties, so
+an agent's opinions and its judgements of others both harden with experience.
+
+Three properties of \eqref{eq:modulation} do the work in what follows, and none of
+them was put in by hand. \textbf{Trust gates learning and can invert it}: the
+prefactor $1-2\Phi(\hmu)$ in $\Fw$ is negative when the emitter is distrusted, so
+a distrusted emitter is not ignored but \emph{anti-learned} from, generating
+effectively antiferromagnetic couplings. (A comparable reversal is documented in
+humans, where a norm advertised by a distrusted source can push behaviour the
+other way, \citealp{keizer2011reversal}.) \textbf{Agreement builds trust}:
+symmetrically, $1-2\Phi(\hw)$ in $\Fmu$ is negative when the receiver agrees, so
+whether $\mu$ rises or falls is decided by the \emph{sign of the perceived
+agreement} --- the hinge that \S\ref{sec:discrimination} turns.
+\textbf{Only one sector yields at a time}: the sectors are mirror images,
+$\Fw(x,y)=\Fmu(y,x)$ and $\FC(x,y)=\FV(y,x)$, and the surprise is absorbed by
+whichever field is smaller in magnitude, with a crossover at $\hmu=\hw$
+(Figure~\ref{fig:modulation}). Meeting a distrusted agent who agrees with you
+costs you either your distrust or your opinion, depending on which you hold less
+firmly --- blame attribution emerging from the inference problem rather than being
+assumed.
+
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/modulation_contours}
+    \caption{The four modulation functions.}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.43\linewidth}
+    \includegraphics[width=\linewidth]{figures/modulation_slices}
+    \caption{Which sector absorbs the surprise.}
+  \end{subfigure}
+  \caption{\textbf{Learning is driven by dissonance.}
+  (a) $\Fmu, \Fw$ (top) and $\FV, \FC$ (bottom) over the $(\hw,\hmu)$ plane; the
+  green line is $\hmu=\hw$, and reflection across it exchanges the sectors. Changes
+  concentrate in the dissonant quadrants: agree-and-distrust (upper right),
+  disagree-and-trust (lower left). (b) Cuts at fixed $\hw$: below the crossover at
+  $\hmu=\hw+D$ the affective sector moves (solid), above it the ideological sector
+  does (dashed) and the receiver unlearns. The discrimination field shifts that
+  crossover, which is the whole mechanism studied here.}
+  \label{fig:modulation}
+\end{figure}

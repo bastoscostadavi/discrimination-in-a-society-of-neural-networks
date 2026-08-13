@@ -1,0 +1,198 @@
+"""Shared figure style, colour maps and output helpers.
+
+Two output styles are supported.  ``--style paper`` matches the proportions of
+the source draft (RevTeX, narrow single-column figures); ``--style iclr``
+targets the ICLR single-column text width of 5.5 inches so that figures can be
+included at ``width=\\linewidth`` with no rescaling.  Both write PDF (for
+LaTeX) and PNG (for quick viewing) of every figure.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import matplotlib as mpl
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
+
+__all__ = [
+    "FIGURE_DIR",
+    "use_style",
+    "text_width",
+    "save",
+    "phase_map",
+    "add_phase_axes",
+    "CMAPS",
+    "rgb_composite",
+]
+
+FIGURE_DIR = Path(__file__).resolve().parent.parent / "figures"
+
+#: One colour map per order parameter, following the draft: the two trust-side
+#: quantities in blue/red, the class-opinion correlation in green, and the two
+#: balance measures in purple/orange.  Diverging quantities get a symmetric
+#: white-centred map so that the sign of the correlation is legible at a glance.
+CMAPS = {
+    "R_wmu": "Blues",
+    "R_muc": "RdBu_r",
+    "R_cw": "Greens",
+    "B_I": "Purples",
+    "B_A": "OrRd",
+}
+
+#: Ranges used for each order parameter.  R_wmu and R_cw are non-negative in
+#: practice; R_muc, B_A and B_I are signed.
+RANGES = {
+    "R_wmu": (0.0, 1.0),
+    "R_muc": (-1.0, 1.0),
+    "R_cw": (0.0, 1.0),
+    "B_I": (0.0, 1.0),
+    "B_A": (-1.0, 1.0),
+}
+
+LABELS = {
+    "R_wmu": r"$R_{w,\mu}$",
+    "R_muc": r"$R_{\mu,c}$",
+    "R_cw": r"$R_{c,w}$",
+    "B_I": r"$B_I$",
+    "B_A": r"$B_A$",
+}
+
+_STYLE = {"name": "paper"}
+
+_BASE_RC = {
+    "figure.dpi": 150,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "savefig.pad_inches": 0.02,
+    "font.family": "serif",
+    "mathtext.fontset": "cm",
+    "axes.linewidth": 0.6,
+    "axes.labelsize": 8,
+    "axes.titlesize": 8,
+    "xtick.labelsize": 7,
+    "ytick.labelsize": 7,
+    "legend.fontsize": 7,
+    "legend.frameon": False,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
+    "xtick.major.width": 0.6,
+    "ytick.major.width": 0.6,
+    "xtick.major.size": 2.5,
+    "ytick.major.size": 2.5,
+    "lines.linewidth": 1.0,
+    "image.interpolation": "nearest",
+}
+
+
+def use_style(style="paper"):
+    """Activate one of the two output styles."""
+    if style not in ("paper", "iclr"):
+        raise ValueError("style must be 'paper' or 'iclr'")
+    _STYLE["name"] = style
+    rc = dict(_BASE_RC)
+    if style == "iclr":
+        rc.update({"font.size": 9, "axes.labelsize": 9, "axes.titlesize": 9})
+    mpl.rcParams.update(rc)
+    return style
+
+
+def text_width():
+    """Full text width in inches for the active style."""
+    return 5.5 if _STYLE["name"] == "iclr" else 6.3
+
+
+def save(fig, name, style=None):
+    """Write ``name`` as a PDF into ``figures/<style>/``.
+
+    PDF only: it is what LaTeX wants, it stays sharp at any size, and a parallel
+    set of PNGs is just something else to keep in step.  To look at one, render
+    it on demand (``pdftoppm -r 150 -png fig.pdf out``).
+    """
+    style = style or _STYLE["name"]
+    out = FIGURE_DIR / style
+    out.mkdir(parents=True, exist_ok=True)
+    path = out / f"{name}.pdf"
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"[figure] {path.relative_to(FIGURE_DIR.parent)}")
+    return path
+
+
+def phase_map(
+    ax, data, d, fd, key, vmin=None, vmax=None, cmap=None, colorbar=True, title=None,
+    ylabel=True, sparse_ticks=False,
+):
+    """Draw one order-parameter map in the draft's orientation.
+
+    ``f_d`` increases downwards from 0 at the top; ``d`` runs from -1 to +1.
+    """
+    lo, hi = RANGES.get(key, (None, None))
+    vmin = lo if vmin is None else vmin
+    vmax = hi if vmax is None else vmax
+    cmap = cmap or CMAPS.get(key, "viridis")
+    norm = None
+    if vmin is not None and vmax is not None and vmin < 0 < vmax:
+        norm = TwoSlopeNorm(vmin=vmin, vcenter=0.0, vmax=vmax)
+        im = ax.imshow(
+            data, origin="upper", cmap=cmap, norm=norm,
+            extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto",
+        )
+    else:
+        im = ax.imshow(
+            data, origin="upper", cmap=cmap, vmin=vmin, vmax=vmax,
+            extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto",
+        )
+    add_phase_axes(ax, ylabel=ylabel, sparse_ticks=sparse_ticks)
+    ax.set_title(title if title is not None else LABELS.get(key, key), pad=3)
+    if colorbar:
+        cb = ax.figure.colorbar(im, ax=ax, fraction=0.046, pad=0.03)
+        cb.outline.set_linewidth(0.4)
+        cb.ax.tick_params(labelsize=6, width=0.4, length=2)
+    return im
+
+
+def add_phase_axes(ax, ylabel=True, sparse_ticks=False):
+    """Label a phase-diagram axis.
+
+    Note that no axis inversion happens here: the ``extent`` passed to
+    ``imshow`` by :func:`phase_map` already puts ``f_d = 0`` at the top, which is
+    the draft's layout.  Inverting again would flip the maps upside down.
+
+    ``ylabel=False`` drops the redundant ``f_d`` label on inner columns of a
+    grid, which also frees the margin for a row label.  ``sparse_ticks`` keeps
+    only the endpoints and midpoint, for grids too narrow for five labels.
+    """
+    ax.set_xlabel(r"$d$", labelpad=1)
+    if ylabel:
+        ax.set_ylabel(r"$f_d$", labelpad=1)
+    if sparse_ticks:
+        ax.set_xticks([-1, 0, 1])
+        ax.set_yticks([0, 0.5, 1])
+    else:
+        ax.set_xticks([-1, -0.5, 0, 0.5, 1])
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1])
+
+
+def rgb_composite(r_channel, g_channel, b_channel):
+    """Compose three order-parameter maps into one RGB image.
+
+    Each channel is clipped to [0, 1] after mapping its own range, so the
+    resulting colour names the phase: black where nothing is correlated, blue
+    where only opinion-trust is, magenta where opinion-trust and trust-class
+    both are, and pale where all three are.
+    """
+    def norm(a, key):
+        lo, hi = RANGES[key]
+        return np.clip((a - lo) / (hi - lo), 0.0, 1.0)
+
+    return np.stack(
+        [norm(r_channel, "R_muc"), norm(g_channel, "R_cw"), norm(b_channel, "R_wmu")],
+        axis=-1,
+    )
+
+
+def sequential_from(color, name="seq"):
+    """A white-to-``color`` colour map, for one-off channels."""
+    return LinearSegmentedColormap.from_list(name, ["white", color])

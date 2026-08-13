@@ -1,0 +1,71 @@
+The model needs six numbers. One is recovered from the companion manuscript, one
+is calibrated against its published figures, two are prior conventions, and two
+are free choices; all six are listed with their provenance rather than left
+implicit, since the manuscript states none of them. The accompanying code exposes
+each of them and its calibration script reproduces the comparisons below.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llll}
+\toprule
+symbol & meaning & value & provenance \\
+\midrule
+$K$ & dimension of the issue embedding & $30$ & recovered (see below) \\
+$N$ & agents in the society & $40$ & chosen; converged (see below) \\
+$P$ & issues on the agenda & $5$ / $100$ & chosen: $\alpha=P/K$ either side of $1$ \\
+$\Delta t$ & interactions per ordered pair & $500$ & calibrated (see below) \\
+$C_0, V_0$ & initial uncertainties & $I$, $1$ & uninformative prior \\
+$\mu_0$ & initial distrust & $\mathcal{U}(-1,1)$ & gives $\BI\approx\BA\approx0$ at $t=0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{$K$ is recovered, not chosen.} The companion manuscript reports
+balance trajectories at
+$\alpha \in \{0.03, 0.17, 0.23, 0.33, 0.50, 0.67, 1.67, 3.33, 333.33\}$. These are
+exactly $P/30$ for $P\in\{1,5,7,10,15,20,50,100,10^{4}\}$, which fixes $K=30$;
+the language-agent protocol's thirty issues agrees.
+
+\paragraph{$\Delta t$ is calibrated against the published trajectories.} The
+dynamics anneals rather than reaching a stationary state, so the measurement time
+matters and the companion manuscript does not state it (its text carries a
+literal placeholder in place of the value). We scan $\Delta t$ and compare the
+endpoints of all nine balance trajectories against the published ones:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccccc}
+\toprule
+$\Delta t$ (interactions per ordered pair) & 60 & 125 & 250 & \textbf{500} & 1000 \\
+rms distance to published endpoints & 0.63 & 0.31 & 0.15 & \textbf{0.13} & 0.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The minimum is flat-bottomed and sits at $\Delta t=500$, which we use throughout.
+Seven of the nine endpoints then agree to within about $0.1$, and $\BI$ matches
+the three largest agendas almost exactly, but no single $\Delta t$ reproduces all
+nine: two middle curves ($\alpha=0.23$, $0.33$) sit above ours, and the two
+largest agendas have a lower published $\BA$ than we obtain at any $\Delta t$ that
+fits the rest. Either the society size differs from ours or those middle curves,
+which overlap within a few pixels in the printed figure, cannot be digitised
+reliably; we cannot distinguish the two. Dropping the ambiguous readings does not
+move the selected value. All the $\Delta t$-independent checks pass: the
+above/below-diagonal ordering with its crossover at $\alpha\approx1.7$, the sharp
+sign flip of $\Rmuc$ at $d\approx0$, and the $\Rcw$ wedge confined to large $d$
+and large $\fd$.
+
+\paragraph{$N=40$ is large enough.} Repeating five representative points of the
+plane at $N\in\{20,30,40,60\}$ with twelve realisations each, the order parameters
+at $N=60$ differ from those at $N=40$ by at most $0.02$ ($\Rmuc$, $\Rcw$), $0.03$
+($\BI$) and $0.05$ ($\BA$), while $N=20$ differs by up to $0.24$. The maps are
+therefore converged in $N$ at $N=40$, and the cost of going further is steep: total
+work grows as $N^{3}$.
+
+\paragraph{Numerical safeguards.} Three floors are applied, none of which the
+model prescribes: on the evidence $Z$, whose exact modulation functions diverge
+in the deep dissonance corners; on the affective variance $V$, which $\FV<0$
+drives monotonically towards zero; and on the covariance update, clipped to the
+boundary at which $C+a(C\hat{x})(C\hat{x})^{\!\top}$ ceases to be positive
+semi-definite. The last is the only one that can alter a trajectory, and it never
+triggered in the runs reported here.

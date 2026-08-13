@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{xcolor}
+
+% ---------------------------------------------------------------------------
+% Notation used throughout: the two sectors of an agent's state, the fields
+% that drive learning, and the order parameters.
+% ---------------------------------------------------------------------------
+\newcommand{\hw}{h_{w}}
+\newcommand{\hmu}{h_{\mu}}
+\newcommand{\Fw}{F_{w}}
+\newcommand{\Fmu}{F_{\mu}}
+\newcommand{\FC}{F_{C}}
+\newcommand{\FV}{F_{V}}
+\newcommand{\Rwmu}{R_{w,\mu}}
+\newcommand{\Rmuc}{R_{\mu,c}}
+\newcommand{\Rcw}{R_{c,w}}
+\newcommand{\BI}{B_{I}}
+\newcommand{\BA}{B_{A}}
+\newcommand{\fd}{f_{d}}
+
+% Marks the places the LLM study will fill.  Set \llmtodofalse once the
+% experiments are in, and the notes disappear from the PDF.
+\newif\ifllmtodo\llmtodotrue
+\newcommand{\llmtodo}[1]{\ifllmtodo\textcolor{purple}{\textsf{[#1]}}\fi}
+
+\title{Discrimination in a Neural Network's Society}
+
+\author{Anonymous authors\\Paper under double-blind review}
+
+%\iclrfinalcopy % Uncomment for camera-ready, NOT for submission.
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/model}
+\input{sections/discrimination}
+\input{sections/order_params}
+\input{sections/results}
+\input{sections/llm}
+\input{sections/discussion}
+
+\subsubsection*{Reproducibility statement}
+\input{sections/reproducibility}
+
+\subsubsection*{Ethics statement}
+\input{sections/ethics}
+
+\bibliography{references}
+\bibliographystyle{iclr2027_conference}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

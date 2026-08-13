@@ -1,0 +1,37 @@
+# The source manuscript is unpublished and belongs to its authors; it is not
+# committed to this public repository.  Everything recovered from it that the
+# code depends on is recorded in docs/ instead.
+Discrimination2025*.pdf
+
+# Simulation caches: regenerate with `python scripts/make_all.py --preset <p>`.
+nn-based-simulation/data/
+# Built by scripts/draft_comparison.py, and only meaningful next to the source PDF.
+nn-based-simulation/figures/draft_comparison.pdf
+
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+# The paper's figures are imported from nn-based-simulation by `make figures`.
+paper-iclr2027/figures/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# macOS
+.DS_Store
+
+# Scratch logs from long runs
+.fullrun.log
+.sweep*.log
+.calibrate.log
+.nscan.log

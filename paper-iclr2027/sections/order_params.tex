@@ -1,0 +1,62 @@
+\section{What to measure}
+\label{sec:order-params}
+
+A society's state is a set of weight vectors and an $N\times N$ matrix of
+distrust. To compare states --- and, later, to compare a society of perceptrons
+with a society of language models --- we need statistics that depend on neither
+the dimension $K$ nor the parameterisation.
+
+Two pairwise quantities do the work. The \emph{ideological overlap} of two agents
+is the cosine of their weight vectors,
+$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, which is $+1$
+when they agree on every issue and $-1$ when they disagree on every one. The
+\emph{trust} a receiver $I$ places in an emitter $J$ is
+$\eta_{J|I}=1-2\Phi(\hmu)$, which is $+1$ when $J$ is fully trusted and $-1$
+when fully distrusted: the distrust field mapped onto a bounded, sign-carrying
+scale. Writing $G_{IJ}=\kappa_I\kappa_J$ for the class indicator ($+1$ for
+same-class pairs, $-1$ otherwise), the three pair correlations are
+%
+\begin{equation}
+  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
+  \qquad
+  \Rmuc = \bigl\langle G_{IJ}(\eta_{I|J}+\eta_{J|I}) \bigr\rangle,
+  \qquad
+  \Rcw  = \bigl\langle G_{IJ}\,\rho_{IJ} \bigr\rangle,
+  \label{eq:correlations}
+\end{equation}
+%
+averaged over unordered pairs and normalised to $[-1,1]$. $\Rwmu$ asks whether
+agents trust those who agree with them; $\Rmuc$, the order parameter of
+discrimination, asks whether trust follows class; $\Rcw$ asks whether opinion
+follows class.
+
+The pair correlations cannot distinguish a society split into two coherent camps
+from one in which distrust is spread inconsistently, so we also measure social
+balance in the sense of \citet{heider1946attitudes} and
+\citet{cartwright1956structural}. A triple of agents is ideologically balanced
+when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and affectively balanced when
+$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$;
+the aggregates
+%
+\begin{equation}
+  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
+  \qquad
+  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
+  \label{eq:balance}
+\end{equation}
+%
+run over all $\binom{N}{3}$ triples. A randomly initialised society has
+$\BI\approx\BA\approx 0$: half its triples are frustrated. A society that has
+settled into two internally coherent, mutually opposed blocs has
+$\BI=\BA=1$, whatever the blocs are made of --- and a society that cannot settle
+at all stays near zero or goes negative. Balance therefore separates
+\emph{organised} disagreement from mere disorder, which is exactly the
+distinction the phase diagram turns on. Both aggregates are computed in closed
+form from matrix products rather than by enumerating triples
+(Appendix~\ref{app:closed-form}).
+
+Note that none of \eqref{eq:correlations} or \eqref{eq:balance} mentions weights,
+gradients or $K$: they need only a signed opinion alignment and a signed trust per
+pair, both of which are elicitable from a language agent. That is what makes the
+phase diagram of \S\ref{sec:results} a prediction \S\ref{sec:llm} can test rather
+than an analogy.

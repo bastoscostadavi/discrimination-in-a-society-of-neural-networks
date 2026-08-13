@@ -1,0 +1,246 @@
+\section{Derivation of the learning algorithm}
+\label{app:derivation}
+
+The receiver's belief before an interaction is the product of Gaussians
+\eqref{eq:belief}. It observes $\sigma_e$, the emitter's opinion on issue
+$\hat{x}$, and treats it as a report of an unknown true label $\sigma_T$
+transmitted through a channel that flips the label with probability
+$\varepsilon(z)$. Marginalising the joint distribution of labels and of the issue
+as the emitter may have parsed it, $y_t$,
+%
+\begin{equation}
+  L(\sigma_e\mid \hat{x}, u) \;=\;
+  \sum_{\sigma_T}\int P(\sigma_e\mid \sigma_T, y_t, \hat{x}, u)\,
+  P(\sigma_T\mid y_t, \hat{x}, u)\,P(y_t\mid \hat{x}, u)\,\mathrm{d}y_t ,
+\end{equation}
+%
+with $P(\sigma_e\mid\sigma_T,z)=(1-\varepsilon(z))\delta_{\sigma_e,\sigma_T} +
+\varepsilon(z)\delta_{\sigma_e,-\sigma_T}$ and
+$P(\sigma_T\mid y_t,w)=\Theta(\sigma_T\, y_t\cdot w)$. Two modelling choices keep
+the algebra Gaussian. Taking $\varepsilon(z)=\Phi(z)$ with $z$ Gaussian of mean
+$\mu_{e|r}$ and variance $V_{e|r}$ makes the flip probability a bounded function
+of a Gaussian variable while preserving conjugacy of the affective sector --- a
+Beta distribution for $\varepsilon$, the tempting alternative, does not. Taking
+$P(y_t\mid \hat{x},u)$ Gaussian with variance $v_p=\|w\|^{-2}$ lets an
+inexperienced agent, whose weights are small, be correspondingly unsure that it
+has parsed the issue as the emitter did. Together these give the likelihood
+%
+\begin{equation}
+  L(\sigma_e\mid z, \hat{x}, w) \;=\;
+  \Phi(z)\,\Phi(-w\cdot\hat{x}\sigma_e)
+  + \bigl(1-\Phi(z)\bigr)\,\Phi(w\cdot\hat{x}\sigma_e),
+  \label{eq:likelihood}
+\end{equation}
+%
+and the covariance stays block diagonal in the two sectors if it starts so.
+
+Averaging the likelihood over the current belief gives the evidence
+%
+\begin{equation}
+  Z(\sigma_e\mid \hat{x}, D_t) \;=\; \mathbb{E}_{Q_t}\bigl[L(\sigma_e\mid z, u, \hat{x})\bigr]
+  \;=\;\sum_{\sigma_T}\mathbb{E}_z\bigl[P(\sigma_e\mid\sigma_T,\hat{x},z)\bigr]\,
+  \mathbb{E}_w\bigl[\Phi(\sigma_T\, w\cdot\hat{x})\bigr],
+\end{equation}
+%
+and the Gaussian integrals collapse onto the two scaled fields
+\eqref{eq:fields}, giving \eqref{eq:evidence}: the evidence depends on the
+receiver's state only through $(\hw,\hmu)$. This is the symmetry that makes the
+two sectors mirror images.
+
+The exact Bayesian posterior is not Gaussian. Replacing it by the Gaussian of
+maximum entropy relative to the prior, subject to matching the first two moments
+of the posterior, gives updates in terms of derivatives of the log evidence,
+%
+\begin{equation}
+  \hat{w}_{t+1} = \hat{w}_t + C_t\frac{\partial \ln Z}{\partial \hat{w}},
+  \qquad
+  C_{t+1} = C_t + C_t \frac{\partial^{2}\ln Z}{\partial\hat{w}\,\partial\hat{w}^{\!\top}} C_t,
+\end{equation}
+%
+and identically in the affective sector with $\mu_{e|r}, V_{e|r}$ in place of
+$\hat{w}, C$. Expressing the derivatives in the scaled fields yields
+\eqref{eq:update-ideo}--\eqref{eq:update-aff} with the modulation functions
+\eqref{eq:modulation}. The first is a Hebbian term $\sigma_e\hat{x}$ with a
+tensorial, self-annealing rate; the rest is the online estimation of the channel.
+
+\section{Genealogy of the learning rule}
+\label{app:genealogy}
+
+The update \eqref{eq:update-ideo}--\eqref{eq:update-aff} descends from the
+variational optimisation of modulated Hebbian on-line learning
+\citep{kinouchi1992optimal,kinzel1990improving}, given a Bayesian reading by
+\citet{opper1996online,opper1998bayesian} and applied across architectures by
+\citet{solla1999optimal}; the entropic-dynamics formulation we use is
+\citet{caticha2020entropic}. Learning through a noisy channel whose noise level
+must itself be inferred was analysed by \citet{kinouchi1993lower} and
+\citet{biehl1995learning}; \citet{alves2016distrust} identified that inferred
+level with distrust and made it dynamical, with applications to voting
+\citep{caticha2015whom} and to panels of appellate judges
+\citep{caticha2019trust}, and a mean-field treatment by \citet{simoes2018mean}.
+The blame-attribution behaviour resembles the least-action rule of
+\citet{mitchison1989bounds}, which suffers retarded learning
+\citep{kabashima1994perfect}, whereas the optimised algorithm attains
+generalisation error decaying as $\alpha^{-1}$ even under output noise
+\citep{simonetti1996online}.
+
+\section{The learning flow under a discrimination field}
+\label{app:flows}
+
+Figure~\ref{fig:flows} shows the flow directly.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/learning_flows}
+  \caption{\textbf{The discrimination field bends the flow of learning.}
+  Arrows are the change $(\Fw, \Fmu)$ that one interaction induces in the
+  receiver's fields; the background is $|(\Fw,\Fmu)|$ and the thin contours are
+  the evidence $Z$. Centre: without discrimination the flow escapes the two
+  dissonant quadrants into two symmetric consonant basins, separated by
+  $\hmu=\hw$ (green). Left and right: a discriminating receiver evaluates the
+  flow at $\hw+D$, which moves the separatrix and enlarges one basin at the
+  other's expense --- ``distrust and disagree'' for an out-group emitter
+  ($D=-d$), ``trust and agree'' for an in-group one ($D=+d$).}
+  \label{fig:flows}
+\end{figure}
+
+\section{The six discrimination cases}
+\label{app:cases}
+
+The matrix $D$ in \eqref{eq:disc-field} admits six inequivalent fillings, where
+$+d$ is the tolerant entry and $-d$ the intolerant one (\S\ref{sec:discrimination}
+and Appendix~\ref{app:sign}). Rows index the receiver's class, columns the
+emitter's.
+
+\newcommand{\dmat}[4]{\left(\begin{smallmatrix}#1&#2\\#3&#4\end{smallmatrix}\right)}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{cccc}
+\toprule
+case & $D/d$ & who discriminates & how \\
+\midrule
+1 & $\dmat{+1}{0}{0}{0}$   & $A$ only & in-group favouritism \\
+2 & $\dmat{0}{-1}{0}{0}$   & $A$ only & out-group hostility \\
+3 & $\dmat{+1}{-1}{0}{0}$  & $A$ only & both \\
+4 & $\dmat{+1}{0}{0}{+1}$  & both     & in-group favouritism \\
+5 & $\dmat{0}{-1}{-1}{0}$  & both     & out-group hostility \\
+6 & $\dmat{+1}{-1}{-1}{+1}$ & both    & both \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All phase diagrams in the main text use case 6, in which the two classes play
+symmetric roles. \llmtodo{optional: add the case-1 and case-4 phase diagrams here
+if space allows, to show that one-sided discrimination produces a weaker but
+qualitatively similar transition}
+
+\section{The sign of the discrimination field}
+\label{app:sign}
+
+The sign of $D$ is fixed by the algorithm and not free. By \eqref{eq:modulation},
+$\Fmu=(1-2\Phi(\hw))g(\hmu)/Z$ is negative when $\hw>0$, so perceived agreement
+drives distrust $\mu$ \emph{down}. A receiver that adds $+d$ to $\hw$ therefore
+becomes more trusting (tolerant) and one that adds $-d$ becomes more distrustful
+(intolerant). Case 6 with $d>0$ consequently gives in-group trust and out-group
+distrust, i.e. the discriminatory phase, which is the convention used throughout.
+
+The companion manuscript \citep{caticha2026discrimination} tabulates the in-group
+entry as $-d$ while its text and figures place the discriminatory phases at
+$d>0$; those two statements are inconsistent, and taken literally the tabulated
+signs put the discriminatory phases at $d<0$, mirroring every map in $d$. The same
+inconsistency appears in its description of the learning flow, where the panel
+labelled $D_{e|r}=-d$ is called the more tolerant one although $-d$ is the
+intolerant entry, and where the ``distrust and disagree'' basin is said to grow
+for $d>0$ although adding $+d$ shrinks it. A single global sign reconciles
+everything; we adopt it in the form that leaves \eqref{eq:disc-field} untouched.
+The accompanying code implements both readings behind a flag, and
+Figure~\ref{fig:sign} runs the same sweep under each: the two rows are mirror
+images in $d$, and only the first matches the maps as published.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.78\linewidth]{figures/sign_convention_comparison}
+  \caption{\textbf{The two readings of the discrimination field.} Trust--class
+  correlation and affective balance over the $(d,\fd)$ plane under the convention
+  used in this paper (top) and under the companion manuscript's table read
+  literally with its Eq.~25 (bottom). The physics is identical; which half of the
+  $d$ axis is discriminatory is not.}
+  \label{fig:sign}
+\end{figure}
+
+\section{Conventions in the order parameters}
+\label{app:conventions}
+
+Two choices in \eqref{eq:correlations} deserve statement.
+
+\textbf{The class indicator.} We use $G_{IJ}=\kappa_I\kappa_J\in\{-1,+1\}$. A
+$\{0,1\}$ indicator, which counts only same-class pairs, cannot represent
+anti-correlation: under perfect reverse discrimination it returns
+$-(N/2-1)/(N-1)$ rather than $-1$, and its range depends on $N$. Since the
+reverse-discrimination half of the phase diagram is a substantive part of the
+result, the signed indicator is the appropriate one. Both are implemented.
+
+\textbf{Normalisation.} $\Rwmu$ and $\Rmuc$ sum $\eta_{I|J}+\eta_{J|I}$ over
+unordered pairs, so dividing by $N(N-1)$ places them in $[-1,1]$. $\Rcw$ has a
+single term per pair and the same divisor would cap it at $1/2$; we use
+$2/(N(N-1))$ so that all three share the range $[-1,1]$ and the three colour
+channels of Figure~\ref{fig:phase} are commensurate.
+
+\section{Closed form for the balance aggregates}
+\label{app:closed-form}
+
+Enumerating triples costs $O(N^{3})$ per society, which is prohibitive across a
+phase diagram. For any matrix $M$ with unit diagonal --- either $\rho$ or $\eta$ ---
+%
+\begin{equation}
+  \sum_{\substack{(I,J,K)\\ \text{distinct, ordered}}} M_{IJ}M_{JK}M_{KI}
+  \;=\; \operatorname{tr}(M^{3}) - 3\Bigl(\textstyle\sum_{I,J}M_{IJ}M_{JI} - N\Bigr) - N ,
+\end{equation}
+%
+and each unordered triple appears six times, three as the forward cycle and three
+as the reverse, so
+$\langle b\rangle = \bigl[\text{right-hand side}\bigr]/\bigl(6\binom{N}{3}\bigr)$.
+For symmetric $M$ this is $\BI$; for the asymmetric trust matrix the two cycle
+orientations are exactly the two terms of $b^{A}$, so the same expression gives
+$\BA$. Both are batched matrix products. The identity is verified against
+enumeration in the test suite.
+
+\section{Parameters}
+\label{app:parameters}
+
+\input{sections/parameters_table}
+
+\section{Protocol for the language-agent study}
+\label{app:llm-prompts}
+
+\paragraph{The interaction theatre.} Every agent holds a private position on each
+issue of the agenda and a private disposition towards each other agent. A round
+draws an issue, an emitter and a receiver; the emitter states its position with a
+brief justification; the receiver sees the statement, the emitter's group label and
+its own current notes, and revises its position on that issue and its disposition
+towards that emitter. Rounds are drawn so that every ordered pair interacts
+comparably often, as in \S\ref{sec:model}.
+
+\paragraph{Instructions.} Agents carrying the discriminating clause receive an
+otherwise identical prompt to those that do not. The clause instructs the agent to
+weigh credibility by group membership, at a ladder of strengths straddling zero so
+that the sharp transition at $d\approx0$ can be resolved rather than merely
+bracketed. \llmtodo{fix the ladder and give the exact wording of every prompt}
+
+\paragraph{Group labels and the swap control.} Labels name arbitrary partitions,
+with no content relating to any issue on the agenda, so that any class-aligned
+structure is produced by the interaction rather than retrieved from the model's
+existing associations with real social categories. A control run swaps the labels
+between the two groups; the order parameters are invariant under that swap by
+construction, so a dependence on it would indicate label-driven priors rather than
+interaction-driven structure. \llmtodo{state the label scheme}
+
+\paragraph{Elicitation.} Opinion vectors and pairwise trust are elicited in
+separate passes that do not enter any agent's interaction history. Trust is
+elicited per ordered pair and never symmetrised: the affective balance $\BA$ is
+defined on the two cycle orientations, and symmetrising destroys the distinction
+between organised hostility and frustration.
+
+\paragraph{Reporting.} \llmtodo{model version and decoding parameters, $N$, $P$,
+the number of rounds, the number of repeats per condition, and the raw elicited
+$\rho$ and $\eta$ matrices, released with the code.}
