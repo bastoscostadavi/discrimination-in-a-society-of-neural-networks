@@ -99,6 +99,10 @@ class Preset:
     #: agenda sizes for the "small agenda" / "large agenda" panel rows
     p_small: int = 5
     p_large: int = 100
+    #: society size and number of independent societies for the polarisation
+    #: figure, which is a distribution over pairs and so wants many of them
+    polarisation_agents: int = 400
+    polarisation_runs: int = 8
     #: agenda sizes for the balance-trajectory figure (alpha = P/30)
     trajectory_issues: tuple = (1, 5, 7, 10, 15, 20, 50, 100, 10000)
     n_trajectory_repeats: int = 8
@@ -122,6 +126,8 @@ PRESETS = {
         name="quick",
         model=ModelConfig(n_agents=24, interactions_per_channel=125.0),
         sweep=SweepConfig(n_d=32, n_fd=32, batch_size=512, n_workers=8),
+        polarisation_agents=60,
+        polarisation_runs=4,
         n_trajectory_repeats=2,
         n_trajectory_samples=24,
     ),
@@ -129,6 +135,8 @@ PRESETS = {
         name="medium",
         model=ModelConfig(n_agents=40),
         sweep=SweepConfig(n_d=64, n_fd=64, batch_size=512, n_workers=10),
+        polarisation_agents=150,
+        polarisation_runs=8,
         n_trajectory_repeats=4,
         n_trajectory_samples=32,
     ),

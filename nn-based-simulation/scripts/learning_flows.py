@@ -27,7 +27,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.modulation import F_mu, F_w, evidence  # noqa: E402
-from ednna.plotting import save, text_width  # noqa: E402
+from ednna.plotting import panel, save  # noqa: E402
 
 LIM = 4.0
 
@@ -44,8 +44,7 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
         mags.append(np.hypot(F_w(HW + D, HMU), F_mu(HW + D, HMU)))
     vmax = float(np.percentile(np.concatenate([m.ravel() for m in mags]), 99.0))
 
-    width = text_width()
-    fig, axes = plt.subplots(1, 3, figsize=(width, width * 0.40), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=panel(1.0, 0.40), sharey=True)
     titles = (
         rf"out-group emitter ($D = {-d:+.1f}$)",
         r"no discrimination ($D = 0$)",

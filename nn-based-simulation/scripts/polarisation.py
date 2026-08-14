@@ -23,7 +23,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.order_params import balance, overlaps, sign_balance, trust  # noqa: E402
-from ednna.plotting import save, text_width  # noqa: E402
+from ednna.plotting import panel, save  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import DATA_DIR  # noqa: E402
 
@@ -41,18 +41,22 @@ def faction_order(rho):
     return np.argsort(leading)
 
 
-def run(preset, P, n_agents=None, use_cache=True):
-    """One unbiased society, measured before and after.
+def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
+    """Independent unbiased societies, measured before and after.
 
-    ``n_agents`` overrides the preset: this figure is a distribution over pairs, and
-    a larger society gives ~N^2 of them, so it is worth paying for a bigger run here
-    than the phase diagrams use.  Everything else, including the calibrated number of
-    interactions per ordered pair, is the preset's.
+    Two knobs the phase diagrams do not need. ``n_agents`` because this figure is a
+    distribution over pairs and a society of ``N`` supplies ``O(N^2)`` of them; and
+    ``n_runs`` because :class:`SocietyBatch` evolves independent societies in
+    lockstep, so pooling several costs little more than one and buys the same
+    smoothness as a much larger single society without pretending the pairs within
+    one society are independent.  Everything else is the preset's, including the
+    calibrated interaction count per ordered pair.
     """
     model = preset.model.with_(n_issues=P)
-    N = int(n_agents or model.n_agents)
+    N = int(n_agents if n_agents is not None else preset.polarisation_agents)
+    R = int(n_runs if n_runs is not None else preset.polarisation_runs)
     cache = (
-        DATA_DIR / f"polarisation_P{P}_N{N}_K{model.n_dim}"
+        DATA_DIR / f"polarisation_P{P}_N{N}x{R}_K{model.n_dim}"
         f"_T{model.interactions_per_channel:g}.npz"
     )
     if use_cache and cache.exists():
@@ -61,29 +65,52 @@ def run(preset, P, n_agents=None, use_cache=True):
             return {k: z[k] for k in z.files}
 
     batch = SocietyBatch(
-        n_agents=N, n_dim=model.n_dim, n_issues=P, d=0.0, f_d=0.0, seed=1234,
+        n_agents=N, n_dim=model.n_dim, n_issues=P,
+        d=np.zeros(R), f_d=np.zeros(R), seed=1234,
     )
-    rho0, eta0 = overlaps(batch)[0].copy(), trust(batch)[0].copy()
+    iu = np.triu_indices(N, 1)
+    offd = ~np.eye(N, dtype=bool)
+    pool = lambda M, mask: np.concatenate([m[mask] for m in M])
+
+    rho_before = pool(overlaps(batch), iu)
+    eta_before = pool(trust(batch), offd)
     steps = int(round(model.interactions_per_channel * N * (N - 1)))
-    print(f"[polarisation] N={N}, {steps:,} interactions ...", flush=True)
+    print(f"[polarisation] {R} societies of N={N}, {steps:,} interactions each ...",
+          flush=True)
     batch.run(steps)
-    rho1, eta1 = overlaps(batch)[0].copy(), trust(batch)[0].copy()
+    rho_m, eta_m = overlaps(batch), trust(batch)
+    rho_after, eta_after = pool(rho_m, iu), pool(eta_m, offd)
     bal = balance(batch)
 
-    leading = np.linalg.eigh(rho1)[1][:, -1]
+    # R_wmu needs the two matrices paired, which the flattened pools cannot give
+    # back, so compute it here rather than reconstruct it later
+    iu_r, iu_c = iu
+    r_wmu = np.array([
+        ((e[iu_r, iu_c] + e[iu_c, iu_r]) * m[iu_r, iu_c]).sum() / (N * (N - 1))
+        for m, e in zip(rho_m, eta_m)
+    ])
+
+    sb_rho = np.array([sign_balance(m) for m in rho_m])
+    sb_eta = np.array([sign_balance(m) for m in eta_m])
+    factions = np.array([[int((np.linalg.eigh(m)[1][:, -1] <= 0).sum()) for m in rho_m],
+                         [N - int((np.linalg.eigh(m)[1][:, -1] <= 0).sum()) for m in rho_m]])
     out = {
-        "rho0": rho0, "eta0": eta0, "rho1": rho1, "eta1": eta1,
-        "B_I": np.asarray(bal["B_I"][0]), "B_A": np.asarray(bal["B_A"][0]),
-        "alpha": np.asarray(model.alpha), "N": np.asarray(N),
-        "sign_balance_rho": np.asarray(sign_balance(rho1)),
-        "sign_balance_eta": np.asarray(sign_balance(eta1)),
-        "faction": np.asarray([int((leading <= 0).sum()), int((leading > 0).sum())]),
+        "rho_before": rho_before, "rho_after": rho_after,
+        "eta_before": eta_before, "eta_after": eta_after,
+        "B_I": bal["B_I"], "B_A": bal["B_A"],
+        "alpha": np.asarray(model.alpha), "N": np.asarray(N), "R": np.asarray(R),
+        "R_wmu": r_wmu,
+        "sign_balance_rho": sb_rho, "sign_balance_eta": sb_eta,
+        "factions": factions,
     }
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(cache, **out)
-    print(f"[polarisation] N={N}: B_I={out['B_I']:+.3f} B_A={out['B_A']:+.3f}; "
-          f"sign-balanced triples: rho {out['sign_balance_rho']:.3%}, "
-          f"eta {out['sign_balance_eta']:.3%}; factions {out['faction'].tolist()}")
+    n_tri = N * (N - 1) * (N - 2) // 6
+    print(f"[polarisation] {R}x N={N}: B_I={bal['B_I'].mean():+.3f} "
+          f"B_A={bal['B_A'].mean():+.3f}; sign balance rho {sb_rho.mean():.6f} "
+          f"eta {sb_eta.mean():.6f} (0 unbalanced of {n_tri*R:,} triples if 1.0); "
+          f"R_wmu={r_wmu.mean():+.3f}; faction split {factions[0].min()}-{factions[0].max()} of {N}; "
+          f"pooled pairs: rho {rho_after.size:,}, eta {eta_after.size:,}")
     return out
 
 
@@ -97,51 +124,48 @@ def ordered_pairs(M):
     return M[~np.eye(M.shape[0], dtype=bool)]
 
 
+BLUE, RED = "#2c6fbb", "#c0392b"
+
+
 def figure(data, style, name="polarisation"):
     """Two panels: what happened to the distribution of each pairwise quantity.
 
-    No matrices.  A histogram over pairs does not depend on how the agents are
-    labelled, so it cannot be an artefact of any sorting -- which is the whole
-    reason to prefer it.  What the matrices showed instead, that the sides form
-    exactly two blocs rather than many, is stated as a number in the caption via
-    the sign-balance fraction.
+    Blue is the initial state, red the final one, in both panels.  The legend sits
+    above the axes rather than inside them: the final distributions have their mass
+    exactly where a legend would want to go, at the top of the panel in the opinion
+    case and against both walls in the trust case.
     """
-    N = int(data["N"])
-    width = text_width()
-    fig, axes = plt.subplots(1, 2, figsize=(width * 0.86, width * 0.30))
+    fig, axes = plt.subplots(1, 2, figsize=panel(1.0, 0.34/0.92))
     bins = np.linspace(-1, 1, 81)
 
-    panels = (
-        (axes[0], unordered_pairs(data["rho0"]), unordered_pairs(data["rho1"]),
-         "#b2182b", r"opinion overlap $\rho_{IJ}$"),
-        (axes[1], ordered_pairs(data["eta0"]), ordered_pairs(data["eta1"]),
-         "#5e3c99", r"trust $\eta_{J|I}$"),
-    )
-    for ax, before, after, colour, xlabel in panels:
-        ax.hist(before, bins=bins, density=True, color="0.82", edgecolor="0.55",
-                lw=0.5, label="initial", zorder=2)
-        ax.hist(after, bins=bins, density=True, color=colour, alpha=0.30,
-                zorder=3)
-        ax.hist(after, bins=bins, density=True, histtype="step", color=colour,
-                lw=1.4, label="final", zorder=4)
+    for ax, before, after, xlabel in (
+        (axes[0], data["rho_before"], data["rho_after"], r"opinion overlap $\rho_{IJ}$"),
+        (axes[1], data["eta_before"], data["eta_after"], r"trust $\eta_{J|I}$"),
+    ):
+        for values, colour, label in ((before, BLUE, "initial"), (after, RED, "final")):
+            ax.hist(values, bins=bins, density=True, color=colour, alpha=0.28, zorder=2)
+            ax.hist(values, bins=bins, density=True, histtype="step", color=colour,
+                    lw=1.3, label=label, zorder=3)
         ax.set_xlabel(xlabel)
         ax.set_xlim(-1.02, 1.02)
         ax.set_xticks([-1, -0.5, 0, 0.5, 1])
-        ax.axvline(0.0, color="0.8", lw=0.5, zorder=1)
-        ax.grid(axis="y", color="0.92", lw=0.5, zorder=0)
+        ax.grid(axis="y", color="0.93", lw=0.5, zorder=0)
         ax.set_axisbelow(True)
         for side in ("top", "right"):
             ax.spines[side].set_visible(False)
-        ax.legend(frameon=False, fontsize=6.5, handlelength=1.1,
-                  loc="upper center", borderaxespad=0.2)
     axes[0].set_ylabel("density over pairs")
-    fig.tight_layout(pad=0.4, w_pad=1.6)
+
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=2, frameon=False,
+               fontsize=7.5, bbox_to_anchor=(0.5, 1.04), handlelength=1.4,
+               columnspacing=1.6)
+    fig.tight_layout(pad=0.4, w_pad=1.8, rect=(0, 0, 1, 0.94))
     return save(fig, name, style)
 
 
 def main():
     args, preset = setup(__doc__)
-    data = run(preset, preset.p_small, n_agents=200, use_cache=not args.no_cache)
+    data = run(preset, preset.p_small, use_cache=not args.no_cache)
     figure(data, args.style)
 
 

@@ -28,7 +28,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402  (adds the package root to sys.path)
 
 from ednna.modulation import F_C, F_V, F_mu, F_w, evidence  # noqa: E402
-from ednna.plotting import save, text_width  # noqa: E402
+from ednna.plotting import panel, save  # noqa: E402
 
 LIM = 4.0
 GRID = 400
@@ -54,8 +54,7 @@ def _decorate(ax, lim=LIM, diagonal=True):
 def figure_surfaces(style):
     (HW, HMU), _ = _plane(n=120)
     Z = evidence(HW, HMU)
-    width = text_width()
-    fig = plt.figure(figsize=(width, width * 0.44))
+    fig = plt.figure(figsize=panel(0.90, 0.44))
     for i, (F, name) in enumerate(((F_mu, r"$F_\mu$"), (F_w, r"$F_w$"))):
         ax = fig.add_subplot(1, 2, i + 1, projection="3d")
         values = np.clip(F(HW, HMU), -3.0, 3.0)
@@ -110,8 +109,7 @@ def figure_contours(style):
     across the diagonal.  The second-order pair is in
     ``modulation_contours_all``.
     """
-    width = text_width()
-    fig, axes = plt.subplots(1, 2, figsize=(width * 0.66, width * 0.35), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=panel(0.86, 0.35/0.66), sharey=True)
     im = None
     for k, (F, name) in enumerate(((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"))):
         im = _contour_panel(axes[k], F, name, 3.2, ylabel=(k == 0))
@@ -130,8 +128,7 @@ def figure_contours_all(style):
     The two that move the means on top, the two that anneal the uncertainties
     below, one colour bar per row since each row shares a range.
     """
-    width = text_width()
-    fig, axes = plt.subplots(2, 2, figsize=(width * 0.68, width * 0.60),
+    fig, axes = plt.subplots(2, 2, figsize=panel(0.92, 0.60/0.68),
                              sharex=True, sharey=True)
     rows = (((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"), 3.2),
             ((F_C, r"$F_C$"), (F_V, r"$F_V$"), 2.5))
@@ -157,8 +154,7 @@ def figure_slices(style, h_w0=6.0, d=2.0, lim=9.0):
     mechanism of the model in one picture.
     """
     h_mu = np.linspace(-lim, lim, 1200)
-    width = text_width()
-    fig, axes = plt.subplots(1, 2, figsize=(width, width * 0.38), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=panel(0.95, 0.38), sharey=True)
     for ax, sign, title in (
         (axes[0], +1.0, rf"emitter agrees ($h_w = {h_w0:.0f}$)"),
         (axes[1], -1.0, rf"emitter disagrees ($h_w = {-h_w0:.0f}$)"),

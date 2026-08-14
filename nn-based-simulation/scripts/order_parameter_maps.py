@@ -19,7 +19,7 @@ from _cli import setup  # noqa: E402
 
 from correlation_maps import agenda_sweeps  # noqa: E402
 
-from ednna.plotting import phase_map, save, text_width  # noqa: E402
+from ednna.plotting import panel, phase_map, save  # noqa: E402
 
 KEYS = ("R_wmu", "R_muc", "R_cw", "B_I", "B_A")
 
@@ -28,9 +28,8 @@ def figure(rows, style, name="order_parameter_maps"):
     """Five columns is too narrow for per-panel colourbars, so each column gets
     one thin horizontal bar underneath: the range and colour map depend on the
     order parameter, not on the agenda size, so one bar per column is exact."""
-    width = text_width()
     n_rows, n_cols = len(rows), len(KEYS)
-    fig = plt.figure(figsize=(width, width * 0.27 * n_rows))
+    fig = plt.figure(figsize=panel(1.0, 0.27 * n_rows))
     gs = fig.add_gridspec(
         n_rows + 1, n_cols,
         height_ratios=[1] * n_rows + [0.07],

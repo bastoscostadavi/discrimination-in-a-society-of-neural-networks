@@ -25,7 +25,7 @@ from matplotlib import pyplot as plt
 
 from _cli import setup  # noqa: E402
 
-from ednna.plotting import add_phase_axes, rgb_composite, save, text_width  # noqa: E402
+from ednna.plotting import add_phase_axes, panel, rgb_composite, save  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 #: label -> (d, f_d) placement, following the draft's figure
@@ -40,8 +40,7 @@ REGIONS = {
 def figure(data, style, name="phase_diagram", regions=True):
     rgb = rgb_composite(data["R_muc"], data["R_cw"], data["R_wmu"])
     d, fd = data["d"], data["fd"]
-    width = text_width()
-    fig, ax = plt.subplots(figsize=(width * 0.62, width * 0.52))
+    fig, ax = plt.subplots(figsize=panel(0.55, 0.52/0.62))
     ax.imshow(rgb, origin="upper", extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto")
     add_phase_axes(ax)
     if regions:

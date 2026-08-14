@@ -26,7 +26,7 @@ from matplotlib import pyplot as plt
 
 from _cli import setup  # noqa: E402
 
-from ednna.plotting import phase_map, save, text_width  # noqa: E402
+from ednna.plotting import panel, phase_map, save  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 KEYS = ("R_wmu", "R_muc", "R_cw")
@@ -44,9 +44,8 @@ def agenda_sweeps(preset, use_cache=True):
 
 
 def figure(rows, style, name="correlation_maps"):
-    width = text_width()
     fig, axes = plt.subplots(
-        len(rows), len(KEYS), figsize=(width, width * 0.34 * len(rows)), squeeze=False
+        len(rows), len(KEYS), figsize=panel(1.0, 0.34 * len(rows)), squeeze=False
     )
     for i, (label, P, alpha, data) in enumerate(rows):
         for j, key in enumerate(KEYS):

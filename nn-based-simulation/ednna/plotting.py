@@ -19,6 +19,8 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 __all__ = [
     "FIGURE_DIR",
     "use_style",
+    "panel",
+    "BODY_PT",
     "text_width",
     "save",
     "phase_map",
@@ -86,16 +88,41 @@ _BASE_RC = {
 }
 
 
+#: Body-text size of the target document, in points.  Figures are generated at the
+#: size they are printed at (see :func:`panel`), so text set at this size in a
+#: figure comes out matching the surrounding prose rather than scaled up or down by
+#: whatever ``\includegraphics`` width happens to be used.
+BODY_PT = {"paper": 10.0, "iclr": 10.0}
+
+
 def use_style(style="paper"):
     """Activate one of the two output styles."""
     if style not in ("paper", "iclr"):
         raise ValueError("style must be 'paper' or 'iclr'")
     _STYLE["name"] = style
+    pt = BODY_PT[style]
     rc = dict(_BASE_RC)
-    if style == "iclr":
-        rc.update({"font.size": 9, "axes.labelsize": 9, "axes.titlesize": 9})
+    rc.update({
+        "font.size": pt,
+        "axes.labelsize": pt,
+        "axes.titlesize": pt,
+        "xtick.labelsize": pt - 1,
+        "ytick.labelsize": pt - 1,
+        "legend.fontsize": pt - 1,
+    })
     mpl.rcParams.update(rc)
     return style
+
+
+def panel(frac, aspect):
+    r"""Figure size, in inches, for a figure printed at ``frac`` of the text width.
+
+    Generating at the printed size is what keeps figure text at body-text size:
+    ``\includegraphics[width=frac\linewidth]`` then scales by exactly 1, so 10pt
+    in the figure is 10pt on the page.  ``aspect`` is height/width.
+    """
+    w = text_width() * frac
+    return (w, w * aspect)
 
 
 def text_width():

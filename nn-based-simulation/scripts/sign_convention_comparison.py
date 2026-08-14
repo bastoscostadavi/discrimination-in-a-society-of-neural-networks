@@ -19,7 +19,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.config import SweepConfig  # noqa: E402
-from ednna.plotting import phase_map, save, text_width  # noqa: E402
+from ednna.plotting import panel, phase_map, save  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 
@@ -35,8 +35,7 @@ def figure(preset, style, n_grid=32, use_cache=True):
         ("consistent convention", False),
         ("draft's Eq. 25 + Table I, literally", True),
     )
-    width = text_width()
-    fig, axes = plt.subplots(2, 2, figsize=(width * 0.86, width * 0.78))
+    fig, axes = plt.subplots(2, 2, figsize=panel(0.92, 0.78/0.86))
     for row, (label, literal) in enumerate(variants):
         model = base.with_(literal_draft_sign=literal)
         data = sweep(

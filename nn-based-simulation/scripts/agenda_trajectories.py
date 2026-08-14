@@ -26,7 +26,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.order_params import balance  # noqa: E402
-from ednna.plotting import save, text_width  # noqa: E402
+from ednna.plotting import panel, save  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import DATA_DIR  # noqa: E402
 
@@ -93,8 +93,7 @@ def trajectories(preset, use_cache=True, verbose=True):
 def figure(data, style):
     issues = data["issues"]
     K = int(data["n_dim"])
-    width = text_width()
-    fig, ax = plt.subplots(figsize=(width * 0.72, width * 0.52))
+    fig, ax = plt.subplots(figsize=panel(0.60, 0.52/0.72))
     colours = plt.get_cmap("viridis_r")(np.linspace(0.05, 0.95, len(issues)))
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, zorder=1)
     for i, P in enumerate(issues):

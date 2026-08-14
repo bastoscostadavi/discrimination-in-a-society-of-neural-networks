@@ -20,15 +20,14 @@ from _cli import setup  # noqa: E402
 
 from correlation_maps import agenda_sweeps  # noqa: E402
 
-from ednna.plotting import phase_map, save, text_width  # noqa: E402
+from ednna.plotting import panel, phase_map, save  # noqa: E402
 
 KEYS = ("B_I", "B_A")
 
 
 def figure(rows, style, name="frustration_maps"):
-    width = text_width()
     fig, axes = plt.subplots(
-        len(rows), len(KEYS), figsize=(width * 0.72, width * 0.36 * len(rows)), squeeze=False
+        len(rows), len(KEYS), figsize=panel(0.75, 0.36 * len(rows) / 0.72), squeeze=False
     )
     for i, (label, P, alpha, data) in enumerate(rows):
         for j, key in enumerate(KEYS):
