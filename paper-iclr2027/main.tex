@@ -32,7 +32,7 @@
 % The ICLR style sets titles in \LARGE; at that size this title wraps onto a
 % second line and hyphenates ("Neural Net-works"). One step down fits it on one
 % line. \texorpdfstring keeps the size command out of the PDF metadata string.
-\title{Discrimination in a Neural Network's Society}
+\title{Polarization and Discrimination \\ in a Society of Neural Networks}
 
 \author{Anonymous authors\\Paper under double-blind review}
 
@@ -341,7 +341,7 @@ attribution emerging from the inference problem rather than assumed.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.72\linewidth]{figures/modulation_contours}
+  \includegraphics[width=0.86\linewidth]{figures/modulation_contours}
   \caption{\textbf{Learning is driven by dissonance.} The two modulation functions
   that move the means, over the plane of the opinion field $\hw$ and the distrust
   field $\hmu$: $\Fw$, which revises the receiver's opinion, and $\Fmu$, which
@@ -396,10 +396,10 @@ groups. The structure theorem for signed complete graphs
 triple has a positive product of signs --- exactly when its vertices split into two
 mutually hostile cliques. Counting the fraction of balanced triples, which discards
 the magnitudes that $\BI$ and $\BA$ weight by, therefore counts factions.
-Three equal groups would give $3/4$ and random signs $1/2$. This society gives
-\emph{exactly} $1$ in both sectors: of its $1\,313\,400$ triples, not one is
-unbalanced in opinion and not one is unbalanced in trust. The leading eigenvector of
-$\rho$ splits it $98$ against $102$. The society has two factions, and the same two in both sectors:
+Three equal groups would give $3/4$ and random signs $1/2$. Every one of the eight
+societies in Figure~\ref{fig:polarisation} gives \emph{exactly} $1$, in both
+sectors: of the SB\_TRIPLES triples they contain between them, not one is unbalanced
+in opinion and not one is unbalanced in trust. The society has two factions, and the same two in both sectors:
 the opinion--trust correlation \eqref{eq:rwmu} rises from $0.00$ at
 initialisation to $+0.56$, so agents end up trusting those who agree with them and
 distrusting those who do not. That is not imposed anywhere in \S\ref{sec:model}; it is what the
@@ -407,27 +407,28 @@ sign structure of the modulation functions produces.
 
 Two things about that split matter for what follows. It is \emph{spontaneous}: which
 agent lands in which faction is decided by the initial condition, not by anything
-intrinsic, and the two are equal only up to fluctuation --- $98$ against $102$ here,
-against $24$ against $16$ in an otherwise identical society of $N=40$, the relative
-imbalance falling roughly as $N^{-1/2}$. And it is
+intrinsic, and the two are equal only up to fluctuation --- the eight
+societies of Figure~\ref{fig:polarisation} split between SB\_FACTIONS of their $400$
+agents, against $24$ against $16$ in an otherwise identical society of $N=40$, the
+relative imbalance falling roughly as $N^{-1/2}$. And it is
 \emph{class-blind}: the labels $\kappa_I$ exist, but the dynamics has not touched
 them, so the factions cut across them. Everything \S\ref{sec:discrimination} adds is
 a mechanism for aligning this pre-existing split with the labels.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.88\linewidth]{figures/polarisation}
-  \caption{\textbf{An unbiased society splits in two.} One society of $N=200$
-  agents at $d=0$, simple agenda, before and after the calibrated $500$ interactions per ordered pair. Left: the
-  opinion overlap over all $\binom{N}{2}=19\,900$ pairs. Right: the trust over all
-  $N(N-1)=39\,800$ ordered pairs. Neither panel depends on how the agents are
-  labelled, so neither can be an artefact of sorting them. Opinion overlap starts
-  unimodal at zero, of width $1/\sqrt{K}$ as random vectors in $K=30$ dimensions
-  require, and ends bimodal; trust starts spread across the interior and ends
-  saturated at $\pm1$, so the split in trust is built by the dynamics and not
-  supplied by the initial condition. Bimodality alone would show only that every
-  pair has taken a side; that the sides are exactly \emph{two} blocs is the
-  sign-balance figure quoted in the text.}
+  \includegraphics[width=1.0\linewidth]{figures/polarisation}
+\caption{\textbf{An unbiased society splits in two.} Eight independent societies
+  of $N=400$ agents at $d=0$, simple agenda, before and after the calibrated $500$
+  interactions per ordered pair, with their pairs pooled: $638\,400$ unordered pairs
+  for the opinion overlap and $1\,276\,800$ ordered pairs for the trust. Neither
+  panel depends on how the agents are labelled, so neither can be an artefact of
+  sorting them. Opinion overlap starts unimodal at zero, of width $1/\sqrt{K}$ as
+  random vectors in $K=30$ dimensions require, and ends bimodal; trust starts spread
+  across the interior and ends saturated at $\pm1$, so the split in trust is built by
+  the dynamics and not supplied by the initial condition. Bimodality alone would show
+  only that every pair has taken a side; that the sides are exactly \emph{two} blocs
+  is the sign-balance figure quoted in the text.}
   \label{fig:polarisation}
 \end{figure}
 
@@ -516,7 +517,7 @@ trajectory lies along the diagonal.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.42\linewidth]{figures/agenda_trajectories}
+  \includegraphics[width=0.60\linewidth]{figures/agenda_trajectories}
   \caption{\textbf{Which polarisation comes first is set by the agenda.}
   Trajectories in the $(\BI,\BA)$ plane with no discrimination ($d=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time --- they crowd
@@ -696,7 +697,7 @@ is society-to-society fluctuation, not a rendering artefact.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.96\linewidth]{figures/order_parameter_maps}
+  \includegraphics[width=1.0\linewidth]{figures/order_parameter_maps}
   \caption{\textbf{All five order parameters over the $(d,\fd)$ plane}, for a
   simple agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom).
   $\Rmuc$ is the discrimination order parameter, flipping sign at $d\approx0$ ever
@@ -745,7 +746,7 @@ below $\alpha\approx1$.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.36\linewidth]{figures/phase_diagram}
+  \includegraphics[width=0.55\linewidth]{figures/phase_diagram}
   \caption{\textbf{Four collective states.} The three correlations of
   Figure~\ref{fig:correlations} (simple agenda) composited as colour channels ---
   red $\Rmuc$, green $\Rcw$, blue $\Rwmu$ --- so that colour names the phase:
@@ -892,7 +893,7 @@ not of the discrimination field: it holds at every $d$ and $\fd$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.78\linewidth]{figures/modulation_contours_all}
+  \includegraphics[width=0.92\linewidth]{figures/modulation_contours_all}
   \caption{The two functions that move the means, $\Fw$ and $\Fmu$, above --- the
   pair shown in Figure~\ref{fig:modulation} --- and the two that anneal the
   uncertainties, $\FC$ and $\FV$, below. Each row shares a range. The mirror
@@ -908,7 +909,7 @@ not of the discrimination field: it holds at every $d$ and $\fd$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\linewidth]{figures/modulation_slices}
+  \includegraphics[width=0.95\linewidth]{figures/modulation_slices}
   \caption{Cuts through the modulation functions at fixed opinion field, $\hw=\pm6$.
   Below the crossover at $\hmu = \hw + D$ the trust sector moves (solid,
   $\Fmu$) and the receiver revises its trust; above it the opinion sector moves
@@ -1076,7 +1077,7 @@ images in $d$, and only the first matches the maps as published.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.78\linewidth]{figures/sign_convention_comparison}
+  \includegraphics[width=0.92\linewidth]{figures/sign_convention_comparison}
   \caption{\textbf{The two readings of the discrimination field.} Trust--class
   correlation and trust balance over the $(d,\fd)$ plane under the convention
   used in this paper (top) and under the companion manuscript's table read
