@@ -34,6 +34,7 @@ re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
 
 | script | figure | what it shows |
 |---|---|---|
+| `polarisation.py` | `polarisation` | direct evidence that an unbiased society splits in two: sorted overlap and trust matrices, and the overlap distribution going from unimodal to bimodal |
 | `modulation_landscape.py` | `modulation_surfaces`, `modulation_contours`, `modulation_slices` | the four modulation functions; where learning happens and which sector absorbs a surprise |
 | `learning_flows.py` | `learning_flows` | the flow that learning induces, and how the discrimination field bends it |
 | `correlation_maps.py` | `correlation_maps` | the three pair correlations over the `(d, f_d)` plane, two agenda sizes |

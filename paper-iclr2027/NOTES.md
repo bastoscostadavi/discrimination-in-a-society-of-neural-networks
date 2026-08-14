@@ -22,8 +22,11 @@ Terminology: the sector is the **opinion** sector, never "ideological". The symb
 `B_I` and `b^I` keep their subscript for continuity with the source draft, with a
 parenthetical in §4.1 noting it is historical.
 
-`sections/order_params.tex` is gone; its content is distributed between
-`no_discrimination.tex` and `discrimination.tex`.
+**The paper is a single file.** `main.tex` contains every section inline; there is
+no `sections/` subfolder, and the template's `math_commands.tex` is not loaded
+either (the paper uses none of its 427 macros, and `\eqref` comes from amsmath).
+The only other files the build needs are `references.bib`, the two
+`iclr2027_conference` template files, `fancyhdr.sty`, and `figures/`.
 
 ## Figure placement, and why
 

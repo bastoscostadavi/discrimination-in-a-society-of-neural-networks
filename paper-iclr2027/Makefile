@@ -22,8 +22,8 @@ IMPORTS := modulation_contours modulation_slices learning_flows polarisation \
 
 all: main.pdf
 
-main.pdf: main.tex $(wildcard sections/*.tex) references.bib figures
-	latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+main.pdf: main.tex references.bib figures
+	latexmk -pdf -interaction=nonstopmode main.tex
 
 figures:
 	@mkdir -p figures
@@ -49,7 +49,7 @@ watch:
 
 clean:
 	latexmk -c
-	rm -f main.bbl main.blg
+	rm -f main.aux main.bbl main.blg
 
 distclean: clean
 	rm -f main.pdf

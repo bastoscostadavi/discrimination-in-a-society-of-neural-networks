@@ -20,7 +20,9 @@ import correlation_maps  # noqa: E402
 import frustration_maps  # noqa: E402
 import learning_flows  # noqa: E402
 import modulation_landscape  # noqa: E402
+import order_parameter_maps  # noqa: E402
 import phase_diagram  # noqa: E402
+import polarisation  # noqa: E402
 
 
 def main():
@@ -33,10 +35,16 @@ def main():
     modulation_landscape.figure_slices(args.style)
     learning_flows.figure(args.style)
 
+    print("== the unbiased society ==")
+    polarisation.figure(
+        polarisation.run(preset, preset.p_small, use_cache=not args.no_cache), args.style
+    )
+
     print("== phase-diagram sweeps ==")
     rows = correlation_maps.agenda_sweeps(preset, use_cache=not args.no_cache)
     correlation_maps.figure(rows, args.style)
     frustration_maps.figure(rows, args.style)
+    order_parameter_maps.figure(rows, args.style)
 
     print("== composite phase diagram ==")
     by_issues = {P: data for _, P, _, data in rows}
