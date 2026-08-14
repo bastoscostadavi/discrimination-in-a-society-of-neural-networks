@@ -140,7 +140,7 @@ paper.
     \citep{fiorina2008polarization,iyengar2012affect} into a statement about a
     measurable parameter.
   \item \textbf{Order parameters that do not depend on the substrate}
-    (\S\ref{sec:order-params}). They need only, per pair of agents, a signed
+    (\S\ref{sec:no-disc}). They need only, per pair of agents, a signed
     opinion alignment and a signed trust --- never weights, gradients or the
     embedding dimension. Two elicited matrices per population therefore suffice to
     locate any interacting multi-agent system on the diagram, which matters because
@@ -362,14 +362,11 @@ attribution emerging from the inference problem rather than assumed.
 \label{sec:no-disc}
 
 Nothing in \S\ref{sec:model} refers to an agent's class, so before adding any bias
-we ask what the society of \S\ref{sec:dynamics} does unaided. It polarises. This
-section says how that is measured, shows it, and then shows that the \emph{order} in
-which the two sectors polarise is set by a single ratio.
+we ask what the society of \S\ref{sec:dynamics} does unaided. It polarises,
+spontaneously and into exactly two camps, and the \emph{order} in which its two
+sectors do so is set by a single ratio. We first fix what is measured.
 
-\subsection{Order parameters}
-\label{sec:order-params}
-
-Two quantities are defined per pair of agents rather than for the society as a
+\paragraph{Order parameters.} Two quantities are defined per pair of agents rather than for the society as a
 whole. The \emph{opinion overlap} is the cosine of two weight vectors,
 $\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, equal to $+1$ when
 two agents agree on every issue and $-1$ when they disagree on every one. The
@@ -422,7 +419,10 @@ interacting agents.
   \label{fig:polarisation}
 \end{figure}
 
-\paragraph{The society splits in two.} Figure~\ref{fig:polarisation} shows the two
+\subsection{The society splits in two}
+\label{sec:splits}
+
+Figure~\ref{fig:polarisation} shows the two
 pairwise distributions before and after. Opinion overlap begins unimodal and centred
 on zero, of width $0.178$ against the $1/\sqrt{K}=0.183$ expected of random vectors
 in $K=30$ dimensions, and ends bimodal with peaks at $-0.59$ and $+0.63$ and no pair
@@ -590,7 +590,7 @@ from. The first pairs the two sectors against each other,
 \end{equation}
 %
 asking whether agents trust those who agree with them; it is positive in the
-polarised state of \S\ref{sec:no-disc}, reaching $+0.56$ there from zero at
+polarised state of \S\ref{sec:splits}, reaching $+0.56$ there from zero at
 initialisation. The other two refer to class. Writing $G_{IJ}=\kappa_I\kappa_J$ for
 the class indicator ($+1$ for same-class pairs, $-1$ otherwise),
 %
@@ -614,7 +614,7 @@ $\{0,1\}$ and how the three correlations are normalised.
 
 We simulate societies of $N=40$ agents over a $200\times200$ grid in $(d,\fd)$, one
 society per grid point, and measure the five order parameters of
-\S\ref{sec:order-params} and \S\ref{sec:class-order-params} after a fixed number of interactions, with both classes
+\S\ref{sec:no-disc} and \S\ref{sec:class-order-params} after a fixed number of interactions, with both classes
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realisation, so the speckle
 is society-to-society fluctuation, not a rendering artefact.
@@ -664,7 +664,7 @@ agenda's $0.55$ --- while $\BI$ saturates at $0.98$. When there are many issues 
 opinion split tracks the class split completely, so distrust and disagreement never
 come apart. Class-only hostility requires the opposite: an agenda narrow enough that
 most of every opinion lies in directions no issue probes, which by
-\S\ref{sec:no-disc} caps $\Rcw$ however long the society runs. Region~(IV) is
+\S\ref{sec:agenda} caps $\Rcw$ however long the society runs. Region~(IV) is
 therefore not a slow approach to region~(III) but a distinct state, available only
 below $\alpha\approx1$.
 
@@ -734,7 +734,7 @@ a finite interaction count, and the class labels are exactly inert --- the clean
 version of a case that is never clean. Most importantly the result rests on one
 substrate, agents whose learning rule we can write down; whether the same phases
 appear where the agents are not analysable is the obvious next question, which the
-order parameters of \S\ref{sec:order-params} were built to make answerable but which
+order parameters of \S\ref{sec:no-disc} were built to make answerable but which
 we do not answer. Human societies are a further step again.
 
 \subsubsection*{Reproducibility statement}
