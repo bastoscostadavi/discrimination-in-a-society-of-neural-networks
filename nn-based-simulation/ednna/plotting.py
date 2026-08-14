@@ -24,6 +24,9 @@ __all__ = [
     "text_width",
     "save",
     "phase_map",
+    "framed_axes",
+    "HIST_BLUE",
+    "HIST_RED",
     "add_phase_axes",
     "CMAPS",
     "rgb_composite",
@@ -150,6 +153,34 @@ def save(fig, name, style=None):
     plt.close(fig)
     print(f"[figure] {path.relative_to(FIGURE_DIR.parent)}")
     return path
+
+
+#: Soft fills in the manner of Mathematica's default histogram styling: a pastel
+#: body with a thin darker edge, light enough that two series can overlap and the
+#: overlap still reads as a third tone.
+HIST_BLUE = ("#7BA7D7", "#3B6FA8")
+HIST_RED = ("#E8918C", "#B03A34")
+
+
+def framed_axes(ax, minor=True):
+    """Put an axis in the frame-and-inward-ticks style of a Mathematica plot.
+
+    A closed box rather than two spines, ticks pointing inwards on all four sides,
+    minor ticks between the majors, and no grid.  Matplotlib's defaults are the
+    opposite of all four, so this is worth centralising rather than repeating.
+    """
+    for side in ("top", "bottom", "left", "right"):
+        ax.spines[side].set_visible(True)
+        ax.spines[side].set_linewidth(0.6)
+        ax.spines[side].set_color("0.25")
+    ax.tick_params(which="both", direction="in", top=True, right=True,
+                   color="0.25", width=0.6)
+    ax.tick_params(which="major", length=3.2)
+    ax.tick_params(which="minor", length=1.8)
+    if minor:
+        ax.minorticks_on()
+    ax.grid(False)
+    return ax
 
 
 def phase_map(

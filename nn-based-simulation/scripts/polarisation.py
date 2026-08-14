@@ -23,7 +23,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.order_params import balance, overlaps, sign_balance, trust  # noqa: E402
-from ednna.plotting import panel, save  # noqa: E402
+from ednna.plotting import HIST_BLUE, HIST_RED, framed_axes, panel, save  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import DATA_DIR  # noqa: E402
 
@@ -124,42 +124,33 @@ def ordered_pairs(M):
     return M[~np.eye(M.shape[0], dtype=bool)]
 
 
-BLUE, RED = "#2c6fbb", "#c0392b"
-
-
 def figure(data, style, name="polarisation"):
     """Two panels: what happened to the distribution of each pairwise quantity.
 
-    Blue is the initial state, red the final one, in both panels.  The legend sits
-    above the axes rather than inside them: the final distributions have their mass
-    exactly where a legend would want to go, at the top of the panel in the opinion
-    case and against both walls in the trust case.
+    Styled after the histograms of Costa (2021): solid pastel bars with a thin
+    darker edge rather than step outlines, the two series overlaid with enough
+    transparency that the overlap reads as a third tone, a closed frame with
+    inward ticks on all four sides, and no grid.  No legend either --- the colours
+    are named in the caption, which is what that layout does and which keeps the
+    saturated trust spikes from having to share space with a key.
     """
-    fig, axes = plt.subplots(1, 2, figsize=panel(1.0, 0.34/0.92))
-    bins = np.linspace(-1, 1, 81)
+    fig, axes = plt.subplots(1, 2, figsize=panel(1.0, 0.34 / 0.92))
+    bins = np.linspace(-1, 1, 65)
 
     for ax, before, after, xlabel in (
         (axes[0], data["rho_before"], data["rho_after"], r"opinion overlap $\rho_{IJ}$"),
         (axes[1], data["eta_before"], data["eta_after"], r"trust $\eta_{J|I}$"),
     ):
-        for values, colour, label in ((before, BLUE, "initial"), (after, RED, "final")):
-            ax.hist(values, bins=bins, density=True, color=colour, alpha=0.28, zorder=2)
-            ax.hist(values, bins=bins, density=True, histtype="step", color=colour,
-                    lw=1.3, label=label, zorder=3)
+        for values, (fill, edge) in ((before, HIST_BLUE), (after, HIST_RED)):
+            ax.hist(values, bins=bins, density=True, color=fill, alpha=0.62,
+                    edgecolor=edge, linewidth=0.35, zorder=2)
         ax.set_xlabel(xlabel)
-        ax.set_xlim(-1.02, 1.02)
+        ax.set_xlim(-1, 1)
         ax.set_xticks([-1, -0.5, 0, 0.5, 1])
-        ax.grid(axis="y", color="0.93", lw=0.5, zorder=0)
-        ax.set_axisbelow(True)
-        for side in ("top", "right"):
-            ax.spines[side].set_visible(False)
+        ax.set_ylim(bottom=0)
+        framed_axes(ax)
     axes[0].set_ylabel("density over pairs")
-
-    handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", ncol=2, frameon=False,
-               fontsize=7.5, bbox_to_anchor=(0.5, 1.04), handlelength=1.4,
-               columnspacing=1.6)
-    fig.tight_layout(pad=0.4, w_pad=1.8, rect=(0, 0, 1, 0.94))
+    fig.tight_layout(pad=0.4, w_pad=1.8)
     return save(fig, name, style)
 
 
