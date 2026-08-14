@@ -504,6 +504,67 @@ trajectory lies along the diagonal.
   \label{fig:trajectories}
 \end{figure}
 
+\paragraph{Why the agenda controls this.} The reason is exact, and it is a
+conservation law. Every update to a weight vector is along $C_r\hat{x}$, and
+$C_r\hat{x}$ always lies in the span of the agenda: it does initially, since
+$C=I$, and the covariance update adds only multiples of
+$(C\hat{x})(C\hat{x})^{\!\top}$, so it does at every step thereafter
+(Appendix~\ref{app:conserved}). \emph{The component of each agent's weight vector
+orthogonal to the span of the agenda is therefore conserved by the dynamics} --- in
+the run of Figure~\ref{fig:polarisation}, $\|w_{\perp}\|=4.956$ at initialisation
+and $4.956$ after $780\,000$ interactions.
+
+Split $w_I = u_I + n_I$ into the learned part inside that span and the frozen part
+outside it. Learning aligns the $u_I$ while the $n_I$ stay random and mutually
+almost orthogonal, so
+%
+\begin{equation}
+  \rho_{IJ} \;\approx\; \pm\, f_I f_J,
+  \qquad f_I = \frac{\|u_I\|}{\|w_I\|},
+  \label{eq:dilution}
+\end{equation}
+%
+and opinion overlap is diluted by whatever fraction of each weight vector learning
+cannot reach. Two facts then fix the ceiling. Because $\alpha<1$ leaves a
+$(1-\alpha)$ fraction of directions untouched, $n_I\neq0$; and because the dynamics
+anneals --- $C\to0$, so $\|u_I\|$ stops growing --- $f$ settles below one instead of
+creeping towards it. Measured across four orders of magnitude in $\alpha$:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccccc}
+\toprule
+$\alpha = P/K$ & 0.03 & 0.17 & 0.50 & 1 & 3.3 \\
+\midrule
+$f^{2}$, predicted by \eqref{eq:dilution} & 0.29 & 0.62 & 0.84 & 1.00 & 1.00 \\
+$\langle|\rho|\rangle$, measured            & 0.30 & 0.62 & 0.82 & 0.93 & 0.99 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For $\alpha<1$ the prediction holds to $0.02$. At $\alpha\ge1$ the agenda spans the
+whole space, the frozen component vanishes exactly, and $\langle|\rho|\rangle$ runs
+to $0.99$; the residual gap at $\alpha=1$ is incomplete alignment rather than
+geometry.
+
+This is the ceiling behind Figure~\ref{fig:trajectories}, and it caps both
+opinion-side quantities together: at $\alpha=0.17$ the society reaches
+$\Rwmu=0.56$ and $\BI=0.19$, at $\alpha=3.3$ it reaches $0.93$ and $0.95$. The
+difference is not that the narrow-agenda society has had less time --- no amount of
+running will align directions that no issue ever probes. Trust has no such ceiling:
+$\mu_{e|r}$ is one scalar per ordered pair, not a projection of a high-dimensional
+vector, and $\eta=1-2\Phi(\hmu)$ saturates at $\pm1$ once $|\hmu|$ exceeds a few
+units, at any $\alpha$. That asymmetry is why the trajectories climb the $\BA$ axis
+first when the agenda is narrow.
+
+\paragraph{This section is one phase of \S\ref{sec:results}.} With $d=0$ no class
+information enters the dynamics anywhere, so the two class correlations vanish
+identically --- measured as $\Rmuc=-0.004\pm0.030$ and $\Rcw=-0.003\pm0.017$ over
+the whole range of $\fd$ --- while $\Rwmu$ alone is large. A society that has
+polarised completely along a split unrelated to class is exactly region~(II) of the
+phase diagram, the neutral phase. Everything above is region~(II) examined from the
+inside, before the other three regions exist.
+
 So the question of whether groups come to dislike each other because they disagree,
 or come to disagree because they dislike each other, has a parameter attached to it
 rather than an answer: narrow agendas --- few issues, functioning as symbols --- put
@@ -652,10 +713,13 @@ disagreement becomes unnecessary and class membership alone carries the hostilit
 The complex agenda has no region~IV. In the bottom row, $\Rmuc$ and $\Rcw$ track
 each other across the whole $d>0$ half --- $0.84$ against $0.85$ at $d=0.15$, $0.91$
 against $0.91$ at $d=0.75$, and still only $0.04$ apart at $d=1$ against the simple
-agenda's $0.55$ --- while $\BI$ saturates at $0.98$. When there are many issues to disagree about, the opinion split
-tracks the class split completely, so distrust and disagreement never come apart.
-Class-only hostility is available only to a society whose agenda is too narrow for
-opinion to reorganise around the class boundary.
+agenda's $0.55$ --- while $\BI$ saturates at $0.98$. When there are many issues to disagree about, the
+opinion split tracks the class split completely, so distrust and disagreement never
+come apart. Class-only hostility requires the opposite: an agenda narrow enough that
+most of every opinion lies in directions no issue probes, which by
+\S\ref{sec:no-disc} caps $\Rcw$ however long the society runs. Region~(IV) is
+therefore not a slow approach to region~(III) but a distinct state, available only
+below $\alpha\approx1$.
 
 \begin{figure}[t]
   \centering
@@ -771,6 +835,36 @@ are inexpensive enough to serve as one.
 \bibliographystyle{iclr2027_conference}
 
 \appendix
+\section{The agenda's orthogonal complement is conserved}
+\label{app:conserved}
+
+Let $V_P=\mathrm{span}\{\hat{x}_1,\dots,\hat{x}_P\}$ be the subspace spanned by the
+agenda. \emph{Claim:} for every agent, the component of $\hat{w}$ orthogonal to
+$V_P$ is unchanged by \eqref{eq:update-ideo}.
+
+By \eqref{eq:update-ideo} the weight update is a multiple of $C_r\hat{x}$ with
+$\hat{x}\in V_P$, so it is enough that $C\hat{x}\in V_P$ at all times. At
+initialisation $C=I$ and $C\hat{x}=\hat{x}\in V_P$. Suppose $C_t\hat{x}_i\in V_P$
+for every issue. The covariance update is
+$C_{t+1}=C_t+a\,(C_t\hat{x})(C_t\hat{x})^{\!\top}$ for the issue $\hat{x}$ just
+seen, so for any issue $\hat{y}$,
+%
+\begin{equation}
+  C_{t+1}\hat{y} \;=\; C_t\hat{y} \;+\; a\,(C_t\hat{x})\,\bigl(C_t\hat{x}\cdot\hat{y}\bigr),
+\end{equation}
+%
+in which the first term lies in $V_P$ by hypothesis and the second is a multiple of
+$C_t\hat{x}\in V_P$. Hence $C_t\hat{x}_i\in V_P$ for all $t$ by induction, every
+increment to $\hat{w}$ lies in $V_P$, and the orthogonal component is conserved.
+$\square$
+
+Two consequences. For $\alpha=P/K<1$ each agent keeps a frozen random component of
+its opinion that no interaction can touch, which dilutes every overlap by
+\eqref{eq:dilution}; the test suite asserts the conservation numerically. For
+$\alpha\ge1$ the agenda spans $\mathbb{R}^{K}$, the complement is empty, and the
+ceiling disappears. Note that the conservation is a property of the \emph{agenda},
+not of the discrimination field: it holds at every $d$ and $\fd$.
+
 \section{All four modulation functions}
 \label{app:modulation}
 

@@ -142,3 +142,60 @@ def test_independent_schedule_agrees_statistically():
         b.run(80 * 20 * 19)
         res[shared] = measure(b)["R_muc"].mean()
     assert abs(res[True] - res[False]) < 0.15
+
+
+def agenda_projector(batch, run=0):
+    """Orthonormal projector onto the span of the agenda, for one run."""
+    X = batch.X[:, run, :]
+    Q, _ = np.linalg.qr(X.T)
+    return Q @ Q.T
+
+
+def test_component_orthogonal_to_the_agenda_is_conserved():
+    """The agenda spans only P of K directions, and learning never leaves it.
+
+    Every weight update is along ``C x``, and ``C x`` stays in the span of the
+    agenda for all time (the covariance update only ever adds multiples of
+    ``(Cx)(Cx)^T``).  So each agent keeps, untouched, whatever part of its initial
+    weight vector lies outside that span.  This is what caps the opinion overlap
+    below one when ``alpha = P/K < 1``, and hence caps B_I -- so it is load-bearing
+    for the agenda-complexity result, not an incidental invariant.
+    """
+    b = SocietyBatch(n_agents=12, n_dim=20, n_issues=4, d=0.0, f_d=0.0, seed=3)
+    P_par = agenda_projector(b)
+    P_perp = np.eye(b.K) - P_par
+    before = b.w[:, 0, :] @ P_perp
+    b.run(20000)
+    after = b.w[:, 0, :] @ P_perp
+    np.testing.assert_allclose(after, before, rtol=0, atol=1e-9)
+
+
+def test_the_agenda_span_is_where_learning_happens():
+    """The complementary half: inside the span, the weights move substantially.
+
+    Without this the conservation test above would also pass on a society that
+    simply never learns anything.  Measured growth is ~2.5x in norm over this run,
+    so the bound is set well below that rather than at a guessed value.
+    """
+    b = SocietyBatch(n_agents=12, n_dim=20, n_issues=4, d=0.0, f_d=0.0, seed=3)
+    P_par = agenda_projector(b)
+    before = b.w[:, 0, :] @ P_par
+    b.run(20000)
+    after = b.w[:, 0, :] @ P_par
+    assert np.linalg.norm(after - before) > np.linalg.norm(before)
+
+
+def test_conservation_holds_with_discrimination_too():
+    """The conservation is a property of the agenda, not of the field."""
+    b = SocietyBatch(n_agents=12, n_dim=20, n_issues=4, d=0.8, f_d=0.9, seed=5)
+    P_perp = np.eye(b.K) - agenda_projector(b)
+    before = b.w[:, 0, :] @ P_perp
+    b.run(20000)
+    np.testing.assert_allclose(b.w[:, 0, :] @ P_perp, before, rtol=0, atol=1e-9)
+
+
+def test_full_rank_agenda_leaves_no_frozen_component():
+    """With P >= K the agenda spans everything and the ceiling disappears."""
+    b = SocietyBatch(n_agents=10, n_dim=8, n_issues=40, d=0.0, f_d=0.0, seed=6)
+    P_perp = np.eye(b.K) - agenda_projector(b)
+    assert np.linalg.norm(P_perp) < 1e-8
