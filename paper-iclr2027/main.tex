@@ -215,8 +215,8 @@ adjudicate it, but identify a parameter that selects which occurs.
 \section{A society of neural networks that learn from each other}
 \label{sec:model}
 
-\subsection{Dynamical variables}
-\label{sec:variables}
+\subsection{Microscopic variables}
+\label{sec:micro}
 
 A society of $N$ agents discusses an agenda of $P$ issues. An issue is a vector
 $\hat{x}\in\mathbb{R}^{K}$: the embedding of an assertion in the $K$ dimensions
@@ -245,14 +245,14 @@ assigns to $J$) and variance $V_{J|I}$. We call it the trust sector for short. W
   \label{eq:belief}
 \end{equation}
 %
-the dynamical variables of the society are
+the microscopic variables of the society are
 $\lambda_I=\{\hat{w}_I, C_I, \mu_{J|I}, V_{J|I}\}$. The means fix what an agent
 thinks and whom it trusts; the (co)variances fix how firmly.
 
 \paragraph{Certainty and immobility are the same thing.} The second moments play a double role worth naming before the update is written down. $C_I$ and $V_{J|I}$ are the agent's uncertainties, but they also multiply every change it makes. They are effective, adaptive learning rates as much as error bars, and in the limit $C_I, V_{J|I}\to0$ the dynamics freezes: an agent absolutely certain of its opinions and of its trust in everyone cannot be moved by any message, however surprising. That is the Bayesian statement that evidence cannot shift a delta-function prior.
 
-\subsection{The update}
-\label{sec:update}
+\subsection{Dynamics}
+\label{sec:dynamics}
 
 At each step an issue $\hat{x}$, an emitter $e$ and a receiver $r$ are drawn
 uniformly. The emitter states $\sigma_e$; the receiver treats it as a noisy report
@@ -319,7 +319,7 @@ with the four modulation functions given by the derivatives of $\log Z$:
 %
 where $g$ is the standard normal density. The first update in
 \eqref{eq:update-ideo} is a Hebbian step $\sigma_e\hat{x}$ with a tensorial,
-self-annealing learning rate --- the $C_r$ of \S\ref{sec:variables} in its
+self-annealing learning rate --- the $C_r$ of \S\ref{sec:micro} in its
 learning-rate role.
 
 Three properties of \eqref{eq:modulation} do the work in what follows, and none of
@@ -409,7 +409,7 @@ a mechanism for aligning this pre-existing split with the labels.
   \label{fig:polarisation}
 \end{figure}
 
-\subsection{Measuring a society}
+\subsection{Order parameters}
 \label{sec:order-params}
 
 A society's state is a set of weight vectors and an $N\times N$ matrix of distrust.
@@ -498,7 +498,7 @@ trajectory lies along the diagonal.
   \caption{\textbf{Which polarisation comes first is set by the agenda.}
   Trajectories in the $(\BI,\BA)$ plane with no discrimination ($d=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time --- they crowd
-  at the end because the annealed dynamics slows, as \S\ref{sec:variables} requires.
+  at the end because the annealed dynamics slows, as \S\ref{sec:micro} requires.
   Simple agendas run above the diagonal (distrust forms first), complex ones below
   it (disagreement first), crossing over at $\alpha\approx1.7$.}
   \label{fig:trajectories}
@@ -783,7 +783,7 @@ are inexpensive enough to serve as one.
   symmetry across $\hmu=\hw$ holds in both rows: $\Fw(x,y)=\Fmu(y,x)$ and
   $\FC(x,y)=\FV(y,x)$. $\FC$ and $\FV$ are negative almost everywhere, which is why
   both uncertainties shrink monotonically and the dynamics anneals
-  (\S\ref{sec:variables}).}
+  (\S\ref{sec:micro}).}
   \label{fig:modulation-all}
 \end{figure}
 
