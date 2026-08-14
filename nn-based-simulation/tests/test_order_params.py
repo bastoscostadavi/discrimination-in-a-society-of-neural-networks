@@ -5,6 +5,7 @@ import pytest
 
 from ednna.order_params import (
     _mean_triple_product,
+    sign_balance,
     balance,
     class_trust_per_agent,
     correlations,
@@ -165,3 +166,57 @@ def test_overlaps_and_trust_shapes_and_diagonals():
     np.testing.assert_allclose(rho[:, idx, idx], 1.0, atol=1e-10)
     np.testing.assert_allclose(eta[:, idx, idx], 1.0, atol=1e-12)
     np.testing.assert_allclose(rho, np.swapaxes(rho, 1, 2), atol=1e-12)
+
+
+def brute_force_sign_balance(M):
+    """The definition, enumerated: fraction of triples with a positive sign product."""
+    S = np.sign(M)
+    N = S.shape[0]
+    trips = [
+        S[i, j] * S[j, k] * S[k, i] > 0
+        for i in range(N)
+        for j in range(i + 1, N)
+        for k in range(j + 1, N)
+    ]
+    return float(np.mean(trips))
+
+
+@pytest.mark.parametrize("N", [7, 10, 13])
+def test_sign_balance_matches_enumeration(N):
+    rng = np.random.default_rng(N)
+    A = rng.normal(size=(N, N))
+    M = (A + A.T) / 2
+    np.fill_diagonal(M, 1.0)
+    assert sign_balance(M) == pytest.approx(brute_force_sign_balance(M), abs=1e-12)
+
+
+def test_sign_balance_counts_factions():
+    """This is why the measure is used: it separates two blocs from three.
+
+    The structure theorem says a signed complete graph is balanced exactly when it
+    splits into two mutually hostile cliques, so only a two-faction society reaches
+    1. Anything else is visibly short of it.
+    """
+    def blocs(N, k):
+        g = np.arange(N) % k
+        M = np.where(g[:, None] == g[None, :], 1.0, -1.0)
+        np.fill_diagonal(M, 1.0)
+        return M
+
+    assert sign_balance(blocs(12, 2)) == pytest.approx(1.0)
+    assert sign_balance(blocs(12, 3)) < 0.8
+    assert sign_balance(blocs(12, 4)) < 0.8
+    rng = np.random.default_rng(0)
+    A = rng.normal(size=(40, 40))
+    assert abs(sign_balance((A + A.T) / 2) - 0.5) < 0.1
+
+
+def test_sign_balance_ignores_magnitudes():
+    """Unlike B_I, it depends only on the signs."""
+    s = np.where(np.arange(14) < 6, 1.0, -1.0)
+    clean = np.outer(s, s)
+    faint = 0.05 * clean          # same signs, twentieth of the magnitude
+    np.fill_diagonal(clean, 1.0)
+    np.fill_diagonal(faint, 1.0)
+    assert sign_balance(clean) == pytest.approx(sign_balance(faint))
+    assert _mean_triple_product(clean[None], 14)[0] > 20 * _mean_triple_product(faint[None], 14)[0]

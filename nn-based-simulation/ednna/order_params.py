@@ -49,6 +49,7 @@ from scipy.special import ndtr
 
 __all__ = [
     "overlaps",
+    "sign_balance",
     "trust",
     "correlations",
     "balance",
@@ -123,6 +124,34 @@ def _mean_triple_product(M, N):
     distinct = M3_trace - 3.0 * (pair_sym - N) - N
     n_triples = N * (N - 1) * (N - 2) / 6.0
     return distinct / (6.0 * n_triples)
+
+
+def sign_balance(M):
+    """Fraction of triples whose sign product is positive, for one matrix.
+
+    ``B_I`` and ``B_A`` weight each triple by the magnitudes of its three overlaps,
+    which conflates two questions: how *cleanly* the society has split, and how
+    *strongly* each pair agrees.  This separates them by discarding magnitudes.
+
+    It matters because of the structure theorem for signed complete graphs
+    (Cartwright and Harary, 1956): a graph is balanced exactly when its vertices
+    split into two mutually hostile cliques.  So a value of 1 says the society has
+    exactly two factions, not merely that every pair has taken a side --- three
+    equal factions give 3/4 and random signs give 1/2, both well clear of 1.
+
+    Uses the same closed form as :func:`_mean_triple_product`, applied to
+    ``sign(M)``; ``tests/test_order_params.py`` checks it against enumeration.
+    """
+    S = np.sign(np.asarray(M, dtype=float))
+    N = S.shape[-1]
+    if S.ndim == 2:
+        S = S[None]
+    S = S.copy()
+    idx = np.arange(N)
+    S[:, idx, idx] = 1.0
+    mean_sign = _mean_triple_product(S, N)
+    out = 0.5 * (1.0 + mean_sign)
+    return out if out.size > 1 else float(out[0])
 
 
 def balance(society, rho=None, eta=None):
