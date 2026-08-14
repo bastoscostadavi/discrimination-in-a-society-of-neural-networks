@@ -235,9 +235,9 @@ any issue. Until \S\ref{sec:discrimination} nothing in the dynamics refers to it
 
 An agent's state has two sectors. The \emph{opinion} sector is a Gaussian belief
 over its own weights, with mean $\hat{w}_I$ and covariance $C_I$. The
-\emph{affective} sector is a Gaussian belief, for every other agent $J$, over how
-unreliable $J$ is as a source: mean $\mu_{J|I}$ (the \emph{distrust} $I$ assigns to
-$J$) and variance $V_{J|I}$. Writing the joint belief as a product of Gaussians,
+\emph{trust-attribution} sector is a Gaussian belief, for every other agent $J$,
+over how unreliable $J$ is as a source: mean $\mu_{J|I}$ (the \emph{distrust} $I$
+assigns to $J$) and variance $V_{J|I}$. We call it the trust sector for short. Writing the joint belief as a product of Gaussians,
 %
 \begin{equation}
   Q(w_I, z_I \mid \lambda_I) \;=\; \mathcal{N}(\hat{w}_I, C_I)
@@ -378,6 +378,12 @@ centred on zero, which is what random weight vectors in $K=30$ dimensions give, 
 ends bimodal with peaks near $\pm0.6$. Agents have not converged on a consensus and
 have not stayed independent. They have split.
 
+The two blocks are the same in both matrices, which is the content of the
+opinion--trust correlation \eqref{eq:rwmu}: it rises from $0.00$ at initialisation
+to $+0.56$, so agents do end up trusting those who agree with them, and distrusting
+those who do not. That is not imposed anywhere in \S\ref{sec:model}; it is what the
+sign structure of the modulation functions produces.
+
 Two things about that split matter for what follows. It is \emph{spontaneous}: the
 two factions are equal in size only up to fluctuation, and which agent lands in
 which is decided by the initial condition, not by anything intrinsic. And it is
@@ -421,13 +427,14 @@ field mapped onto a bounded, sign-carrying scale. Their correlation,
 \end{equation}
 %
 averaged over unordered pairs and normalised to $[-1,1]$, asks whether agents trust
-those who agree with them.
+those who agree with them --- a single number for the structure
+Figure~\ref{fig:polarisation} shows.
 
 A correlation cannot distinguish a society split into two coherent camps from one
 in which distrust is spread inconsistently, so we also measure social balance in the
 sense of \citet{heider1946attitudes} and \citet{cartwright1956structural}. A triple
 of agents is balanced in opinion when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$
-and balanced in affect when
+and balanced in trust when
 $b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$;
 the aggregates
 %
@@ -438,8 +445,9 @@ the aggregates
   \label{eq:balance}
 \end{equation}
 %
-run over all $\binom{N}{3}$ triples. (The subscript $I$ is historical, from the
-older name for the opinion sector; it does not index an agent.) A randomly
+run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
+names for the two sectors --- ideological and affective --- and do not index an
+agent.) A randomly
 initialised society has $\BI\approx\BA\approx0$: half its triples are frustrated. A
 society that has settled into two internally coherent, mutually opposed blocs has
 $\BI=\BA=1$, whatever the blocs are made of --- and a society that cannot settle at
@@ -473,7 +481,7 @@ at $d=0$, for agendas spanning four orders of magnitude in the ratio
 \end{equation}
 %
 the number of issues in play per dimension of the space they are represented in.
-For a simple agenda the path runs up the $\BA$ axis: affective structure forms
+For a simple agenda the path runs up the $\BA$ axis: trust structure forms
 almost completely before opinions begin to sort, ending at
 $(\BI,\BA)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays
 below the diagonal, ending at $(0.97,0.74)$ for $\alpha=333$: opinions separate
@@ -661,7 +669,7 @@ opinion to reorganise around the class boundary.
 discrimination.} For $d<0$ the correlations are the sign-mirror of the $d>0$ side,
 which invites reading the left half of the diagram as ``reverse discrimination''.
 The balance measures say otherwise (Figure~\ref{fig:correlations}). In the
-discriminatory region $\BA=+0.97$: nearly every triple is affectively balanced, as
+discriminatory region $\BA=+0.97$: nearly every triple is balanced in trust, as
 two coherent mutually hostile blocs require. At $d=-1$, $\fd=0.9$,
 $\BA=-0.71$ for both agendas --- strongly \emph{anti}-balanced --- with
 $\BI=0.00$, and $\Rwmu$ collapses to $0.03$ --- the only place it does. No
@@ -678,7 +686,7 @@ teacher, a noisy channel whose reliability must be inferred online. Nothing abou
 is careless. Yet the same rule, run in a large population with one class-correlated
 perturbation, converts an informationally empty label into a stable architecture of
 group distrust. The mechanism is specific: it acts through $\Fmu$, and a rule with no
-affective sector has none to bias --- under a plain Hebbian update the discrimination
+trust sector has none to bias --- under a plain Hebbian update the discrimination
 field does nothing at all, since the update does not depend on $\hw$. We argue this
 rather than measure it; the ablation is cheap and worth running. What exposes the
 population is precisely the machinery that makes each agent good at inference, that
@@ -719,7 +727,7 @@ Every figure in this paper is produced by a script in the accompanying code,
 which contains the model, the order parameters, and the sweep driver, together
 with a test suite that checks the modulation functions against finite differences
 of $\log Z$, the invariants of the dynamics (the covariance stays symmetric
-positive-definite, the affective variance stays positive), and the order
+positive-definite, the trust variance stays positive), and the order
 parameters against their known limits. One command regenerates all figures at a
 choice of three resolutions; sweeps are cached, so a figure can be restyled
 without re-simulating.
@@ -743,7 +751,7 @@ its groups are arbitrary inert labels, and its "tolerance" is a single scalar. W
 use the vocabulary of in-group and out-group because it names the structure
 compactly, not because the model licenses inferences about human prejudice, whose
 causes are historical, institutional and material in ways nothing here
-represents. Where we discuss the affective-versus-opinion polarisation
+represents. Where we discuss the trust-versus-opinion polarisation
 literature, we do so to point out that the model identifies a parameter that
 selects between two regimes, not to adjudicate an empirical question about any
 actual polity.
@@ -766,7 +774,7 @@ are inexpensive enough to serve as one.
   \centering
   \includegraphics[width=0.85\linewidth]{figures/modulation_slices}
   \caption{Cuts through the modulation functions at fixed opinion field, $\hw=\pm6$.
-  Below the crossover at $\hmu = \hw + D$ the affective sector moves (solid,
+  Below the crossover at $\hmu = \hw + D$ the trust sector moves (solid,
   $\Fmu$) and the receiver revises its trust; above it the opinion sector moves
   (dashed, $\Fw$) and the receiver unlearns what the emitter said. The
   discrimination field $D$ displaces the crossover --- dotted verticals, one per
@@ -814,7 +822,7 @@ with $P(\sigma_e\mid\sigma_T,z)=(1-\varepsilon(z))\delta_{\sigma_e,\sigma_T} +
 $P(\sigma_T\mid y_t,w)=\Theta(\sigma_T\, y_t\cdot w)$. Two modelling choices keep
 the algebra Gaussian. Taking $\varepsilon(z)=\Phi(z)$ with $z$ Gaussian of mean
 $\mu_{e|r}$ and variance $V_{e|r}$ makes the flip probability a bounded function
-of a Gaussian variable while preserving conjugacy of the affective sector --- a
+of a Gaussian variable while preserving conjugacy of the trust sector --- a
 Beta distribution for $\varepsilon$, the tempting alternative, does not. Taking
 $P(y_t\mid \hat{x},u)$ Gaussian with variance $v_p=\|w\|^{-2}$ lets an
 inexperienced agent, whose weights are small, be correspondingly unsure that it
@@ -852,7 +860,7 @@ of the posterior, gives updates in terms of derivatives of the log evidence,
   C_{t+1} = C_t + C_t \frac{\partial^{2}\ln Z}{\partial\hat{w}\,\partial\hat{w}^{\!\top}} C_t,
 \end{equation}
 %
-and identically in the affective sector with $\mu_{e|r}, V_{e|r}$ in place of
+and identically in the trust sector with $\mu_{e|r}, V_{e|r}$ in place of
 $\hat{w}, C$. Expressing the derivatives in the scaled fields yields
 \eqref{eq:update-ideo}--\eqref{eq:update-aff} with the modulation functions
 \eqref{eq:modulation}. The first is a Hebbian term $\sigma_e\hat{x}$ with a
@@ -934,7 +942,7 @@ images in $d$, and only the first matches the maps as published.
   \centering
   \includegraphics[width=0.78\linewidth]{figures/sign_convention_comparison}
   \caption{\textbf{The two readings of the discrimination field.} Trust--class
-  correlation and affective balance over the $(d,\fd)$ plane under the convention
+  correlation and trust balance over the $(d,\fd)$ plane under the convention
   used in this paper (top) and under the companion manuscript's table read
   literally with its Eq.~25 (bottom). The physics is identical; which half of the
   $d$ axis is discriminatory is not.}
@@ -1047,7 +1055,7 @@ work grows as $N^{3}$.
 
 \paragraph{Numerical safeguards.} Three floors are applied, none of which the
 model prescribes: on the evidence $Z$, whose exact modulation functions diverge
-in the deep dissonance corners; on the affective variance $V$, which $\FV<0$
+in the deep dissonance corners; on the trust variance $V$, which $\FV<0$
 drives monotonically towards zero; and on the covariance update, clipped to the
 boundary at which $C+a(C\hat{x})(C\hat{x})^{\!\top}$ ceases to be positive
 semi-definite. The last is the only one that can alter a trajectory, and it never

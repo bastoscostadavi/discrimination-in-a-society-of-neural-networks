@@ -11,7 +11,7 @@ class indicator:
     R_cw  = <G_IJ rho_IJ>                         opinion-class
 
 Social balance is measured on triples: a triple is ideologically balanced when
-``b^I = rho_IJ rho_JK rho_KI > 0`` and affectively balanced when
+``b^I = rho_IJ rho_JK rho_KI > 0`` and balanced in trust when
 ``b^A = (eta_IJ eta_JK eta_KI + eta_JI eta_IK eta_KJ)/2 > 0``, and
 
     B_I = <b^I>,    B_A = <b^A>
@@ -126,7 +126,7 @@ def _mean_triple_product(M, N):
 
 
 def balance(society, rho=None, eta=None):
-    """Aggregate ideological and affective balance. Dict of arrays of shape (R,)."""
+    """Aggregate ideological and trust balance. Dict of arrays of shape (R,)."""
     N = society.N
     rho = overlaps(society) if rho is None else rho
     eta = trust(society) if eta is None else eta

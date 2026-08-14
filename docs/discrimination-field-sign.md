@@ -32,7 +32,7 @@ Statements 1 and 2 together imply the *opposite* of statement 3.
 
 ## Why they conflict
 
-The affective modulation function (Eq. 23) is
+The trust-sector modulation function (Eq. 23) is
 
 $$F_\mu(h_w, h_\mu) = \bigl(1 - 2\Phi(h_w)\bigr)\,\frac{g(h_\mu)}{Z},$$
 
@@ -108,7 +108,7 @@ python scripts/sign_convention_comparison.py
 
 runs the same sweep under both and writes
 `figures/<style>/sign_convention_comparison.pdf`: the trust–class correlation
-`R_mu,c` and the affective balance `B_A` over the `(d, f_d)` plane, once per
+`R_mu,c` and the trust balance `B_A` over the `(d, f_d)` plane, once per
 convention. The two rows are mirror images in `d`. Only the top row matches the
 maps printed in the draft.
 

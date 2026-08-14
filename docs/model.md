@@ -13,7 +13,7 @@ its own note: [`discrimination-field-sign.md`](discrimination-field-sign.md).
 A society of `N` agents. Agent `I` holds
 
 - **ideological sector**: weights `w_I ∈ R^K` with covariance `C_I ∈ R^{K×K}`,
-- **affective sector**: for every other agent `J`, a distrust `μ_{J|I} ∈ R` with
+- **trust sector**: for every other agent `J`, a distrust `μ_{J|I} ∈ R` with
   variance `V_{J|I} > 0`.
 
 The belief is the product of Gaussians `N(ŵ_I, C_I) · Π_J N(μ_{J|I}, V_{J|I})`.

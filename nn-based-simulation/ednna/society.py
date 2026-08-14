@@ -3,7 +3,7 @@
 Each agent is a single-layer perceptron carrying
 
   * an opinion sector: weight vector ``w`` (K,) and covariance ``C`` (K, K),
-  * an affective sector: for every other agent, a distrust ``mu`` and its
+  * an trust sector: for every other agent, a distrust ``mu`` and its
     variance ``V``.
 
 At each time step an issue, an emitter and a receiver are drawn.  The emitter
@@ -53,7 +53,7 @@ from .modulation import Z_FLOOR, modulation
 
 __all__ = ["SocietyBatch", "V_FLOOR"]
 
-#: Floor on the affective variance V.
+#: Floor on the trust variance V.
 #:
 #: F_V < 0 shrinks V monotonically towards zero (the receiver becomes ever more
 #: certain of its distrust), so V can underflow to a non-positive value after
@@ -258,7 +258,7 @@ class SocietyBatch:
         a = self._project_psd(a, xCx)
         C_r += a[:, None, None] * (Cx[:, :, None] * Cx[:, None, :])
 
-        # affective sector
+        # trust sector
         self.mu[r, e] += (F_mu / gamma_V) * V
         np.maximum(V + (F_V / (gamma_V * gamma_V)) * V * V, self.v_floor, out=self.V[r, e])
 

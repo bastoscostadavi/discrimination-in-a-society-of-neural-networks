@@ -19,7 +19,7 @@ and the four modulation functions are its log-derivatives (Eqs. 21-24):
 
 with g the standard normal density and Phi its cumulative.
 
-Note the symmetry between the ideological and affective sectors, which the
+Note the symmetry between the ideological and trust sectors, which the
 paper highlights (and which `tests/test_modulation.py` checks):
 
     F_w(x, y) = F_mu(y, x)        F_C(x, y) = F_V(y, x)
@@ -76,7 +76,7 @@ def F_w(h_w, h_mu, z_floor=Z_FLOOR):
 
 
 def F_mu(h_w, h_mu, z_floor=Z_FLOOR):
-    """Affective modulation function (Eq. 23)."""
+    """Trust-sector modulation function (Eq. 23)."""
     Pw = Phi(h_w)
     Z = np.maximum(evidence(h_w, h_mu), z_floor)
     return (1.0 - 2.0 * Pw) * g(h_mu) / Z
@@ -89,7 +89,7 @@ def F_C(h_w, h_mu, z_floor=Z_FLOOR):
 
 
 def F_V(h_w, h_mu, z_floor=Z_FLOOR):
-    """Modulation of the affective annealing schedule (Eq. 24)."""
+    """Modulation of the trust-sector annealing schedule (Eq. 24)."""
     fm = F_mu(h_w, h_mu, z_floor)
     return -fm * (fm + h_mu)
 

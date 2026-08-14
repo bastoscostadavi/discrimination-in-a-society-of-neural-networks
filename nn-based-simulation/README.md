@@ -39,7 +39,7 @@ re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
 | `learning_flows.py` | `learning_flows` | the flow that learning induces, and how the discrimination field bends it |
 | `correlation_maps.py` | `correlation_maps` | the three pair correlations over the `(d, f_d)` plane, two agenda sizes |
 | `order_parameter_maps.py` | `order_parameter_maps` | all five order parameters in one 2x5 grid; this is the version the paper uses |
-| `frustration_maps.py` | `frustration_maps` | ideological and affective balance over the same plane |
+| `frustration_maps.py` | `frustration_maps` | ideological and trust balance over the same plane |
 | `phase_diagram.py` | `phase_diagram`, `phase_diagram_large_agenda` | the three correlations composited into one RGB map, with the four regions labelled |
 | `agenda_trajectories.py` | `agenda_trajectories` | `(B_I, B_A)` trajectories across nine agenda complexities `α = P/K` |
 | `sign_convention_comparison.py` | `sign_convention_comparison` | the two readings of the discrimination field, side by side |
