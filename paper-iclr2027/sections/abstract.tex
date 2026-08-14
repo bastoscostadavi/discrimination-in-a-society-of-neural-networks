@@ -1,24 +1,26 @@
-Populations of learning agents are increasingly deployed as societies:
-language-model agents that read each other's outputs, weigh how far to trust them,
-and revise their positions accordingly. We ask whether discriminatory group
-structure can emerge in such a population from the \emph{learning rule alone},
-with no biased data and no group-level preference anywhere in the system. We study
-a society of adaptive agents that each carry a classifier and update, online and
-optimally, both their opinions and the trust they assign to every other agent, and
-inject the minimal possible bias: a fraction $\fd$ of agents extend their
-representation of a message with a feature that carries no information about its
-content and depends only on the sender's group label, at strength $d$. The result
-is a phase diagram in $(d,\fd)$ with four regimes separated by sharp transitions
---- neutral polarisation unrelated to group membership, two discriminatory phases
-distinguished by whether hostility still needs disagreement to sustain it, and,
-for bias favouring the out-group, a frustrated spin-glass regime in which no
-coherent faction can form. Discrimination requires a quorum of biased agents, and
-past it the transition is abrupt, so a population can be discriminatory while
-every agent in it passes an individual audit. We further show that the
-\emph{order} of polarisation is controlled by the complexity of the agenda: on few
-issues distrust forms first and drags opinions after it, on many issues opinions
-separate first. Because the order parameters are defined only through pairwise
-opinion alignment and pairwise trust, they transfer directly to a society of
-language-model agents under comparable instructions, which we measure
-\llmtodo{results sentence}, finding \llmtodo{agreement or disagreement with the
-predicted phase structure}.
+Populations of learning agents are increasingly deployed as societies: agents that
+read each other's outputs, weigh how far to trust them, and revise their positions
+accordingly. We ask whether discriminatory group structure can emerge in such a
+population from the \emph{learning rule alone}, with no biased data and no
+group-level preference anywhere in the system. We study a society of adaptive
+agents that each carry a classifier and update, online and optimally, both their
+opinions and the trust they assign to every other agent, and inject the minimal
+possible bias: a fraction $\fd$ of agents extend their representation of a message
+with a feature that carries no information about its content and depends only on
+the sender's group label, at strength $d$. The result is a phase diagram in
+$(d,\fd)$ with four regimes separated by sharp transitions --- neutral polarisation
+unrelated to group membership, two discriminatory phases distinguished by whether
+hostility still needs disagreement to sustain it, and, for bias favouring the
+out-group, a frustrated spin-glass regime in which no coherent faction can form.
+Three findings bear on how such systems should be built and evaluated.
+Discrimination requires a quorum of biased agents --- below $\fd\approx0.4$ the
+population is neutral however strong the bias --- and past it the transition is
+abrupt, so a population can be discriminatory while every agent in it passes an
+individual audit. The effect acts entirely through the sector of the algorithm
+that estimates how reliable other agents are, so it is a hazard specific to agents
+that model each other rather than a generic consequence of an irrelevant feature.
+And the \emph{order} of polarisation is controlled by the complexity of the agenda:
+below $\alpha = P/K \approx 1.7$ distrust forms first and drags opinions after it,
+above it opinions separate first. The order parameters we use are defined only
+through pairwise opinion alignment and pairwise trust, so they are measurable in
+any population of interacting agents, whatever the agents are made of.

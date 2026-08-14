@@ -28,11 +28,6 @@
 \newcommand{\BA}{B_{A}}
 \newcommand{\fd}{f_{d}}
 
-% Marks the places the LLM study will fill.  Set \llmtodofalse once the
-% experiments are in, and the notes disappear from the PDF.
-\newif\ifllmtodo\llmtodotrue
-\newcommand{\llmtodo}[1]{\ifllmtodo\textcolor{purple}{\textsf{[#1]}}\fi}
-
 \title{Discrimination in a Neural Network's Society}
 
 \author{Anonymous authors\\Paper under double-blind review}
@@ -53,7 +48,6 @@
 \input{sections/discrimination}
 \input{sections/order_params}
 \input{sections/results}
-\input{sections/llm}
 \input{sections/discussion}
 
 \subsubsection*{Reproducibility statement}

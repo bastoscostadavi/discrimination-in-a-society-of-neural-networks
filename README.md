@@ -4,12 +4,13 @@ Can a population of learning agents sort itself into mutually distrustful groups
 along a label that carries no information — with no biased data and no group-level
 preference anywhere in the system?
 
-The project answers this twice, on two substrates, using the same measurements.
+This repository answers that for a society of agents whose learning rule can be
+written down and analysed, and maps the result as a phase diagram.
 
 | | |
 |---|---|
 | [`nn-based-simulation/`](nn-based-simulation/) | A society of perceptron agents learning from each other under an optimal on-line rule that carries an explicit, dynamical trust for every other agent. Analysable, and mapped as a phase diagram in the strength `d` of a class-correlated bias and the fraction `f_d` of agents carrying it. |
-| [`docs/llm-study-contract.md`](docs/llm-study-contract.md) | The same experiment with language-model agents, specified but not yet run: the interface it must produce so its numbers are comparable with the simulation's. *Next phase.* |
+| [`docs/llm-study-contract.md`](docs/llm-study-contract.md) | A language-agent version of the same experiment, specified but **shelved**. Kept because the order parameters were built to make it possible later. |
 | [`paper-iclr2027/`](paper-iclr2027/) | The ICLR 2027 submission drawing on both, with the language-agent section scoped and its figure slots reserved. |
 | [`docs/`](docs/) | The model as implemented, and the discrepancies found in the source material. |
 | [`paper-iclr2027/NOTES.md`](paper-iclr2027/NOTES.md) | Every venue-adaptation decision, and what is still to fill. |

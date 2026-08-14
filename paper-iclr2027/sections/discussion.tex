@@ -9,7 +9,8 @@ class-correlated perturbation, converts an informationally empty label into a
 stable architecture of group distrust. The mechanism is specific: it acts through
 $\Fmu$, and a rule with no affective sector has none to bias --- under a plain
 Hebbian update the discrimination field does nothing at all, since the update does
-not depend on $\hw$.\llmtodo{the direct ablation is not run; see NOTES.md} What
+not depend on $\hw$. We argue this rather than measure it: the ablation is cheap
+and worth running, and we have not run it. What
 exposes the population is precisely the machinery that makes each agent good at
 inference: that it draws conclusions about \emph{sources} as well as about the
 world. Giving interacting agents a well-founded model of each other's reliability
@@ -37,8 +38,11 @@ that state as neutral; only the balance measures identify it as a spin glass.
 shared embedding, all pairs may interact, and the society is closed and of fixed
 size. The dynamics anneals rather than reaching a stationary state, so our phases
 are phases at a finite interaction count. The class labels are exactly inert, the
-clean version of a case that is never clean in practice. And the map from an
-instruction given to a language agent to a numerical $d$ is a calibration, not an
-identity: \S\ref{sec:llm} tests whether the structure transfers, not whether the
-two systems agree quantitatively. Extending any of this to human societies is a
-further step the model does not license.
+clean version of a case that is never clean in practice. Most importantly, the
+result is established on one substrate: agents whose learning rule we can write
+down. Whether the same phases appear in a population whose agents are not
+analysable --- language-model agents under instructions of varying tolerance, say
+--- is the obvious next question, and the order parameters of
+\S\ref{sec:order-params} were defined to make it answerable, but we do not answer
+it here. Extending any of this to human societies is a further step again, which
+the model does not license.

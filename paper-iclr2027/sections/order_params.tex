@@ -2,9 +2,9 @@
 \label{sec:order-params}
 
 A society's state is a set of weight vectors and an $N\times N$ matrix of
-distrust. To compare states --- and, later, to compare a society of perceptrons
-with a society of language models --- we need statistics that depend on neither
-the dimension $K$ nor the parameterisation.
+distrust. To compare states across parameters --- and, in principle, across
+populations built from different kinds of agent --- we need statistics that depend
+on neither the dimension $K$ nor the parameterisation.
 
 Two pairwise quantities do the work. The \emph{ideological overlap} of two agents
 is the cosine of their weight vectors,
@@ -56,7 +56,9 @@ form from matrix products rather than by enumerating triples
 (Appendix~\ref{app:closed-form}).
 
 Note that none of \eqref{eq:correlations} or \eqref{eq:balance} mentions weights,
-gradients or $K$: they need only a signed opinion alignment and a signed trust per
-pair, both of which are elicitable from a language agent. That is what makes the
-phase diagram of \S\ref{sec:results} a prediction \S\ref{sec:llm} can test rather
-than an analogy.
+gradients or $K$. They need only, per pair of agents, a signed alignment of opinion
+and a signed trust. Any population in which those two things can be elicited ---
+whatever its agents are internally --- can therefore be placed on the same diagram,
+and two $N\times N$ matrices is a cheap enough measurement to run on a deployed
+system. \S\ref{sec:discussion} returns to why a per-agent audit cannot substitute
+for it.

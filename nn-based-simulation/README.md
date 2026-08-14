@@ -6,10 +6,11 @@ every other agent). When a fraction of the agents let the *class label* of a
 speaker shift how agreeable they find what was said, the society undergoes phase
 transitions into discriminatory collective states. This package maps them.
 
-This is the analytic pillar of the project. Its companion, a society of
-language-model agents measured on the same order parameters, is specified in
-[`../docs/llm-study-contract.md`](../docs/llm-study-contract.md) but not yet run.
-The model as implemented is in [`../docs/model.md`](../docs/model.md).
+The model as implemented is in [`../docs/model.md`](../docs/model.md). A
+language-agent version of the same experiment was specified in
+[`../docs/llm-study-contract.md`](../docs/llm-study-contract.md) and then shelved;
+the order parameters here are substrate-independent by construction, so it remains
+possible later.
 
 ## Install and run
 

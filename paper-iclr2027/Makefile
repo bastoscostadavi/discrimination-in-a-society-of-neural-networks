@@ -18,14 +18,14 @@ IMPORTS := modulation_contours modulation_slices learning_flows \
            phase_diagram phase_diagram_large_agenda agenda_trajectories \
            sign_convention_comparison
 
-.PHONY: all figures sim placeholders clean distclean watch
+.PHONY: all figures sim clean distclean watch
 
 all: main.pdf
 
 main.pdf: main.tex $(wildcard sections/*.tex) references.bib figures
 	latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-figures: placeholders
+figures:
 	@mkdir -p figures
 	@for f in $(IMPORTS); do \
 		if [ -f "$(SIM_FIGS)/$$f.pdf" ]; then \
@@ -35,9 +35,6 @@ figures: placeholders
 		fi; \
 	done
 	@echo "figures imported from $(SIM_FIGS)"
-
-placeholders:
-	@python3 make_placeholders.py
 
 # Regenerate the simulation figures at ICLR proportions, then import them.
 sim:

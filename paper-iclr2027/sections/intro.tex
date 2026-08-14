@@ -1,12 +1,12 @@
 \section{Introduction}
 \label{sec:intro}
 
-Systems built from many language-model agents are now routine: agents that
+Systems built from many interacting learned agents are now routine: agents that
 debate, review each other's work, negotiate, and simulate populations
 \citep{park2023generative,du2023debate,chuang2024simulating}. Each agent reads
-what others produce, forms some judgement of how much to rely on them, and
-adjusts its own position. That is a society, and societies have collective states
-that no individual chose. The question this paper asks is whether one of the
+what others produce, forms some judgement of how much to rely on them, and adjusts
+its own position accordingly. That is a society, and societies have collective
+states that no individual chose. The question this paper asks is whether one of the
 collective states available to such a system is \emph{discrimination}: a
 population that sorts itself into mutually distrustful groups along a label that
 carries no information.
@@ -65,11 +65,12 @@ paper.
     contested question about polarisation
     \citep{fiorina2008polarization,iyengar2012affect} into a statement about a
     measurable parameter.
-  \item \textbf{The same measurements in a society of language models}
-    (\S\ref{sec:llm}). The order parameters need only pairwise opinion alignment
-    and pairwise trust, both elicitable from language agents, so the phase
-    structure is testable on a substrate the theory does not describe.
-    \llmtodo{one sentence of findings once the study is run}
+  \item \textbf{Order parameters that do not depend on the substrate}
+    (\S\ref{sec:order-params}). They need only, per pair of agents, a signed
+    opinion alignment and a signed trust --- never weights, gradients or the
+    embedding dimension. Two elicited matrices per population therefore suffice to
+    locate any interacting multi-agent system on the diagram, which matters because
+    the per-agent audits that are standard practice cannot see the phase at all.
 \end{itemize}
 
 Our reading of the theoretical result is deliberately narrow: these are simple
