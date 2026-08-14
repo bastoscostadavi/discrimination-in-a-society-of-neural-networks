@@ -6,21 +6,25 @@ Working notes, not part of the paper.
 
 Presentation order, per the author's revision:
 
-1. Introduction — 2. Related work — 3. The model (3.1 dynamical variables,
-3.2 the update) — 4. What the society does on its own (4.1 measuring a society) —
-5. Discrimination (5.1 two more order parameters) — 6. The phase diagram —
-7. Discussion.
+1. Introduction — 2. Related work — 3. Polarisation in a society of learning agents
+(3.1 microscopic variables, 3.2 dynamics, 3.3 emergent polarisation, 3.4 the
+agenda-size effect) — 4. Discrimination in a society of learning agents (4.1 an
+error of representation, 4.2 the phase diagram) — 5. Discussion.
 
-The point of the reorder is that the agenda-complexity result is measured at
-`d = 0`: it is a property of the model, not of the bias, and it used to sit in the
-results section *after* all the discrimination machinery. It now precedes it. The
-order parameters follow the same logic — the class-free statistics (`rho`, `eta`,
-`R_wmu`, `B_I`, `B_A`) arrive in §4 where they are first needed, the two class
-correlations in §5 where classes first matter.
+Two sections, one per phenomenon. §3 defines the model and then immediately says
+what it does unaided; §4 adds the bias and maps the consequences. The alternative —
+model, then unbiased results, then bias, then biased results — split each story
+across a section boundary. The agenda-complexity result belongs in §3 because it is
+measured at `d = 0`: it is a property of the model, not of the bias.
+
+Order parameters arrive where first needed rather than in a block: `rho`, `eta`,
+`B_I`, `B_A` open §3.3; the three correlations (`R_wmu`, `R_muc`, `R_cw`) sit at the
+end of §4.1, since all three are read off the phase diagram together and `R_wmu` is
+not needed to establish that the society polarises.
 
 Terminology: the sector is the **opinion** sector, never "ideological". The symbols
 `B_I` and `b^I` keep their subscript for continuity with the source draft, with a
-parenthetical in §4.1 noting it is historical.
+parenthetical in §3.3 noting it is historical.
 
 **The paper is a single file.** `main.tex` contains every section inline; there is
 no `sections/` subfolder, and the template's `math_commands.tex` is not loaded
@@ -35,11 +39,12 @@ body boundary by 17 words, because the figures pin to page tops and text reflows
 around them. Only figure area buys pages. The main text therefore carries the four
 figures that do the most work per unit of space:
 
-- `modulation_slices` (§3) — the sector crossover, and the one thing the
+- `modulation_slices` (§3.2) — the sector crossover, and the one thing the
   discrimination field acts on.
-- `agenda_trajectories` (§4) — the `alpha` result.
-- `order_parameter_maps` (§6) — all five order parameters, both agendas.
-- `phase_diagram` (§6) — the composite that names regions I–IV.
+- `polarisation` (§3.3) — the two histograms that show the split.
+- `agenda_trajectories` (§3.4) — the `alpha` result.
+- `order_parameter_maps` (§4.2) — all five order parameters, both agendas.
+- `phase_diagram` (§4.2) — the composite that names regions I–IV.
 
 Three moved to the appendix, in this order of reluctance: `modulation_contours`
 (`app:modulation`, a visualisation of equations already displayed);

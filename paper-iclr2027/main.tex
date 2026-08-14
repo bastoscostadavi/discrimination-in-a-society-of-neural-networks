@@ -212,8 +212,13 @@ other because they disagree or the reverse is contested in political science
 adjudicate it, but identify a parameter that selects which occurs.
 
 
-\section{A society of neural networks that learn from each other}
+\section{Polarisation in a society of learning agents}
 \label{sec:model}
+
+The model is a society of perceptrons that learn from each other rather than from
+data. This section states what an agent is and how a conversation changes it, and
+then asks what such a society does when nothing biases it: it splits in two, and
+which of its two sectors splits first is set by the size of the agenda.
 
 \subsection{Microscopic variables}
 \label{sec:micro}
@@ -358,13 +363,12 @@ attribution emerging from the inference problem rather than assumed.
   \label{fig:modulation}
 \end{figure}
 
-\section{Emergent Polarisation}
+\subsection{Emergent polarisation}
 \label{sec:no-disc}
 
-Nothing in \S\ref{sec:model} refers to an agent's class, so before adding any bias
-we ask what the society of \S\ref{sec:dynamics} does unaided. It polarises,
-spontaneously and into exactly two camps, and the \emph{order} in which its two
-sectors do so is set by a single ratio. We first fix what is measured.
+Nothing in \S\ref{sec:micro} or \S\ref{sec:dynamics} refers to an agent's class, so
+before adding any bias we ask what this society does unaided. It polarises,
+spontaneously and into exactly two camps. We first fix what is measured.
 
 \paragraph{Order parameters.} Two quantities are defined per pair of agents rather than for the society as a
 whole. The \emph{opinion overlap} is the cosine of two weight vectors,
@@ -419,10 +423,7 @@ interacting agents.
   \label{fig:polarisation}
 \end{figure}
 
-\subsection{The society splits in two}
-\label{sec:splits}
-
-Figure~\ref{fig:polarisation} shows the two
+\paragraph{The society splits in two.} Figure~\ref{fig:polarisation} shows the two
 pairwise distributions before and after. Opinion overlap begins unimodal and centred
 on zero, of width $0.178$ against the $1/\sqrt{K}=0.183$ expected of random vectors
 in $K=30$ dimensions, and ends bimodal with peaks at $-0.59$ and $+0.63$ and no pair
@@ -434,7 +435,7 @@ an artefact of an ordering imposed on them.
 
 The two panels are also aligned with each other: agents end up trusting those who
 agree with them and distrusting those who do not, which is not imposed anywhere in
-\S\ref{sec:model} but follows from the signs of the modulation functions. Balance
+\S\ref{sec:dynamics} but follows from the signs of the modulation functions. Balance
 places the state. Trust balance reaches $\BA=0.96$, so the trust network is almost
 perfectly organised, while opinion balance reaches only $\BI=0.19$ --- a gap that
 \S\ref{sec:agenda} explains.
@@ -508,10 +509,16 @@ first, broad ones put opinion first, and the two are regimes of one system rathe
 than rival accounts. The same ratio will explain, in \S\ref{sec:results}, why one of
 the two discriminatory phases exists only for narrow agendas.
 
-\section{Discrimination as an error of representation}
+\section{Discrimination in a society of learning agents}
 \label{sec:discrimination}
 
-We now let some agents make a specific, minimal mistake: when they receive a message, they extend the
+Left alone, the society of \S\ref{sec:model} splits along a line that has nothing to
+do with any label. We now give it a reason to split along one.
+
+\subsection{An error of representation}
+\label{sec:error}
+
+We let some agents make a specific, minimal mistake: when they receive a message, they extend the
 representation of the issue with a feature that carries no information about the
 issue at all, and depends only on \emph{who sent it}. If that feature is
 correlated with the emitter's class label, the agent is a
@@ -577,8 +584,7 @@ Appendix~\ref{app:sign} works this through and shows the maps under both
 readings. We use \eqref{eq:disc-field} with \eqref{eq:case6} as stated, which is
 the reading that agrees with the algorithm.
 
-\subsection{Three correlations}
-\label{sec:class-order-params}
+\paragraph{Three correlations.}
 
 Balance says whether a society is organised; it does not say what it is organised
 around. Three pairwise correlations do, and they are what the phase diagram is built
@@ -590,7 +596,7 @@ from. The first pairs the two sectors against each other,
 \end{equation}
 %
 asking whether agents trust those who agree with them; it is positive in the
-polarised state of \S\ref{sec:splits}, reaching $+0.56$ there from zero at
+polarised state of \S\ref{sec:no-disc}, reaching $+0.56$ there from zero at
 initialisation. The other two refer to class. Writing $G_{IJ}=\kappa_I\kappa_J$ for
 the class indicator ($+1$ for same-class pairs, $-1$ otherwise),
 %
@@ -609,12 +615,13 @@ discriminatory phases from each other --- a society can have $\Rmuc$ near one wi
 $\Rcw$ near zero, and that combination is a distinct state rather than a degenerate
 case. Appendix~\ref{app:conventions} records why $G$ is signed rather than
 $\{0,1\}$ and how the three correlations are normalised.
-\section{The phase diagram}
+
+\subsection{The phase diagram}
 \label{sec:results}
 
 We simulate societies of $N=40$ agents over a $200\times200$ grid in $(d,\fd)$, one
 society per grid point, and measure the five order parameters of
-\S\ref{sec:no-disc} and \S\ref{sec:class-order-params} after a fixed number of interactions, with both classes
+\S\ref{sec:no-disc} and \S\ref{sec:error} after a fixed number of interactions, with both classes
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realisation, so the speckle
 is society-to-society fluctuation, not a rendering artefact.
