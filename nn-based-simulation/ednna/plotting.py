@@ -29,10 +29,27 @@ __all__ = [
     "HIST_RED",
     "add_phase_axes",
     "CMAPS",
+    "PASTEL_CMAPS",
+    "pastel",
     "rgb_composite",
 ]
 
 FIGURE_DIR = Path(__file__).resolve().parent.parent / "figures"
+
+def pastel(cmap, amount=0.26, n=256):
+    """A softened version of a colour map, blended towards white.
+
+    ``amount`` is the fraction of white mixed in at every level, so the hue and the
+    ordering are preserved while the saturation comes down.  Kept moderate on
+    purpose: the small-agenda ``B_I`` map tops out near $0.2$ of its range, and past
+    about a third of white it stops being legible at all.  Used so that the
+    figures share one palette temperature rather than mixing ColorBrewer's
+    saturated ends with the pastel histograms.
+    """
+    base = plt.get_cmap(cmap)(np.linspace(0, 1, n))
+    base[:, :3] = base[:, :3] * (1 - amount) + amount
+    return LinearSegmentedColormap.from_list(f"pastel_{cmap}", base)
+
 
 #: One colour map per order parameter, following the draft: the two trust-side
 #: quantities in blue/red, the class-opinion correlation in green, and the two
@@ -45,6 +62,10 @@ CMAPS = {
     "B_I": "Purples",
     "B_A": "OrRd",
 }
+
+#: The same maps, softened.  ``phase_map`` uses these; the raw names above are kept
+#: so a caller can ask for the saturated version.
+PASTEL_CMAPS = {k: pastel(v) for k, v in CMAPS.items()}
 
 #: Ranges used for each order parameter.  R_wmu and R_cw are non-negative in
 #: practice; R_muc, B_A and B_I are signed.
@@ -194,7 +215,7 @@ def phase_map(
     lo, hi = RANGES.get(key, (None, None))
     vmin = lo if vmin is None else vmin
     vmax = hi if vmax is None else vmax
-    cmap = cmap or CMAPS.get(key, "viridis")
+    cmap = cmap or PASTEL_CMAPS.get(key, pastel("viridis"))
     norm = None
     if vmin is not None and vmax is not None and vmin < 0 < vmax:
         norm = TwoSlopeNorm(vmin=vmin, vcenter=0.0, vmax=vmax)
@@ -208,6 +229,7 @@ def phase_map(
             extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto",
         )
     add_phase_axes(ax, ylabel=ylabel, sparse_ticks=sparse_ticks)
+    framed_axes(ax, minor=False)
     ax.set_title(title if title is not None else LABELS.get(key, key), pad=3)
     if colorbar:
         cb = ax.figure.colorbar(im, ax=ax, fraction=0.046, pad=0.03)

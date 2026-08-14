@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import numpy as np
 from matplotlib import pyplot as plt
+from matplotlib.patches import Patch
 
 from _cli import setup  # noqa: E402
 
@@ -150,7 +151,18 @@ def figure(data, style, name="polarisation"):
         ax.set_ylim(bottom=0)
         framed_axes(ax)
     axes[0].set_ylabel("density over pairs")
-    fig.tight_layout(pad=0.4, w_pad=1.8)
+
+    # swatches drawn like the bars themselves, above the axes: the trust panel is
+    # occupied at both walls and the opinion panel in the middle, so there is no
+    # in-axes corner that is free in both
+    handles = [
+        Patch(facecolor=fill, edgecolor=edge, alpha=0.62, linewidth=0.35, label=lab)
+        for (fill, edge), lab in ((HIST_BLUE, "initial"), (HIST_RED, "final"))
+    ]
+    fig.legend(handles=handles, loc="upper center", ncol=2, frameon=False,
+               bbox_to_anchor=(0.5, 1.03), handlelength=1.5, handleheight=0.9,
+               columnspacing=1.8, borderaxespad=0.0)
+    fig.tight_layout(pad=0.4, w_pad=1.8, rect=(0, 0, 1, 0.93))
     return save(fig, name, style)
 
 

@@ -32,7 +32,7 @@
 % The ICLR style sets titles in \LARGE; at that size this title wraps onto a
 % second line and hyphenates ("Neural Net-works"). One step down fits it on one
 % line. \texorpdfstring keeps the size command out of the PDF metadata string.
-\title{Polarization and Discrimination \\ in a Society of Neural Networks}
+\title{Polarization and Discrimination \\ in a Multi-Agent System of Neural Networks}
 
 \author{Anonymous authors\\Paper under double-blind review}
 
@@ -402,12 +402,13 @@ Figure~\ref{fig:polarisation} contain $84\,694\,400$ triples between them. In tr
 perfectly balanced and the other two hold a residue of $1\,590$ triples in total ---
 two thousandths of one per cent --- which is traceable to the $29$ pairs, of
 $638\,400$, whose overlap is smaller than $0.05$ in magnitude and whose sign is
-therefore close to arbitrary. The society has two factions, not three or more, and the same two in both
-sectors: the opinion--trust correlation \eqref{eq:rwmu} is zero at initialisation
-and $+0.56$ once the society has settled (measured at $d=0$ in the sweeps of
-\S\ref{sec:results}), so agents end up trusting those who agree with them and
-distrusting those who do not. That is not imposed anywhere in \S\ref{sec:model}; it is what the
-sign structure of the modulation functions produces.
+therefore close to arbitrary. The society has two factions, not three or more.
+
+They are also the \emph{same} two factions in both sectors: agents end up trusting
+those who agree with them and distrusting those who do not, which is why the two
+panels of Figure~\ref{fig:polarisation} split at the same moment. Nothing in
+\S\ref{sec:model} imposes that alignment; it is what the sign structure of the
+modulation functions produces, and \S\ref{sec:order-params} puts a number on it.
 
 Two things about that split matter for what follows. It is \emph{spontaneous}: which
 agent lands in which faction is decided by the initial condition, not by anything
@@ -458,8 +459,12 @@ field mapped onto a bounded, sign-carrying scale. Their correlation,
 \end{equation}
 %
 averaged over unordered pairs and normalised to $[-1,1]$, asks whether agents trust
-those who agree with them --- a single number for the structure
-Figure~\ref{fig:polarisation} shows.
+those who agree with them. It is the single number behind the alignment of the two
+panels of Figure~\ref{fig:polarisation}: zero at initialisation, where opinion and
+trust are independent by construction, and $+0.56$ in the polarised society at
+$\alpha=0.17$. How far it can rise is capped by the agenda, and
+\S\ref{sec:no-disc} returns to why: at $\alpha=3.3$ the same measurement gives
+$+0.93$.
 
 A correlation cannot distinguish a society split into two coherent camps from one
 in which distrust is spread inconsistently, so we also measure social balance in the

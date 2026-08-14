@@ -27,7 +27,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.modulation import F_mu, F_w, evidence  # noqa: E402
-from ednna.plotting import panel, save  # noqa: E402
+from ednna.plotting import framed_axes, panel, pastel, save  # noqa: E402
 
 LIM = 4.0
 
@@ -56,7 +56,7 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
             np.clip(mag, 0, vmax),
             origin="lower",
             extent=[-LIM, LIM, -LIM, LIM],
-            cmap="BuPu",
+            cmap=pastel("BuPu", 0.35),
             vmin=0.0,
             vmax=vmax,
             aspect="equal",
@@ -71,12 +71,13 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
         v = F_mu(QW + D, QMU)
         ax.quiver(
             QW, QMU, u, v,
-            np.hypot(u, v), cmap="autumn_r", clim=(0, vmax),
+            np.hypot(u, v), cmap=pastel("autumn_r", 0.25), clim=(0, vmax),
             angles="xy", scale=26.0, width=0.006, headwidth=3.2, headlength=3.6,
             pivot="middle",
         )
         # the separatrix, displaced by the discrimination field
-        ax.plot([-LIM, LIM], [-LIM + D, LIM + D], color="tab:green", lw=0.9)
+        ax.plot([-LIM, LIM], [-LIM + D, LIM + D], color="#5aa469", lw=0.9)
+        framed_axes(ax, minor=False)
         ax.axhline(0.0, color="0.5", lw=0.4)
         ax.axvline(0.0, color="0.5", lw=0.4)
         ax.set_xlim(-LIM, LIM)

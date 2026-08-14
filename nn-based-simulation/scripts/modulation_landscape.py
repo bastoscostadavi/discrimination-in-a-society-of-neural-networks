@@ -28,7 +28,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402  (adds the package root to sys.path)
 
 from ednna.modulation import F_C, F_V, F_mu, F_w, evidence  # noqa: E402
-from ednna.plotting import panel, save  # noqa: E402
+from ednna.plotting import framed_axes, panel, pastel, save  # noqa: E402
 
 LIM = 4.0
 GRID = 400
@@ -80,12 +80,13 @@ def _contour_panel(ax, F, name, cap, ylabel=False):
     (HW, HMU), _ = _plane()
     levels = np.linspace(-cap, cap, 25)
     values = np.clip(F(HW, HMU), -cap, cap)
-    im = ax.contourf(HW, HMU, values, levels=levels, cmap="coolwarm", extend="both")
+    im = ax.contourf(HW, HMU, values, levels=levels, cmap=pastel("coolwarm", 0.30),
+                     extend="both")
     ax.contour(HW, HMU, values, levels=levels[::4], colors="k", linewidths=0.25,
                alpha=0.5)
     ax.axhline(0.0, color="0.55", lw=0.5)
     ax.axvline(0.0, color="0.55", lw=0.5)
-    ax.plot([-LIM, LIM], [-LIM, LIM], color="tab:green", lw=0.9)
+    ax.plot([-LIM, LIM], [-LIM, LIM], color="#5aa469", lw=0.9)
     ax.set_xlim(-LIM, LIM)
     ax.set_ylim(-LIM, LIM)
     ax.set_aspect("equal")
@@ -94,8 +95,9 @@ def _contour_panel(ax, F, name, cap, ylabel=False):
     ax.set_xlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", labelpad=1)
     if ylabel:
         ax.set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", labelpad=1)
-    ax.text(0.05, 0.93, name, transform=ax.transAxes, fontsize=9, color="navy",
+    ax.text(0.05, 0.93, name, transform=ax.transAxes, color="#2f4f7f",
             ha="left", va="top")
+    framed_axes(ax, minor=False)
     return im
 
 
@@ -161,9 +163,9 @@ def figure_slices(style, h_w0=6.0, d=2.0, lim=9.0):
     ):
         base = sign * h_w0
         for shift, colour, label in (
-            (+d, "tab:blue", rf"$D = {d:+.0f}$ (tolerant)"),
-            (0.0, "tab:green", r"$D = 0$"),
-            (-d, "tab:red", rf"$D = {-d:+.0f}$ (intolerant)"),
+            (+d, "#5b8ec4", rf"$D = {d:+.0f}$ (tolerant)"),
+            (0.0, "#5aa469", r"$D = 0$"),
+            (-d, "#c96a63", rf"$D = {-d:+.0f}$ (intolerant)"),
         ):
             hw = base + shift
             ax.plot(h_mu, F_mu(hw, h_mu), color=colour, lw=1.1, label=label)
@@ -171,6 +173,7 @@ def figure_slices(style, h_w0=6.0, d=2.0, lim=9.0):
             ax.axvline(hw, color=colour, lw=0.5, ls=":", alpha=0.8)
         ax.axhline(0.0, color="0.55", lw=0.5)
         ax.axvline(0.0, color="0.55", lw=0.5)
+        framed_axes(ax, minor=False)
         ax.set_xlabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust")
         ax.set_title(title, fontsize=8)
         ax.set_xlim(-lim, lim)

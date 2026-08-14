@@ -26,7 +26,7 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402
 
 from ednna.order_params import balance  # noqa: E402
-from ednna.plotting import panel, save  # noqa: E402
+from ednna.plotting import framed_axes, panel, pastel, save  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import DATA_DIR  # noqa: E402
 
@@ -94,7 +94,7 @@ def figure(data, style):
     issues = data["issues"]
     K = int(data["n_dim"])
     fig, ax = plt.subplots(figsize=panel(0.60, 0.52/0.72))
-    colours = plt.get_cmap("viridis_r")(np.linspace(0.05, 0.95, len(issues)))
+    colours = pastel("viridis_r", 0.30)(np.linspace(0.05, 0.95, len(issues)))
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, zorder=1)
     for i, P in enumerate(issues):
         ax.plot(
@@ -111,8 +111,7 @@ def figure(data, style):
     ax.set_ylabel(r"$B_A$")
     ax.set_xlim(-0.2, 1.2)
     ax.set_ylim(-0.05, 1.05)
-    ax.grid(color="0.9", lw=0.5)
-    ax.set_axisbelow(True)
+    framed_axes(ax, minor=False)
     ax.legend(loc="lower right", fontsize=6, ncol=1, framealpha=0.9, frameon=True)
     fig.tight_layout(pad=0.4)
     return save(fig, "agenda_trajectories", style)
