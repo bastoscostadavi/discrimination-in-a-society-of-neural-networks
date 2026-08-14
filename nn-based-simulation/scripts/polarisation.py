@@ -146,7 +146,9 @@ def figure(data, style, name="polarisation"):
             ax.hist(values, bins=bins, density=True, color=fill, alpha=0.62,
                     edgecolor=edge, linewidth=0.35, zorder=2)
         ax.set_xlabel(xlabel)
-        ax.set_xlim(-1, 1)
+        # a little air beyond the walls: both quantities pile up at exactly +-1, and
+        # a bar flush against the frame reads as clipped rather than as a peak
+        ax.set_xlim(-1.1, 1.1)
         ax.set_xticks([-1, -0.5, 0, 0.5, 1])
         ax.set_ylim(bottom=0)
         framed_axes(ax)

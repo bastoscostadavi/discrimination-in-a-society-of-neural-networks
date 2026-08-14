@@ -1,0 +1,53 @@
+\section{Ablation specification}
+\label{app:ablation}
+
+Precise definitions for \S\ref{sec:ablation}. Each condition changes exactly one
+thing; the grid, the seeds, the initialisation, the measurement time and every
+other parameter are those of Appendix~\ref{app:params}.
+
+\paragraph{A0 --- random-label control.} Draw an independent bit $b_I = \pm 1$ per
+agent, uncorrelated with $\kappa_I$ and resampled per seed. Apply
+Eq.~\ref{eq:shift} with $D[b_r, b_e]$ in place of $D[\kappa_r, \kappa_e]$, same
+$d$, same $f_d$. Report $\Rmc$ measured against the \emph{true} label $\kappa$, and
+additionally against $b$ --- the second is the more informative measurement and
+tests whether the mechanism aligns structure with \emph{whatever} label the
+perturbation is keyed to, or specifically with a label that is shared and visible.
+\emph{Prediction:} $\Rmc[\kappa] \approx 0$ throughout; degraded generalisation
+relative to $d = 0$.
+
+\paragraph{A1 --- frozen trust.} Set $F_\mu = F_V = 0$ for all interactions,
+holding $\mu_{J|I}$ and $V_{J|I}$ at initialisation. The opinion sector updates
+normally, still reading $\hmu$ from the frozen $\mu$. \emph{Report $\Rcw$, not
+$\Rmc$}: with $\mu$ frozen at $U(-1,1)$, $\Rmc \approx 0$ by construction and
+measures nothing. \emph{Prediction:} no transition in $\Rcw$, establishing that
+the trust sector is load-bearing rather than a readout. Run also with $\mu$ frozen
+at $0$ (uniform trust) to separate ``frozen at random'' from ``no trust
+structure''.
+
+\paragraph{A2 --- no anti-learning.} Replace the prefactor of $F_w$ by
+$\max(0, 1 - 2\Phi(\hmu))$, leaving $F_\mu$, $F_C$, $F_V$ untouched. A distrusted
+source now produces no opinion update instead of a reversed one. \emph{Prediction:}
+polarisation collapses at every $d$, including $d = 0$; both balance measures stay
+near zero. If instead polarisation survives, the mechanism is not the sign reversal
+and the paper's central claim needs restating --- this is the condition most able
+to falsify it, which is why it is worth running first.
+
+\paragraph{A3 --- rule baselines.} Same population, same perturbation, same grid,
+with the opinion update replaced by:
+\begin{itemize}
+  \item \textbf{Hebbian:} $\hat{\wv}_r \mathrel{+}= \tfrac{\lambda}{\sqrt{K}}\,\sigma_e \xv$.
+  \item \textbf{Perceptron:} the same, applied only when
+    $\mathrm{sign}(\hat{\wv}_r\cdot\xv) \neq \sigma_e$.
+\end{itemize}
+Neither carries a trust sector, so Eq.~\ref{eq:shift} must be applied to the
+quantity that plays the role of $\hw$ --- i.e.\ to $\hat{\wv}_r \cdot \xv\,\sigma_e$
+before the update decision. Say so explicitly; it is the one place where the
+comparison could be made unfair by accident. Match $\lambda$ so that the baselines
+reach comparable generalisation at $d = 0$, and report that calibration.
+\emph{Prediction:} $\Rmc \approx 0$ throughout for both.
+
+\paragraph{Reporting.} One figure, five panels over the $(d, f_d)$ plane sharing
+the colour scale of Fig.~\ref{fig:phase}: unablated, A0, A1, A2, A3. Seeds and
+error bars as in Appendix~\ref{app:params}. Every prediction above should be stated
+in the text \emph{before} the figure, so that the ablations read as tests rather
+than as observations.

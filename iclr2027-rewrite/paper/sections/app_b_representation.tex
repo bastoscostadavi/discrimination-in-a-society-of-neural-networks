@@ -1,0 +1,90 @@
+\section{The augmented representation, and the sign convention}
+\label{app:representation}
+
+\subsection{Assumptions under which \eqref{eq:augmented} reduces exactly}
+
+Write the augmented weights as $W_r=[\hat{w}_r; a_r]$ with a Gaussian belief of
+variance $v_a$ on the extra coordinate. The general compatibility score is
+%
+\begin{equation}
+  \Hf^{\text{aug}}
+  = \frac{\hw + \sigma_e\,a_r z_r s/\gamma_C}{\sqrt{1+z_r v_a/\gamma_C^{2}}}
+  = \hw + \frac{D}{\gamma_C} - \frac{\hw z_r v_a}{2\gamma_C^{2}} + O(v_a^{2}),
+\end{equation}
+%
+so \eqref{eq:disc-field} is recovered exactly under four assumptions, which we
+state rather than leave implicit.
+
+\textbf{A1 (deterministic coordinate, $v_a=0$).} The class coordinate is part of
+the representation, not a learned parameter, so it carries no posterior variance.
+This is what leaves $\gamma_C$ untouched and suppresses any covariance update
+along that direction. It is the only assumption needed for exactness; relaxing it
+gives the $O(v_a/\gamma_C^2)$ correction above.
+
+\textbf{A2 (fixed prejudice).} The weight on the coordinate is the hyperparameter
+$d$ and is not updated. Relaxing A2 gives a \emph{learned-prejudice} variant in
+which $a_r \leftarrow a_r + (\Fw/\gamma)v_a z_r s$, so the strength of the bias
+would itself adapt to how well it predicted. That is a natural extension and we
+do not study it.
+
+\textbf{A3 (interaction-level, not issue-level).} The coordinate attaches to the
+message, because $\kappa_e$ is a property of the source and not of the issue.
+This is what keeps the shift from being multiplied by $\sigma_e$ and divided by
+$\gamma_C$ --- either of which would make the bias flip with the emitter's stated
+opinion, or decay as the receiver grew confident.
+
+\textbf{A4 (bounded binary feature).} $s\in\{0,\pm1\}$, so the shift is bounded
+by $|d|$ and there are exactly six inequivalent fillings of the $2\times2$
+matrix, tabulated below.
+
+\subsection{The six discrimination patterns}
+
+Rows index the receiver's class, columns the emitter's; $+d$ is the tolerant
+entry and $-d$ the intolerant one.
+
+\newcommand{\dmat}[4]{\left(\begin{smallmatrix}#1&#2\\#3&#4\end{smallmatrix}\right)}
+\begin{table}[h]
+\centering\small
+\begin{tabular}{cccc}
+\toprule
+case & $D/d$ & who discriminates & how \\
+\midrule
+1 & $\dmat{+1}{0}{0}{0}$    & $A$ only & in-group favouritism \\
+2 & $\dmat{0}{-1}{0}{0}$    & $A$ only & out-group hostility \\
+3 & $\dmat{+1}{-1}{0}{0}$   & $A$ only & both \\
+4 & $\dmat{+1}{0}{0}{+1}$   & both     & in-group favouritism \\
+5 & $\dmat{0}{-1}{-1}{0}$   & both     & out-group hostility \\
+6 & $\dmat{+1}{-1}{-1}{+1}$ & both     & both \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Case 6, used throughout the main text, is the one in which the two classes play
+symmetric roles, so any asymmetry appearing in the results is spontaneous rather
+than imposed. Compactly, $\Dfield=z_r d\,\kappa_r\kappa_e$.
+
+\subsection{The sign convention, and an inconsistency in earlier presentations}
+\label{app:sign}
+
+Three statements are in play in earlier accounts of this model: that a
+discriminating receiver evaluates its update at $\hw+\Dfield$; that for $d>0$ the
+in-group entries of the matrix are $-d$; and that the discriminatory regime lies
+at $d>0$. The first two together imply the opposite of the third.
+
+The argument is one line of \eqref{eq:modulation}. $\Fmu$ carries the factor
+$1-2\Phi(\Hf)$, which is negative whenever $\Hf>0$, and $\mu$ is \emph{distrust},
+updated as $\mu\leftarrow\mu+\Fmu V/\gamma_V$. So perceived agreement drives $\mu$
+down and builds trust, and perceived disagreement drives it up. A receiver adding
+$+d$ therefore reads its counterpart as more agreeable than it is and grows
+\emph{more trusting}: $+d$ is the tolerant entry. Assigning $-d$ to the in-group
+means a society at $d>0$ distrusts its own class, which places the discriminatory
+regime at $d<0$ and mirrors every map in $d$.
+
+Any one of three repairs resolves it, and they are the same change: flip the
+table so in-group entries are $+d$ (what we do, since it leaves the field
+equation untouched and preserves the meaning of every published axis); or keep
+the table and write the field equation with a minus; or keep both and relabel
+$d<0$ as the discriminatory direction. The choice has no effect on the physics
+--- the same regimes exist in the same places --- only on which half of the axis
+carries which name. The accompanying code implements both readings behind a flag
+and asserts that they are exact mirror images.

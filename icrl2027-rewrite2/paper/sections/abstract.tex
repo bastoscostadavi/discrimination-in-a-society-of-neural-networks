@@ -1,0 +1,22 @@
+Agents that learn from other agents must estimate how far to trust each source.
+We study a population of $N$ neural-network learners under a Bayesian online rule
+that jointly updates each agent's weights and an explicit, dynamical reliability
+estimate for every other agent. Into this population we introduce a
+\emph{representation error}: a fraction $f_d$ of agents extend their encoding of
+each message with a feature of strength $d$ that carries no information about the
+task and depends only on the sending agent's group label. Individually this is a
+mild misspecification, and against a randomly assigned label it does nothing but
+degrade learning. Against the group label it does not stay mild: above a sharp
+boundary in $(d, f_d)$ the population splits into mutually distrustful groups
+aligned with the label. We map the full phase diagram and identify two distinct
+discriminatory regimes, one in which the split still tracks learned
+representations and one in which trust tracks the label almost independently of
+them. Ablations isolate the cause. Freezing the reliability sector, or removing
+the sign reversal by which distrusted sources are anti-learned, eliminates the
+transition; Hebbian and Perceptron updates under the same perturbation do not
+produce it at all. Finally, task diversity $\alpha = P/K$ controls the
+\emph{order} in which structure appears: with few tasks, trust structure forms
+first and drags representations behind it, and with many the reverse. The
+amplification is therefore a property of reliability-weighted learning rather than
+of the architecture, and it is strongest in exactly the regime such weighting is
+usually adopted for.

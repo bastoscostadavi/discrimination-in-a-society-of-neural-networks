@@ -1,0 +1,61 @@
+\section{Asymmetric perturbations}
+\label{app:variants}
+
+The main text uses the fully symmetric case, Eq.~\ref{eq:dmatrix}, in which both
+groups favour their own and are hostile to the other. Five asymmetric variants are
+implemented, and they are the natural place to ask which structural ingredient the
+transition actually needs.
+
+\begin{table}[h]
+  \centering
+  \small
+  \begin{tabular}{@{}clll@{}}
+    \toprule
+    & $D / d$ & \textbf{Reading} & \textbf{Question it answers} \\
+    \midrule
+    $D_1$ & $\bigl(\begin{smallmatrix} +1 & 0 \\ 0 & 0\end{smallmatrix}\bigr)$
+      & one group, in-group tolerance only
+      & is in-group favouritism alone enough? \\
+    $D_2$ & $\bigl(\begin{smallmatrix} 0 & -1 \\ 0 & 0\end{smallmatrix}\bigr)$
+      & one group, out-group intolerance only
+      & is out-group hostility alone enough? \\
+    $D_3$ & $\bigl(\begin{smallmatrix} +1 & -1 \\ 0 & 0\end{smallmatrix}\bigr)$
+      & one group, both
+      & does one perturbed group suffice? \\
+    $D_4$ & $\bigl(\begin{smallmatrix} +1 & 0 \\ 0 & +1\end{smallmatrix}\bigr)$
+      & both groups, in-group tolerance only
+      & \\
+    $D_5$ & $\bigl(\begin{smallmatrix} 0 & -1 \\ -1 & 0\end{smallmatrix}\bigr)$
+      & both groups, out-group intolerance only
+      & \\
+    $D_6$ & $\bigl(\begin{smallmatrix} +1 & -1 \\ -1 & +1\end{smallmatrix}\bigr)$
+      & both groups, both \emph{(main text)}
+      & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Sign convention.} Rows index the receiver's label, columns the
+emitter's, and the signs follow \S\ref{sec:spurious}: a positive entry shifts $\hw$
+toward agreement, hence toward trust. So $+1$ on the diagonal is in-group
+tolerance. \textbf{This is the opposite of the sign printed in the source draft's
+Table~I}, whose Eq.~25 and table read literally place the discriminatory phases at
+$d < 0$ while its text and all of its figures place them at $d > 0$. One global
+sign reconciles the two, and the reading above is the one the sign of $F_\mu$
+forces. Fix this before the phase diagram becomes a headline figure --- the $x$
+axis of the main result cannot be ambiguous.
+
+\todo{report the four correlation maps for $D_1$--$D_5$. The two rows worth
+discussing in text are $D_1$ vs.\ $D_2$ (does tolerance or hostility drive it?) and
+$D_3$ vs.\ $D_6$ (does the effect need both groups perturbed, or does one suffice
+to organise the whole population?). The second is the more interesting question and
+neither the source draft nor the main text here answers it.}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{sign_convention_comparison}
+  \caption{The two readings of the perturbation's sign, side by side, at otherwise
+    identical parameters. Included so that a reader coming from the source draft
+    can see immediately which convention each figure uses.}
+  \label{fig:signs}
+\end{figure}

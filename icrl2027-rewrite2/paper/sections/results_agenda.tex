@@ -1,0 +1,59 @@
+\section{Task diversity decides what crystallises first}
+\label{sec:agenda}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.66\textwidth]{agenda_trajectories}
+  \caption{Trajectories in the $(\Brho, \Bet)$ plane for nine task diversities
+    $\alpha = P/K$, from a random initialisation with roughly half of all triples
+    frustrated. Every trajectory ends near the balanced corner: learning anneals
+    frustration away. \emph{Which side of the diagonal it takes to get there is
+    set by $\alpha$.}
+    \todo{axis labels still read $B_I$/$B_A$; regenerate.}}
+  \label{fig:trajectories}
+\end{figure}
+
+This section is independent of the spurious feature --- it holds at $d = 0$ --- and
+is, we think, the most transferable result in the paper.
+
+Start the population from random weights and random trust, so that roughly half of
+all triples are unbalanced and $\Brho \approx \Bet \approx 0$. Learning drives
+both balance measures toward $1$: by moving out of the dissonant quadrants of
+Eq.~\ref{eq:evidence}, agents anneal frustration away. The endpoint is not the
+interesting part. The \emph{path} is.
+
+\paragraph{The result.} For small $\alpha = P/K$ --- few issues relative to the
+representation dimension --- the trajectory runs \emph{above} the diagonal:
+$\Bet$ rises first, and the opinion sector follows. For large $\alpha$ the
+trajectory runs \emph{below} it: opinions organise first and trust follows. The
+crossing is monotone in $\alpha$ and the reversal happens near $\alpha \sim 1$.
+
+\paragraph{What it means.} A population of learners exchanging supervision
+develops two kinds of structure --- agreement about the tasks, and a relational
+structure over sources --- and which of them forms first is not a property of the
+learning rule but of the task distribution. When the agenda is narrow, there is
+not enough task signal to organise representations, so the population organises
+its trust relations first and those relations then pull representations into
+alignment. When the agenda is broad, representations have enough to lock onto and
+trust is inferred from the resulting agreement. The symmetry
+$F_w(x,y) = F_\mu(y,x)$ noted in \S\ref{sec:rule} is why both orders are available
+to the same dynamics; $\alpha$ selects between them.
+
+\paragraph{Why it matters for the rest of the paper.} It explains the difference
+between the two rows of Fig.~\ref{fig:correlations}. At low $\alpha$ and strong
+$d$, $\Rcw$ is small while $\Rmc$ saturates --- region (IV) --- because the trust
+structure formed first and never needed the opinion sector to agree with it. The
+two discriminatory regimes of \S\ref{sec:phase} are therefore not two arbitrary
+patches of a diagram; they are the same two orders of crystallisation, selected in
+one case by $\alpha$ and in the other by $d$.
+
+\paragraph{Practical reading.} A system whose agents exchange supervision over a
+narrow task distribution will form relational structure before it forms agreement,
+and that structure will be available for a spurious feature to align itself with
+before there is enough task signal to contradict it. Narrow agendas are the
+dangerous regime, and they are the common one.
+
+\todo{state the $\alpha$ values and the measurement time in-text. The source draft
+leaves $\Delta t$ as a literal placeholder and it is load-bearing here: because
+the dynamics anneals rather than equilibrating (\S\ref{sec:rule}), a trajectory
+figure is meaningless without the time at which it was cut.}

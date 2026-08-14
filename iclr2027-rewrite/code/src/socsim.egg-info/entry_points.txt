@@ -1,0 +1,2 @@
+[console_scripts]
+socsim = socsim.cli:main

@@ -1,0 +1,88 @@
+%% ---------------------------------------------------------------------------
+%% Learned Trust Amplifies Spurious Features into Group Structure
+%% ICLR 2027 submission -- structural skeleton (icrl2027-rewrite2)
+%%
+%% Drop iclr2027_conference.sty / .bst next to this file to build in venue
+%% format; otherwise it falls back to article and still compiles.
+%% ---------------------------------------------------------------------------
+\documentclass{article}
+
+\IfFileExists{iclr2027_conference.sty}{%
+  \usepackage{iclr2027_conference}
+  \iclrfinalcopy % comment out for the anonymised submission
+}{%
+  \usepackage[margin=1in]{geometry}
+  \typeout{^^J*** iclr2027_conference.sty not found -- building in article
+    fallback. Layout and page count will not match the venue. ***^^J}
+}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{url}
+
+%% Figures live in the simulation directory; nothing is copied.
+\graphicspath{{../../nn-based-simulation/figures/iclr/}{figures/}}
+
+%% ---------------------------------------------------------------------------
+%% Notation. Two sectors, named once, here.
+%%   OPINION sector: the agent's classifier.        w, C, rho
+%%   TRUST   sector: per-source reliability.        mu, V, eta
+%% "Ideological" and "affective" are not used anywhere in this paper.
+%% ---------------------------------------------------------------------------
+\newcommand{\wv}{\bm{w}}
+\newcommand{\xv}{\hat{\bm{x}}}
+\newcommand{\hw}{h_{w}}          % opinion field
+\newcommand{\hmu}{h_{\mu}}        % trust field  (>0 = distrust)
+\newcommand{\Rwm}{R_{w\mu}}      % opinion-trust
+\newcommand{\Rmc}{R_{\mu c}}     % trust-class   <- the discrimination parameter
+\newcommand{\Rcw}{R_{cw}}        % opinion-class
+\newcommand{\Brho}{B_{\rho}}     % opinion balance  (source draft: B_I)
+\newcommand{\Bet}{B_{\eta}}     % trust balance    (source draft: B_A)
+
+%% Visible markers for what is structure vs. what is written vs. what is missing.
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\needsrun}[1]{\textcolor{orange}{\textbf{[NEEDS EXPERIMENT: #1]}}}
+
+\title{Learned Trust Amplifies Spurious Features\\into Group Structure}
+
+\author{%
+  \todo{author block}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/setup}
+\input{sections/rule}
+\input{sections/spurious}
+\input{sections/observables}
+\input{sections/results_phase}
+\input{sections/results_ablation}
+\input{sections/results_agenda}
+\input{sections/related}
+\input{sections/limitations}
+
+\subsubsection*{Reproducibility statement}
+\todo{point at the released code, the parameter table (Appendix~\ref{app:params}),
+and the seed protocol.}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\appendix
+\input{sections/app_derivation}
+\input{sections/app_ablation_spec}
+\input{sections/app_variants}
+\input{sections/app_params}
+
+\end{document}

@@ -1,0 +1,50 @@
+\section{Limitations and discussion}
+\label{sec:limitations}
+
+\paragraph{Single-layer agents.} Each agent is a perceptron. This is a deliberate
+choice --- it is the simplest model in which two agents can agree on some tasks and
+disagree on others, and it keeps the update rule in closed form, which is what
+makes the mechanism identifiable at all. It is nonetheless the obvious objection,
+and \S\ref{sec:phase} carries one experiment outside it.
+\todo{make sure that experiment exists before submission; without it this
+paragraph is an admission rather than a limitation.}
+
+\paragraph{The perturbation is injected, not learned.} We shift the opinion field
+by a constant and study the consequences. We do not model how an agent would come
+to encode messages in a source-dependent way in the first place. That is a
+separate question and we make no claim about it.
+
+\paragraph{Scale.} $N = 40$ agents, and the balance observables cost $O(N^3)$
+before the closed form of \S\ref{sec:observables}. The finite-size scaling in
+\S\ref{sec:boundary} is what licenses reading the boundary as a genuine transition
+rather than a feature of a small population, and it is the analysis to trust over
+any single map.
+
+\paragraph{The dynamics anneals rather than equilibrating.} $F_C, F_V < 0$ almost
+everywhere, so the population slows down instead of reaching a stationary state.
+Every observable is therefore reported at a stated measurement time, and the
+qualitative structure --- which regime, which side of the diagonal --- is stable
+across the range we checked, while the numerical values are not
+time-independent. We regard time-to-organise as part of the phenomenon rather
+than a nuisance; \S\ref{sec:agenda} is entirely a statement about it.
+
+\paragraph{On the social reading.} These are single-layer networks, and extending
+any of this to human behaviour is not automatic. We use the words group, trust and
+discrimination because they name the structures the model actually contains --- a
+label carrying no task information, a learned per-source reliability, and a
+partition aligned with the label --- and not as a claim about people. What the
+result does support is narrower and, we think, more useful: a mechanism by which
+systems that learn from each other can acquire and entrench a partition along a
+feature that no component of the system was ever told to care about, without
+biased data and without a preference anywhere in the system.
+
+\paragraph{Objective misspecification by scale.} The update rule is optimal for a
+teacher--student pair. The two properties that make it good at that job --- moving
+away from sources it has learned to distrust, and attributing surprise to whichever
+sector is less certain --- are exactly the two that produce the collective
+pathology. This is not a defect in the derivation. It is what happens when an
+objective derived at one scale is deployed at another, and it suggests that the
+right question to ask of a peer-weighting scheme is not whether it is optimal for a
+pair but what it does to a population. Ablation A2 gives a concrete instance:
+declining to anti-learn from unreliable peers costs sample efficiency and buys
+immunity to this failure mode.

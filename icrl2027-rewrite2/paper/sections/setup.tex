@@ -1,0 +1,79 @@
+\section{Setup: a population of learners with per-source reliability}
+\label{sec:setup}
+
+\paragraph{Agents.} A population of $N$ agents. Agent $I$ holds an \emph{opinion
+sector} --- weights $\wv_I \in \mathbb{R}^K$ with covariance $C_I$ --- and a
+\emph{trust sector}: for every other agent $J$, a scalar $\mu_{J|I}$ with variance
+$V_{J|I}$. The belief state is the product of Gaussians
+\begin{equation}
+  Q(\wv_I, \bm{z}_I \mid \lambda_I)
+  \;=\; \mathcal{N}(\hat{\wv}_I, C_I)\prod_{J \neq I} \mathcal{N}(\mu_{J|I}, V_{J|I}),
+  \label{eq:state}
+\end{equation}
+where the means say what the agent holds and the variances say how firmly. Each
+agent also carries an immutable label $\kappa_I = \pm 1$, visible to every other
+agent and carrying no information about any issue.
+
+Read $\mu_{J|I}$ as $I$'s estimate of the probability that $J$ transmits the wrong
+label: it is a per-source reliability parameter, learned online, with an explicit
+uncertainty attached. Positive $\mu$ is distrust.
+
+\paragraph{The covariances are also the learning rates.} It is worth being
+explicit about the double role $C_I$ and $V_{J|I}$ play, because it is what makes
+the dynamics of \S\ref{sec:rule} interpretable. As posterior widths they are
+epistemic: they say how uncertain the agent is. But they also premultiply every
+update the agent ever makes --- the weight step is proportional to $C_r$ and the
+trust step to $V_{e|r}$ (Eq.~\ref{eq:update}) --- so they are simultaneously the
+step sizes.
+
+The degenerate limit makes the point. As $C_I \to 0$ the agent is
+\emph{completely certain} of its opinion, and its weights stop moving: no message,
+from any source, on any issue, changes what it believes. As $V_{J|I} \to 0$ it is
+completely certain of how far to trust $J$, and that estimate stops moving
+whatever $J$ subsequently says. With both at zero the agent is frozen --- not
+because it has stopped receiving information, but because a Bayesian update to a
+delta-function prior returns the prior. Certainty and immobility are the same
+statement here, and no separate learning-rate hyperparameter appears anywhere in
+the model.
+
+This is not a corner case to be excluded, because the dynamics drives the system
+toward it: both covariances shrink monotonically under the update
+(\S\ref{sec:rule}), so a population anneals rather than equilibrating, and
+\emph{when} it is measured is a parameter of the experiment
+(Appendix~\ref{app:params}). It is also the reason the initialisation
+$C_0 = I$, $V_0 = 1$ matters more than it looks: it sets the total amount of
+movement available to the population over its whole history.
+
+\paragraph{Tasks.} An issue is a unit vector $\xv \in \mathbb{R}^K$; the agenda is
+a fixed set of $P$ of them. Agent $I$'s opinion on an issue is
+$\sigma_I = \mathrm{sign}(\wv_I \cdot \xv)$. Because each agent is a classifier
+rather than a scalar state, two agents can agree on some issues and disagree on
+others --- the property that motivates using a network here at all, and that a
+two-state model cannot represent. We write $\alpha = P/K$ for the
+\textbf{task diversity} of the agenda, and it turns out to control more than the
+difficulty of the learning problem (\S\ref{sec:agenda}).
+
+\paragraph{One interaction.} Draw an issue $\xv$, an emitter $e$ and a receiver
+$r$. The emitter transmits its opinion $\sigma_e = \pm 1$. The receiver updates
+both sectors. Two independent corruptions stand between the emitter's
+computation and the receiver's update:
+
+\begin{enumerate}
+  \item \textbf{Channel noise.} The transmitted $\sigma_e$ differs from the true
+    label with probability $\varepsilon$. Modelling $\varepsilon = \Phi(z)$ with
+    $z \sim \mathcal{N}(\mu_{e|r}, V_{e|r})$ keeps the update closed in the
+    Gaussian family; the trust sector \emph{is} the receiver's posterior over the
+    channel's flip probability.
+  \item \textbf{Encoding mismatch.} The vector the receiver parses is not the one
+    the emitter parsed. They are jointly Gaussian with $\mathbb{E}[x_i y_i] = v_p$,
+    and the choice $v_p = \|\wv\|^{-2}$ makes an inexperienced agent (small weight
+    norm) a worse parser. Details in Appendix~\ref{app:derivation}.
+\end{enumerate}
+
+The second is where the perturbation of \S\ref{sec:spurious} enters. It is a
+statement about \emph{representation}, not about preference: the two agents do not
+encode the same message into the same vector.
+
+\todo{one sentence placing this against decentralised SGD / federated setups ---
+same structure, but there the peer weights are usually a hyperparameter or a
+robust-aggregation rule rather than a learned posterior.}

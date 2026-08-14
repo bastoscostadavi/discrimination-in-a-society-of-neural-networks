@@ -1,0 +1,68 @@
+\section{Introduction}
+\label{sec:intro}
+
+A learner that takes supervision from other learners cannot treat all of its
+sources alike. Some are better than others, some are adversarial, and the
+standard response is to estimate a per-source reliability and weight incoming
+gradients by it. This is one of the most widely deployed ideas in machine
+learning: it is the Dawid--Skene construction in crowdsourcing, annotator
+modelling in preference learning, client reweighting in federated optimisation,
+and peer weighting in decentralised training. In each case reliability estimation
+is introduced defensively --- it is the component that makes learning
+\emph{robust} to bad sources.
+
+This paper reports a cost of that component that we have not seen stated. A
+per-source reliability estimate is a variable indexed by the source. If anything
+about how a learner encodes its inputs depends on \emph{which} source sent them,
+the reliability estimate is the natural place for that dependence to accumulate.
+When the source-dependent part of the encoding happens to correlate with a group
+label, reliability estimation converts a local encoding defect into a global,
+self-reinforcing partition of the population --- and does so with a sharp
+threshold rather than gracefully.
+
+We make this precise in a population of $N$ agents that exchange opinions about a
+fixed agenda of $P$ issues. Each agent carries a classifier (the \emph{opinion}
+sector) and, for every other agent, a scalar reliability estimate (the
+\emph{trust} sector). Both are updated by the same rule, a Gaussian variational
+approximation to the Bayesian posterior that is optimal for a single
+teacher--student pair. The perturbation we inject is a representation error in
+the sense familiar from shortcut learning: a discriminating agent appends to each
+message a feature that is uninformative about the issue and determined entirely by
+the sender's group label. It shifts one field by a constant $d$. Nothing in the
+model expresses a preference for either group, no training data is biased, and
+the label is uncorrelated with every issue.
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item We identify \textbf{learned per-source reliability weighting as an
+    amplifier of spurious features}. A perturbation that is harmless when keyed to
+    a random per-source bit produces a population-wide split when keyed to a group
+    label of the same magnitude (\S\ref{sec:ablation}, condition A0).
+  \item We map the \textbf{phase diagram} in the strength $d$ of the spurious
+    feature and the fraction $f_d$ of agents carrying it, extract the boundary
+    $d_c(f_d)$, and separate \textbf{two distinct discriminatory regimes}: one in
+    which the split still tracks learned representations, and one in which trust
+    tracks the group label almost independently of them
+    (\S\ref{sec:phase}).
+  \item We \textbf{isolate the mechanism by ablation}. Freezing the trust sector,
+    or removing the sign reversal by which distrusted sources are anti-learned,
+    removes the transition; Hebbian and Perceptron updates under the identical
+    perturbation do not exhibit it (\S\ref{sec:ablation}).
+  \item We show that \textbf{task diversity $\alpha = P/K$ determines the order in
+    which structure crystallises} --- trust before representation, or the reverse
+    --- which is a statement about what a population of learners aligns first, and
+    is independent of whether any spurious feature is present at all
+    (\S\ref{sec:agenda}).
+\end{itemize}
+
+\paragraph{The frame.} The update rule we study is optimal in a well-defined
+sense, for a pair. Deployed in a population it is pathological, and the
+pathology is not a bug in the derivation --- it follows from the two features that
+make the rule good at its stated job. We read this as objective misspecification
+by scale: an objective correct at the scale it was derived for, wrong at the scale
+it is used at. We state this once here and once in \S\ref{sec:limitations}, and
+otherwise let the ablations carry the argument.
+
+\todo{one short paragraph on why this is not merely a restatement of model
+collapse --- there the degradation is in the data distribution, here the data
+distribution is fixed and the pathology is in the weighting.}

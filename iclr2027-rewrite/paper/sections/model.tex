@@ -1,0 +1,127 @@
+\section{A society of agents that learn from each other}
+\label{sec:model}
+
+\paragraph{Agents, issues, opinions.}
+A population of $N$ agents discusses an agenda of $P$ issues. An issue is a unit
+vector $\hat{x}\in\mathbb{R}^{K}$: the embedding of an assertion in the $K$
+dimensions relevant to the question at hand. All agents embed issues
+identically and differ only in what they make of them, which separates the
+\emph{representation} of an issue from the \emph{opinion} an agent holds about
+it. Agent $I$ carries a perceptron with weights $w_I\in\mathbb{R}^{K}$ and states
+$\sigma_I=\mathrm{sign}(w_I\cdot\hat{x})\in\{\pm1\}$. This is the least
+structure that lets two agents agree on some issues and disagree on others; a
+model in which each agent is a single spin cannot, and graded disagreement turns
+out to drive the collective behaviour we report. Each agent also carries an
+immutable label $\kappa_I=\pm1$, visible to others, splitting the population into
+two equal classes. \emph{The label carries no information about any issue}; we
+make that precise in \S\ref{sec:mechanism}.
+
+An agent's state has two sectors. The \emph{ideological} sector is a Gaussian
+belief over its own weights, mean $\hat{w}_I$ and covariance $C_I$. The
+\emph{affective} sector is a Gaussian belief, held separately about every other
+agent $J$, over how unreliable $J$ is as a source: mean $\mu_{J|I}$, the
+\emph{distrust} $I$ assigns to $J$, and variance $V_{J|I}$. Writing the joint
+belief as a product of Gaussians,
+%
+\begin{equation}
+  Q(w_I, z_I \mid \lambda_I) \;=\; \mathcal{N}(\hat{w}_I, C_I)
+  \prod_{J\neq I}\mathcal{N}(\mu_{J|I}, V_{J|I}),
+  \label{eq:belief}
+\end{equation}
+%
+the dynamical variables are $\lambda_I=\{\hat{w}_I, C_I, \mu_{J|I}, V_{J|I}\}$.
+The means fix what an agent thinks; the variances fix how firmly, and thereby
+how fast it can be moved.
+
+\paragraph{One interaction.}
+At each step an issue $\hat{x}$, an emitter $e$ and a receiver $r$ are drawn
+uniformly. The emitter states $\sigma_e$; the receiver treats it as a report of
+an unknown true label transmitted through a channel whose flip probability is
+precisely what its distrust of the emitter encodes. Two scaled fields carry
+everything the update depends on:
+%
+\begin{equation}
+  \hw \;=\; \frac{\hat{w}_r\cdot\hat{x}\,\sigma_e}{\gamma_C},
+  \qquad
+  \hmu \;=\; \frac{\mu_{e|r}}{\gamma_V},
+  \qquad
+  \gamma_C=\sqrt{1+\hat{x}\cdot C_r\hat{x}},\quad \gamma_V=\sqrt{1+V_{e|r}} .
+  \label{eq:fields}
+\end{equation}
+%
+We call $\hw$ the \emph{agreement field} --- positive when the receiver already
+agrees with the message, large when it holds that view confidently --- and
+$\hmu$ the \emph{distrust field}. In these variables the evidence the receiver
+assigns to the message is
+%
+\begin{equation}
+  Z \;=\; \Phi(\hw) + \Phi(\hmu) - 2\,\Phi(\hw)\Phi(\hmu),
+  \label{eq:evidence}
+\end{equation}
+%
+with $\Phi$ the standard normal CDF. $Z$ is small in the two \emph{dissonant}
+quadrants --- agreeing with a distrusted source, disagreeing with a trusted one
+--- and large in the two consonant ones.
+
+A Bayesian step on \eqref{eq:belief} leaves the exponential family; projecting
+the posterior back onto a Gaussian by maximum entropy, relative to the prior and
+subject to matching the first two moments, keeps the belief in the form
+\eqref{eq:belief} and yields a closed update in terms of derivatives of $\log Z$
+\citep{opper1996online,opper1998bayesian,solla1999optimal,caticha2020entropic}.
+Appendix~\ref{app:derivation} carries the derivation. In the scaled fields,
+%
+\begin{align}
+  \hat{w}_r &\leftarrow \hat{w}_r + \frac{\Fw}{\gamma_C}\,\sigma_e\,C_r\hat{x},
+  &
+  C_r &\leftarrow C_r + \frac{\FC}{\gamma_C^{2}}\,(C_r\hat{x})(C_r\hat{x})^{\!\top},
+  \label{eq:update-ideo}\\[2pt]
+  \mu_{e|r} &\leftarrow \mu_{e|r} + \frac{\Fmu}{\gamma_V}\,V_{e|r},
+  &
+  V_{e|r} &\leftarrow V_{e|r} + \frac{\FV}{\gamma_V^{2}}\,V_{e|r}^{2},
+  \label{eq:update-aff}
+\end{align}
+%
+where the four \emph{modulation functions} are the log-derivatives of the
+evidence,
+%
+\begin{equation}
+  \Fw = \frac{\partial \log Z}{\partial \hw} = \bigl(1-2\Phi(\hmu)\bigr)\frac{\phi(\hw)}{Z},
+  \quad
+  \Fmu = \frac{\partial \log Z}{\partial \hmu} = \bigl(1-2\Phi(\hw)\bigr)\frac{\phi(\hmu)}{Z},
+  \label{eq:modulation}
+\end{equation}
+%
+with $\FC=\partial^2\log Z/\partial \hw^2=-\Fw(\Fw+\hw)$ and
+$\FV=-\Fmu(\Fmu+\hmu)$, and $\phi$ the standard normal density. Equations
+\eqref{eq:belief}--\eqref{eq:modulation} are inherited; everything from
+\S\ref{sec:mechanism} onwards is new.
+
+\paragraph{Three consequences, all of which the collective behaviour rests on.}
+First, $\Fw$ carries the prefactor $1-2\Phi(\hmu)$, which is \emph{negative} for
+a distrusted emitter: the receiver moves its opinion \emph{away} from what a
+distrusted source says. Effective antiferromagnetic couplings appear without
+being put in. Second, $\Fmu$ carries $1-2\Phi(\hw)$, so perceived agreement
+drives distrust down and perceived disagreement drives it up --- agreement
+builds trust. This is the hinge that \S\ref{sec:mechanism} turns. Third,
+$\FC$ and $\FV$ are negative almost everywhere, so both uncertainties shrink
+monotonically: \textbf{the dynamics anneals and never reaches a stationary
+state}. A society slows down rather than settling, so \emph{when} a population
+is measured is a parameter of the experiment and not an incidental detail. Every
+quantity we report is at a fixed interaction count, stated in
+\S\ref{sec:setup}, and Appendix~\ref{app:simulation} reports the sensitivity of
+each to it.
+
+\paragraph{What is and is not optimal.}
+The update is optimal in a specific and limited sense, and it is worth being
+exact about which. It is an entropic (maximum-entropy Gaussian projection)
+approximation to a Bayesian online step, derived for a \emph{single} noisy
+student--teacher channel in the thermodynamic limit
+\citep{opper1996online,solla1999optimal,caticha2020entropic}; the identification
+of the inferred channel-noise level with distrust, and its promotion to a
+dynamical variable, is due to \citet{alves2016distrust}. Deploying that rule in
+an $N$-agent population is out of distribution relative to its derivation: the
+receiver's model of the world contains one teacher, and the population contains
+$N-1$ mutually inconsistent ones. \textbf{We make no claim that the population
+dynamics is optimal in any sense.} What the paper studies is precisely the gap
+--- the collective consequences of a locally well-motivated rule deployed where
+its derivation does not reach.

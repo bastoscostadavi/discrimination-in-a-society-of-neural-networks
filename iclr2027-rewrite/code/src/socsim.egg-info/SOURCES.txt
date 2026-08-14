@@ -1,0 +1,14 @@
+pyproject.toml
+src/socsim/__init__.py
+src/socsim/config.py
+src/socsim/discrimination.py
+src/socsim/modulation.py
+src/socsim/observables.py
+src/socsim/seeds.py
+src/socsim/society.py
+src/socsim.egg-info/PKG-INFO
+src/socsim.egg-info/SOURCES.txt
+src/socsim.egg-info/dependency_links.txt
+src/socsim.egg-info/entry_points.txt
+src/socsim.egg-info/requires.txt
+src/socsim.egg-info/top_level.txt

@@ -1,0 +1,55 @@
+\section{Observables}
+\label{sec:observables}
+
+Two per-pair quantities, both signed and both bounded, and both independent of $K$
+and of the architecture --- deliberately, so that the same measurements apply to
+any population of agents that can be asked what it thinks and whom it trusts.
+
+\begin{itemize}
+  \item \textbf{Opinion alignment} $\rho_{IJ} = \cos(\wv_I, \wv_J) \in [-1, 1]$.
+  \item \textbf{Trust} $\eta_{e|r} = 1 - 2\Phi(\hmu) \in [-1,1]$, equal to $+1$ for
+    a fully trusted source and $-1$ for a fully distrusted one. Note that $\eta$
+    is directional: $\eta_{I|J} \neq \eta_{J|I}$ in general.
+\end{itemize}
+
+With $G_{IJ} = \kappa_I \kappa_J$ the signed label agreement, the three pair
+correlations are, averaged over unordered pairs and each normalised to $[-1,1]$,
+\begin{equation}
+  \Rwm = \bigl\langle (\eta_{I|J} + \eta_{J|I})\,\rho_{IJ}\bigr\rangle,
+  \qquad
+  \Rmc = \bigl\langle G_{IJ}(\eta_{I|J} + \eta_{J|I})\bigr\rangle,
+  \qquad
+  \Rcw = \bigl\langle G_{IJ}\,\rho_{IJ}\bigr\rangle .
+  \label{eq:correlations}
+\end{equation}
+$\Rmc$ --- how strongly trust tracks the group label --- is the
+\textbf{discrimination order parameter}, and the one the primary claim is about.
+$\Rcw$ says whether the split is also visible in what agents believe, and
+separating the two is what distinguishes the regimes of \S\ref{sec:phase}.
+
+\paragraph{Balance.} Correlations do not distinguish an ordered population from a
+disordered one. Over triples,
+\begin{equation}
+  \Brho = \bigl\langle \rho_{IJ}\rho_{JK}\rho_{KI}\bigr\rangle,
+  \qquad
+  \Bet = \Bigl\langle \tfrac{1}{2}\bigl(\eta_{IJ}\eta_{JK}\eta_{KI}
+        + \eta_{JI}\eta_{IK}\eta_{KJ}\bigr)\Bigr\rangle ,
+  \label{eq:balance}
+\end{equation}
+the second symmetrised because $\eta$ is directional. Two coherent, mutually
+opposed blocs give $B = 1$ whatever they are made of; a random population gives
+$0$; a population that cannot settle goes negative. $\Brho$ measures balance in
+the opinion sector and $\Bet$ in the trust sector, and reading them as a
+trajectory in the $(\Brho, \Bet)$ plane is what \S\ref{sec:agenda} does.
+
+Both aggregates have closed forms --- for any $M$ with unit diagonal,
+$\sum \! M_{IJ}M_{JK}M_{KI} = \mathrm{tr}(M^3) - 3(\sum_{IJ} M_{IJ}M_{JI} - N) - N$
+over distinct ordered triples --- which replaces an $O(N^3)$ enumeration by two
+matrix products.
+
+\paragraph{Naming.} The source draft calls these $B_I$ (``ideological'') and $B_A$
+(``affective''). We name them after the quantity each is built from, and we do not
+use ``ideological'' or ``affective'' anywhere: the $\wv$ sector holds a
+classifier and the $\mu$ sector holds a reliability estimate.
+\todo{axis labels in \texttt{frustration\_maps} and \texttt{agenda\_trajectories}
+still read $B_I$ / $B_A$ and need regenerating as $B_\rho$ / $B_\eta$.}

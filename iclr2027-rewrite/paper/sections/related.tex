@@ -1,0 +1,48 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Online Bayesian and entropic learning.} The update we use is the
+optimised online algorithm for the student--teacher problem, given a Bayesian
+reading by \citet{opper1996online,opper1998bayesian} and \citet{solla1999optimal}
+and an entropic-dynamics formulation by \citet{caticha2020entropic}; the
+identification of the inferred channel-noise level with distrust, and its
+promotion to a dynamical variable, is due to \citet{alves2016distrust}. We
+inherit the rule and claim nothing about it. What is new here is what it does to
+a population when one class-correlated coordinate is added to the
+representation, and the analysis of that is ours.
+
+\paragraph{Neural-agent opinion and trust dynamics.} Representing agents as
+classifiers over an issue space, rather than as scalars or spins, makes partial
+agreement possible \citep{caticha2011agent,caticha2015whom}, which is what lets
+one ask whether distrust follows disagreement or the reverse. Earlier work in
+this family studies societies without any group label
+\citep{simoes2018mean,caticha2019trust}. The label, the representation error that
+carries it, and the collective consequences are the subject here.
+
+\paragraph{Opinion dynamics and structural balance.} Models of consensus and
+polarisation run from bounded-confidence rules
+\citep{deffuant2000mixing,hegselmann2002opinion} through cultural dissemination
+\citep{axelrod1997dissemination} to reinforcement-driven echo chambers
+\citep{baumann2020modeling}; see \citet{castellano2009statistical} for a survey.
+Our triple-level diagnostics are those of structural balance
+\citep{heider1946attitudes,cartwright1956structural,antal2005dynamics,marvel2011continuous},
+but with one difference worth stating: there the sign structure is the primitive
+object, whereas here both sign structures are \emph{generated} by inference. We
+also study a transient at a fixed horizon rather than an equilibrium, because the
+dynamics anneals and has no stationary state.
+
+\paragraph{Fairness, sensitive attributes and spurious features.} The dominant
+framing locates group bias in data and in single-model decisions, as
+representational harm \citep{blodgett2020language,bender2021dangers} or as
+allocative unfairness with formal criteria attached
+\citep{dwork2012fairness,hardt2016equality,barocas2023fairness}. Our mechanism is
+complementary: the outcome is produced by an irrelevant feature interacting with
+the \emph{learning rule} across a population, and it is invisible to an audit
+that inspects agents one at a time. That irrelevant features degrade a classifier
+is old; that they can restructure a society of classifiers is the point here.
+
+\paragraph{Collective effects of local rules.} The general phenomenon --- locally
+sensible optimisation producing undesirable system-level behaviour --- is
+recognised across multi-agent learning, but we are not aware of a treatment in
+which the coupling runs through an \emph{inferred} trust between learners. That
+is the gap this paper occupies.

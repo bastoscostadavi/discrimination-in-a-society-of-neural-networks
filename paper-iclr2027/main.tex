@@ -212,7 +212,7 @@ other because they disagree or the reverse is contested in political science
 adjudicate it, but identify a parameter that selects which occurs.
 
 
-\section{A multi-agent system of neural networks that learn from each other}
+\section{A society of neural networks that learn from each other}
 \label{sec:model}
 
 \subsection{Microscopic variables}
@@ -362,65 +362,48 @@ attribution emerging from the inference problem rather than assumed.
 \label{sec:no-disc}
 
 Nothing in \S\ref{sec:model} refers to an agent's class, so before adding any bias
-it is worth asking what this society does unaided. It polarises, spontaneously and
-completely --- and the \emph{order} in which it polarises turns out to be controlled
-by a single ratio.
+we ask what the society of \S\ref{sec:dynamics} does unaided. It polarises. This
+section says how that is measured, shows it, and then shows that the \emph{order} in
+which the two sectors polarise is set by a single ratio.
 
-\subsection{The society splits in two}
-\label{sec:splits}
+\subsection{Order parameters}
+\label{sec:order-params}
 
-Figure~\ref{fig:polarisation} shows what happens to a society of $N=40$ agents left
-to itself at $d=0$. Nothing in the figure involves a class label or any order
-parameter; it is the raw state of the society at the start and at the end.
+Two quantities are defined per pair of agents rather than for the society as a
+whole. The \emph{opinion overlap} is the cosine of two weight vectors,
+$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, equal to $+1$ when
+two agents agree on every issue and $-1$ when they disagree on every one. The
+\emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
+the distrust field mapped onto a bounded, sign-carrying scale, equal to $+1$ for a
+fully trusted emitter and $-1$ for a fully distrusted one.
 
-Two questions have to be separated. Has every pair of agents taken a side? And do
-those sides amount to exactly two camps, rather than several? The distributions in
-Figure~\ref{fig:polarisation} answer the first; a count over triples answers the
-second. The trust
-matrix is the starker of the two: it saturates, every in-faction pair at
-$\eta\approx+1$ and every cross-faction pair at $\eta\approx-1$.
-
-Both panels are distributions over pairs, so they do not depend on how the agents
-are labelled and cannot be an artefact of any ordering imposed on them. Opinion
-overlap begins unimodal and centred on zero --- width $0.178$
-against the $1/\sqrt{K}=0.183$ expected of random vectors in $K=30$ dimensions, with
-$40\%$ of pairs inside $|\rho|<0.1$ --- and ends bimodal with peaks at $-0.59$ and
-$+0.63$ and \emph{no} pair left inside $|\rho|<0.1$. Trust begins spread across the
-interior, nowhere near saturation, and ends with $35\%$ of ordered pairs beyond
-$|\eta|>0.99$ and a mean $|\eta|$ of $0.986$. Agents have neither converged on a
-consensus nor stayed independent, and the saturation of the trust matrix is something
-the dynamics builds rather than something the initial condition supplied.
-
-That the sides are two rather than many needs a different measurement, because a
-bimodal distribution is equally consistent with three or four mutually hostile
-groups. The structure theorem for signed complete graphs
-\citep{cartwright1956structural} supplies one: such a graph is balanced --- every
-triple has a positive product of signs --- exactly when its vertices split into two
-mutually hostile cliques. Counting the fraction of balanced triples, which discards
-the magnitudes that $\BI$ and $\BA$ weight by, therefore counts factions.
-Three equal groups would give $3/4$ and random signs $1/2$. The eight societies of
-Figure~\ref{fig:polarisation} contain $84\,694\,400$ triples between them. In trust,
-\emph{not one} is unbalanced. In opinion, six of the eight societies are likewise
-perfectly balanced and the other two hold a residue of $1\,590$ triples in total ---
-two thousandths of one per cent --- which is traceable to the $29$ pairs, of
-$638\,400$, whose overlap is smaller than $0.05$ in magnitude and whose sign is
-therefore close to arbitrary. The society has two factions, not three or more.
-
-They are also the \emph{same} two factions in both sectors: agents end up trusting
-those who agree with them and distrusting those who do not, which is why the two
-panels of Figure~\ref{fig:polarisation} split at the same moment. Nothing in
-\S\ref{sec:model} imposes that alignment; it is what the sign structure of the
-modulation functions produces, and \S\ref{sec:order-params} puts a number on it.
-
-Two things about that split matter for what follows. It is \emph{spontaneous}: which
-agent lands in which faction is decided by the initial condition, not by anything
-intrinsic, and the two are equal only up to fluctuation --- the eight societies of
-Figure~\ref{fig:polarisation} split between $190/210$ and $212/188$ of their $400$
-agents, against $24$ against $16$ in an otherwise identical society of $N=40$, the
-relative imbalance falling roughly as $N^{-1/2}$. And it is
-\emph{class-blind}: the labels $\kappa_I$ exist, but the dynamics has not touched
-them, so the factions cut across them. Everything \S\ref{sec:discrimination} adds is
-a mechanism for aligning this pre-existing split with the labels.
+Neither, on its own, says anything about the society: a pair can disagree in a world
+where everyone disagrees with everyone. What distinguishes organised disagreement
+from disorder is whether the disagreements are mutually consistent, which is a
+statement about triples rather than pairs
+\citep{heider1946attitudes,cartwright1956structural}. A triple is balanced
+in opinion when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and balanced in trust
+when
+$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$,
+and the aggregates
+%
+\begin{equation}
+  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
+  \qquad
+  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
+  \label{eq:balance}
+\end{equation}
+%
+run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
+names for the two sectors, and do not index an agent.) A random society has
+$\BI\approx\BA\approx0$, half its triples frustrated; two internally coherent,
+mutually opposed blocs give $\BI=\BA=1$ whatever the blocs are made of; and a
+society that cannot settle stays near zero or goes negative. Both aggregates follow
+in closed form from matrix products rather than by enumerating triples
+(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$ or \eqref{eq:balance}
+refers to weights, gradients or $K$ --- only to a signed alignment and a signed
+trust per pair, which is what makes them measurable on any population of
+interacting agents.
 
 \begin{figure}[t]
   \centering
@@ -439,79 +422,45 @@ a mechanism for aligning this pre-existing split with the labels.
   \label{fig:polarisation}
 \end{figure}
 
-\subsection{Order parameters}
-\label{sec:order-params}
+\paragraph{The society splits in two.} Figure~\ref{fig:polarisation} shows the two
+pairwise distributions before and after. Opinion overlap begins unimodal and centred
+on zero, of width $0.178$ against the $1/\sqrt{K}=0.183$ expected of random vectors
+in $K=30$ dimensions, and ends bimodal with peaks at $-0.59$ and $+0.63$ and no pair
+left within $0.1$ of zero. Trust begins spread across the interior and ends
+saturated, $35\%$ of ordered pairs beyond $|\eta|>0.99$ and a mean $|\eta|$ of
+$0.986$: the split in trust is built by the dynamics, not supplied by the initial
+condition. Neither panel depends on how the agents are labelled, so neither can be
+an artefact of an ordering imposed on them.
 
-A society's state is a set of weight vectors and an $N\times N$ matrix of distrust.
-To compare states across parameters --- and, in principle, across populations built
-from different kinds of agent --- we need statistics that depend on neither the
-dimension $K$ nor the parameterisation.
+The two panels are also aligned with each other: agents end up trusting those who
+agree with them and distrusting those who do not, which is not imposed anywhere in
+\S\ref{sec:model} but follows from the signs of the modulation functions. Balance
+places the state. Trust balance reaches $\BA=0.96$, so the trust network is almost
+perfectly organised, while opinion balance reaches only $\BI=0.19$ --- a gap that
+\S\ref{sec:agenda} explains.
+That the sides are exactly \emph{two} rather than several is a separate question,
+since a bimodal distribution is equally consistent with three or four mutually
+hostile groups; counting triples by sign alone settles it, as a signed complete graph
+is balanced precisely when it splits into two mutually hostile cliques
+\citep{cartwright1956structural}. Three equal groups would give $3/4$ and random
+signs $1/2$. Of the $84\,694\,400$ triples in Figure~\ref{fig:polarisation}, not one
+is unbalanced in trust, and in opinion the shortfall is $1\,590$ triples, two
+thousandths of one per cent, traceable to the few pairs whose overlap is so close to
+zero that its sign is arbitrary.
 
-Two pairwise quantities do the work. The \emph{opinion overlap} of two agents is
-the cosine of their weight vectors,
-$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, which is $+1$
-when they agree on every issue and $-1$ when they disagree on every one. The
-\emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
-which is $+1$ when $J$ is fully trusted and $-1$ when fully distrusted: the distrust
-field mapped onto a bounded, sign-carrying scale. Their correlation,
-%
-\begin{equation}
-  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
-  \label{eq:rwmu}
-\end{equation}
-%
-averaged over unordered pairs and normalised to $[-1,1]$, asks whether agents trust
-those who agree with them. It is the single number behind the alignment of the two
-panels of Figure~\ref{fig:polarisation}: zero at initialisation, where opinion and
-trust are independent by construction, and $+0.56$ in the polarised society at
-$\alpha=0.17$. How far it can rise is capped by the agenda, and
-\S\ref{sec:no-disc} returns to why: at $\alpha=3.3$ the same measurement gives
-$+0.93$.
+Two features of the split matter later. It is \emph{spontaneous}: which agent lands
+in which faction is set by the initial condition, and the two are equal only up to
+fluctuation, splitting between $190/210$ and $212/188$ of $400$ agents across the
+eight societies. And it is \emph{class-blind}: the labels $\kappa_I$ exist, but no
+part of the dynamics has consulted them, so the factions cut across them. What
+\S\ref{sec:discrimination} adds is a mechanism for aligning this pre-existing split
+with the labels.
 
-A correlation cannot distinguish a society split into two coherent camps from one
-in which distrust is spread inconsistently, so we also measure social balance in the
-sense of \citet{heider1946attitudes} and \citet{cartwright1956structural}. A triple
-of agents is balanced in opinion when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$
-and balanced in trust when
-$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$;
-the aggregates
-%
-\begin{equation}
-  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
-  \qquad
-  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
-  \label{eq:balance}
-\end{equation}
-%
-run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
-names for the two sectors --- ideological and affective --- and do not index an
-agent.) A randomly
-initialised society has $\BI\approx\BA\approx0$: half its triples are frustrated. A
-society that has settled into two internally coherent, mutually opposed blocs has
-$\BI=\BA=1$, whatever the blocs are made of --- and a society that cannot settle at
-all stays near zero or goes negative. Balance therefore separates \emph{organised}
-disagreement from mere disorder, which is the distinction the phase diagram of
-\S\ref{sec:results} turns on. Both aggregates are computed in closed form from
-matrix products rather than by enumerating triples
-(Appendix~\ref{app:closed-form}).
+\subsection{The agenda-size effect}
+\label{sec:agenda}
 
-Note that none of \eqref{eq:rwmu} or \eqref{eq:balance} mentions weights, gradients
-or $K$. They need only, per pair of agents, a signed alignment of opinion and a
-signed trust. Any population in which those two things can be elicited --- whatever
-its agents are internally --- can therefore be placed on the same axes, and two
-$N\times N$ matrices is a cheap enough measurement to run on a deployed system.
-\S\ref{sec:discussion} returns to why a per-agent audit cannot substitute for it.
-
-\subsection{Which polarisation comes first}
-
-The split of \S\ref{sec:splits} is what the modulation functions make inevitable:
-learning drives each agent away from the dissonant quadrants of
-Figure~\ref{fig:modulation}, and the two consonant quadrants --- agree-and-trust,
-disagree-and-distrust --- are equally attractive. Both balances therefore rise from
-zero towards one; frustration is annealed away and what remains is structured
-opposition. Which balance rises first is the interesting part. Figure~\ref{fig:trajectories}
-follows the society through the $(\BI,\BA)$ plane from its random initial condition,
-at $d=0$, for agendas spanning four orders of magnitude in the ratio
+Both balances rise from zero towards one, but not at the same rate, and which one
+leads is controlled by the complexity of the agenda,
 %
 \begin{equation}
   \alpha \;=\; \frac{P}{K},
@@ -519,12 +468,8 @@ at $d=0$, for agendas spanning four orders of magnitude in the ratio
 \end{equation}
 %
 the number of issues in play per dimension of the space they are represented in.
-For a simple agenda the path runs up the $\BA$ axis: trust structure forms
-almost completely before opinions begin to sort, ending at
-$(\BI,\BA)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays
-below the diagonal, ending at $(0.97,0.74)$ for $\alpha=333$: opinions separate
-first and distrust follows. The crossover is at $\alpha\approx1.7$, where the
-trajectory lies along the diagonal.
+Following a society through the $(\BI,\BA)$ plane as it evolves, rather than
+measuring it once at the end, separates the two.
 
 \begin{figure}[t]
   \centering
@@ -538,73 +483,31 @@ trajectory lies along the diagonal.
   \label{fig:trajectories}
 \end{figure}
 
-\paragraph{Why the agenda controls this.} The reason is exact, and it is a
-conservation law. Every update to a weight vector is along $C_r\hat{x}$, and
-$C_r\hat{x}$ always lies in the span of the agenda: it does initially, since
-$C=I$, and the covariance update adds only multiples of
-$(C\hat{x})(C\hat{x})^{\!\top}$, so it does at every step thereafter
-(Appendix~\ref{app:conserved}). \emph{The component of each agent's weight vector
-orthogonal to the span of the agenda is therefore conserved by the dynamics} --- in
-the run of Figure~\ref{fig:polarisation}, $\|w_{\perp}\|=4.956$ at initialisation
-and $4.956$ after $780\,000$ interactions.
+Figure~\ref{fig:trajectories} does this at $d=0$ for agendas spanning four orders of
+magnitude in $\alpha$. For a simple agenda the path runs up the $\BA$ axis: trust
+structure forms almost completely before opinions begin to sort, ending at
+$(\BI,\BA)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays below
+the diagonal, ending at $(0.97,0.74)$ for $\alpha=333$: opinions separate first and
+trust follows. The crossover is at $\alpha\approx1.7$.
 
-Split $w_I = u_I + n_I$ into the learned part inside that span and the frozen part
-outside it. Learning aligns the $u_I$ while the $n_I$ stay random and mutually
-almost orthogonal, so
-%
-\begin{equation}
-  \rho_{IJ} \;\approx\; \pm\, f_I f_J,
-  \qquad f_I = \frac{\|u_I\|}{\|w_I\|},
-  \label{eq:dilution}
-\end{equation}
-%
-and opinion overlap is diluted by whatever fraction of each weight vector learning
-cannot reach. Two facts then fix the ceiling. Because $\alpha<1$ leaves a
-$(1-\alpha)$ fraction of directions untouched, $n_I\neq0$; and because the dynamics
-anneals --- $C\to0$, so $\|u_I\|$ stops growing --- $f$ settles below one instead of
-creeping towards it. Measured across four orders of magnitude in $\alpha$:
+The asymmetry has an exact cause. Every weight update is along $C_r\hat{x}$, which
+stays in the span of the agenda for all time, so the component of each agent's
+weight vector orthogonal to that span is conserved by the dynamics
+(Appendix~\ref{app:conserved}). For $\alpha<1$ each agent therefore keeps a frozen
+random component that no interaction can touch, which dilutes every overlap and so
+caps $\BI$ --- at $0.19$ for $\alpha=0.17$, against $0.95$ for $\alpha=3.3$. No
+amount of running closes that gap, because it is a property of the space and not of
+the time spent in it.
+Trust has no such ceiling: $\mu_{e|r}$ is one scalar per ordered pair rather than a
+projection of a high-dimensional vector, so $\eta$ saturates at any $\alpha$.
 
-\begin{table}[h]
-\centering\small
-\begin{tabular}{lccccc}
-\toprule
-$\alpha = P/K$ & 0.03 & 0.17 & 0.50 & 1 & 3.3 \\
-\midrule
-$f^{2}$, predicted by \eqref{eq:dilution} & 0.29 & 0.62 & 0.84 & 1.00 & 1.00 \\
-$\langle|\rho|\rangle$, measured            & 0.30 & 0.62 & 0.82 & 0.93 & 0.99 \\
-\bottomrule
-\end{tabular}
-\end{table}
+Read as a mechanism, this says that whether groups come to dislike each other
+because they disagree, or come to disagree because they dislike each other, is a
+question with a parameter attached rather than an answer: narrow agendas put affect
+first, broad ones put opinion first, and the two are regimes of one system rather
+than rival accounts. The same ratio will explain, in \S\ref{sec:results}, why one of
+the two discriminatory phases exists only for narrow agendas.
 
-For $\alpha<1$ the prediction holds to $0.02$. At $\alpha\ge1$ the agenda spans the
-whole space, the frozen component vanishes exactly, and $\langle|\rho|\rangle$ runs
-to $0.99$; the residual gap at $\alpha=1$ is incomplete alignment rather than
-geometry.
-
-This is the ceiling behind Figure~\ref{fig:trajectories}, and it caps both
-opinion-side quantities together: at $\alpha=0.17$ the society reaches
-$\Rwmu=0.56$ and $\BI=0.19$, at $\alpha=3.3$ it reaches $0.93$ and $0.95$. The
-difference is not that the narrow-agenda society has had less time --- no amount of
-running will align directions that no issue ever probes. Trust has no such ceiling:
-$\mu_{e|r}$ is one scalar per ordered pair, not a projection of a high-dimensional
-vector, and $\eta=1-2\Phi(\hmu)$ saturates at $\pm1$ once $|\hmu|$ exceeds a few
-units, at any $\alpha$. That asymmetry is why the trajectories climb the $\BA$ axis
-first when the agenda is narrow.
-
-\paragraph{This section is one phase of \S\ref{sec:results}.} With $d=0$ no class
-information enters the dynamics anywhere, so the two class correlations vanish
-identically --- measured as $\Rmuc=-0.004\pm0.030$ and $\Rcw=-0.003\pm0.017$ over
-the whole range of $\fd$ --- while $\Rwmu$ alone is large. A society that has
-polarised completely along a split unrelated to class is exactly region~(II) of the
-phase diagram, the neutral phase. Everything above is region~(II) examined from the
-inside, before the other three regions exist.
-
-So the question of whether groups come to dislike each other because they disagree,
-or come to disagree because they dislike each other, has a parameter attached to it
-rather than an answer: narrow agendas --- few issues, functioning as symbols --- put
-affect first, broad ones put opinion first, and the two are regimes of one system
-rather than rival accounts. The same ratio explains, in \S\ref{sec:results}, why one
-of the two discriminatory phases exists only for narrow agendas.
 \section{Discrimination as an error of representation}
 \label{sec:discrimination}
 
@@ -674,12 +577,22 @@ Appendix~\ref{app:sign} works this through and shows the maps under both
 readings. We use \eqref{eq:disc-field} with \eqref{eq:case6} as stated, which is
 the reading that agrees with the algorithm.
 
-\subsection{Two more order parameters}
+\subsection{Three correlations}
 \label{sec:class-order-params}
 
-Class now matters, so two statistics that refer to it can be added to those of
-\S\ref{sec:order-params}. Writing $G_{IJ}=\kappa_I\kappa_J$ for the class
-indicator ($+1$ for same-class pairs, $-1$ otherwise),
+Balance says whether a society is organised; it does not say what it is organised
+around. Three pairwise correlations do, and they are what the phase diagram is built
+from. The first pairs the two sectors against each other,
+%
+\begin{equation}
+  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
+  \label{eq:rwmu}
+\end{equation}
+%
+asking whether agents trust those who agree with them; it is positive in the
+polarised state of \S\ref{sec:no-disc}, reaching $+0.56$ there from zero at
+initialisation. The other two refer to class. Writing $G_{IJ}=\kappa_I\kappa_J$ for
+the class indicator ($+1$ for same-class pairs, $-1$ otherwise),
 %
 \begin{equation}
   \Rmuc = \bigl\langle G_{IJ}(\eta_{I|J}+\eta_{J|I}) \bigr\rangle,
@@ -688,7 +601,7 @@ indicator ($+1$ for same-class pairs, $-1$ otherwise),
   \label{eq:correlations}
 \end{equation}
 %
-again averaged over unordered pairs and normalised to $[-1,1]$. $\Rmuc$ is the order
+all three averaged over unordered pairs and normalised to $[-1,1]$. $\Rmuc$ is the order
 parameter of discrimination: it asks whether trust follows class, distinguishing a
 society that has merely polarised from one that has polarised \emph{along the
 label}. $\Rcw$ asks whether opinion follows class, and separates the two
@@ -701,7 +614,7 @@ $\{0,1\}$ and how the three correlations are normalised.
 
 We simulate societies of $N=40$ agents over a $200\times200$ grid in $(d,\fd)$, one
 society per grid point, and measure the five order parameters of
-\S\ref{sec:order-params} after a fixed number of interactions, with both classes
+\S\ref{sec:order-params} and \S\ref{sec:class-order-params} after a fixed number of interactions, with both classes
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realisation, so the speckle
 is society-to-society fluctuation, not a rendering artefact.
@@ -892,12 +805,43 @@ $C_t\hat{x}\in V_P$. Hence $C_t\hat{x}_i\in V_P$ for all $t$ by induction, every
 increment to $\hat{w}$ lies in $V_P$, and the orthogonal component is conserved.
 $\square$
 
-Two consequences. For $\alpha=P/K<1$ each agent keeps a frozen random component of
-its opinion that no interaction can touch, which dilutes every overlap by
-\eqref{eq:dilution}; the test suite asserts the conservation numerically. For
-$\alpha\ge1$ the agenda spans $\mathbb{R}^{K}$, the complement is empty, and the
-ceiling disappears. Note that the conservation is a property of the \emph{agenda},
-not of the discrimination field: it holds at every $d$ and $\fd$.
+The conservation is exact in the simulations: in the run of
+Figure~\ref{fig:polarisation}, $\|w_{\perp}\|=4.956$ at initialisation and $4.956$
+after $780\,000$ interactions, and the test suite asserts it numerically. It is a
+property of the \emph{agenda}, not of the discrimination field: it holds at every
+$d$ and $\fd$.
+
+\paragraph{The ceiling it puts on opinion overlap.} Split $w_I = u_I + n_I$ into the
+learned part inside $V_P$ and the frozen part outside it. Learning aligns the $u_I$
+while the $n_I$ stay random and mutually almost orthogonal, so
+%
+\begin{equation}
+  \rho_{IJ} \;\approx\; \pm\, f_I f_J,
+  \qquad f_I = \frac{\|u_I\|}{\|w_I\|},
+  \label{eq:dilution}
+\end{equation}
+%
+and opinion overlap is diluted by whatever fraction of each weight vector learning
+cannot reach. Two facts fix that fraction. For $\alpha<1$ a $(1-\alpha)$ fraction of
+directions is untouched, so $n_I\neq0$; and because the dynamics anneals --- $C\to0$,
+so $\|u_I\|$ stops growing --- $f$ settles below one instead of creeping towards it.
+Measured across four orders of magnitude in $\alpha$:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccccc}
+\toprule
+$\alpha = P/K$ & 0.03 & 0.17 & 0.50 & 1 & 3.3 \\
+\midrule
+$f^{2}$, predicted by \eqref{eq:dilution} & 0.29 & 0.62 & 0.84 & 1.00 & 1.00 \\
+$\langle|\rho|\rangle$, measured            & 0.30 & 0.62 & 0.82 & 0.93 & 0.99 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For $\alpha<1$ the prediction holds to $0.02$. For $\alpha\ge1$ the agenda spans
+$\mathbb{R}^{K}$, the complement is empty, and the ceiling disappears, the residual
+shortfall being the finite number of interactions rather than a conserved quantity.
 
 \section{All four modulation functions}
 \label{app:modulation}

@@ -1,0 +1,75 @@
+\section{What causes it: four ablations}
+\label{sec:ablation}
+
+\needsrun{this entire section. Nothing in it has been run. It is the section that
+decides whether the paper is a mechanism paper or a simulation study, and it
+should be built before anything else on the to-do list. Full specification in
+Appendix~\ref{app:ablation}.}
+
+Section~\ref{sec:phase} establishes that the split happens. It does not establish
+what causes it. Four conditions, each swept over the same $(d, f_d)$ grid with
+everything else held fixed, isolate the mechanism.
+
+\begin{table}[h]
+  \centering
+  \small
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    & \textbf{Condition} & \textbf{Prediction} & \textbf{What it establishes} \\
+    \midrule
+    A0 & Random-label control     & $\Rmc \approx 0$            & correlation, not noise \\
+    A1 & Frozen trust sector      & no transition in $\Rcw$     & trust is the carrier, not the readout \\
+    A2 & No anti-learning         & no polarisation at any $d$  & the sign reversal is the engine \\
+    A3 & Hebbian / Perceptron     & no label-correlated phase   & specific to reliability-weighted inference \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{A0 --- the spurious feature must be \emph{correlated}, not merely
+present.} Key the shift of Eq.~\ref{eq:shift} to a per-emitter random bit drawn
+independently of the label, at the same magnitude $d$. Every agent still encodes
+messages badly, and still does so in a source-dependent way; the only thing
+removed is the correlation between that dependence and a label shared across
+agents. If $\Rmc$ stays at zero, the effect is not a consequence of adding
+uninformative features, and the paper's subject is the correlation rather than
+the noise. This is the control the source draft gestures at in prose and never
+runs, and it is the cheapest of the four.
+
+\paragraph{A1 --- the trust sector carries the split rather than reporting it.}
+Freeze $F_\mu = F_V = 0$, holding every $\mu_{J|I}$ at its initialisation. Note
+that $\Rmc$ is then trivially near zero and proves nothing --- the informative
+measurement is $\Rcw$. If the opinion sector alone still develops a
+label-correlated split, learned reliability is merely where the split becomes
+visible; if it does not, reliability estimation is load-bearing. We expect the
+latter, and the claim in the title depends on it.
+
+\paragraph{A2 --- the sharpest test.} Replace the prefactor in $F_w$,
+\begin{equation}
+  \bigl(1 - 2\Phi(\hmu)\bigr) \;\longrightarrow\; \max\!\bigl(0,\; 1 - 2\Phi(\hmu)\bigr),
+\end{equation}
+so that a distrusted source produces \emph{no} update rather than a reversed one.
+Nothing else changes: the same Bayesian machinery, the same trust dynamics, the
+same perturbation. This removes the effective antiferromagnetic coupling and
+should remove polarisation entirely, including the label-free polarisation at
+$d = 0$. If it does, the mechanism is a single sign in a single prefactor, which
+is about as sharp as a mechanism claim gets --- and it is directly actionable,
+because a system designer who declines to anti-learn from unreliable peers pays a
+sample-efficiency cost and buys immunity to this failure.
+
+\paragraph{A3 --- it is not learning-from-peers in general.} Run the same
+population, the same perturbation and the same grid under a Hebbian update and
+under a Perceptron update. The source draft asserts that neither exhibits the
+collective behaviour; asserted, this is worth little, and shown, it is the result
+that generalises the paper beyond its own model. It says the phenomenon belongs to
+rules that maintain and act on a per-source reliability estimate, which is the
+class of rules the introduction is about.
+
+\todo{figure: 4 panels $\times$ the $(d, f_d)$ plane, sharing the colour scale of
+Fig.~\ref{fig:phase}, with the unablated result repeated as a fifth reference
+panel. One figure, one page of text.}
+
+\paragraph{Reading the four together.} A0 says the perturbation must be
+label-correlated. A1 says the trust sector is necessary. A2 says a specific sign
+in the trust-to-opinion coupling is necessary. A3 says rules without the trust
+sector do not do this at all. Together they narrow the cause from ``a complicated
+simulation'' to one identified coupling, and they are falsifiable individually.

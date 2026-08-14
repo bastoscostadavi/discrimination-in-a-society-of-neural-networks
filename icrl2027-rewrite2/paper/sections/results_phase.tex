@@ -1,0 +1,87 @@
+\section{The population splits above a sharp boundary}
+\label{sec:phase}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.62\textwidth]{phase_diagram}
+  \caption{The $(d, f_d)$ plane, with $\Rwm$, $\Rmc$ and $\Rcw$ composited into
+    one map. \textbf{(I)} $d < 0$: over-tolerance to the out-group, heavily
+    frustrated, no label-correlated order. \textbf{(II)} neutral --- the
+    population polarises, but the split is uncorrelated with the label.
+    \textbf{(III)} discriminatory, with the split still tracking opinion.
+    \textbf{(IV)} discriminatory, with trust tracking the label almost
+    independently of opinion. The boundary between (II) and (III) is sharp in $d$
+    and weakly dependent on $f_d$.}
+  \label{fig:phase}
+\end{figure}
+
+Figure~\ref{fig:phase} is the main result. Sweeping the strength $d$ of the
+spurious feature and the fraction $f_d$ of agents carrying it produces four
+regimes, and the two that matter are separated by a boundary that is sharp rather
+than gradual.
+
+\paragraph{Polarisation is not the phenomenon.} At $d = 0$ the population still
+splits --- the anti-learning prefactor of \S\ref{sec:rule} guarantees it --- but
+the split is uncorrelated with the label ($\Rmc \approx 0$, region II). This is
+worth stating early because it establishes what the spurious feature actually
+does: it does not \emph{create} group structure, it \emph{aligns} pre-existing
+group structure with a label that carries no information. The two consonant basins
+of Fig.~\ref{fig:flows} are symmetric at $d = 0$ and the population falls into one
+or the other arbitrarily; a nonzero $d$ tilts them.
+
+\paragraph{Two discriminatory regimes.} Region (III) and region (IV) both have
+high $\Rmc$ and would be reported identically by any single-number measure of
+group bias. They are structurally different. In (III), $\Rcw$ and $\Rwm$ are also
+high: the population is split along the label \emph{and} along what it believes,
+and the two are consistent. In (IV) the spurious feature is strong enough that
+$\Rmc$ saturates while $\Rcw$ falls away --- trust tracks the label almost
+independently of opinion, and an agent distrusts an out-group source regardless of
+whether it agrees with the content. The transition between them is not visible in
+$\Rmc$ alone, which is an argument for reporting the three correlations
+separately.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{correlation_maps}
+  \caption{The three correlations of Eq.~\ref{eq:correlations} over the same
+    plane, at low task diversity (top) and high (bottom). The $\Rcw$ panel is what
+    separates regions (III) and (IV), and its dependence on $\alpha$ previews
+    \S\ref{sec:agenda}.}
+  \label{fig:correlations}
+\end{figure}
+
+\paragraph{Frustration.} Regions (I) and (III) differ in a way that the
+correlations alone do not capture. Figure~\ref{fig:frustration} shows $\Brho$ and
+$\Bet$ over the plane: $d > 0$ produces a split that is \emph{balanced} --- two
+internally coherent, mutually opposed blocs, low frustration --- while $d < 0$
+produces a population that cannot settle at all, with the balance measures driven
+negative and no stable partition. Over-tolerance toward the out-group is not the
+benign mirror image of intolerance; it is a different failure.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.78\textwidth]{frustration_maps}
+  \caption{Balance in the opinion sector ($\Brho$) and the trust sector
+    ($\Bet$), same plane, two task diversities.
+    \todo{axis labels still read $B_I$/$B_A$; regenerate.}}
+  \label{fig:frustration}
+\end{figure}
+
+\subsection{From a picture to a prediction}
+\label{sec:boundary}
+
+\needsrun{extract $d_c(f_d)$ at a fixed $\Rmc$ threshold, with error bars over
+seeds; fit it; repeat at $N \in \{20, 40, 80\}$ and attempt a finite-size collapse.}
+
+As it stands Fig.~\ref{fig:phase} is a colour boundary in a pixel map, which
+supports the claim qualitatively and not more. The boundary should be extracted as
+a curve, given error bars over seeds, and checked for finite-size scaling. Two
+questions a reviewer will ask and we should answer before they do: does $d_c$
+depend on $f_d$ as $1/f_d$, i.e.\ is only the total injected perturbation
+$f_d \cdot d$ what matters, or is there a genuine two-dimensional structure? And
+does the transition sharpen with $N$, as a genuine collective transition should?
+
+\todo{a single additional panel with a non-perceptron architecture, or with issues
+drawn from real sentence embeddings rather than Gaussian $\xv$, removes the
+largest single objection to this section. It does not need to be the main result;
+it needs to exist.}

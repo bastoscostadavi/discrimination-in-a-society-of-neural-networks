@@ -1,0 +1,23 @@
+Learners embedded in a population adapt not only what they predict but whom they
+learn from, so a representation error in one agent can restructure the
+information flow of the whole group. We study a population of neural agents
+whose perceptron opinions and directed trust variables co-adapt through an
+entropic approximation to Bayesian online learning derived for a noisy
+student--teacher channel. A fraction $\fd$ of agents extend their representation
+of an incoming message with one coordinate that carries no information about the
+issue and depends only on the sender's class, shifting the agreement field that
+drives their update by a strength $d$. We show that this shift translates the
+local opinion--trust flow rigidly, breaking an exact $\mathbb{Z}_2$ symmetry of
+the unbiased dynamics and displacing a separatrix we obtain in closed form, and
+we derive a parameter-free prediction $\CcT=\fd\,\Gresp(d)$ for the trust--class
+correlation. Replicated simulations exceed it by \num{residual}, which measures
+the amplification the population itself contributes. Sweeping $(d,\fd)$ with
+\num{24} replicates per point reveals \num{n} collective regimes, separated by
+crossovers rather than transitions; magnitude-matched controls whose sign is
+uncorrelated with class establish that the effect requires class correlation and
+not merely added perturbation. Varying the agenda complexity $\alpha=P/K$
+reverses whether affective or ideological structure forms first, crossing at
+$\alpha=\num{crossover}$. We further prove that the apparent transition at $d=0$
+is a forced zero-crossing of an odd response rather than a bifurcation: the
+affective sector has no linear restoring force at the class-symmetric state, so
+no critical field strength exists at any population size.

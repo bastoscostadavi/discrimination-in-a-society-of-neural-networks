@@ -1,0 +1,239 @@
+\documentclass{article}
+
+\makeatletter
+\def\input@path{{../paper-iclr2027/}{../../paper-iclr2027/}}
+\makeatother
+\usepackage{iclr2027_conference}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{A Microscopic Small-Uncertainty Phase Diagram for an Entropic-Learning Society}
+
+\author{David Costa \\
+\texttt{small-cv-phase-diagram/}}
+
+\newcommand{\Rwm}{R_{w,\mu}}
+\newcommand{\Rmc}{R_{\mu,c}}
+\newcommand{\Rcw}{R_{c,w}}
+\newcommand{\hmu}{h_\mu}
+\newcommand{\hw}{h_w}
+\newcommand{\PhiG}{\Phi}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We implemented a separate, reproducible calculation of the collective
+phase diagram of the neural-network society model in the asymptotic regime
+$C\ll 1$, $V\ll 1$.  The calculation keeps the microscopic entropic-learning
+updates of the model and only replaces the field normalizations
+$\gamma_C=\sqrt{1+x^\top Cx}$ and $\gamma_V=\sqrt{1+V}$ by one in the update
+rule.  The resulting simulation sweeps the external control parameters
+$(d,f_d)$, where $d$ is the discrimination-field strength and $f_d$ is the
+fraction of discriminating receivers.  We measure the three macroscopic order
+parameters used by the manuscript: opinion--trust correlation $\Rwm$,
+trust--class correlation $\Rmc$, and opinion--class correlation $\Rcw$.
+The primary discrimination signal is $\Rmc$.  The implementation also retains
+the full microscopic equations for direct full-versus-reduced validation, logs
+the maximum deviations of $\gamma_C$ and $\gamma_V$ from one, and writes
+resumable checkpoint files during phase-diagram sweeps.
+\end{abstract}
+
+\section{Motivation}
+
+The object of interest is a collective phase diagram, not a local phase portrait.
+The local variables $(\hw,\hmu)$ are interaction-dependent microscopic fields.
+The phase diagram is instead defined over the external parameters $(d,f_d)$.
+For each grid point, a complete many-agent society is simulated until a
+stationary or statistically stationary regime is reached, and order parameters
+are measured from the resulting microscopic state.
+
+The small-uncertainty limit is delicate.  Setting $C=V=0$ would remove learning,
+because the microscopic increments scale as $\Delta w=O(C)$ and
+$\Delta\mu=O(V)$.  We therefore initialize
+\[
+  C_I(0)=cI_K,\qquad V_{J|I}(0)=v,
+\]
+with small but finite $c$ and $v$, and expose the ratio $r=v/c$ as a parameter.
+The default exploratory run uses $c=v=0.05$.
+
+\section{Microscopic Model}
+
+Each agent $I$ has a perceptron weight vector $\hat w_I\in\mathbb R^K$ and
+covariance $C_I$.  Each directed pair $(J|I)$ has distrust $\mu_{J|I}$ and
+uncertainty $V_{J|I}$.  At each interaction, an issue $x$, emitter $e$, and
+receiver $r\ne e$ are sampled.  The emitted opinion is
+\[
+  \sigma_e = \operatorname{sign}(\hat w_e\cdot x).
+\]
+Only the receiver's ideological state and its directed distrust of the emitter
+are updated.
+
+The full microscopic fields are
+\[
+  \hw = \frac{\sigma_e \hat w_r\cdot x}{\gamma_C},
+  \qquad
+  \hmu = \frac{\mu_{e|r}}{\gamma_V},
+\]
+where $\gamma_C=\sqrt{1+x^\top C_rx}$ and $\gamma_V=\sqrt{1+V_{e|r}}$.
+For a discriminatory receiver, the opinion field entering the modulation
+functions is shifted to $\hw^D=\hw+D_{e|r}$.  The code follows the repository
+convention in which rows of $D$ index receiver class and columns index emitter
+class.  Case 6 is the default, but all six discrimination matrices are exposed.
+
+\section{Small-\texorpdfstring{$C,V$}{C,V} Reduction}
+
+The reduced dynamics uses $\gamma_C=\gamma_V=1$ in the microscopic update while
+retaining finite $C$ and $V$:
+\[
+  \hat w_r(t+1) = \hat w_r(t)
+  + F_w(\hw^D,\hmu)\, C_rx\sigma_e,
+\]
+\[
+  C_r(t+1) = C_r(t)
+  + F_C(\hw^D,\hmu)\, C_rxx^\top C_r,
+\]
+\[
+  \mu_{e|r}(t+1) = \mu_{e|r}(t)
+  + F_\mu(\hw^D,\hmu)\, V_{e|r},
+\]
+\[
+  V_{e|r}(t+1) = V_{e|r}(t)
+  + F_V(\hw^D,\hmu)\, V_{e|r}^2.
+\]
+No Landau or phenomenological replacement model is introduced.
+
+The evidence and modulation functions are implemented as
+\[
+  Z(\hw,\hmu)=\PhiG(\hw)+\PhiG(\hmu)-2\PhiG(\hw)\PhiG(\hmu),
+\]
+\[
+  F_w = \frac{[1-2\PhiG(\hmu)]g(\hw)}{Z},
+  \quad
+  F_\mu = \frac{[1-2\PhiG(\hw)]g(\hmu)}{Z},
+\]
+\[
+  F_C = -F_w(F_w+\hw),
+  \quad
+  F_V = -F_\mu(F_\mu+\hmu),
+\]
+with a small numerical floor on $Z$ to avoid division by zero in the divergent
+dissonance corners.
+
+\section{Order Parameters}
+
+For each final microscopic state we compute ideological overlap
+\[
+  \rho_{IJ} =
+  \frac{\hat w_I\cdot\hat w_J}{|\hat w_I|\,|\hat w_J|}
+\]
+and trust
+\[
+  \eta_{J|I}=1-2\PhiG(\mu_{J|I})
+\]
+in the small-$V$ measurement convention.  The three primary pair observables are
+\[
+  \Rwm =
+  \frac{1}{N(N-1)}
+  \sum_{J<I}(\eta_{I|J}+\eta_{J|I})\rho_{IJ},
+\]
+\[
+  \Rmc =
+  \frac{1}{N(N-1)}
+  \sum_{J<I}G_{IJ}(\eta_{I|J}+\eta_{J|I}),
+\]
+\[
+  \Rcw =
+  \frac{2}{N(N-1)}
+  \sum_{J<I}G_{IJ}\rho_{IJ}.
+\]
+Here $G_{IJ}=\kappa_I\kappa_J$ by default, matching the signed class convention
+already documented in the repository.  The most direct discrimination
+observable is $\Rmc$: positive values indicate in-group trust and out-group
+distrust, near-zero values indicate weak class correlation, and negative values
+indicate reverse discrimination.
+
+\section{Implementation}
+
+All new code lives in \texttt{small-cv-phase-diagram/}, leaving the original
+\texttt{nn-based-simulation/} scripts unchanged.  The package provides:
+\begin{itemize}
+  \item \texttt{smallcv/society.py}: batched microscopic full and small-$C,V$
+  dynamics;
+  \item \texttt{smallcv/sweep.py}: sweeps over $(d,f_d)$ with resumable
+  per-batch checkpoints;
+  \item \texttt{smallcv/observables.py}: the three correlations and balance
+  observables;
+  \item \texttt{scripts/run\_phase\_diagram.py}: heatmaps and RGB composite;
+  \item \texttt{scripts/compare\_full\_reduced.py}: convergence of reduced
+  equations to full equations;
+  \item \texttt{scripts/convergence\_cv.py}: convergence as $c,v\to0$ at fixed
+  $v/c$;
+  \item \texttt{scripts/sensitivity\_ratio.py}: sensitivity to $r=v/c$.
+\end{itemize}
+
+The sweep cache key now excludes batch size, because batch size is an execution
+detail rather than a scientific parameter.  A run interrupted after any
+completed batch can be resumed by rerunning the same command.
+
+\section{Preliminary Result}
+
+A coarse completed run is available at $c=v=0.05$ on a $9\times9$ grid with one
+repeat and a shortened microscopic horizon.  It produced continuous heatmaps
+for $\Rwm$, $\Rmc$, and $\Rcw$, plus an RGB composite where red encodes $\Rmc$,
+green encodes $\Rcw$, and blue encodes $\Rwm$:
+\begin{center}
+{\small\texttt{figures/small\_cv\_heatmaps\_c0.05\_r1.png}}\\
+{\small\texttt{figures/small\_cv\_phase\_composite\_c0.05\_r1.png}}
+\end{center}
+This output is a pipeline and qualitative-inspection artifact, not a final
+scientific-resolution phase diagram.
+
+A larger $21\times21$ run with two repeats, $c=v=0.05$, and
+\texttt{steps-at-c1=50} has completed in checkpointed form.  It wrote
+\texttt{data/sweep\_small\_cv\_c0.05\_r1\_21x21\_d3df8249a886.npz} and updated
+the heatmap and composite figures listed above.  The same run can be reproduced
+or resumed with the following command:
+\begin{center}
+\begin{minipage}{0.96\linewidth}
+{\small\ttfamily
+python3 scripts/run\_phase\_diagram.py --n-d 21 --n-fd 21 --repeats 2
+--c 0.05 --ratio 1 --steps-at-c1 50 --batch-size 32}
+\end{minipage}
+\end{center}
+
+\section{Validation Status}
+
+Unit tests check the evidence and modulation formulas, the sector symmetry
+$F_w(x,y)=F_\mu(y,x)$ and $F_C(x,y)=F_V(y,x)$, finite small-$C,V$ learning, and
+single-interaction convergence of the full and reduced equations as $c,v$
+decrease.  The current test suite passes:
+\[
+  \texttt{6 passed}.
+\]
+The code also records maximum observed deviations
+$|\gamma_C-1|$ and $|\gamma_V-1|$ during sweeps, so the asymptotic assumption can
+be audited for each completed run.
+
+For the completed $21\times21$ exploratory run, $\Rmc$ spans approximately
+$[-0.94,0.94]$, confirming that the trust--class order parameter captures both
+reverse and direct discrimination.  The diagnostic
+$\max|\gamma_V-1|$ remains small, about $0.037$, but
+$\max|\gamma_C-1|$ reaches a large outlier value.  This means the current
+exploratory run is not yet a uniformly controlled small-$C$ calculation; it is a
+checkpointed implementation and qualitative map that motivates a follow-up run
+with smaller $c$, shorter audited windows, or additional covariance diagnostics.
+
+\section{Limitations and Next Steps}
+
+The present implementation prioritizes correctness and separation from the
+original simulation scripts.  The pure Python interaction loop is slow for
+large grids at small $c$ because the required horizon scales as $1/c$.  The next
+engineering step is to optimize or parallelize the checkpointed sweep, then
+generate final heatmaps at multiple decreasing $(c,v)$ values and multiple
+ratios $v/c$.  Only after those convergence and sensitivity studies should
+categorical phase-region labels be assigned.
+
+\end{document}

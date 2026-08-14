@@ -1,0 +1,110 @@
+\section{The learning rule}
+\label{sec:rule}
+
+Marginalising both corruptions of \S\ref{sec:setup} gives the likelihood of the
+received opinion, and projecting the resulting posterior back onto the Gaussian
+family of Eq.~\ref{eq:state} by maximum entropy gives a closed-form online update.
+The derivation is standard and deferred to Appendix~\ref{app:derivation}; what
+matters in the main text is the result and two of its properties.
+
+\paragraph{Two fields.} Everything the update depends on enters through two
+scalars, each a raw field divided by an \emph{internal response uncertainty}:
+\begin{equation}
+  \hw = \frac{(\hat{\wv}_r \cdot \xv)\,\sigma_e}{\gamma_C},
+  \qquad
+  \hmu = \frac{\mu_{e|r}}{\gamma_V},
+  \qquad
+  \gamma_C = \sqrt{1 + \xv \cdot C_r \xv},
+  \quad
+  \gamma_V = \sqrt{1 + V_{e|r}}.
+  \label{eq:fields}
+\end{equation}
+$\hw > 0$ means the receiver already agrees with the message; $\hmu > 0$ means it
+distrusts the source.
+
+\paragraph{The evidence is an exclusive-or.} The marginal likelihood reduces to
+\begin{equation}
+  Z \;=\; \Phi(\hw) + \Phi(\hmu) - 2\,\Phi(\hw)\Phi(\hmu),
+  \label{eq:evidence}
+\end{equation}
+which is $P(a) + P(b) - 2P(a)P(b)$: the probability that exactly one of the two
+holds. $Z$ is large in the two \emph{consonant} configurations --- agree with a
+trusted source, disagree with a distrusted one --- and collapses to zero in the
+two \emph{dissonant} ones. Surprise, in this model, is not an assumption; it is
+what the marginal likelihood does.
+
+\paragraph{The update.} The four modulation functions are the log-derivatives of
+Eq.~\ref{eq:evidence},
+\begin{equation}
+  F_w = \bigl(1 - 2\Phi(\hmu)\bigr)\frac{g(\hw)}{Z},
+  \quad
+  F_\mu = \bigl(1 - 2\Phi(\hw)\bigr)\frac{g(\hmu)}{Z},
+  \quad
+  F_C = -F_w(F_w + \hw),
+  \quad
+  F_V = -F_\mu(F_\mu + \hmu),
+  \label{eq:modulation}
+\end{equation}
+with $g$ the standard normal density, and the receiver moves
+\begin{equation}
+  \boxed{
+  \begin{aligned}
+    \hat{\wv}_r &\mathrel{+}= \frac{F_w}{\gamma_C}\,\sigma_e\, C_r \xv,
+      &\qquad C_r &\mathrel{+}= \frac{F_C}{\gamma_C^2}\,(C_r\xv)(C_r\xv)^{\!\top},\\[2pt]
+    \mu_{e|r}   &\mathrel{+}= \frac{F_\mu}{\gamma_V}\,V_{e|r},
+      &\qquad V_{e|r} &\mathrel{+}= \frac{F_V}{\gamma_V^2}\,V_{e|r}^2 .
+  \end{aligned}}
+  \label{eq:update}
+\end{equation}
+The opinion update is Hebbian in $\sigma_e \xv$, with a tensorial, adaptive,
+$F_w$-modulated learning rate. Note the symmetry $F_w(x,y) = F_\mu(y,x)$ and
+$F_C(x,y) = F_V(y,x)$: the two sectors run the same dynamics with their arguments
+exchanged. This is what the scaling by $\gamma_C, \gamma_V$ buys, and it is why
+group structure can appear in either sector first (\S\ref{sec:agenda}).
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.86\textwidth]{learning_flows}
+  \caption{The flow induced on $(\hw, \hmu)$ by one interaction, at
+    $D = -d$ (left), $D = 0$ (centre) and $D = +d$ (right). Learning moves the
+    receiver out of the dissonant quadrants. At $D = 0$ the two consonant basins
+    are symmetric, so the population polarises but the split is uncorrelated with
+    the label; a nonzero $D$ tilts the basin boundary, which is the entire
+    mechanism of \S\ref{sec:spurious}.}
+  \label{fig:flows}
+\end{figure}
+
+\subsection{Two properties that do all the work}
+
+\paragraph{Anti-learning.} The prefactor $(1 - 2\Phi(\hmu))$ in $F_w$ is
+\emph{negative} whenever the source is distrusted. The receiver then moves its
+weights away from what the source transmitted --- it learns the opposite.
+Effective antiferromagnetic couplings appear in a system where nothing
+antiferromagnetic was put in, and this is the engine of every collective effect we
+report. Ablation A2 in \S\ref{sec:ablation} removes exactly this sign and nothing
+else.
+
+\paragraph{Blame attribution.} On a surprise, one sector must yield, and
+Eq.~\ref{eq:modulation} decides which: the sector whose field is \emph{smaller in
+magnitude} absorbs the change, with the crossover at $|\hmu| = |\hw|$. A receiver
+with a firm opinion and a weak read on its source revises the source's
+reliability; one with a weak opinion and a firm read on its source revises its
+opinion. Neither behaviour was specified. Both follow from Eq.~\ref{eq:evidence}.
+
+\paragraph{Annealing.} $F_C$ and $F_V$ are negative almost everywhere, so both
+covariances shrink monotonically. Since the covariances are also the step sizes
+(\S\ref{sec:setup}), the population does not approach a stationary state so much
+as run out of the ability to move: it is annealing toward the frozen
+$C, V \to 0$ limit, and every agent becomes progressively harder to change as it
+becomes more certain. Two consequences we take seriously rather than treating as
+nuisances. \emph{When} the observables are measured is a parameter of the
+experiment, and we report it (Appendix~\ref{app:params}) where the source draft
+leaves it unspecified. And the \emph{order} in which the two sectors organise is
+a real feature of the trajectory rather than an artefact of stopping early, which
+is what \S\ref{sec:agenda} measures.
+
+\todo{decide whether the modulation-surface figure (\texttt{modulation\_surfaces},
+\texttt{modulation\_contours}) earns main-text space or moves wholesale to
+Appendix~\ref{app:derivation}. Current recommendation: appendix. The two
+properties above are the content, and Fig.~\ref{fig:flows} already shows them
+acting.}

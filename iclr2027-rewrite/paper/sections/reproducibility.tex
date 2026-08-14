@@ -1,0 +1,18 @@
+Every figure and number in this paper is produced by the accompanying code,
+which contains the model, the observables, the sweep driver and the analysis,
+together with a test suite that checks the modulation functions against
+numerical derivatives of $\log Z$, the invariants of the dynamics, the
+observables against configurations whose values are known in closed form, and
+each analytical claim of \S\ref{sec:mechanism} and Appendix~\ref{app:derivation}
+against its numerical evaluation. A regression test additionally pins the
+dynamics bit-for-bit against an independent earlier implementation.
+
+Every random stream is derived by hashing an explicit run key, so a society's
+trajectory depends only on that key and not on batch size, worker count or grid
+resolution; any single society in any figure can be re-run in isolation from the
+identifiers stored in the results file. Runs are checkpointed per chunk and
+resume by set difference. Per-replicate values are stored rather than averaged
+away, so every uncertainty in the paper can be recomputed, and the parameter
+table in Appendix~\ref{app:simulation} records the provenance of each value ---
+recovered, calibrated, or chosen --- along with the numerical safeguards the
+model does not itself prescribe.
