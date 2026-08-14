@@ -13,7 +13,7 @@ STYLE    := iclr
 PRESET   := medium
 
 # Figures pulled in from the simulation, by the name the .tex files use.
-IMPORTS := modulation_contours modulation_slices learning_flows \
+IMPORTS := modulation_contours modulation_slices learning_flows polarisation \
            order_parameter_maps correlation_maps frustration_maps \
            phase_diagram phase_diagram_large_agenda agenda_trajectories \
            sign_convention_comparison
@@ -40,6 +40,7 @@ figures:
 sim:
 	cd $(SIM) && python3 scripts/make_all.py --preset $(PRESET) --style $(STYLE)
 	cd $(SIM) && python3 scripts/order_parameter_maps.py --preset $(PRESET) --style $(STYLE)
+	cd $(SIM) && python3 scripts/polarisation.py --preset $(PRESET) --style $(STYLE)
 	cd $(SIM) && python3 scripts/sign_convention_comparison.py --preset $(PRESET) --style $(STYLE)
 	$(MAKE) figures
 

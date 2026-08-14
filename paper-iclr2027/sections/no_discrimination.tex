@@ -1,9 +1,49 @@
-\section{What the society does on its own}
+\section{Polarisation without discrimination}
 \label{sec:no-disc}
 
 Nothing in \S\ref{sec:model} refers to an agent's class, so before adding any bias
-it is worth asking what this society does unaided. It polarises --- and the
-\emph{order} in which it polarises turns out to be controlled by a single ratio.
+it is worth asking what this society does unaided. It polarises, spontaneously and
+completely --- and the \emph{order} in which it polarises turns out to be controlled
+by a single ratio.
+
+\subsection{The society splits in two}
+\label{sec:splits}
+
+Figure~\ref{fig:polarisation} shows what happens to a society of $N=40$ agents left
+to itself at $d=0$. Nothing in the figure involves a class label or any order
+parameter; it is the raw state of the society at the start and at the end.
+
+Sorting the agents by the leading eigenvector of the overlap matrix --- the
+partition that best explains the observed pattern of agreement, and one that no
+label was consulted to build --- reveals two blocks. Within a block agents agree and
+trust each other; across blocks they disagree and distrust each other. The trust
+matrix is the starker of the two: it saturates, every in-faction pair at
+$\eta\approx+1$ and every cross-faction pair at $\eta\approx-1$. The distribution of
+pairwise overlaps makes the same point without any sorting: it begins unimodal and
+centred on zero, which is what random weight vectors in $K=30$ dimensions give, and
+ends bimodal with peaks near $\pm0.6$. Agents have not converged on a consensus and
+have not stayed independent. They have split.
+
+Two things about that split matter for what follows. It is \emph{spontaneous}: the
+two factions are equal in size only up to fluctuation, and which agent lands in
+which is decided by the initial condition, not by anything intrinsic. And it is
+\emph{class-blind}: the labels $\kappa_I$ exist, but the dynamics has not touched
+them, so the factions cut across them. Everything \S\ref{sec:discrimination} adds is
+a mechanism for aligning this pre-existing split with the labels.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/polarisation}
+  \caption{\textbf{An unbiased society splits into two mutually distrustful camps.}
+  A society of $N=40$ agents at $d=0$, simple agenda. Left and centre: the opinion
+  overlap $\rho_{IJ}$ and the trust $\eta_{J|I}$ at the end of the run, with agents
+  ordered by the leading eigenvector of $\rho$ --- two blocks, agreement and trust
+  inside them, disagreement and distrust across. Right: the distribution of pairwise
+  values over all pairs, which needs no ordering. Opinion overlap starts unimodal at
+  zero (grey) and ends bimodal (red); trust ends saturated at $\pm1$, its two spikes
+  running off the top of the axis.}
+  \label{fig:polarisation}
+\end{figure}
 
 \subsection{Measuring a society}
 \label{sec:order-params}
@@ -62,16 +102,14 @@ its agents are internally --- can therefore be placed on the same axes, and two
 $N\times N$ matrices is a cheap enough measurement to run on a deployed system.
 \S\ref{sec:discussion} returns to why a per-agent audit cannot substitute for it.
 
-\subsection{Polarisation, and which kind comes first}
+\subsection{Which polarisation comes first}
 
-An unbiased society does not converge on consensus. Learning drives each agent away
-from the dissonant quadrants of Figure~\ref{fig:modulation}, and the two consonant
-quadrants --- agree-and-trust, disagree-and-distrust --- are equally attractive, so
-the society organises into two mutually distrustful camps whose membership has
-nothing to do with any label. Both balances rise from zero towards one: frustration
-is annealed away, and what remains is structured opposition.
-
-Which balance rises first is the interesting part. Figure~\ref{fig:trajectories}
+The split of \S\ref{sec:splits} is what the modulation functions make inevitable:
+learning drives each agent away from the dissonant quadrants of
+Figure~\ref{fig:modulation}, and the two consonant quadrants --- agree-and-trust,
+disagree-and-distrust --- are equally attractive. Both balances therefore rise from
+zero towards one; frustration is annealed away and what remains is structured
+opposition. Which balance rises first is the interesting part. Figure~\ref{fig:trajectories}
 follows the society through the $(\BI,\BA)$ plane from its random initial condition,
 at $d=0$, for agendas spanning four orders of magnitude in the ratio
 %
@@ -90,7 +128,7 @@ trajectory lies along the diagonal.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.46\linewidth]{figures/agenda_trajectories}
+  \includegraphics[width=0.42\linewidth]{figures/agenda_trajectories}
   \caption{\textbf{Which polarisation comes first is set by the agenda.}
   Trajectories in the $(\BI,\BA)$ plane with no discrimination ($d=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time --- they crowd
