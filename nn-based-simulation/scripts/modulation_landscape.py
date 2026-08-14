@@ -77,53 +77,74 @@ def figure_surfaces(style):
     return save(fig, "modulation_surfaces", style)
 
 
-def figure_contours(style):
-    """The four modulation functions as filled contour maps.
-
-    A 2x2 block with shared axes and one colour bar per row.  The two panels of a
-    row have the same range by construction -- the sectors are mirror images -- so a
-    second bar would duplicate it, and labelling the axes once per edge rather than
-    once per panel leaves the height to the contours.  (A single row of four was
-    tried and is worse: at this width the repeated x-axis labels collide.)
-    """
+def _contour_panel(ax, F, name, cap, ylabel=False):
     (HW, HMU), _ = _plane()
+    levels = np.linspace(-cap, cap, 25)
+    values = np.clip(F(HW, HMU), -cap, cap)
+    im = ax.contourf(HW, HMU, values, levels=levels, cmap="coolwarm", extend="both")
+    ax.contour(HW, HMU, values, levels=levels[::4], colors="k", linewidths=0.25,
+               alpha=0.5)
+    ax.axhline(0.0, color="0.55", lw=0.5)
+    ax.axvline(0.0, color="0.55", lw=0.5)
+    ax.plot([-LIM, LIM], [-LIM, LIM], color="tab:green", lw=0.9)
+    ax.set_xlim(-LIM, LIM)
+    ax.set_ylim(-LIM, LIM)
+    ax.set_aspect("equal")
+    ax.set_xticks([-4, -2, 0, 2, 4])
+    ax.set_yticks([-4, -2, 0, 2, 4])
+    ax.set_xlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", labelpad=1)
+    if ylabel:
+        ax.set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", labelpad=1)
+    ax.text(0.05, 0.93, name, transform=ax.transAxes, fontsize=9, color="navy",
+            ha="left", va="top")
+    return im
+
+
+def figure_contours(style):
+    """The two first-order modulation functions, side by side.
+
+    ``F_w`` left and ``F_mu`` right, which is the order the sectors are introduced
+    in and puts the opinion sector first.  They share a range exactly --- the
+    sectors are mirror images, ``F_w(x, y) = F_mu(y, x)`` --- so one colour bar
+    serves both, and the symmetry reads as one panel being the other reflected
+    across the diagonal.  The second-order pair is in
+    ``modulation_contours_all``.
+    """
     width = text_width()
-    fig, axes = plt.subplots(
-        2, 2, figsize=(width * 0.68, width * 0.60), sharex=True, sharey=True
-    )
-    rows = (
-        ((F_mu, r"$F_\mu$"), (F_w, r"$F_w$"), 3.2),
-        ((F_V, r"$F_V$"), (F_C, r"$F_C$"), 2.5),
-    )
+    fig, axes = plt.subplots(1, 2, figsize=(width * 0.66, width * 0.35), sharey=True)
+    im = None
+    for k, (F, name) in enumerate(((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"))):
+        im = _contour_panel(axes[k], F, name, 3.2, ylabel=(k == 0))
+        axes[k].set_xlabel("")   # one shared label below, or the two collide
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.04)
+    cb = fig.colorbar(im, ax=axes, fraction=0.045, pad=0.02,
+                      ticks=np.linspace(-3.2, 3.2, 5))
+    cb.ax.tick_params(labelsize=6, width=0.4, length=2)
+    cb.outline.set_linewidth(0.4)
+    return save(fig, "modulation_contours", style)
+
+
+def figure_contours_all(style):
+    """All four modulation functions, for the appendix.
+
+    The two that move the means on top, the two that anneal the uncertainties
+    below, one colour bar per row since each row shares a range.
+    """
+    width = text_width()
+    fig, axes = plt.subplots(2, 2, figsize=(width * 0.68, width * 0.60),
+                             sharex=True, sharey=True)
+    rows = (((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"), 3.2),
+            ((F_C, r"$F_C$"), (F_V, r"$F_V$"), 2.5))
     for i, (left, right, cap) in enumerate(rows):
-        levels = np.linspace(-cap, cap, 25)
         for j, (F, name) in enumerate((left, right)):
-            ax = axes[i][j]
-            values = np.clip(F(HW, HMU), -cap, cap)
-            im = ax.contourf(HW, HMU, values, levels=levels, cmap="coolwarm",
-                             extend="both")
-            ax.contour(HW, HMU, values, levels=levels[::4], colors="k",
-                       linewidths=0.25, alpha=0.5)
-            ax.axhline(0.0, color="0.55", lw=0.5)
-            ax.axvline(0.0, color="0.55", lw=0.5)
-            ax.plot([-LIM, LIM], [-LIM, LIM], color="tab:green", lw=0.9)
-            ax.set_xlim(-LIM, LIM)
-            ax.set_ylim(-LIM, LIM)
-            ax.set_aspect("equal")
-            ax.set_xticks([-4, -2, 0, 2, 4])
-            ax.set_yticks([-4, -2, 0, 2, 4])
-            ax.text(0.05, 0.93, name, transform=ax.transAxes, fontsize=9,
-                    color="navy", ha="left", va="top")
-        # axes are shared, so label them once for the whole block below
+            im = _contour_panel(axes[i][j], F, name, cap, ylabel=(j == 0))
+            if i == 0:
+                axes[i][j].set_xlabel("")
         cb = fig.colorbar(im, ax=axes[i], fraction=0.042, pad=0.02,
                           ticks=np.linspace(-cap, cap, 5))
         cb.ax.tick_params(labelsize=6, width=0.4, length=2)
         cb.outline.set_linewidth(0.4)
-    # one label per axis for the block: repeating them per panel makes the two
-    # x-labels collide at this width
-    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.02)
-    fig.supylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", fontsize=8, x=0.02)
-    return save(fig, "modulation_contours", style)
+    return save(fig, "modulation_contours_all", style)
 
 
 def figure_slices(style, h_w0=6.0, d=2.0, lim=9.0):
@@ -171,6 +192,7 @@ def main():
     args, _ = setup(__doc__)
     figure_surfaces(args.style)
     figure_contours(args.style)
+    figure_contours_all(args.style)
     figure_slices(args.style)
 
 

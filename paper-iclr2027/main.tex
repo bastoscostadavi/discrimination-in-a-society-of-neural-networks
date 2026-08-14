@@ -341,15 +341,19 @@ attribution emerging from the inference problem rather than assumed.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.58\linewidth]{figures/modulation_contours}
-  \caption{\textbf{Learning is driven by dissonance.} The four modulation functions
-  over the plane of the opinion field $\hw$ and the distrust field $\hmu$: above,
-  $\Fmu$ and $\Fw$, which move the two means; below, $\FV$ and $\FC$, which anneal
-  the two uncertainties. Nothing happens where the message is unsurprising; everything
-  happens in the two dissonant quadrants, agreeing with a distrusted emitter (upper
-  right) and disagreeing with a trusted one (lower left). Reflection across the green
-  line $\hmu=\hw$ exchanges the sectors, and that line is also where blame for a
-  surprise passes from one to the other --- see Appendix~\ref{app:slices}.}
+  \includegraphics[width=0.72\linewidth]{figures/modulation_contours}
+  \caption{\textbf{Learning is driven by dissonance.} The two modulation functions
+  that move the means, over the plane of the opinion field $\hw$ and the distrust
+  field $\hmu$: $\Fw$, which revises the receiver's opinion, and $\Fmu$, which
+  revises its trust in the emitter. Nothing happens where the message is
+  unsurprising; everything happens in the two dissonant quadrants, agreeing with a
+  distrusted emitter (upper right) and disagreeing with a trusted one (lower left).
+  The two panels are reflections of each other across the green line $\hmu=\hw$,
+  which is the symmetry $\Fw(x,y)=\Fmu(y,x)$ between the sectors, and that line is
+  also where blame for a surprise passes from one sector to the other
+  (Appendix~\ref{app:slices}). The two functions that anneal the uncertainties,
+  $\FC$ and $\FV$, obey the same symmetry and are shown in
+  Appendix~\ref{app:modulation}.}
   \label{fig:modulation}
 \end{figure}
 \section{Polarisation without discrimination}
@@ -767,6 +771,22 @@ are inexpensive enough to serve as one.
 \bibliographystyle{iclr2027_conference}
 
 \appendix
+\section{All four modulation functions}
+\label{app:modulation}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.78\linewidth]{figures/modulation_contours_all}
+  \caption{The two functions that move the means, $\Fw$ and $\Fmu$, above --- the
+  pair shown in Figure~\ref{fig:modulation} --- and the two that anneal the
+  uncertainties, $\FC$ and $\FV$, below. Each row shares a range. The mirror
+  symmetry across $\hmu=\hw$ holds in both rows: $\Fw(x,y)=\Fmu(y,x)$ and
+  $\FC(x,y)=\FV(y,x)$. $\FC$ and $\FV$ are negative almost everywhere, which is why
+  both uncertainties shrink monotonically and the dynamics anneals
+  (\S\ref{sec:variables}).}
+  \label{fig:modulation-all}
+\end{figure}
+
 \section{Where blame for a surprise falls}
 \label{app:slices}
 
