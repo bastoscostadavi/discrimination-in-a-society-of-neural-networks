@@ -121,8 +121,11 @@ measurement. This is the single most valuable addition left.
   of study. Here the opening question is whether discriminatory structure can
   emerge from the learning rule alone, and the results are presented for what they
   say about building and evaluating multi-agent systems.
-- **Title.** "Discrimination as a Phase of Learning: Emergent In-Group Trust in
-  Societies of Adaptive Agents".
+- **Title.** The source draft's title is kept: "Discrimination in a Society of
+  Neural Networks". At the template's `\LARGE` it wraps to a second line and
+  hyphenates ("Neural Net-works"), so `main.tex` steps it down one size to
+  `\Large`, which fits it on one line. That is the only deviation from the
+  template's typography; revert it if a future title is shorter.
 - **Compression.** Equations 1–20 of the draft become the model section's
   essentials plus `app:derivation`; the six discrimination matrices become one
   displayed matrix plus `app:cases`; the on-line-learning genealogy is in
