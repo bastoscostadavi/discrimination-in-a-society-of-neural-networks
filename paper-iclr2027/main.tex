@@ -376,11 +376,18 @@ partition that best explains the observed pattern of agreement, and one that no
 label was consulted to build --- reveals two blocks. Within a block agents agree and
 trust each other; across blocks they disagree and distrust each other. The trust
 matrix is the starker of the two: it saturates, every in-faction pair at
-$\eta\approx+1$ and every cross-faction pair at $\eta\approx-1$. The distribution of
-pairwise overlaps makes the same point without any sorting: it begins unimodal and
-centred on zero, which is what random weight vectors in $K=30$ dimensions give, and
-ends bimodal with peaks near $\pm0.6$. Agents have not converged on a consensus and
-have not stayed independent. They have split.
+$\eta\approx+1$ and every cross-faction pair at $\eta\approx-1$.
+
+The two right-hand panels make the same point without any sorting, and so cannot be
+an artefact of it, since a histogram over pairs does not depend on how the agents are
+labelled. Opinion overlap begins unimodal and centred on zero --- width $0.178$
+against the $1/\sqrt{K}=0.183$ expected of random vectors in $K=30$ dimensions, with
+$40\%$ of pairs inside $|\rho|<0.1$ --- and ends bimodal with peaks at $-0.59$ and
+$+0.63$ and \emph{no} pair left inside $|\rho|<0.1$. Trust begins spread across the
+interior, nowhere near saturation, and ends with $35\%$ of ordered pairs beyond
+$|\eta|>0.99$ and a mean $|\eta|$ of $0.986$. Agents have neither converged on a
+consensus nor stayed independent, and the saturation of the trust matrix is something
+the dynamics builds rather than something the initial condition supplied.
 
 The two blocks are the same in both matrices, which is the content of the
 opinion--trust correlation \eqref{eq:rwmu}: it rises from $0.00$ at initialisation
@@ -399,13 +406,19 @@ a mechanism for aligning this pre-existing split with the labels.
   \centering
   \includegraphics[width=\linewidth]{figures/polarisation}
   \caption{\textbf{An unbiased society splits into two mutually distrustful camps.}
-  A society of $N=40$ agents at $d=0$, simple agenda. Left and centre: the opinion
-  overlap $\rho_{IJ}$ and the trust $\eta_{J|I}$ at the end of the run, with agents
-  ordered by the leading eigenvector of $\rho$ --- two blocks, agreement and trust
-  inside them, disagreement and distrust across. Right: the distribution of pairwise
-  values over all pairs, which needs no ordering. Opinion overlap starts unimodal at
-  zero (grey) and ends bimodal (red); trust ends saturated at $\pm1$, its two spikes
-  running off the top of the axis.}
+  One society of $N=40$ agents at $d=0$, simple agenda. \textbf{Left and centre:}
+  the opinion overlap $\rho_{IJ}$ and the trust $\eta_{J|I}$ at the end of the run,
+  every agent against every other, with agents ordered by the leading eigenvector of
+  $\rho$ and the line marking where the two factions meet --- here $24$ agents
+  against $16$, a split with no label behind it. Agreement and trust inside the
+  blocks, disagreement and distrust across them. \textbf{Right:} the distributions
+  over all pairs, which need no ordering and so cannot be an artefact of it. Opinion
+  overlap ($780$ unordered pairs) starts unimodal at zero, the width $1/\sqrt{K}$ of
+  random vectors in $K=30$ dimensions, and ends bimodal near $\pm0.6$. Trust ($1560$
+  ordered pairs) starts spread over the interior and ends saturated at $\pm1$: the
+  two-tone matrix in the centre is made by the dynamics, not by the initial
+  condition. The two sectors are shown on separate axes because they saturate to
+  very different degrees, for the reason given in \S\ref{sec:no-disc}.}
   \label{fig:polarisation}
 \end{figure}
 

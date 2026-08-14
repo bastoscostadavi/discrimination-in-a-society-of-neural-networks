@@ -72,51 +72,77 @@ def run(preset, P, use_cache=True):
     return out
 
 
-def offdiag(M):
-    N = M.shape[0]
-    mask = ~np.eye(N, dtype=bool)
-    return M[mask]
+def unordered_pairs(M):
+    """The N(N-1)/2 values above the diagonal, for a symmetric matrix."""
+    return M[np.triu_indices(M.shape[0], 1)]
+
+
+def ordered_pairs(M):
+    """All N(N-1) off-diagonal values, for an asymmetric one."""
+    return M[~np.eye(M.shape[0], dtype=bool)]
 
 
 def figure(data, style, name="polarisation"):
-    rho1, eta1 = data["rho1"], data["eta1"]
-    order = faction_order(rho1)
-    width = text_width()
-    fig, axes = plt.subplots(1, 3, figsize=(width, width * 0.29))
+    """Two matrices and, beside them, what happened to the distributions.
 
-    for ax, M, title, cmap in (
-        (axes[0], rho1[np.ix_(order, order)], r"opinion overlap $\rho_{IJ}$", "RdBu_r"),
-        (axes[1], eta1[np.ix_(order, order)], r"trust $\eta_{J|I}$", "PuOr_r"),
-    ):
-        im = ax.imshow(M, cmap=cmap, vmin=-1, vmax=1, origin="upper")
-        ax.set_title(title, pad=3)
-        ax.set_xlabel("agent (sorted)")
-        ax.set_xticks([0, M.shape[0] - 1])
-        ax.set_yticks([0, M.shape[0] - 1])
-        cb = ax.figure.colorbar(im, ax=ax, fraction=0.046, pad=0.03,
-                                ticks=[-1, 0, 1])
+    The histograms get one panel per sector rather than sharing an axis: opinion
+    overlap is symmetric and lives on N(N-1)/2 unordered pairs, trust is asymmetric
+    and lives on N(N-1) ordered pairs, and trust saturates so hard that on a shared
+    axis its spikes either dwarf the opinion curves or have to be clipped.  Showing
+    both sectors before *and* after also makes the point that trust does not start
+    saturated: the two-tone matrix in the centre is produced by the dynamics.
+    """
+    rho0, rho1, eta0, eta1 = data["rho0"], data["rho1"], data["eta0"], data["eta1"]
+    N = rho1.shape[0]
+    order = faction_order(rho1)
+    # the boundary is where the sorted eigenvector changes sign, not the count of
+    # positive entries: faction_order sorts ascending, so the negative group is first
+    leading = np.linalg.eigh(rho1)[1][:, -1][order]
+    boundary = int(np.searchsorted(np.sign(leading), 0.5)) - 0.5
+
+    width = text_width()
+    fig = plt.figure(figsize=(width, width * 0.33))
+    gs = fig.add_gridspec(2, 3, width_ratios=[1, 1, 0.92], hspace=0.55, wspace=0.42,
+                          left=0.06, right=0.98, top=0.90, bottom=0.16)
+
+    for col, (M, title, cmap) in enumerate((
+        (rho1, r"opinion overlap $\rho_{IJ}$", "RdBu_r"),
+        (eta1, r"trust $\eta_{J|I}$", "PuOr_r"),
+    )):
+        ax = fig.add_subplot(gs[:, col])
+        im = ax.imshow(M[np.ix_(order, order)], cmap=cmap, vmin=-1, vmax=1,
+                       origin="upper")
+        # mark where the two factions meet
+        ax.axhline(boundary, color="k", lw=0.6, alpha=0.6)
+        ax.axvline(boundary, color="k", lw=0.6, alpha=0.6)
+        ax.set_title(title, pad=3, fontsize=8)
+        ax.set_xlabel("agent, sorted by faction")
+        ax.set_xticks([0, N - 1]); ax.set_yticks([0, N - 1])
+        if col == 0:
+            ax.set_ylabel("agent, sorted by faction")
+        cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03, ticks=[-1, 0, 1])
         cb.ax.tick_params(labelsize=6, width=0.4, length=2)
         cb.outline.set_linewidth(0.4)
-    axes[0].set_ylabel("agent (sorted)")
 
-    ax = axes[2]
     bins = np.linspace(-1, 1, 41)
-    ax.hist(offdiag(data["rho0"]), bins=bins, density=True, histtype="stepfilled",
-            color="0.75", edgecolor="0.4", lw=0.6, label=r"$\rho$, initial")
-    ax.hist(offdiag(rho1), bins=bins, density=True, histtype="step",
-            color="tab:red", lw=1.2, label=r"$\rho$, final")
-    ax.hist(offdiag(eta1), bins=bins, density=True, histtype="step",
-            color="tab:purple", lw=1.2, ls="--", label=r"$\eta$, final")
+    panels = (
+        (gs[0, 2], unordered_pairs(rho0), unordered_pairs(rho1), "tab:red",
+         rf"$\rho$, {N*(N-1)//2} pairs"),
+        (gs[1, 2], ordered_pairs(eta0), ordered_pairs(eta1), "tab:purple",
+         rf"$\eta$, {N*(N-1)} ordered pairs"),
+    )
+    for spec, before, after, colour, title in panels:
+        ax = fig.add_subplot(spec)
+        ax.hist(before, bins=bins, density=True, histtype="stepfilled",
+                color="0.8", edgecolor="0.45", lw=0.6, label="initial")
+        ax.hist(after, bins=bins, density=True, histtype="step",
+                color=colour, lw=1.3, label="final")
+        ax.set_title(title, pad=3, fontsize=7.5)
+        ax.set_xlim(-1, 1)
+        ax.set_xticks([-1, 0, 1])
+        ax.tick_params(labelsize=6)
+        ax.legend(fontsize=5.5, loc="upper center", handlelength=1.2)
     ax.set_xlabel("pairwise value")
-    ax.set_ylabel("density")
-    ax.set_xlim(-1, 1)
-    # trust saturates, so its two spikes at +-1 run off the top; clipping the axis
-    # keeps the opinion distributions, which are the interesting ones, readable
-    ax.set_ylim(0, 3.4)
-    ax.legend(loc="upper center", fontsize=6)
-    ax.set_title("from unimodal to bimodal", pad=3)
-
-    fig.tight_layout(pad=0.4)
     return save(fig, name, style)
 
 
