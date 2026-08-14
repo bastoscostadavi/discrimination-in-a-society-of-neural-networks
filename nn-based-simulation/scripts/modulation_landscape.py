@@ -80,8 +80,7 @@ def _contour_panel(ax, F, name, cap, ylabel=False):
     (HW, HMU), _ = _plane()
     levels = np.linspace(-cap, cap, 25)
     values = np.clip(F(HW, HMU), -cap, cap)
-    im = ax.contourf(HW, HMU, values, levels=levels, cmap=pastel("coolwarm", 0.30),
-                     extend="both")
+    im = ax.contourf(HW, HMU, values, levels=levels, cmap=pastel("coolwarm", 0.30))
     ax.contour(HW, HMU, values, levels=levels[::4], colors="k", linewidths=0.25,
                alpha=0.5)
     ax.axhline(0.0, color="0.55", lw=0.5)

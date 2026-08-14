@@ -130,9 +130,11 @@ def use_style(style="paper"):
         "font.size": pt,
         "axes.labelsize": pt,
         "axes.titlesize": pt,
-        "xtick.labelsize": pt - 1,
-        "ytick.labelsize": pt - 1,
-        "legend.fontsize": pt - 1,
+        # axis labels sit at body size; the numbers do not need to, and at body
+        # size they crowd the panels
+        "xtick.labelsize": pt - 2.5,
+        "ytick.labelsize": pt - 2.5,
+        "legend.fontsize": pt - 1.5,
     })
     mpl.rcParams.update(rc)
     return style

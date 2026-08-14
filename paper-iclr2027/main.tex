@@ -212,7 +212,7 @@ other because they disagree or the reverse is contested in political science
 adjudicate it, but identify a parameter that selects which occurs.
 
 
-\section{A society of neural networks that learn from each other}
+\section{A multi-agent system of neural networks that learn from each other}
 \label{sec:model}
 
 \subsection{Microscopic variables}
@@ -353,10 +353,12 @@ attribution emerging from the inference problem rather than assumed.
   also where blame for a surprise passes from one sector to the other
   (Appendix~\ref{app:slices}). The two functions that anneal the uncertainties,
   $\FC$ and $\FV$, obey the same symmetry and are shown in
-  Appendix~\ref{app:modulation}.}
+  Appendix~\ref{app:modulation}. Both functions diverge where the evidence goes to
+  zero in the far corners, so the colour scale is clipped at $\pm3.2$.}
   \label{fig:modulation}
 \end{figure}
-\section{Polarisation without discrimination}
+
+\section{Emergent Polarisation}
 \label{sec:no-disc}
 
 Nothing in \S\ref{sec:model} refers to an agent's class, so before adding any bias
