@@ -2,6 +2,48 @@
 
 Working notes, not part of the paper.
 
+## Structure
+
+Presentation order, per the author's revision:
+
+1. Introduction — 2. Related work — 3. The model (3.1 dynamical variables,
+3.2 the update) — 4. What the society does on its own (4.1 measuring a society) —
+5. Discrimination (5.1 two more order parameters) — 6. The phase diagram —
+7. Discussion.
+
+The point of the reorder is that the agenda-complexity result is measured at
+`d = 0`: it is a property of the model, not of the bias, and it used to sit in the
+results section *after* all the discrimination machinery. It now precedes it. The
+order parameters follow the same logic — the class-free statistics (`rho`, `eta`,
+`R_wmu`, `B_I`, `B_A`) arrive in §4 where they are first needed, the two class
+correlations in §5 where classes first matter.
+
+Terminology: the sector is the **opinion** sector, never "ideological". The symbols
+`B_I` and `b^I` keep their subscript for continuity with the source draft, with a
+parenthetical in §4.1 noting it is historical.
+
+`sections/order_params.tex` is gone; its content is distributed between
+`no_discrimination.tex` and `discrimination.tex`.
+
+## Figure placement, and why
+
+Pagination is float-limited, not text-limited: cutting 400 words of prose moved the
+body boundary by 17 words, because the figures pin to page tops and text reflows
+around them. Only figure area buys pages. The main text therefore carries the four
+figures that do the most work per unit of space:
+
+- `modulation_slices` (§3) — the sector crossover, and the one thing the
+  discrimination field acts on.
+- `agenda_trajectories` (§4) — the `alpha` result.
+- `order_parameter_maps` (§6) — all five order parameters, both agendas.
+- `phase_diagram` (§6) — the composite that names regions I–IV.
+
+Three moved to the appendix, in this order of reluctance: `modulation_contours`
+(`app:modulation`, a visualisation of equations already displayed);
+`learning_flows` (`app:flows`, which carries the mechanism and would be the first
+thing to bring back if space appeared); `sign_convention_comparison`
+(`app:sign`, documentation rather than result).
+
 ## Status
 
 The language-agent study was called off, and the paper was reworked to stand on

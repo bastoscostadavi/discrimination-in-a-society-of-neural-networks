@@ -24,7 +24,7 @@ We study this in a model in which the analysis can be carried out: a society of
 $N$ agents, each carrying a perceptron over a $K$-dimensional embedding of
 issues, interacting by stating opinions about issues drawn from a shared agenda
 of size $P$. Two features make the model unusually apt for the question. First,
-agents can agree on some issues and disagree on others, so ideological distance
+agents can agree on some issues and disagree on others, so opinion distance
 is graded rather than binary. Second, learning is derived rather than posited:
 the update follows from a Bayesian step on the agent's belief, projected back
 onto a Gaussian family by maximum entropy
@@ -49,7 +49,7 @@ paper.
   \item \textbf{A phase diagram of emergent discrimination}
     (\S\ref{sec:results}): four regimes with sharp boundaries --- neutral
     polarisation unrelated to class, two discriminatory phases distinguished by
-    whether ideology still tracks the group split, and a frustrated spin-glass
+    whether opinion still tracks the group split, and a frustrated spin-glass
     regime when the bias favours the out-group. Discrimination needs a quorum:
     below $\fd\approx0.4$ the society stays neutral however strong the bias, and
     above it the transition in $d$ sharpens rapidly.
@@ -60,7 +60,8 @@ paper.
     small-group setting is what makes a population vulnerable in the large-group
     one.
   \item \textbf{Which comes first, distrust or disagreement}
-    (\S\ref{sec:results}): the order of polarisation is set by the agenda
+    (\S\ref{sec:no-disc}): even with no bias at all, the order of polarisation is
+    set by the agenda
     complexity $\alpha=P/K$, reversing at $\alpha\approx1.7$. This turns a
     contested question about polarisation
     \citep{fiorina2008polarization,iyengar2012affect} into a statement about a
@@ -73,12 +74,10 @@ paper.
     the per-agent audits that are standard practice cannot see the phase at all.
 \end{itemize}
 
-Our reading of the theoretical result is deliberately narrow: these are simple
-machines, and extending conclusions from them to human societies is not
-automatic. What the model does support is a claim about learning systems --- that
-an inference rule optimal for a pair of agents, transplanted into a large
-population, can convert an informationally worthless label into a stable
-architecture of group distrust. For systems assembled from many interacting
-learned agents that is a failure mode of the interaction rather than of the
-training data, and it is invisible to any evaluation that examines agents one at a
-time.
+Our reading is deliberately narrow: these are simple machines, and extending
+conclusions from them to human societies is not automatic. What the model does
+support is a claim about learning systems --- that an inference rule optimal for a
+pair of agents, transplanted into a large population, can convert an
+informationally worthless label into a stable architecture of group distrust. That
+is a failure mode of the interaction rather than of the training data, and it is
+invisible to any evaluation that examines agents one at a time.
