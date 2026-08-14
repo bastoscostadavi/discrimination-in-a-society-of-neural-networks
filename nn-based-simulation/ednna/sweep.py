@@ -37,6 +37,26 @@ __all__ = ["sweep", "DATA_DIR", "cache_path"]
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
+def _ensure_writable(directory):
+    """Create ``directory``, but refuse to resurrect a vanished tree.
+
+    Package paths are resolved at import time.  If the project directory is
+    renamed or moved while a multi-hour sweep is running, a plain
+    ``mkdir(parents=True)`` silently recreates the old tree and writes the
+    results into a directory nobody is looking at.  Requiring the parent to
+    still exist turns that into a loud failure at the end of the run --- which
+    is bad, but far better than a quiet one.
+    """
+    if not directory.parent.is_dir():
+        raise FileNotFoundError(
+            f"{directory.parent} no longer exists: the project directory was "
+            f"probably moved or renamed after this run started. Results are "
+            f"still in memory but cannot be cached to the original path; "
+            f"re-run from the new location."
+        )
+    directory.mkdir(exist_ok=True)
+
+
 def cache_path(model, sweep_cfg, tag=""):
     """Deterministic cache filename for a (model, sweep) pair."""
     payload = json.dumps(
@@ -144,7 +164,7 @@ def sweep(model, sweep_cfg=None, tag="", use_cache=True, verbose=True):
         flat = np.concatenate([p[name] for p in pieces])
         result[name] = flat.reshape(shape).mean(axis=2)
 
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    _ensure_writable(DATA_DIR)
     np.savez_compressed(path, **result)
     if verbose:
         print(f"[sweep] cached -> {path.name}")

@@ -1,7 +1,7 @@
 \section{The phase diagram}
 \label{sec:results}
 
-We simulate societies of $N=40$ agents over a $64\times64$ grid in $(d,\fd)$, one
+We simulate societies of $N=40$ agents over a $200\times200$ grid in $(d,\fd)$, one
 society per grid point, and measure the five order parameters of
 \S\ref{sec:order-params} after a fixed number of interactions, with both classes
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
@@ -26,9 +26,10 @@ is society-to-society fluctuation, not a rendering artefact.
 \paragraph{Discrimination needs a quorum, and then arrives abruptly.} At small
 $\fd$ the society stays neutral no matter how strong the bias: the few
 discriminating agents are outvoted by the class-blind majority they learn from.
-The trust--class correlation at $d=1$ first exceeds $0.5$ at $\fd\approx1/3$, and
-past that the transition in $d$ sharpens quickly: at $\fd=1$ the band in which
-$|\Rmuc|<0.25$ is only $0.57$ wide, and $\Rmuc$ runs from $-0.99$ at $d=-1$ to
+The trust--class correlation at large $d$ first exceeds $0.5$ around
+$\fd\approx0.4$ ($0.43$ for the simple agenda, $0.35$ for the complex one), and past
+that the transition in $d$ sharpens quickly: at $\fd=1$ the band in which
+$|\Rmuc|<0.25$ is only $0.54$ wide, and $\Rmuc$ runs from $-0.99$ at $d=-1$ to
 $+0.99$ at $d=+1$. This is the first practical consequence of the model: the state
 of the population is not a smooth function of how biased its members are, and a
 minority of biased agents leaves no trace at all until it reaches a threshold
@@ -37,18 +38,18 @@ fraction.
 \paragraph{Two discriminatory phases, and only the simple agenda has both.} Both
 discriminatory regions have distrust aligned to class; they differ in whether
 opinion is aligned too. Along $\fd=0.9$ in the top row of
-Figure~\ref{fig:correlations}, $\Rcw$ rises to $0.43$ at $d\approx0.5$ and then
-\emph{falls} to $0.33$ by $d\approx0.8$, while $\Rmuc$ keeps climbing, from $0.80$
-to $0.89$. Ideological balance follows $\Rcw$ down, $\BI$ dropping from $0.17$ to
-$0.07$ over the same interval. At moderate bias the society splits into two camps
+Figure~\ref{fig:correlations}, $\Rcw$ rises to $0.44$ at $d\approx0.6$ and then
+\emph{falls} to $0.30$ by $d=1$, while $\Rmuc$ keeps climbing, from $0.78$ to
+$0.87$ --- a gap of $0.55$ where the two started level. Ideological balance follows
+$\Rcw$ down, $\BI$ dropping from $0.19$ to $0.06$ across the same row. At moderate bias the society splits into two camps
 that both distrust and disagree with each other (region~III); at strong bias the
 disagreement becomes unnecessary and class membership alone carries the hostility
 (region~IV), which is what the magenta corner of Figure~\ref{fig:phase} shows.
 
-The complex agenda has no region~IV. In the bottom row, $\Rmuc$ and $\Rcw$ are
-numerically indistinguishable across the whole $d>0$ half --- $0.91$ against
-$0.93$ at $d=0.14$, $0.90$ against $0.90$ at $d=0.9$ --- and $\BI$ saturates at
-$0.98$. When there are many issues to disagree about, the ideological split
+The complex agenda has no region~IV. In the bottom row, $\Rmuc$ and $\Rcw$ track
+each other across the whole $d>0$ half --- $0.84$ against $0.85$ at $d=0.15$, $0.91$
+against $0.91$ at $d=0.75$, and still only $0.04$ apart at $d=1$ against the simple
+agenda's $0.55$ --- while $\BI$ saturates at $0.98$. When there are many issues to disagree about, the ideological split
 tracks the class split completely, so distrust and disagreement never come apart.
 Class-only hostility is available only to a society whose agenda is too narrow for
 ideology to reorganise around the class boundary.
@@ -59,8 +60,8 @@ which invites reading the left half of the diagram as ``reverse discrimination''
 The balance measures say otherwise (Figure~\ref{fig:correlations}). In the
 discriminatory region $\BA=+0.97$: nearly every triple is affectively balanced, as
 two coherent mutually hostile blocs require. At $d=-1$, $\fd=0.9$,
-$\BA=-0.77$ for the simple agenda and $-0.90$ for the complex one --- strongly
-\emph{anti}-balanced --- with $\BI=0.00$. No consistent assignment of trust exists:
+$\BA=-0.71$ for both agendas --- strongly \emph{anti}-balanced --- with
+$\BI=0.00$. No consistent assignment of trust exists:
 each agent is pulled towards the other class while its own neighbours are pulled
 towards theirs, and the society settles into a spin glass rather than into a
 mirror-image society. This is also the one place where $\Rwmu$ collapses, to
@@ -98,7 +99,7 @@ where half the triples are frustrated, towards the frustration-free corner. For 
 simple agenda the path runs up the $\BA$ axis: affective structure forms almost
 completely before ideological structure begins, ending at
 $(\BI,\BA)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays
-below the diagonal, ending at $(0.92,0.72)$ for $\alpha=333$: opinions separate
+below the diagonal, ending at $(0.97,0.74)$ for $\alpha=333$: opinions separate
 first and distrust follows. The crossover is at $\alpha\approx1.7$, where the
 trajectory lies along the diagonal --- that is, when the number of issues in play
 is comparable to the dimension of the space they are represented in.

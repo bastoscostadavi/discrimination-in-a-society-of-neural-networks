@@ -112,6 +112,11 @@ def save(fig, name, style=None):
     """
     style = style or _STYLE["name"]
     out = FIGURE_DIR / style
+    if not FIGURE_DIR.parent.is_dir():
+        raise FileNotFoundError(
+            f"{FIGURE_DIR.parent} no longer exists: the project directory was "
+            f"probably moved or renamed after this run started."
+        )
     out.mkdir(parents=True, exist_ok=True)
     path = out / f"{name}.pdf"
     fig.savefig(path)
