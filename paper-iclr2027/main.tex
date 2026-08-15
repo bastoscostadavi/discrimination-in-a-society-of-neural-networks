@@ -32,7 +32,7 @@
 % The ICLR style sets titles in \LARGE; at that size this title wraps onto a
 % second line and hyphenates ("Neural Net-works"). One step down fits it on one
 % line. \texorpdfstring keeps the size command out of the PDF metadata string.
-\title{Polarization and Discrimination \\ in a Multi-Agent System of Neural Networks}
+\title{Polarization and Discrimination \\ in a Society of Learning Agents}
 
 \author{Anonymous authors\\Paper under double-blind review}
 
@@ -368,43 +368,16 @@ attribution emerging from the inference problem rather than assumed.
 
 Nothing in \S\ref{sec:micro} or \S\ref{sec:dynamics} refers to an agent's class, so
 before adding any bias we ask what this society does unaided. It polarises,
-spontaneously and into exactly two camps. We first fix what is measured.
+spontaneously and into exactly two camps.
 
-\paragraph{Order parameters.} Two quantities are defined per pair of agents rather than for the society as a
-whole. The \emph{opinion overlap} is the cosine of two weight vectors,
+\paragraph{What a pair of agents shares.} Two quantities per pair, neither of them a
+property of the society, are enough to see it. The \emph{opinion overlap} is the
+cosine of two weight vectors,
 $\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, equal to $+1$ when
 two agents agree on every issue and $-1$ when they disagree on every one. The
 \emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
 the distrust field mapped onto a bounded, sign-carrying scale, equal to $+1$ for a
 fully trusted emitter and $-1$ for a fully distrusted one.
-
-Neither, on its own, says anything about the society: a pair can disagree in a world
-where everyone disagrees with everyone. What distinguishes organised disagreement
-from disorder is whether the disagreements are mutually consistent, which is a
-statement about triples rather than pairs
-\citep{heider1946attitudes,cartwright1956structural}. A triple is balanced
-in opinion when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and balanced in trust
-when
-$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$,
-and the aggregates
-%
-\begin{equation}
-  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
-  \qquad
-  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
-  \label{eq:balance}
-\end{equation}
-%
-run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
-names for the two sectors, and do not index an agent.) A random society has
-$\BI\approx\BA\approx0$, half its triples frustrated; two internally coherent,
-mutually opposed blocs give $\BI=\BA=1$ whatever the blocs are made of; and a
-society that cannot settle stays near zero or goes negative. Both aggregates follow
-in closed form from matrix products rather than by enumerating triples
-(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$ or \eqref{eq:balance}
-refers to weights, gradients or $K$ --- only to a signed alignment and a signed
-trust per pair, which is what makes them measurable on any population of
-interacting agents.
 
 \begin{figure}[t]
   \centering
@@ -423,31 +396,58 @@ interacting agents.
   \label{fig:polarisation}
 \end{figure}
 
-\paragraph{The society splits in two.} Figure~\ref{fig:polarisation} shows the two
-pairwise distributions before and after. Opinion overlap begins unimodal and centred
-on zero, of width $0.178$ against the $1/\sqrt{K}=0.183$ expected of random vectors
-in $K=30$ dimensions, and ends bimodal with peaks at $-0.59$ and $+0.63$ and no pair
-left within $0.1$ of zero. Trust begins spread across the interior and ends
-saturated, $35\%$ of ordered pairs beyond $|\eta|>0.99$ and a mean $|\eta|$ of
-$0.986$: the split in trust is built by the dynamics, not supplied by the initial
-condition. Neither panel depends on how the agents are labelled, so neither can be
-an artefact of an ordering imposed on them.
 
-The two panels are also aligned with each other: agents end up trusting those who
-agree with them and distrusting those who do not, which is not imposed anywhere in
-\S\ref{sec:dynamics} but follows from the signs of the modulation functions. Balance
-places the state. Trust balance reaches $\BA=0.96$, so the trust network is almost
-perfectly organised, while opinion balance reaches only $\BI=0.19$ --- a gap that
-\S\ref{sec:agenda} explains.
-That the sides are exactly \emph{two} rather than several is a separate question,
-since a bimodal distribution is equally consistent with three or four mutually
-hostile groups; counting triples by sign alone settles it, as a signed complete graph
+Figure~\ref{fig:polarisation} follows both distributions through an unbiased run.
+Opinion overlap begins unimodal and centred on zero, of width $0.178$ against the
+$1/\sqrt{K}=0.183$ expected of random vectors in $K=30$ dimensions, and ends bimodal
+with peaks at $-0.59$ and $+0.63$ and no pair left within $0.1$ of zero. Trust begins
+spread across the interior and ends saturated, $35\%$ of ordered pairs beyond
+$|\eta|>0.99$ and a mean $|\eta|$ of $0.986$: the split in trust is built by the
+dynamics, not supplied by the initial condition. The two panels are aligned with each
+other, so agents end up trusting those who agree with them and distrusting those who
+do not --- which is not imposed anywhere in \S\ref{sec:dynamics} but follows from the
+signs of the modulation functions. And neither panel depends on how the agents are
+labelled, so neither can be an artefact of an ordering imposed on them.
+
+\paragraph{Order parameters.} Every pair has taken a side, but a pair can disagree in
+a world where everyone disagrees with everyone, and a bimodal histogram is equally
+consistent with three or four mutually hostile groups. What separates organised
+disagreement from disorder is whether the disagreements are mutually consistent,
+which is a statement about triples rather than pairs
+\citep{heider1946attitudes,cartwright1956structural}. A triple is balanced in opinion
+when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and balanced in trust when
+$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$,
+and the aggregates
+%
+\begin{equation}
+  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
+  \qquad
+  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
+  \label{eq:balance}
+\end{equation}
+%
+run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
+names for the two sectors, and do not index an agent.) A random society has
+$\BI\approx\BA\approx0$, half its triples frustrated; two internally coherent,
+mutually opposed blocs give $\BI=\BA=1$ whatever the blocs are made of; and a society
+that cannot settle stays near zero or goes negative. Both aggregates follow in closed
+form from matrix products rather than by enumerating triples
+(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$ or \eqref{eq:balance}
+refers to weights, gradients or $K$ --- only to a signed alignment and a signed trust
+per pair, which is what makes them measurable on any population of interacting
+agents.
+
+They place the state of Figure~\ref{fig:polarisation}. Trust balance reaches
+$\BA=0.96$, so the trust network is almost perfectly organised, while opinion balance
+reaches only $\BI=0.19$ --- a gap that \S\ref{sec:agenda} explains. That the sides
+are exactly \emph{two} follows from the same triples, because a signed complete graph
 is balanced precisely when it splits into two mutually hostile cliques
-\citep{cartwright1956structural}. Three equal groups would give $3/4$ and random
-signs $1/2$. Of the $84\,694\,400$ triples in Figure~\ref{fig:polarisation}, not one
-is unbalanced in trust, and in opinion the shortfall is $1\,590$ triples, two
-thousandths of one per cent, traceable to the few pairs whose overlap is so close to
-zero that its sign is arbitrary.
+\citep{cartwright1956structural}. The sharp test discards the magnitudes that
+\eqref{eq:balance} retains and counts triples by sign alone, which three equal groups
+would leave at $3/4$ and random signs at $1/2$. Of the $84\,694\,400$ triples in the
+figure, not one is unbalanced in trust, and in opinion the shortfall is $1\,590$
+triples, two thousandths of one per cent, traceable to the few pairs whose overlap is
+so close to zero that its sign is arbitrary.
 
 Two features of the split matter later. It is \emph{spontaneous}: which agent lands
 in which faction is set by the initial condition, and the two are equal only up to
