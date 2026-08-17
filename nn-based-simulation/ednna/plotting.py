@@ -51,17 +51,16 @@ def pastel(cmap, amount=0.26, n=256):
     return LinearSegmentedColormap.from_list(f"pastel_{cmap}", base)
 
 
-#: One colour map per order parameter: the two trust-side quantities in blue/red,
-#: the class-opinion correlation in green, and the two balance measures in
-#: purple/orange.  Every map runs white-to-saturated across the whole of its range
-#: in :data:`RANGES`, including the signed ones.  A diverging map for ``R_muc``
-#: would read better on its own, but the three correlations are also the three
-#: colour channels of the phase diagram, where the red channel is exactly this
-#: white-to-red ramp over [-1, 1]; a blue negative arm would make the panel
-#: disagree with the composite it feeds.
+#: One colour map per order parameter.  The two non-negative correlations get
+#: sequential maps; ``R_muc`` is signed and spans its whole range in practice --
+#: reverse discrimination is as strong as discrimination -- so it gets a diverging
+#: map, purple through white to orange, that puts the sign change at d = 0 on the
+#: white point where it belongs.  A sequential map over [-1, 1] would agree better
+#: with the red channel of the phase diagram, which is exactly such a ramp, but it
+#: reads the sign change as a brightness step and hides the zero.
 CMAPS = {
     "R_wmu": "Blues",
-    "R_muc": "Reds",
+    "R_muc": "PuOr_r",
     "R_cw": "Greens",
     "B_I": "Purples",
     "B_A": "OrRd",
