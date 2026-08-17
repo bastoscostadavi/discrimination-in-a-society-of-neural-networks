@@ -28,12 +28,18 @@ from _cli import setup  # noqa: E402
 from ednna.plotting import add_phase_axes, panel, rgb_composite, save  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
-#: label -> (d, f_d) placement, following the draft's figure
+#: label -> (d, f_d) placement.  The draft puts (IV) at small ``f_d``, but there the
+#: signal is weak -- R_muc is only 0.27 at (d, f_d) = (0.62, 0.26) and B_A has fallen
+#: to 0.56, so the point is a sub-quorum crossover rather than the class-only state.
+#: The class-only character is what strengthens with ``d``: R_cw/R_muc falls
+#: monotonically in ``d`` at every ``f_d``, reaching 0.34 at (1.0, 0.9) where R_muc is
+#: 0.86 and the trust network is still organized (B_A = 0.90).  (III) and (IV) are
+#: therefore placed on the same high-``f_d`` traverse the text argues along.
 REGIONS = {
     "(I)": (-0.55, 0.78),
     "(II)": (-0.06, 0.42),
-    "(III)": (0.42, 0.80),
-    "(IV)": (0.62, 0.26),
+    "(III)": (0.45, 0.86),
+    "(IV)": (0.88, 0.86),
 }
 
 

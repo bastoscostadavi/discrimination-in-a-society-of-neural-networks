@@ -414,9 +414,9 @@ the dynamics, not supplied by the initial condition. And the two panels end alig
 with each other: agents trust those who agree with them and distrust those who do
 not.
 
-\paragraph{Class-blind order parameters.} Three numbers turn the figure into a
-statement about the society, and none of them refers to a label. The first asks
-whether the alignment between the panels is real,
+\paragraph{Polarization order parameters.} Three numbers turn the figure into a
+statement about the society, each assembled from $\rho$ and $\eta$ alone. The first
+asks whether the alignment between the panels is real,
 %
 \begin{equation}
   \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
@@ -655,28 +655,6 @@ of the population is not a smooth function of how biased its members are, and a
 minority of biased agents leaves no trace at all until it reaches a threshold
 fraction.
 
-\paragraph{Two discriminatory phases, and only the simple agenda has both.} Both
-discriminatory regions have distrust aligned to class; they differ in whether
-opinion is aligned too. Along $\fd=0.9$ in the top row of
-Figure~\ref{fig:correlations}, $\Rcw$ rises to $0.44$ at $d\approx0.6$ and then
-\emph{falls} to $0.30$ by $d=1$, while $\Rmuc$ keeps climbing, from $0.78$ to
-$0.87$ --- a gap of $0.55$ where the two started level. Opinion balance follows
-$\Rcw$ down, $\BI$ dropping from $0.19$ to $0.06$ across the same row. At moderate bias the society splits into two camps
-that both distrust and disagree with each other (region~III); at strong bias the
-disagreement becomes unnecessary and class membership alone carries the hostility
-(region~IV), which is what the magenta corner of Figure~\ref{fig:phase} shows.
-
-The complex agenda has no region~IV. In the bottom row, $\Rmuc$ and $\Rcw$ track
-each other across the whole $d>0$ half --- $0.84$ against $0.85$ at $d=0.15$, $0.91$
-against $0.91$ at $d=0.75$, and still only $0.04$ apart at $d=1$ against the simple
-agenda's $0.55$ --- while $\BI$ saturates at $0.98$. When there are many issues to disagree about, the
-opinion split tracks the class split completely, so distrust and disagreement never
-come apart. Class-only hostility requires the opposite: an agenda narrow enough that
-most of every opinion lies in directions no issue probes, which by
-\S\ref{sec:agenda} caps $\Rcw$ however long the society runs. Region~(IV) is
-therefore not a slow approach to region~(III) but a distinct state, available only
-below $\alpha\approx1$.
-
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.55\linewidth]{figures/phase_diagram}
@@ -689,18 +667,56 @@ below $\alpha\approx1$.
   \label{fig:phase}
 \end{figure}
 
-\paragraph{Favouring the out-group produces frustration, not inverted
-discrimination.} For $d<0$ the correlations are the sign-mirror of the $d>0$ side,
-which invites reading the left half of the diagram as ``reverse discrimination''.
-The balance measures say otherwise (Figure~\ref{fig:correlations}). In the
-discriminatory region $\BA=+0.97$: nearly every triple is balanced in trust, as
-two coherent mutually hostile blocs require. At $d=-1$, $\fd=0.9$,
-$\BA=-0.71$ for both agendas --- strongly \emph{anti}-balanced --- with
-$\BI=0.00$, and $\Rwmu$ collapses to $0.03$ --- the only place it does. No
-consistent assignment of trust exists: each agent is pulled towards the other class
-while its neighbours are pulled towards theirs, so the society settles into a spin
-glass rather than a mirror image. Pair correlations alone would report the region as
-simply inverted; the triple-level measurement identifies it as disordered.
+Composited, the three correlations name four collective states, and the balances
+distinguish two of them that the correlations alone would confuse.
+
+\begin{itemize}
+\item[(I)] \textbf{Frustrated favouring of the out-group.} For $d<0$ the correlations
+  are the sign-mirror of the $d>0$ side, which invites reading the left half of the
+  diagram as reverse discrimination. The balances say otherwise. At $d=-1$,
+  $\fd=0.9$, $\BA=-0.71$ for both agendas --- strongly \emph{anti}-balanced, against
+  $+0.97$ in the discriminatory region --- with $\BI=0.00$, and $\Rwmu$ collapses to
+  zero, the only place in the diagram it does. No consistent assignment of trust
+  exists: each agent is pulled towards the other class while its neighbours are
+  pulled towards theirs, so the society settles into a spin glass rather than a
+  mirror image. Pair correlations alone would report this region as simply inverted;
+  the triple-level measurement identifies it as disordered.
+
+\item[(II)] \textbf{Neutral polarization.} At small $\fd$, and near $d=0$ at any
+  $\fd$, the society does exactly what \S\ref{sec:no-disc} describes: it splits into
+  two mutually distrustful camps, with $\Rwmu$ and $\BA$ both high, but $\Rmuc$ stays
+  at zero and the split cuts across the classes. The bias is present in individual
+  agents and absent from the population.
+
+\item[(III)] \textbf{Distrust and disagreement both follow the label.} Past the
+  quorum, at moderate $d>0$, $\Rmuc$ and $\Rcw$ are both large: the society still
+  splits into two camps that distrust and disagree with each other, but the split now
+  coincides with the class boundary. This is the state the mechanism of
+  \S\ref{sec:error} predicts, and it is the only discriminatory state a complex
+  agenda reaches.
+
+\item[(IV)] \textbf{Class alone carries the hostility.} Raising $d$ further, at the
+  same $\fd$ and with a simple agenda, pulls the two correlations apart. Along
+  $\fd=0.9$ in the top row of Figure~\ref{fig:correlations}, $\Rcw$ peaks at $0.42$
+  near $d=0.55$ and then \emph{falls} to $0.29$ by $d=1$ while $\Rmuc$ keeps climbing,
+  $0.81$ to $0.86$: opinion goes from following class half as strongly as trust does
+  to a third as strongly, and $\BI$ follows $\Rcw$ down, $0.15$ to $0.06$. The agents
+  distrust the other class without needing to disagree with it. The ratio
+  $\Rcw/\Rmuc$ falls with $d$ at every $\fd$ above the quorum, so what separates this
+  state from (III) is a direction in the diagram rather than a corner of it.
+\end{itemize}
+
+Whether the last two are both available is decided by the agenda. For the complex
+agenda $\Rmuc$ and
+$\Rcw$ track each other across the whole $d>0$ half --- $0.83$ against $0.84$ at
+$d=0.15$, $0.88$ against $0.88$ at $d=0.75$, still only $0.04$ apart at $d=1$ against
+the simple agenda's $0.57$ --- while $\BI$ saturates at $0.98$. When there are many
+issues to disagree about, the opinion split tracks the class split completely, and
+distrust and disagreement never come apart. Class-only hostility requires the
+opposite: an agenda narrow enough that most of every opinion lies in directions no
+issue probes, which by \S\ref{sec:agenda} caps $\Rcw$ however long the society runs.
+Region~(IV) is therefore available only below $\alpha\approx1$.
+
 \section{Discussion}
 \label{sec:discussion}
 
