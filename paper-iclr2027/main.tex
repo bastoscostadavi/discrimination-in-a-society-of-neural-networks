@@ -374,19 +374,24 @@ attribution emerging from the inference problem rather than assumed.
 \subsection{Emergent polarization}
 \label{sec:no-disc}
 
+
 Nothing in \S\ref{sec:micro} or \S\ref{sec:dynamics} refers to an agent's class, so
 before adding any bias we ask what this society does unaided. It polarizes,
-spontaneously and into exactly two camps.
-
-\paragraph{What a pair of agents shares.} Two quantities per pair, neither of them a
-property of the society, are enough to see it. The \emph{opinion overlap} is the
-cosine of two weight vectors,
-$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, equal to $+1$ when
-two agents agree on every issue and $-1$ when they disagree on every one. The
-\emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
-the distrust field mapped onto a bounded, sign-carrying scale, equal to $+1$ for a
-fully trusted emitter and $-1$ for a fully distrusted one. The two are logically
-independent: nothing stops an agent trusting someone it disagrees with.
+spontaneously and into exactly two camps. Two quantities per pair, neither of them a
+property of the society, are enough to see it: the \emph{opinion overlap}
+$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, the cosine of two
+weight vectors, equal to $+1$ when two agents agree on every issue and $-1$ when they
+disagree on every one; and the \emph{trust} a receiver $I$ places in an emitter $J$,
+$\eta_{J|I}=1-2\Phi(\hmu)$, the distrust field mapped onto a bounded, sign-carrying
+scale, equal to $+1$ for a fully trusted emitter and $-1$ for a fully distrusted one.
+The two are logically independent --- nothing stops an agent trusting someone it
+disagrees with --- and Figure~\ref{fig:polarization}, which follows both
+distributions through an unbiased run, ends with them aligned anyway. Opinion overlap
+begins unimodal at zero, of the width random vectors in $K=30$ dimensions require,
+and ends bimodal with no pair left near zero; trust begins spread across the interior
+and ends saturated at $\pm1$, so the split in trust is built by the dynamics and not
+supplied by the initial condition; and agents end up trusting those who agree with
+them and distrusting those who do not.
 
 \begin{figure}[t]
   \centering
@@ -404,15 +409,6 @@ independent: nothing stops an agent trusting someone it disagrees with.
   is the sign-balance figure quoted in the text.}
   \label{fig:polarization}
 \end{figure}
-
-
-Figure~\ref{fig:polarization} follows both distributions through an unbiased run.
-Opinion overlap begins unimodal at zero, of the width random vectors in $K=30$
-dimensions require, and ends bimodal with no pair left near zero. Trust begins spread
-across the interior and ends saturated at $\pm1$, so the split in trust is built by
-the dynamics, not supplied by the initial condition. And the two panels end aligned
-with each other: agents trust those who agree with them and distrust those who do
-not.
 
 \paragraph{Polarization order parameters.} Three numbers turn the figure into a
 statement about the society, each assembled from $\rho$ and $\eta$ alone. The first
