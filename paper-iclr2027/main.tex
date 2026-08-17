@@ -386,15 +386,7 @@ two agents agree on every issue and $-1$ when they disagree on every one. The
 \emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
 the distrust field mapped onto a bounded, sign-carrying scale, equal to $+1$ for a
 fully trusted emitter and $-1$ for a fully distrusted one. The two are logically
-independent --- nothing stops an agent trusting someone it disagrees with --- so
-whether the society ties them together is a question, and
-%
-\begin{equation}
-  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
-  \label{eq:rwmu}
-\end{equation}
-%
-averaged over unordered pairs and normalized to $[-1,1]$, is the answer.
+independent: nothing stops an agent trusting someone it disagrees with.
 
 \begin{figure}[t]
   \centering
@@ -418,17 +410,27 @@ Figure~\ref{fig:polarization} follows both distributions through an unbiased run
 Opinion overlap begins unimodal at zero, of the width random vectors in $K=30$
 dimensions require, and ends bimodal with no pair left near zero. Trust begins spread
 across the interior and ends saturated at $\pm1$, so the split in trust is built by
-the dynamics, not supplied by the initial condition. The two panels also end aligned,
-$\Rwmu$ rising from zero to $+0.56$: agents trust those who agree with them and
-distrust those who do not, which is not imposed anywhere in \S\ref{sec:dynamics} but
-follows from the signs of the modulation functions.
+the dynamics, not supplied by the initial condition. And the two panels end aligned
+with each other: agents trust those who agree with them and distrust those who do
+not.
 
-\paragraph{Order parameters.} Every pair has taken a side, but a pair can disagree in
-a world where everyone disagrees with everyone, and a bimodal histogram is equally
-consistent with three or four mutually hostile groups. What separates organized
-disagreement from disorder is whether the disagreements are mutually consistent,
-which is a statement about triples rather than pairs
-\citep{heider1946attitudes,cartwright1956structural}. A triple is balanced in opinion
+\paragraph{Class-blind order parameters.} Three numbers turn the figure into a
+statement about the society, and none of them refers to a label. The first asks
+whether the alignment between the panels is real,
+%
+\begin{equation}
+  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
+  \label{eq:rwmu}
+\end{equation}
+%
+averaged over unordered pairs and normalized to $[-1,1]$, positive when agents trust
+those who agree with them. The other two answer what the histograms cannot. Every
+pair has taken a side, but a pair can disagree in a world where everyone disagrees
+with everyone, and a bimodal histogram is equally consistent with three or four
+mutually hostile groups. What separates organized disagreement from disorder is
+whether the disagreements are mutually consistent, which is a statement about triples
+rather than pairs \citep{heider1946attitudes,cartwright1956structural}. A triple is
+balanced in opinion
 when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and balanced in trust when
 $b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$,
 and the aggregates
@@ -446,14 +448,17 @@ $\BI\approx\BA\approx0$, half its triples frustrated; two internally coherent,
 mutually opposed blocs give $\BI=\BA=1$ whatever the blocs are made of; and a society
 that cannot settle stays near zero or goes negative. Both aggregates follow in closed
 form from matrix products rather than by enumerating triples
-(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$ or \eqref{eq:balance}
-refers to weights, gradients or $K$ --- only to a signed alignment and a signed trust
+(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$, \eqref{eq:rwmu} or
+\eqref{eq:balance} refers to weights, gradients or $K$ --- only to a signed alignment and a signed trust
 per pair, which is what makes them measurable on any population of interacting
 agents.
 
-They place the state of Figure~\ref{fig:polarization}. Trust balance reaches
-$\BA=0.96$, so the trust network is almost perfectly organized, while opinion balance
-reaches only $\BI=0.19$ --- a gap that \S\ref{sec:agenda} explains. That the sides
+All three place the state of Figure~\ref{fig:polarization}. $\Rwmu$ rises from zero,
+where the sectors are independent by construction, to $+0.56$, so the alignment is
+not an impression left by the histograms; it is not imposed anywhere in
+\S\ref{sec:dynamics} either, but follows from the signs of the modulation functions.
+Trust balance reaches $\BA=0.96$, so the trust network is almost perfectly organized,
+while opinion balance reaches only $\BI=0.19$ --- a gap that \S\ref{sec:agenda} explains. That the sides
 are exactly \emph{two} follows from the same triples, because a signed complete graph
 is balanced precisely when it splits into two mutually hostile cliques
 \citep{cartwright1956structural}. The sharp test discards the magnitudes that
@@ -590,7 +595,7 @@ in which both classes favour their own and are hostile to the other. It is the
 case in which the two classes play equivalent roles, so any asymmetry that
 appears in the results is spontaneous rather than imposed.
 
-\paragraph{Two correlations with class.} Balance says whether a society is organized
+\paragraph{Class order parameters.} Balance says whether a society is organized
 and \eqref{eq:rwmu} whether it is organized around agreement; neither can see whether
 it is organized around the label, because neither refers to one. Writing
 $G_{IJ}=\kappa_I\kappa_J$ for the class indicator ($+1$ for same-class pairs, $-1$
