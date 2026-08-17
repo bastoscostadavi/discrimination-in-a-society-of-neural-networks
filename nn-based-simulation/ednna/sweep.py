@@ -2,7 +2,7 @@
 
 A sweep evaluates the five order parameters on a grid of discrimination field
 ``d`` and fraction of discriminating agents ``f_d``.  Grid points are flattened,
-split into batches, and each batch is run as a single vectorised
+split into batches, and each batch is run as a single vectorized
 :class:`~ednna.society.SocietyBatch` inside a worker process.  Results are
 cached in ``data/`` keyed by a hash of the configuration, so re-plotting never
 re-simulates.

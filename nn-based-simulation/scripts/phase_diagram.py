@@ -8,7 +8,7 @@ colour of a point names the collective state of the society:
 (I)   dark          reverse discrimination.  A frustrated, spin-glass-like state:
                     agents favour the out-group, no coherent faction can form,
                     and no correlation survives.
-(II)  blue          neutral.  The society polarises, but along a split that has
+(II)  blue          neutral.  The society polarizes, but along a split that has
                     nothing to do with class.
 (III) pale          discriminatory, ideological.  Distrust follows class *and*
                     opinions follow class: two coherent, opposed camps.

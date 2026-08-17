@@ -190,7 +190,7 @@ def framed_axes(ax, minor=True):
 
     A closed box rather than two spines, ticks pointing inwards on all four sides,
     minor ticks between the majors, and no grid.  Matplotlib's defaults are the
-    opposite of all four, so this is worth centralising rather than repeating.
+    opposite of all four, so this is worth centralizing rather than repeating.
     """
     for side in ("top", "bottom", "left", "right"):
         ax.spines[side].set_visible(True)

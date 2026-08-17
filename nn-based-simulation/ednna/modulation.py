@@ -24,7 +24,7 @@ paper highlights (and which `tests/test_modulation.py` checks):
 
     F_w(x, y) = F_mu(y, x)        F_C(x, y) = F_V(y, x)
 
-All functions are vectorised and broadcast over numpy arrays.
+All functions are vectorized and broadcast over numpy arrays.
 """
 
 from __future__ import annotations

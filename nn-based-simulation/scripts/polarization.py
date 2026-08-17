@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""How do we know the society polarises?
+"""How do we know the society polarizes?
 
 The phase diagrams answer questions about the *discriminating* society. This
 figure answers the prior one: with no discrimination field at all, what does the
@@ -12,7 +12,7 @@ Everything here comes from the existing machinery: a :class:`SocietyBatch` at
 ``d = 0`` measured with :func:`ednna.order_params.overlaps` and
 :func:`ednna.order_params.trust`.
 
-Writes ``polarisation``.
+Writes ``polarization``.
 """
 
 from __future__ import annotations
@@ -54,15 +54,15 @@ def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
     calibrated interaction count per ordered pair.
     """
     model = preset.model.with_(n_issues=P)
-    N = int(n_agents if n_agents is not None else preset.polarisation_agents)
-    R = int(n_runs if n_runs is not None else preset.polarisation_runs)
+    N = int(n_agents if n_agents is not None else preset.polarization_agents)
+    R = int(n_runs if n_runs is not None else preset.polarization_runs)
     cache = (
-        DATA_DIR / f"polarisation_P{P}_N{N}x{R}_K{model.n_dim}"
+        DATA_DIR / f"polarization_P{P}_N{N}x{R}_K{model.n_dim}"
         f"_T{model.interactions_per_channel:g}.npz"
     )
     if use_cache and cache.exists():
         with np.load(cache) as z:
-            print(f"[polarisation] loaded cache {cache.name}")
+            print(f"[polarization] loaded cache {cache.name}")
             return {k: z[k] for k in z.files}
 
     batch = SocietyBatch(
@@ -76,7 +76,7 @@ def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
     rho_before = pool(overlaps(batch), iu)
     eta_before = pool(trust(batch), offd)
     steps = int(round(model.interactions_per_channel * N * (N - 1)))
-    print(f"[polarisation] {R} societies of N={N}, {steps:,} interactions each ...",
+    print(f"[polarization] {R} societies of N={N}, {steps:,} interactions each ...",
           flush=True)
     batch.run(steps)
     rho_m, eta_m = overlaps(batch), trust(batch)
@@ -107,7 +107,7 @@ def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(cache, **out)
     n_tri = N * (N - 1) * (N - 2) // 6
-    print(f"[polarisation] {R}x N={N}: B_I={bal['B_I'].mean():+.3f} "
+    print(f"[polarization] {R}x N={N}: B_I={bal['B_I'].mean():+.3f} "
           f"B_A={bal['B_A'].mean():+.3f}; sign balance rho {sb_rho.mean():.6f} "
           f"eta {sb_eta.mean():.6f} (0 unbalanced of {n_tri*R:,} triples if 1.0); "
           f"R_wmu={r_wmu.mean():+.3f}; faction split {factions[0].min()}-{factions[0].max()} of {N}; "
@@ -125,7 +125,7 @@ def ordered_pairs(M):
     return M[~np.eye(M.shape[0], dtype=bool)]
 
 
-def figure(data, style, name="polarisation"):
+def figure(data, style, name="polarization"):
     """Two panels: what happened to the distribution of each pairwise quantity.
 
     Styled after the histograms of Costa (2021): solid pastel bars with a thin

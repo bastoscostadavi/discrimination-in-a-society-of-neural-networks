@@ -5,11 +5,11 @@ along a label that carries no information — with no biased data and no group-l
 preference anywhere in the system?
 
 This repository answers that for a society of agents whose learning rule can be
-written down and analysed, and maps the result as a phase diagram.
+written down and analyzed, and maps the result as a phase diagram.
 
 | | |
 |---|---|
-| [`nn-based-simulation/`](nn-based-simulation/) | A society of perceptron agents learning from each other under an optimal on-line rule that carries an explicit, dynamical trust for every other agent. Analysable, and mapped as a phase diagram in the strength `d` of a class-correlated bias and the fraction `f_d` of agents carrying it. |
+| [`nn-based-simulation/`](nn-based-simulation/) | A society of perceptron agents learning from each other under an optimal on-line rule that carries an explicit, dynamical trust for every other agent. Analyzable, and mapped as a phase diagram in the strength `d` of a class-correlated bias and the fraction `f_d` of agents carrying it. |
 | [`docs/llm-study-contract.md`](docs/llm-study-contract.md) | A language-agent version of the same experiment, specified but **shelved**. Kept because the order parameters were built to make it possible later. |
 | [`paper-iclr2027/`](paper-iclr2027/) | The ICLR 2027 submission drawing on both, with the language-agent section scoped and its figure slots reserved. |
 | [`docs/`](docs/) | The model as implemented, and the discrepancies found in the source material. |
@@ -17,7 +17,7 @@ written down and analysed, and maps the result as a phase diagram.
 
 The starting point is `Discrimination2025(1).pdf` (Caticha et al.), which sets up
 the model and reports the phase diagram. It is the guide for the work here, not
-its organising principle: the simulation stands on its own, and where a literal
+its organizing principle: the simulation stands on its own, and where a literal
 reading of the draft does not work, the code follows the model and the
 discrepancy is documented rather than silently reproduced.
 

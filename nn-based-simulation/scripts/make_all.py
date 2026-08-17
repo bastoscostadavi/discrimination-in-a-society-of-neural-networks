@@ -22,7 +22,7 @@ import learning_flows  # noqa: E402
 import modulation_landscape  # noqa: E402
 import order_parameter_maps  # noqa: E402
 import phase_diagram  # noqa: E402
-import polarisation  # noqa: E402
+import polarization  # noqa: E402
 
 
 def main():
@@ -36,8 +36,8 @@ def main():
     learning_flows.figure(args.style)
 
     print("== the unbiased society ==")
-    polarisation.figure(
-        polarisation.run(preset, preset.p_small, use_cache=not args.no_cache), args.style
+    polarization.figure(
+        polarization.run(preset, preset.p_small, use_cache=not args.no_cache), args.style
     )
 
     print("== phase-diagram sweeps ==")

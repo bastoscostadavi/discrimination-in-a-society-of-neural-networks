@@ -111,7 +111,7 @@ R_μc = ⟨G_IJ (η_{I|J} + η_{J|I})⟩       trust–class     (the discrimina
 R_cw = ⟨G_IJ ρ_IJ⟩                      opinion–class
 ```
 
-averaged over unordered pairs, each normalised to `[−1, 1]`. Social balance over
+averaged over unordered pairs, each normalized to `[−1, 1]`. Social balance over
 triples,
 
 ```
@@ -120,7 +120,7 @@ b_A  = (η_IJ η_JK η_KI + η_JI η_IK η_KJ)/2
 B_I  = ⟨b_I⟩,   B_A = ⟨b_A⟩
 ```
 
-separates *organised* disagreement from disorder: two coherent, mutually opposed
+separates *organized* disagreement from disorder: two coherent, mutually opposed
 blocs give `B = 1` whatever they are made of, a random society gives `0`, and a
 society that cannot settle goes negative. Both aggregates are computed in closed
 form — for any `M` with unit diagonal,
@@ -174,7 +174,7 @@ result and the residuals.
    half the phase diagram, we use the signed `G_IJ = κ_I κ_J`.
    Flag: `class_indicator="01"`.
 
-   Relatedly, the draft normalises all three correlations by `N(N−1)`. That is
+   Relatedly, the draft normalizes all three correlations by `N(N−1)`. That is
    right for the two that sum `η_{I|J} + η_{J|I}` over unordered pairs, but `R_cw`
    has a single term per pair, so the same divisor caps it at `1/2`. We use
    `2/(N(N−1))` there. Flag: `literal_norm=True`.

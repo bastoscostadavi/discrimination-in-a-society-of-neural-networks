@@ -25,7 +25,7 @@ pytest                                        # 56 tests, ~30 s
 
 Add `--style iclr` to render at the paper's column width instead of the source
 draft's proportions. Figures are written as PDF only, into
-`figures/{paper,iclr}/`; to look at one, rasterise it on demand with
+`figures/{paper,iclr}/`; to look at one, rasterize it on demand with
 `pdftoppm -r 150 -png figures/paper/phase_diagram.pdf /tmp/out`. Sweeps are cached
 in `data/` keyed by a hash of the configuration, so restyling or re-plotting never
 re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
@@ -34,7 +34,7 @@ re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
 
 | script | figure | what it shows |
 |---|---|---|
-| `polarisation.py` | `polarisation` | direct evidence that an unbiased society splits in two: sorted overlap and trust matrices, and the overlap distribution going from unimodal to bimodal |
+| `polarization.py` | `polarization` | direct evidence that an unbiased society splits in two: sorted overlap and trust matrices, and the overlap distribution going from unimodal to bimodal |
 | `modulation_landscape.py` | `modulation_surfaces`, `modulation_contours`, `modulation_slices` | the four modulation functions; where learning happens and which sector absorbs a surprise |
 | `learning_flows.py` | `learning_flows` | the flow that learning induces, and how the discrimination field bends it |
 | `correlation_maps.py` | `correlation_maps` | the three pair correlations over the `(d, f_d)` plane, two agenda sizes |
@@ -91,12 +91,12 @@ implicit.
 |---|---|---|
 | `K`, embedding dimension | 30 | **recovered.** The draft's trajectory figure uses `α = P/K ∈ {0.03, 0.17, 0.23, 0.33, 0.50, 0.67, 1.67, 3.33, 333.33}`, which is exactly `P/30` for `P ∈ {1, 5, 7, 10, 15, 20, 50, 100, 10⁴}`. Its LLM protocol's "thirty issues" agrees. |
 | `N`, society size | 40 | chosen. Large enough that the order parameters are not dominated by finite-size noise, small enough that a phase diagram is affordable; total work scales as `N³`. |
-| `P`, agenda size | 5 and 100 | chosen, to put `α = P/K` either side of 1, which is where the polarisation order reverses. |
+| `P`, agenda size | 5 and 100 | chosen, to put `α = P/K` either side of 1, which is where the polarization order reverses. |
 | `Δt`, interactions per ordered pair | 500 | **calibrated** against the draft's trajectory endpoints; see below. |
 | `C₀`, `V₀` | `I`, `1` | uninformative Gaussian prior. |
 | `μ₀` | `U(−1, 1)` | gives `B_I ≈ B_A ≈ 0` initially, i.e. half the triples frustrated, as the draft describes. |
 | class split | `N/2` each | the draft's two classes, `A` and `B`. |
-| repeats per grid point | 1 | the draft's maps are visibly single-realisation. |
+| repeats per grid point | 1 | the draft's maps are visibly single-realization. |
 
 ### How `Δt` was calibrated
 
@@ -104,7 +104,7 @@ The dynamics anneals — both uncertainties shrink monotonically — so a societ
 not reach a stationary state; it slows down. The measurement time is therefore a
 real parameter, and the draft omits it. `scripts/calibrate.py` scans `Δt` and
 compares the endpoints of all nine balance trajectories against the values
-digitised from the draft's figure, and separately checks four features that do not
+digitized from the draft's figure, and separately checks four features that do not
 depend on `Δt` at all: the sign flip of the trust–class correlation at `d = 0`,
 the opinion–class wedge at large `d` and `f_d`, and simple agendas finishing above
 the diagonal with complex ones below it.
@@ -137,7 +137,7 @@ endpoints sit well above ours and its two largest agendas have a lower `B_A` tha
 we obtain at any Δt that fits the rest. Two explanations are available and we
 cannot distinguish them: the draft's `N` differs from ours (its endpoints depend
 on `N` through the number of channels each agent must resolve), or those middle
-curves cannot be digitised reliably — three of them overlap within a few pixels in
+curves cannot be digitized reliably — three of them overlap within a few pixels in
 the printed figure, so which endpoint belongs to which `α` is partly guesswork on
 our side. Dropping the two suspect readings moves the selected Δt not at all
 (rms 0.093 at 250, 0.076 at 500, 0.129 at 1000), which is why we treat 500 as
@@ -201,7 +201,7 @@ Both are implemented either way, and both are documented in
 2. **Class indicator.** The draft's Eq. 28 writes `G_IJ ∈ {0,1}`, but its
    published trust–class map spans `−1…1`, which requires the signed form
    `G_IJ = κ_I κ_J`. That is the default; `class_indicator="01"` restores the
-   literal version. The draft's normalisation also caps its `R_cw` at 1/2, since
+   literal version. The draft's normalization also caps its `R_cw` at 1/2, since
    that correlation has one term per pair rather than two; we scale it to share
    the range `[−1,1]` (`literal_norm=True` restores the draft's factor).
 3. **Numerical floors** on `Z`, on `V`, and a positive-definiteness clip on the

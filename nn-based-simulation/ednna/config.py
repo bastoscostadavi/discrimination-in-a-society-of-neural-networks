@@ -38,7 +38,7 @@ class ModelConfig:
     #: ``Delta t = ????``).  500 is the value calibrated by
     #: ``scripts/calibrate.py`` against the draft's published trajectory
     #: endpoints; the residual minimum is flat-bottomed between 250 and 1000 and
-    #: 500 wins whether or not the ambiguously digitised curves are included.
+    #: 500 wins whether or not the ambiguously digitized curves are included.
     interactions_per_channel: float = 500.0
     literal_draft_sign: bool = False
     class_indicator: str = "pm1"
@@ -70,12 +70,12 @@ class SweepConfig:
     n_fd: int = 96
     d_range: tuple = (-1.0, 1.0)
     fd_range: tuple = (0.0, 1.0)
-    #: societies per vectorised batch; memory scales as batch * N * K^2
+    #: societies per vectorized batch; memory scales as batch * N * K^2
     batch_size: int = 1024
     n_workers: int = 10
     seed: int = 20260812
     #: repeats per grid point, averaged.  The draft's maps are visibly
-    #: single-realisation, so 1 is the faithful choice.
+    #: single-realization, so 1 is the faithful choice.
     n_repeats: int = 1
 
     @property
@@ -99,10 +99,10 @@ class Preset:
     #: agenda sizes for the "small agenda" / "large agenda" panel rows
     p_small: int = 5
     p_large: int = 100
-    #: society size and number of independent societies for the polarisation
+    #: society size and number of independent societies for the polarization
     #: figure, which is a distribution over pairs and so wants many of them
-    polarisation_agents: int = 400
-    polarisation_runs: int = 8
+    polarization_agents: int = 400
+    polarization_runs: int = 8
     #: agenda sizes for the balance-trajectory figure (alpha = P/30)
     trajectory_issues: tuple = (1, 5, 7, 10, 15, 20, 50, 100, 10000)
     n_trajectory_repeats: int = 8
@@ -126,8 +126,8 @@ PRESETS = {
         name="quick",
         model=ModelConfig(n_agents=24, interactions_per_channel=125.0),
         sweep=SweepConfig(n_d=32, n_fd=32, batch_size=512, n_workers=8),
-        polarisation_agents=60,
-        polarisation_runs=4,
+        polarization_agents=60,
+        polarization_runs=4,
         n_trajectory_repeats=2,
         n_trajectory_samples=24,
     ),
@@ -135,8 +135,8 @@ PRESETS = {
         name="medium",
         model=ModelConfig(n_agents=40),
         sweep=SweepConfig(n_d=64, n_fd=64, batch_size=512, n_workers=10),
-        polarisation_agents=150,
-        polarisation_runs=8,
+        polarization_agents=150,
+        polarization_runs=8,
         n_trajectory_repeats=4,
         n_trajectory_samples=32,
     ),

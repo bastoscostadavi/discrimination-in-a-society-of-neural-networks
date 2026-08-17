@@ -127,7 +127,7 @@ def test_float32_agrees_with_float64():
 
 @pytest.mark.slow
 def test_independent_schedule_agrees_statistically():
-    """The shared schedule is an optimisation, not a modelling choice."""
+    """The shared schedule is an optimization, not a modelling choice."""
     res = {}
     for shared in (True, False):
         b = SocietyBatch(

@@ -6,8 +6,8 @@ Working notes, not part of the paper.
 
 Presentation order, per the author's revision:
 
-1. Introduction — 2. Related work — 3. Polarisation in a society of learning agents
-(3.1 microscopic variables, 3.2 dynamics, 3.3 emergent polarisation, 3.4 the
+1. Introduction — 2. Related work — 3. Polarization in a society of learning agents
+(3.1 microscopic variables, 3.2 dynamics, 3.3 emergent polarization, 3.4 the
 agenda-size effect) — 4. Discrimination in a society of learning agents (4.1 an
 error of representation, 4.2 the phase diagram) — 5. Discussion.
 
@@ -20,7 +20,7 @@ measured at `d = 0`: it is a property of the model, not of the bias.
 Order parameters arrive where first needed rather than in a block: `rho`, `eta`,
 `B_I`, `B_A` open §3.3; the three correlations (`R_wmu`, `R_muc`, `R_cw`) sit at the
 end of §4.1, since all three are read off the phase diagram together and `R_wmu` is
-not needed to establish that the society polarises.
+not needed to establish that the society polarizes.
 
 Terminology: the sector is the **opinion** sector, never "ideological". The symbols
 `B_I` and `b^I` keep their subscript for continuity with the source draft, with a
@@ -41,13 +41,13 @@ figures that do the most work per unit of space:
 
 - `modulation_slices` (§3.2) — the sector crossover, and the one thing the
   discrimination field acts on.
-- `polarisation` (§3.3) — the two histograms that show the split.
+- `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
 - `order_parameter_maps` (§4.2) — all five order parameters, both agendas.
 - `phase_diagram` (§4.2) — the composite that names regions I–IV.
 
 Three moved to the appendix, in this order of reluctance: `modulation_contours`
-(`app:modulation`, a visualisation of equations already displayed);
+(`app:modulation`, a visualization of equations already displayed);
 `learning_flows` (`app:flows`, which carries the mechanism and would be the first
 thing to bring back if space appeared); `sign_convention_comparison`
 (`app:sign`, documentation rather than result).
@@ -113,10 +113,10 @@ measurement. This is the single most valuable addition left.
   (`iclr2027_conference.sty`, `.bst`). **Replace both with the official files when
   they appear** and re-check the page limit.
 - **Anonymity.** `\iclrfinalcopy` is commented out, so the submission builds
-  anonymised. Restore the author block, and add the FAPESP 2024/18736-8 and TELUS
+  anonymized. Restore the author block, and add the FAPESP 2024/18736-8 and TELUS
   Digital Research Hub acknowledgements, only for the camera-ready. Note the
   GitHub repository is public and under a personal account: linking it from the
-  submission would deanonymise.
+  submission would deanonymize.
 - **The companion manuscript is cited anonymously.** `references.bib` has
   `caticha2026discrimination` as `{Anonymous}`, "companion manuscript, under
   review". Restore the full citation for the camera-ready, or cite it normally if
@@ -150,7 +150,7 @@ measurement. This is the single most valuable addition left.
   citations filled. The Darwin epigraph and the Lincoln quotation are both cut;
   there is room for the epigraph again if you want it back.
 - **Order-parameter conventions** stated rather than left implicit: signed class
-  indicator, and the `R_cw` normalisation the draft's Eq. 29 caps at 1/2. Both
+  indicator, and the `R_cw` normalization the draft's Eq. 29 caps at 1/2. Both
   alternatives are implemented (`app:conventions`).
 
 ## Remaining

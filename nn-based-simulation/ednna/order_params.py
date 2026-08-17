@@ -1,6 +1,6 @@
 """Order parameters: correlations and social balance.
 
-Three pair correlations characterise the macroscopic state of the society.
+Three pair correlations characterize the macroscopic state of the society.
 Writing ``rho_IJ = cos(w_I, w_J)`` for the ideological alignment of two agents,
 ``eta_{e|r} = 1 - 2 Phi(h_mu)`` for the trust a receiver ``r`` places in an
 emitter ``e`` (+1 fully trusted, -1 fully distrusted), and ``G_IJ`` for the
@@ -24,7 +24,7 @@ Two conventions differ from the source draft, both documented in
 * ``G_IJ`` is written as 1/0 in the draft, but the published trust-class maps
   span -1..1, which requires the +-1 form ``G_IJ = kappa_I kappa_J``.  That is
   the default here; ``class_indicator="01"`` selects the literal version.
-* The draft normalises all three correlations by ``N(N-1)``.  That is right for
+* The draft normalizes all three correlations by ``N(N-1)``.  That is right for
   the two that sum ``eta_{I|J} + eta_{J|I}`` over unordered pairs, but it caps
   ``R_cw``, which has a single term per pair, at 1/2.  We use ``2/(N(N-1))``
   there so all three share the range [-1, 1]; ``literal_norm=True`` restores

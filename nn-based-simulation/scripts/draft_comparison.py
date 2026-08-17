@@ -54,7 +54,7 @@ PAIRS = [
 
 
 def render_pdf(pdf, prefix, out_dir, page=1, dpi=150):
-    """Rasterise one page of a PDF and return the image path."""
+    """Rasterize one page of a PDF and return the image path."""
     stem = out_dir / prefix
     subprocess.run(
         ["pdftoppm", "-r", str(dpi), "-png", "-f", str(page), "-l", str(page),

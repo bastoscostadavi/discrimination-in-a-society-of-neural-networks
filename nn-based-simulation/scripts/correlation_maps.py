@@ -5,7 +5,7 @@ Each row is one agenda size: a simple agenda of a few issues on top, a complex
 one below.  Reading the columns:
 
 ``R_wmu`` (opinion-trust)
-    High wherever the society has polarised at all, with or without classes.
+    High wherever the society has polarized at all, with or without classes.
 
 ``R_muc`` (trust-class)
     The discrimination order parameter.  Positive when in-group agents trust

@@ -1,7 +1,7 @@
 """Societies of entropic-dynamics neural-network agents (EDNNA).
 
 Agents are single-layer perceptrons that learn from each other's stated
-opinions through an optimised on-line algorithm carrying both an ideological
+opinions through an optimized on-line algorithm carrying both an ideological
 sector (the weights) and an trust sector (the distrust each agent assigns
 to each other agent).  When a fraction ``f_d`` of agents perturb the opinion
 field by an amount ``d`` correlated with the class label of the emitter, the

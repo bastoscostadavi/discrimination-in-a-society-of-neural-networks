@@ -39,9 +39,9 @@ the first LLM run rather than after.
    already holds about real social categories and the experiment measures those
    instead. Include a label-swap control: the order parameters are invariant under
    the swap by construction, so any dependence on it signals label-driven priors.
-2. **Asymmetric trust.** Ask each agent separately; do not symmetrise. `B_A` is
-   defined on the two cycle orientations, and symmetrising destroys the
-   distinction between organised hostility and frustration — which is exactly the
+2. **Asymmetric trust.** Ask each agent separately; do not symmetrize. `B_A` is
+   defined on the two cycle orientations, and symmetrizing destroys the
+   distinction between organized hostility and frustration — which is exactly the
    distinction that identifies the spin-glass phase.
 3. **Measurement outside the loop.** Elicit opinions and trust in separate passes
    that never enter any agent's interaction history, so measuring does not perturb
@@ -55,7 +55,7 @@ the first LLM run rather than after.
    B_A)` *path* is the result, and its position relative to the diagonal is what
    distinguishes distrust-first from disagreement-first.
 6. **Repeats.** Every condition needs several independent runs. The theory's maps
-   are single-realisation and visibly noisy; one LLM run is not evidence of a
+   are single-realization and visibly noisy; one LLM run is not evidence of a
    phase.
 7. **A ladder of `d` near zero.** The predicted transition is sharp at `d ≈ 0` and
    needs a quorum `f_d ≳ 1/3`. A ladder with only extremes will find a difference

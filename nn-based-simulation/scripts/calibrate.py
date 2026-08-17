@@ -9,11 +9,11 @@ outright, from the alpha values of the trajectory figure.
 Everything else is fixed here, by matching features of the draft's published
 figures that do not depend on the missing numbers:
 
-1.  **Trajectory endpoints.**  The draft's balance trajectories, digitised
+1.  **Trajectory endpoints.**  The draft's balance trajectories, digitized
     below, pin the interaction count: the whole family of curves is measured at
     one common ``Delta t``, and its value determines how far each curve has
     travelled.  We scan ``Delta t`` and report the residual against the
-    digitised endpoints.
+    digitized endpoints.
 2.  **Above/below the diagonal.**  Simple agendas must finish above the
     diagonal (affective balance leads), complex ones below it, with the
     crossover near ``alpha ~ 1``.
@@ -42,7 +42,7 @@ from ednna.order_params import balance  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
-#: Endpoints digitised from the source draft's balance-trajectory figure, as
+#: Endpoints digitized from the source draft's balance-trajectory figure, as
 #: ``alpha -> (B_I, B_A)``.  Read off the printed axes to about +-0.03; the
 #: three curves that bunch near (0.5, 0.94) cannot be told apart reliably and
 #: are given the same reading.
@@ -91,14 +91,14 @@ def scan_interaction_count(n_agents, checkpoints, n_repeats, issues=ISSUES, seed
 
 
 def draft_target(P):
-    """The digitised endpoint for the agenda size ``P``, matched on alpha."""
+    """The digitized endpoint for the agenda size ``P``, matched on alpha."""
     alpha = P / K
     key = min(DRAFT_ENDPOINTS, key=lambda a: abs(np.log(a) - np.log(alpha)))
     return DRAFT_ENDPOINTS[key]
 
 
 def residual(scan, checkpoint):
-    """RMS distance between simulated and digitised endpoints at one Delta t."""
+    """RMS distance between simulated and digitized endpoints at one Delta t."""
     errs = []
     for P, per_t in scan.items():
         target = draft_target(P)
@@ -162,7 +162,7 @@ def main():
           f"{args.repeats} repeats, checkpoints in interactions per channel)")
     scan = scan_interaction_count(args.n_agents, checkpoints, args.repeats, issues)
 
-    print("\n2. residual against the draft's digitised endpoints")
+    print("\n2. residual against the draft's digitized endpoints")
     best, best_res = None, np.inf
     for c in checkpoints:
         res = residual(scan, c)

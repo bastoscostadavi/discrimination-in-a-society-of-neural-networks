@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Does distrust come first, or disagreement?  It depends on the agenda.
 
-With no discrimination field at all, a society still polarises: learning anneals
+With no discrimination field at all, a society still polarizes: learning anneals
 away frustration, driving both the ideological balance ``B_I`` and the affective
 balance ``B_A`` from zero (half the triples frustrated, as at random
-initialisation) towards one (no frustration).  The *path* it takes through the
+initialization) towards one (no frustration).  The *path* it takes through the
 ``(B_I, B_A)`` plane depends on the complexity of the agenda ``alpha = P/K``:
 
 * small ``alpha`` -- few issues, "discussing only symbols" -- the trajectory
