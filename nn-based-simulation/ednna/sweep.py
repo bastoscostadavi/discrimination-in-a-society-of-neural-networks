@@ -97,8 +97,8 @@ def sweep(model, sweep_cfg=None, tag="", use_cache=True, verbose=True):
 
     Returns a dict with one ``(n_fd, n_d)`` array per order parameter, plus the
     ``d`` and ``fd`` axes.  Rows are indexed by ``f_d`` and columns by ``d``, so
-    the arrays are ready for ``imshow`` with ``origin="upper"`` — the draft's
-    orientation, with ``f_d = 0`` at the top.
+    the arrays are ready for ``imshow`` with ``origin="lower"``, which draws row 0
+    at the bottom so that ``f_d`` increases upwards.
     """
     sweep_cfg = sweep_cfg or SweepConfig()
     path = cache_path(model, sweep_cfg, tag)

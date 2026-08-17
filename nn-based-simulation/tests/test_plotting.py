@@ -17,20 +17,23 @@ def _style():
     plt.close("all")
 
 
-def test_phase_maps_put_zero_fd_at_the_top():
-    """The draft's layout has f_d increasing downwards from 0.
+def test_phase_maps_put_zero_fd_at_the_bottom():
+    """f_d increases upwards, and the data must follow the axis.
 
-    ``imshow``'s extent already inverts the y axis, so an additional
-    ``invert_yaxis()`` would flip every map upside down -- a mistake that is
-    invisible unless the data is asymmetric in f_d.
+    Row 0 of a sweep is f_d = 0, so the orientation is carried by
+    ``origin="lower"`` and by the extent, which have to agree: getting one
+    without the other flips every map upside down, and the mistake is invisible
+    unless the data is asymmetric in f_d.
     """
     d = np.linspace(-1, 1, 8)
     fd = np.linspace(0, 1, 8)
     data = np.tile(fd[:, None], (1, 8))  # value equals f_d
     fig, ax = plt.subplots()
-    phase_map(ax, data, d, fd, "R_wmu", colorbar=False)
+    im = phase_map(ax, data, d, fd, "R_wmu", colorbar=False)
     bottom, top = ax.get_ylim()
-    assert bottom > top, "f_d = 0 must be at the top of the axes"
+    assert bottom < top, "f_d must increase upwards"
+    assert im.origin == "lower", "row 0 (f_d = 0) must be drawn at the bottom"
+    assert im.get_array()[0, 0] == pytest.approx(fd[0])
 
 
 def test_phase_map_extent_matches_the_data_range():
@@ -40,7 +43,7 @@ def test_phase_map_extent_matches_the_data_range():
     im = phase_map(ax, np.zeros((5, 5)), d, fd, "R_muc", colorbar=False)
     left, right, bottom, top = im.get_extent()
     assert (left, right) == (-1.0, 1.0)
-    assert (bottom, top) == (1.0, 0.0)
+    assert (bottom, top) == (0.0, 1.0)
 
 
 def test_diverging_parameters_are_centred_on_zero():

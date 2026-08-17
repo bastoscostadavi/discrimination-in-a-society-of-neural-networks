@@ -47,7 +47,7 @@ def figure(data, style, name="phase_diagram", regions=True):
     rgb = rgb_composite(data["R_muc"], data["R_cw"], data["R_wmu"])
     d, fd = data["d"], data["fd"]
     fig, ax = plt.subplots(figsize=panel(0.55, 0.52/0.62))
-    ax.imshow(rgb, origin="upper", extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto")
+    ax.imshow(rgb, origin="lower", extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto")
     add_phase_axes(ax)
     if regions:
         for label, (x, y) in REGIONS.items():

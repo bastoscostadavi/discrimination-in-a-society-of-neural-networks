@@ -222,13 +222,13 @@ def phase_map(
     if vmin is not None and vmax is not None and vmin < 0 < vmax:
         norm = TwoSlopeNorm(vmin=vmin, vcenter=0.0, vmax=vmax)
         im = ax.imshow(
-            data, origin="upper", cmap=cmap, norm=norm,
-            extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto",
+            data, origin="lower", cmap=cmap, norm=norm,
+            extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto",
         )
     else:
         im = ax.imshow(
-            data, origin="upper", cmap=cmap, vmin=vmin, vmax=vmax,
-            extent=[d[0], d[-1], fd[-1], fd[0]], aspect="auto",
+            data, origin="lower", cmap=cmap, vmin=vmin, vmax=vmax,
+            extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto",
         )
     add_phase_axes(ax, ylabel=ylabel, sparse_ticks=sparse_ticks)
     framed_axes(ax, minor=False)
@@ -243,9 +243,11 @@ def phase_map(
 def add_phase_axes(ax, ylabel=True, sparse_ticks=False):
     """Label a phase-diagram axis.
 
-    Note that no axis inversion happens here: the ``extent`` passed to
-    ``imshow`` by :func:`phase_map` already puts ``f_d = 0`` at the top, which is
-    the draft's layout.  Inverting again would flip the maps upside down.
+    Note that no axis inversion happens here.  :func:`phase_map` uses
+    ``origin="lower"`` so that ``f_d`` increases upwards, the reading a control
+    parameter usually gets; the source draft prints these maps the other way up,
+    which is ``imshow``'s row-major default rather than a choice.  Inverting here
+    would flip them back.
 
     ``ylabel=False`` drops the redundant ``f_d`` label on inner columns of a
     grid, which also frees the margin for a row label.  ``sparse_ticks`` keeps

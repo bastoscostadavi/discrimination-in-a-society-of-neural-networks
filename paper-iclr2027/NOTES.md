@@ -32,6 +32,20 @@ either (the paper uses none of its 427 macros, and `\eqref` comes from amsmath).
 The only other files the build needs are `references.bib`, the two
 `iclr2027_conference` template files, `fancyhdr.sty`, and `figures/`.
 
+## Orientation of the phase maps
+
+`f_d` increases **upwards**, which is the opposite of the source draft. The draft's
+maps put `f_d = 0` at the top, which is `imshow`'s row-major default rather than a
+choice, and it makes the quorum result read backwards: the threshold at `f_d ~ 0.4`
+appears as a band creeping up from the bottom instead of a line one crosses going up.
+`sweep()` still returns `(n_fd, n_d)` arrays with row 0 at `f_d = 0`; the flip lives
+in `phase_map`, which draws them with `origin="lower"`, and `tests/test_plotting.py`
+asserts that the origin and the extent agree.
+
+**Flag this to the coauthors.** Our maps are vertical mirrors of the ones in the
+companion manuscript, so a reader comparing the two side by side will misread them
+unless told.
+
 ## Figure placement, and why
 
 Pagination is float-limited, not text-limited: cutting 400 words of prose moved the
