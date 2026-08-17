@@ -625,21 +625,22 @@ society per grid point, and measure the five order parameters of
 \S\ref{sec:no-disc} and \S\ref{sec:error} after a fixed number of interactions, with both classes
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckle
-is society-to-society fluctuation, not a rendering artefact. The maps below are for
-the complex agenda, $\alpha=3.3$. The same maps for the simple agenda, and the two
-balance aggregates for both, are in Appendix~\ref{app:simple-agenda}; they are needed
-only twice, and both times we say so.
+is society-to-society fluctuation, not a rendering artefact. Both agenda sizes are
+shown, since one of the four states exists only for the simple one; the two balance
+aggregates, which are needed once each, are in Appendix~\ref{app:balance-maps}.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\linewidth]{figures/correlation_maps_complex}
-  \caption{\textbf{The three correlations over the $(d,\fd)$ plane}, for a complex
-  agenda ($\alpha=3.3$). $\Rmuc$ is the discrimination order parameter, flipping sign
-  at $d\approx0$ ever more sharply as $\fd$ grows. $\Rcw$ is non-zero only for $d>0$
-  and, at this agenda size, follows $\Rmuc$ closely wherever it is non-zero. $\Rwmu$
-  is high everywhere except at $d<0$ above the quorum, where it collapses --- the
-  frustrated state, which the balances of Appendix~\ref{app:simple-agenda} identify
-  as a spin glass rather than as an absence of structure.}
+  \includegraphics[width=1.0\linewidth]{figures/correlation_maps_both}
+  \caption{\textbf{The three correlations over the $(d,\fd)$ plane}, for a simple
+  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). Each map runs
+  white to saturated across the whole of its range, so that the three are also the
+  three colour channels of Figure~\ref{fig:phase}. $\Rmuc$ is the discrimination
+  order parameter, changing sign at $d\approx0$ ever more sharply as $\fd$ grows.
+  $\Rcw$ is non-zero only for $d>0$, and the difference between the rows is the
+  result: for the simple agenda it \emph{falls back} at the largest $d$ while $\Rmuc$
+  keeps climbing, and for the complex one it tracks $\Rmuc$ throughout. $\Rwmu$ is
+  high everywhere except at $d<0$ above the quorum, where it collapses.}
   \label{fig:correlations}
 \end{figure}
 
@@ -657,27 +658,26 @@ fraction.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.55\linewidth]{figures/phase_diagram}
-  \caption{\textbf{Three collective states, and a fourth the complex agenda does not
-  have.} The three correlations of Figure~\ref{fig:correlations} composited as colour
+  \includegraphics[width=0.92\linewidth]{figures/phase_diagram}
+  \caption{\textbf{Four collective states, and only the simple agenda has all four.}
+  The three correlations of Figure~\ref{fig:correlations} composited as colour
   channels --- red $\Rmuc$, green $\Rcw$, blue $\Rwmu$ --- so that colour names the
   phase: (I) dark, frustrated favouring of the out-group; (II) blue, neutral
   polarization unrelated to class; (III) pale, distrust and opinion both following
-  class. Region~(IV), in which class alone carries the hostility, requires
-  $\alpha<1$; the same composite for the simple agenda, where all four appear, is
-  Figure~\ref{fig:phase-simple}.}
+  class; (IV) magenta, class alone. Left, the simple agenda; right, the complex one,
+  in which opinion is free to follow class everywhere, so (III) never gives way to
+  (IV) and only three states remain.}
   \label{fig:phase}
 \end{figure}
 
-Composited, the three correlations name four collective states --- three of them in
-Figure~\ref{fig:phase}, the fourth only for a simple agenda --- and the balances
-distinguish two that the correlations alone would confuse.
+Composited, the three correlations name four collective states, and the balances
+distinguish two of them that the correlations alone would confuse.
 
 \begin{itemize}
 \item[(I)] \textbf{Frustrated favouring of the out-group.} For $d<0$ the correlations
   are the sign-mirror of the $d>0$ side, which invites reading the left half of the
   diagram as reverse discrimination. The balances say otherwise
-  (Appendix~\ref{app:simple-agenda}). At $d=-1$,
+  (Appendix~\ref{app:balance-maps}). At $d=-1$,
   $\fd=0.9$, $\BA=-0.71$ for both agendas --- strongly \emph{anti}-balanced, against
   $+0.97$ in the discriminatory region --- with $\BI=0.00$, and $\Rwmu$ collapses to
   zero, the only place in the diagram it does. No consistent assignment of trust
@@ -699,9 +699,8 @@ distinguish two that the correlations alone would confuse.
   \S\ref{sec:error} predicts, and it is the only discriminatory state a complex
   agenda reaches.
 
-\item[(IV)] \textbf{Class alone carries the hostility.} This state the complex agenda
-  never reaches; seeing it needs the simple agenda of
-  Figure~\ref{fig:correlations-both}, where raising $d$ at fixed $\fd$ pulls the two
+\item[(IV)] \textbf{Class alone carries the hostility.} In the top row of
+  Figure~\ref{fig:correlations}, raising $d$ at fixed $\fd$ pulls the two
   correlations apart. Along $\fd=0.9$, $\Rcw$ peaks at $0.42$
   near $d=0.55$ and then \emph{falls} to $0.29$ by $d=1$ while $\Rmuc$ keeps climbing,
   $0.81$ to $0.86$: opinion goes from following class half as strongly as trust does
@@ -711,8 +710,8 @@ distinguish two that the correlations alone would confuse.
   state from (III) is a direction in the diagram rather than a corner of it.
 \end{itemize}
 
-Whether the last two are both available is decided by the agenda, and
-Figure~\ref{fig:phase} is the case with only one of them. For the complex
+Whether the last two are both available is decided by the agenda, which is what the
+two panels of Figure~\ref{fig:phase} differ by. For the complex
 agenda $\Rmuc$ and
 $\Rcw$ track each other across the whole $d>0$ half --- $0.83$ against $0.84$ at
 $d=0.15$, $0.88$ against $0.88$ at $d=0.75$, still only $0.04$ apart at $d=1$ against
@@ -874,38 +873,26 @@ For $\alpha<1$ the prediction holds to $0.02$. For $\alpha\ge1$ the agenda spans
 $\mathbb{R}^{K}$, the complement is empty, and the ceiling disappears, the residual
 shortfall being the finite number of interactions rather than a conserved quantity.
 
-\section{The simple agenda, and the balances}
-\label{app:simple-agenda}
+\section{The balance maps}
+\label{app:balance-maps}
 
-\S\ref{sec:results} leads with the complex agenda, $\alpha=3.3$, because three of the
-four states are already there and opinion is free to follow class rather than capped
-by the conservation law of Appendix~\ref{app:conserved}. Two things live here
-instead: the simple agenda, $\alpha=0.17$, which is the only one that also has
-region~(IV); and the two balance aggregates, which are what identify the $d<0$ region
-as frustrated rather than merely featureless.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/order_parameter_maps}
-  \caption{\textbf{All five order parameters over the $(d,\fd)$ plane}, for a
-  simple agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom); the
-  three columns on the left of the bottom row are Figure~\ref{fig:correlations}.
-  $\Rcw$ is non-zero only for $d>0$ and, for the simple agenda, \emph{falls back} at
-  the largest $d$, which is what separates the two discriminatory phases. $\BI$
-  separates the agenda sizes, featureless above and saturated below. $\BA$ is the
-  only panel in which the frustrated region at upper left announces itself, going
-  strongly negative where everything else merely goes to zero.}
-  \label{fig:correlations-both}
-\end{figure}
+\S\ref{sec:results} reads the four states off the three correlations, which is what
+the phase diagram composites. Two claims in it are made by the balances instead, and
+these are the maps behind them: that the discriminatory region is two coherent,
+mutually hostile blocs rather than merely correlated, and that the $d<0$ region is
+frustrated rather than featureless.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.55\linewidth]{figures/phase_diagram_simple_agenda}
-  \caption{\textbf{All four states.} Figure~\ref{fig:phase} for the simple agenda,
-  $\alpha=0.17$, same colour channels. Region~(IV) --- class alone carrying the
-  hostility, with $\Rcw$ fallen back while $\Rmuc$ keeps climbing --- occupies the
-  strong-$d$ end of the discriminatory band and has no counterpart at $\alpha=3.3$.}
-  \label{fig:phase-simple}
+  \includegraphics[width=0.78\linewidth]{figures/frustration_maps}
+  \caption{\textbf{The two balance aggregates over the $(d,\fd)$ plane}, for a simple
+  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). $\BI$
+  separates the agenda sizes, featureless above and saturated below, which is the
+  conservation-law ceiling of Appendix~\ref{app:conserved} seen in the $(d,\fd)$
+  plane. $\BA$ is the only map in the paper in which the frustrated region announces
+  itself: at upper left it goes strongly negative, where every correlation merely
+  goes to zero.}
+  \label{fig:balance-maps}
 \end{figure}
 
 \section{All four modulation functions}

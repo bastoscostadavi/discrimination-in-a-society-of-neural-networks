@@ -57,15 +57,20 @@ figures that do the most work per unit of space:
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
-- `correlation_maps_complex` (§4.2) — the three correlations, complex agenda only.
-- `phase_diagram` (§4.2) — the composite, complex agenda, naming regions I–III.
+- `correlation_maps_both` (§4.2) — the three correlations, both agendas.
+- `phase_diagram` (§4.2) — the two composites side by side.
 
-The body leads with the complex agenda, `α = 3.3`. Three of the four states are
-already there, and it is the case in which opinion is free to follow class rather
-than capped by the conservation law. What that costs is region (IV), which needs
-`α < 1`; the simple-agenda maps and both balance aggregates therefore live in
-`app:simple-agenda`, cited from the two places in §4.2 that need them — item (I),
-which reads the frustrated region off `B_A`, and item (IV) itself.
+Both agendas stay in the body, because the difference between them *is* one of the
+results: only `α < 1` has region (IV), so the two-panel phase diagram carries the
+claim that the reader would otherwise have to take on trust. The balances are the
+part that moves out, to `app:balance-maps`; they are cited once each, from item (I)
+and from the `B_I` ceiling.
+
+Every correlation map runs white-to-saturated across the whole of its range,
+including the signed `R_muc`. A diverging map reads better in isolation, but these
+three panels are also the three colour channels of the phase diagram, whose red
+channel is exactly this white-to-red ramp over `[-1, 1]`; a blue negative arm made
+the panel disagree with the composite it feeds.
 
 Three moved to the appendix, in this order of reluctance: `modulation_contours`
 (`app:modulation`, a visualization of equations already displayed);

@@ -5,9 +5,9 @@ The same data as ``correlation_maps`` and ``frustration_maps`` (which reproduce
 the source draft's two separate figures), on one grid.  Two cuts of it are
 written:
 
-``correlation_maps_complex``
-    the three pair correlations for the complex agenda alone, which is what the
-    body of the paper leads with;
+``correlation_maps_both``
+    the three pair correlations for both agenda sizes, which is what the body of
+    the paper leads with;
 ``order_parameter_maps``
     all five for both agenda sizes, which is where the balances and the
     simple-agenda panels live.  Seeing them together is what makes the phases
@@ -79,8 +79,7 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
 def main():
     args, preset = setup(__doc__)
     rows = agenda_sweeps(preset, use_cache=not args.no_cache)
-    complex_row = [r for r in rows if r[2] > 1]
-    figure(complex_row, args.style, name="correlation_maps_complex", keys=CORRELATIONS)
+    figure(rows, args.style, name="correlation_maps_both", keys=CORRELATIONS)
     figure(rows, args.style)
 
 
