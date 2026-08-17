@@ -57,8 +57,15 @@ figures that do the most work per unit of space:
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
-- `order_parameter_maps` (§4.2) — all five order parameters, both agendas.
-- `phase_diagram` (§4.2) — the composite that names regions I–IV.
+- `correlation_maps_complex` (§4.2) — the three correlations, complex agenda only.
+- `phase_diagram` (§4.2) — the composite, complex agenda, naming regions I–III.
+
+The body leads with the complex agenda, `α = 3.3`. Three of the four states are
+already there, and it is the case in which opinion is free to follow class rather
+than capped by the conservation law. What that costs is region (IV), which needs
+`α < 1`; the simple-agenda maps and both balance aggregates therefore live in
+`app:simple-agenda`, cited from the two places in §4.2 that need them — item (I),
+which reads the frustrated region off `B_A`, and item (IV) itself.
 
 Three moved to the appendix, in this order of reluctance: `modulation_contours`
 (`app:modulation`, a visualization of equations already displayed);
