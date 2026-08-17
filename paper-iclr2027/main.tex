@@ -377,13 +377,16 @@ attribution emerging from the inference problem rather than assumed.
 
 Nothing in \S\ref{sec:micro} or \S\ref{sec:dynamics} refers to an agent's class, so
 before adding any bias we ask what this society does unaided. It polarizes,
-spontaneously and into exactly two camps. Two quantities per pair, neither of them a
+spontaneously and into exactly two camps. 
+
+Two quantities per pair, neither of them a
 property of the society, are enough to see it: the \emph{opinion overlap}
 $\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, the cosine of two
 weight vectors, equal to $+1$ when two agents agree on every issue and $-1$ when they
 disagree on every one; and the \emph{trust} a receiver $I$ places in an emitter $J$,
 $\eta_{J|I}=1-2\Phi(\hmu)$, the distrust field mapped onto a bounded, sign-carrying
 scale, equal to $+1$ for a fully trusted emitter and $-1$ for a fully distrusted one.
+
 The two are logically independent --- nothing stops an agent trusting someone it
 disagrees with --- and Figure~\ref{fig:polarization}, which follows both
 distributions through an unbiased run, ends with them aligned anyway. Opinion overlap
@@ -415,11 +418,12 @@ statement about the society, each assembled from $\rho$ and $\eta$ alone. The fi
 asks whether the alignment between the panels is real,
 %
 \begin{equation}
-  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
+  \Rwmu = \bigl\langle \tfrac{1}{2}(\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle
+  \;\in\; [-1,1],
   \label{eq:rwmu}
 \end{equation}
 %
-averaged over unordered pairs and normalized to $[-1,1]$, positive when agents trust
+averaged over unordered pairs, positive when agents trust
 those who agree with them. The other two answer what the histograms cannot. Every
 pair has taken a side, but a pair can disagree in a world where everyone disagrees
 with everyone, and a bimodal histogram is equally consistent with three or four
@@ -598,14 +602,14 @@ $G_{IJ}=\kappa_I\kappa_J$ for the class indicator ($+1$ for same-class pairs, $-
 otherwise),
 %
 \begin{equation}
-  \Rmuc = \bigl\langle G_{IJ}(\eta_{I|J}+\eta_{J|I}) \bigr\rangle,
+  \Rmuc = \bigl\langle \tfrac{1}{2}G_{IJ}(\eta_{I|J}+\eta_{J|I}) \bigr\rangle,
   \qquad
   \Rcw  = \bigl\langle G_{IJ}\,\rho_{IJ} \bigr\rangle,
   \label{eq:correlations}
 \end{equation}
 %
-complete the set the phase diagram is built from, normalized like \eqref{eq:rwmu}.
-$\Rmuc$ is the order
+complete the set the phase diagram is built from, averaged over pairs and in
+$[-1,1]$ like \eqref{eq:rwmu}. $\Rmuc$ is the order
 parameter of discrimination: it asks whether trust follows class, distinguishing a
 society that has merely polarized from one that has polarized \emph{along the
 label}. $\Rcw$ asks whether opinion follows class, and separates the two
@@ -1074,11 +1078,12 @@ $-(N/2-1)/(N-1)$ rather than $-1$, and its range depends on $N$. Since the
 reverse-discrimination half of the phase diagram is a substantive part of the
 result, the signed indicator is the appropriate one. Both are implemented.
 
-\textbf{Normalization.} $\Rwmu$ and $\Rmuc$ sum $\eta_{I|J}+\eta_{J|I}$ over
-unordered pairs, so dividing by $N(N-1)$ places them in $[-1,1]$. $\Rcw$ has a
-single term per pair and the same divisor would cap it at $1/2$; we use
-$2/(N(N-1))$ so that all three share the range $[-1,1]$ and the three colour
-channels of Figure~\ref{fig:phase} are commensurate.
+\textbf{Normalization.} All three averages in \eqref{eq:rwmu} and
+\eqref{eq:correlations} run over the $N(N-1)/2$ unordered pairs, and the $\tfrac12$
+on the symmetrized trust puts all three in $[-1,1]$. This matters because the three
+are read together as the colour channels of Figure~\ref{fig:phase}; a literal reading
+of the model as previously written normalizes $\Rcw$ by $N(N-1)$ instead, capping it
+at $1/2$ and making the channels incommensurate. Both are implemented.
 
 \section{Closed form for the balance aggregates}
 \label{app:closed-form}
