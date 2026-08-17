@@ -385,7 +385,16 @@ $\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, equal to $+1$ 
 two agents agree on every issue and $-1$ when they disagree on every one. The
 \emph{trust} a receiver $I$ places in an emitter $J$ is $\eta_{J|I}=1-2\Phi(\hmu)$,
 the distrust field mapped onto a bounded, sign-carrying scale, equal to $+1$ for a
-fully trusted emitter and $-1$ for a fully distrusted one.
+fully trusted emitter and $-1$ for a fully distrusted one. The two are logically
+independent --- nothing stops an agent trusting someone it disagrees with --- so
+whether the society ties them together is a question, and
+%
+\begin{equation}
+  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
+  \label{eq:rwmu}
+\end{equation}
+%
+averaged over unordered pairs and normalized to $[-1,1]$, is the answer.
 
 \begin{figure}[t]
   \centering
@@ -406,16 +415,13 @@ fully trusted emitter and $-1$ for a fully distrusted one.
 
 
 Figure~\ref{fig:polarization} follows both distributions through an unbiased run.
-Opinion overlap begins unimodal and centred on zero, of width $0.178$ against the
-$1/\sqrt{K}=0.183$ expected of random vectors in $K=30$ dimensions, and ends bimodal
-with peaks at $-0.59$ and $+0.63$ and no pair left within $0.1$ of zero. Trust begins
-spread across the interior and ends saturated, $35\%$ of ordered pairs beyond
-$|\eta|>0.99$ and a mean $|\eta|$ of $0.986$: the split in trust is built by the
-dynamics, not supplied by the initial condition. The two panels are aligned with each
-other, so agents end up trusting those who agree with them and distrusting those who
-do not --- which is not imposed anywhere in \S\ref{sec:dynamics} but follows from the
-signs of the modulation functions. And neither panel depends on how the agents are
-labelled, so neither can be an artefact of an ordering imposed on them.
+Opinion overlap begins unimodal at zero, of the width random vectors in $K=30$
+dimensions require, and ends bimodal with no pair left near zero. Trust begins spread
+across the interior and ends saturated at $\pm1$, so the split in trust is built by
+the dynamics, not supplied by the initial condition. The two panels also end aligned,
+$\Rwmu$ rising from zero to $+0.56$: agents trust those who agree with them and
+distrust those who do not, which is not imposed anywhere in \S\ref{sec:dynamics} but
+follows from the signs of the modulation functions.
 
 \paragraph{Order parameters.} Every pair has taken a side, but a pair can disagree in
 a world where everyone disagrees with everyone, and a bimodal histogram is equally
@@ -584,21 +590,11 @@ in which both classes favour their own and are hostile to the other. It is the
 case in which the two classes play equivalent roles, so any asymmetry that
 appears in the results is spontaneous rather than imposed.
 
-\paragraph{Three correlations.}
-
-Balance says whether a society is organized; it does not say what it is organized
-around. Three pairwise correlations do, and they are what the phase diagram is built
-from. The first pairs the two sectors against each other,
-%
-\begin{equation}
-  \Rwmu = \bigl\langle (\eta_{I|J}+\eta_{J|I})\,\rho_{IJ} \bigr\rangle,
-  \label{eq:rwmu}
-\end{equation}
-%
-asking whether agents trust those who agree with them; it is positive in the
-polarized state of \S\ref{sec:no-disc}, reaching $+0.56$ there from zero at
-initialization. The other two refer to class. Writing $G_{IJ}=\kappa_I\kappa_J$ for
-the class indicator ($+1$ for same-class pairs, $-1$ otherwise),
+\paragraph{Two correlations with class.} Balance says whether a society is organized
+and \eqref{eq:rwmu} whether it is organized around agreement; neither can see whether
+it is organized around the label, because neither refers to one. Writing
+$G_{IJ}=\kappa_I\kappa_J$ for the class indicator ($+1$ for same-class pairs, $-1$
+otherwise),
 %
 \begin{equation}
   \Rmuc = \bigl\langle G_{IJ}(\eta_{I|J}+\eta_{J|I}) \bigr\rangle,
@@ -607,7 +603,8 @@ the class indicator ($+1$ for same-class pairs, $-1$ otherwise),
   \label{eq:correlations}
 \end{equation}
 %
-all three averaged over unordered pairs and normalized to $[-1,1]$. $\Rmuc$ is the order
+complete the set the phase diagram is built from, normalized like \eqref{eq:rwmu}.
+$\Rmuc$ is the order
 parameter of discrimination: it asks whether trust follows class, distinguishing a
 society that has merely polarized from one that has polarized \emph{along the
 label}. $\Rcw$ asks whether opinion follows class, and separates the two
