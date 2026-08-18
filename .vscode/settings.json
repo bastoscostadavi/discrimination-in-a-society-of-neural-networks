@@ -1,0 +1,29 @@
+{
+  // This repo holds several papers, each with its own main.tex, so LaTeX Workshop's
+  // root-file search has to be told which one is live. Without this it picks a
+  // candidate by heuristic and can compile a stale or unrelated document.
+  "latex-workshop.latex.search.rootFiles.include": ["paper/main.tex"],
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+
+  // Build beside the source: the .sty files, references.bib and figures/ are all
+  // resolved relative to paper/, so anything else fails at \usepackage.
+  "latex-workshop.latex.outDir": "%DIR%",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": ["-pdf", "-interaction=nonstopmode", "-synctex=1", "-cd", "%DOC%"],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "latexmk", "tools": ["latexmk"] }
+  ],
+
+  // latexmk's database records the paths it built from; a stale one makes it report
+  // success without writing a PDF. Clean it out with the other artefacts.
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.fdb_latexmk", "*.fls", "*.log", "*.out", "*.synctex.gz"
+  ]
+}
