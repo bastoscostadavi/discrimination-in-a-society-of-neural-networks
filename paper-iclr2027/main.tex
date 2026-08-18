@@ -626,21 +626,24 @@ society per grid point, and measure the five order parameters of
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckle
 is society-to-society fluctuation, not a rendering artefact. Both agenda sizes are
-shown, since one of the four states exists only for the simple one; the two balance
-aggregates, which are needed once each, are in Appendix~\ref{app:balance-maps}.
+shown throughout, since one of the four states exists only for the simple one.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\linewidth]{figures/correlation_maps_both}
-  \caption{\textbf{The three correlations over the $(d,\fd)$ plane}, for a simple
+  \includegraphics[width=1.0\linewidth]{figures/order_parameter_maps}
+  \caption{\textbf{All five order parameters over the $(d,\fd)$ plane}, for a simple
   agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). $\Rmuc$ is
-  the discrimination order parameter and the only signed one, so it is drawn
+  the discrimination order parameter and the only signed correlation, so it is drawn
   diverging --- purple for favouring the out-group, orange for favouring the
   in-group, white at the sign change, which sharpens onto $d=0$ as $\fd$ grows.
   $\Rcw$ is non-zero only for $d>0$, and the difference between the rows is the
   result: for the simple agenda it \emph{falls back} at the largest $d$ while $\Rmuc$
   keeps climbing, and for the complex one it tracks $\Rmuc$ throughout. $\Rwmu$ is
-  high everywhere except at $d<0$ above the quorum, where it collapses.}
+  high everywhere except at $d<0$ above the quorum, where it collapses. $\BI$
+  separates the agenda sizes, featureless above and saturated below --- the
+  conservation-law ceiling of Appendix~\ref{app:conserved} seen in this plane. $\BA$
+  is the only panel in which the frustrated region announces itself, going strongly
+  negative at upper left where every correlation merely goes to zero.}
   \label{fig:correlations}
 \end{figure}
 
@@ -683,8 +686,7 @@ distinguish two of them that the correlations alone would confuse.
   the left half is not the mirror of the right, and nothing else mirrors with it. At
   the same point $\Rcw$ is $0.00$ rather than $-0.29$, and $\Rwmu$ collapses to zero
   --- the only place in the diagram it does --- rather than staying at the $0.35$ its
-  mirror image would require. The balances say what is there instead
-  (Appendix~\ref{app:balance-maps}): $\BA=-0.71$ for both agendas, strongly
+  mirror image would require. The balances say what is there instead: $\BA=-0.71$ for both agendas, strongly
   \emph{anti}-balanced against $+0.97$ in the discriminatory region, with $\BI=0.00$.
   No consistent assignment of trust exists, because each agent is pulled towards the
   other class while its neighbours are pulled towards theirs, and the society settles
@@ -882,28 +884,6 @@ $\langle|\rho|\rangle$, measured            & 0.30 & 0.62 & 0.82 & 0.93 & 0.99 \
 For $\alpha<1$ the prediction holds to $0.02$. For $\alpha\ge1$ the agenda spans
 $\mathbb{R}^{K}$, the complement is empty, and the ceiling disappears, the residual
 shortfall being the finite number of interactions rather than a conserved quantity.
-
-\section{The balance maps}
-\label{app:balance-maps}
-
-\S\ref{sec:results} reads the four states off the three correlations, which is what
-the phase diagram composites. Two claims in it are made by the balances instead, and
-these are the maps behind them: that the discriminatory region is two coherent,
-mutually hostile blocs rather than merely correlated, and that the $d<0$ region is
-frustrated rather than featureless.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.78\linewidth]{figures/frustration_maps}
-  \caption{\textbf{The two balance aggregates over the $(d,\fd)$ plane}, for a simple
-  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). $\BI$
-  separates the agenda sizes, featureless above and saturated below, which is the
-  conservation-law ceiling of Appendix~\ref{app:conserved} seen in the $(d,\fd)$
-  plane. $\BA$ is the only map in the paper in which the frustrated region announces
-  itself: at upper left it goes strongly negative, where every correlation merely
-  goes to zero.}
-  \label{fig:balance-maps}
-\end{figure}
 
 \section{All four modulation functions}
 \label{app:modulation}

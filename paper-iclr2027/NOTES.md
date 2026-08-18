@@ -57,14 +57,20 @@ figures that do the most work per unit of space:
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
-- `correlation_maps_both` (§4.2) — the three correlations, both agendas.
+- `order_parameter_maps` (§4.2) — all five order parameters, both agendas.
 - `phase_diagram` (§4.2) — the two composites side by side.
 
 Both agendas stay in the body, because the difference between them *is* one of the
-results: only `α < 1` has region (IV), so the two-panel phase diagram carries the
-claim that the reader would otherwise have to take on trust. The balances are the
-part that moves out, to `app:balance-maps`; they are cited once each, from item (I)
-and from the `B_I` ceiling.
+results: only `α < 1` has region (IV). Both balances stay too, because `B_A` is the
+only quantity that separates region (I) from an absence of structure, and the
+composite is exactly where that information is lost — see below.
+
+**Why the composite carries three order parameters and not five.** Because an RGB
+image has three channels. There is no principled reason beyond that, and the cost is
+real: region (I) is black in the composite because all three correlations vanish
+there, so the composite cannot tell frustration from nothing-happening. `B_A < 0` is
+what does, and it appears only in `order_parameter_maps`. The composite is a
+classification device with a known blind spot, not a summary of the measurements.
 
 Every correlation map runs white-to-saturated across the whole of its range,
 including the signed `R_muc`. A diverging map reads better in isolation, but these

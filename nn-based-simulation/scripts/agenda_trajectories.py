@@ -94,6 +94,9 @@ def figure(data, style):
     issues = data["issues"]
     K = int(data["n_dim"])
     fig, ax = plt.subplots(figsize=panel(0.60, 0.52/0.72))
+    # both axes are balances on the same [0, 1] scale and the reference line is the
+    # diagonal, which only means "equal" if the box is square
+    ax.set_box_aspect(1)
     colours = pastel("viridis_r", 0.30)(np.linspace(0.05, 0.95, len(issues)))
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, zorder=1)
     for i, P in enumerate(issues):

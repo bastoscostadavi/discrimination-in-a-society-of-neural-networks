@@ -68,7 +68,12 @@ CMAPS = {
 
 #: The same maps, softened.  ``phase_map`` uses these; the raw names above are kept
 #: so a caller can ask for the saturated version.
-PASTEL_CMAPS = {k: pastel(v) for k, v in CMAPS.items()}
+#: How much white to blend into each map.  The diverging ``R_muc`` takes more: its
+#: two arms are told apart by hue rather than by depth, so they can come down a long
+#: way and still read, and at 0.26 the purple and orange were the two most saturated
+#: things on the page.
+PASTEL_AMOUNT = {"R_muc": 0.42}
+PASTEL_CMAPS = {k: pastel(v, PASTEL_AMOUNT.get(k, 0.26)) for k, v in CMAPS.items()}
 
 #: Ranges used for each order parameter.  R_wmu and R_cw are non-negative in
 #: practice; R_muc, B_A and B_I are signed.

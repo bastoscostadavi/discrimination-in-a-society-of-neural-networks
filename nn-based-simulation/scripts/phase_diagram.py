@@ -26,7 +26,9 @@ from matplotlib import pyplot as plt
 
 from _cli import setup  # noqa: E402
 
-from ednna.plotting import add_phase_axes, panel, rgb_composite, save  # noqa: E402
+from ednna.plotting import (  # noqa: E402
+    add_phase_axes, panel, rgb_composite, save, text_width,
+)
 from ednna.sweep import sweep  # noqa: E402
 
 #: label -> (d, f_d) placement.  The draft puts (IV) at small ``f_d``, but there the
@@ -103,7 +105,10 @@ def pair_figure(rows, style, name="phase_diagram"):
     free to follow class everywhere, so (III) never gives way to (IV) and the
     right-hand panel has three states where the left has four.
     """
-    fig, axes = plt.subplots(1, len(rows), figsize=panel(0.92, 0.50 / 0.92))
+    # square panels, as in the order-parameter maps: set the box aspect and let the
+    # figure height follow from the width one panel gets
+    W = 0.92 * text_width()
+    fig, axes = plt.subplots(1, len(rows), figsize=(W, W / len(rows) * 1.24))
     for ax, (alpha, data, regions) in zip(np.atleast_1d(axes), rows):
         rgb = rgb_composite(data["R_muc"], data["R_cw"], data["R_wmu"])
         d, fd = data["d"], data["fd"]
@@ -112,6 +117,7 @@ def pair_figure(rows, style, name="phase_diagram"):
         if ax is not axes[0]:
             ax.tick_params(labelleft=False)
         ax.set_title(rf"$\alpha={alpha:.3g}$", fontsize=8, pad=3)
+        ax.set_box_aspect(1)
         _draw_regions(ax, rgb, d, fd, regions)
     _draw_key(axes[0])
     fig.tight_layout(pad=0.4, w_pad=1.2)

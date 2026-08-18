@@ -5,14 +5,10 @@ The same data as ``correlation_maps`` and ``frustration_maps`` (which reproduce
 the source draft's two separate figures), on one grid.  Two cuts of it are
 written:
 
-``correlation_maps_both``
-    the three pair correlations for both agenda sizes, which is what the body of
-    the paper leads with;
-``order_parameter_maps``
-    all five for both agenda sizes, which is where the balances and the
-    simple-agenda panels live.  Seeing them together is what makes the phases
-    readable in one pass -- in particular that the frustrated region at ``d < 0``
-    shows up in ``B_A`` and nowhere else.
+Writes ``order_parameter_maps``: all five, for both agenda sizes.  Seeing them
+together is what makes the phases readable in one pass -- in particular that the
+frustrated region at ``d < 0`` shows up in ``B_A`` and nowhere else, which is the
+one thing the composited phase diagram cannot show.
 """
 
 from __future__ import annotations
@@ -34,17 +30,23 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
     one thin horizontal bar underneath: the range and colour map depend on the
     order parameter, not on the agenda size, so one bar per column is exact."""
     n_rows, n_cols = len(rows), len(keys)
-    # square panels at any grid shape: solve for the figure height that makes the
-    # axes as tall as the gridspec makes them wide, given the same margins
+    # Square panels at any grid shape.  ``wspace``/``hspace`` are fractions of the
+    # *average* axis size, so with the colourbar row carrying a ratio of its own the
+    # vertical arithmetic is not symmetric with the horizontal: solve both and set
+    # the figure height that makes a ratio-1 row exactly as tall as a column is wide.
     left, right, top, bottom = 0.085, 0.985, 0.93, 0.10
-    hspace, wspace, cbar = 0.42, 0.30, 0.07
+    # hspace has to clear the shared d label between the last row and the colourbars,
+    # and it is a fraction of the average axis height, so it grows as the panels shrink
+    hspace, wspace, cbar = 0.62, 0.30, 0.07
     W = text_width()
     ax_w = W * (right - left) / (n_cols + wspace * (n_cols - 1))
-    H = ax_w * (n_rows * (1 + hspace) + cbar) / (top - bottom)
+    ratios = [1.0] * n_rows + [cbar]
+    units = sum(ratios) + hspace * (sum(ratios) / len(ratios)) * n_rows
+    H = ax_w * units / (top - bottom)
     fig = plt.figure(figsize=(W, H))
     gs = fig.add_gridspec(
         n_rows + 1, n_cols,
-        height_ratios=[1] * n_rows + [cbar],
+        height_ratios=ratios,
         hspace=hspace, wspace=wspace,
         left=left, right=right, top=top, bottom=bottom,
     )
@@ -79,7 +81,6 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
 def main():
     args, preset = setup(__doc__)
     rows = agenda_sweeps(preset, use_cache=not args.no_cache)
-    figure(rows, args.style, name="correlation_maps_both", keys=CORRELATIONS)
     figure(rows, args.style)
 
 
