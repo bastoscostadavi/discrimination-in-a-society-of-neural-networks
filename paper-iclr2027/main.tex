@@ -124,8 +124,8 @@ paper.
     polarization unrelated to class, two discriminatory phases distinguished by
     whether opinion still tracks the group split, and a frustrated spin-glass
     regime when the bias favours the out-group. Discrimination needs a quorum:
-    below $\fd\approx0.4$ the society stays neutral however strong the bias, and
-    above it the transition in $d$ sharpens rapidly.
+    below a threshold fraction of biased agents the society stays neutral however
+    strong the bias, and above it the transition in $d$ sharpens rapidly.
   \item \textbf{A mechanism specific to good learners}
     (\S\ref{sec:discrimination}): the bias displaces the separatrix of the
     learning flow, enlarging one dissonance-free basin at the other's expense.
@@ -645,16 +645,6 @@ Appendix~\ref{app:balance-maps}.
   \label{fig:correlations}
 \end{figure}
 
-\paragraph{Discrimination needs a quorum, and then arrives abruptly.} At small
-$\fd$ the society stays neutral no matter how strong the bias: $\Rmuc\approx0$ across
-the whole $d$ axis, because the few discriminating agents are outvoted by the
-class-blind majority they learn from. The threshold is not a handful of agents but a
-substantial fraction of the society, approaching half of it. Above the threshold
-$\Rmuc$ becomes large, and the transition in $d$ narrows as $\fd$ grows, approaching a
-step at $d=0$ with $|\Rmuc|\to1$ on either side of it. The state of the population is
-therefore not a smooth function of how biased its members are, and a minority of
-biased agents leaves no trace at all until it reaches that fraction.
-
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.55\linewidth]{figures/phase_diagram}
@@ -693,7 +683,13 @@ states.
   $\fd$, the society does exactly what \S\ref{sec:no-disc} describes: it splits into
   two mutually distrustful camps, with $\Rwmu$ large but
   $\Rmuc\approx\Rcw\approx0$, so the split cuts across the classes rather than along
-  them. The bias is present in individual agents and absent from the population.
+  them. The bias is present in individual agents and absent from the population,
+  because the discriminating agents are outvoted by the class-blind majority they
+  learn from. Leaving this region takes a quorum: not a handful of agents but a
+  substantial fraction of the society, approaching half of it. Its boundary in $d$
+  sharpens as $\fd$ grows, approaching a step at $d=0$ with $|\Rmuc|\to1$ on either
+  side, so the population changes state over a narrow interval in $d$ rather than
+  gradually.
 
 \item[(III)] \textbf{Distrust and disagreement both follow the label.} Past the
   quorum, at moderate $d>0$, $\Rmuc$ and $\Rcw$ are both large and comparable: the
