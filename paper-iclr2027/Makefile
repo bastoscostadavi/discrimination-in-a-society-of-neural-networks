@@ -50,7 +50,9 @@ watch:
 
 clean:
 	latexmk -c
-	rm -f main.aux main.bbl main.blg
+	# latexmk -c leaves its own database behind, and a stale one makes the next
+	# build claim to be up to date even with no main.pdf on disk
+	rm -f main.aux main.bbl main.blg main.log main.fdb_latexmk main.fls
 
 distclean: clean
 	rm -f main.pdf

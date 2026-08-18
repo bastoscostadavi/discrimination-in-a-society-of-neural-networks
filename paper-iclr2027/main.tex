@@ -649,16 +649,14 @@ that is the one place below where they are needed.
 \end{figure}
 
 \paragraph{Discrimination needs a quorum, and then arrives abruptly.} At small
-$\fd$ the society stays neutral no matter how strong the bias: the few
-discriminating agents are outvoted by the class-blind majority they learn from.
-The trust--class correlation at large $d$ first exceeds $0.5$ around
-$\fd\approx0.4$ ($0.43$ for the simple agenda, $0.35$ for the complex one), and past
-that the transition in $d$ sharpens quickly: at $\fd=1$ the band in which
-$|\Rmuc|<0.25$ is only $0.54$ wide, and $\Rmuc$ runs from $-0.99$ at $d=-1$ to
-$+0.99$ at $d=+1$. This is the first practical consequence of the model: the state
-of the population is not a smooth function of how biased its members are, and a
-minority of biased agents leaves no trace at all until it reaches a threshold
-fraction.
+$\fd$ the society stays neutral no matter how strong the bias: $\Rmuc\approx0$ across
+the whole $d$ axis, because the few discriminating agents are outvoted by the
+class-blind majority they learn from. The threshold is not a handful of agents but a
+substantial fraction of the society, approaching half of it. Above the threshold
+$\Rmuc$ becomes large, and the transition in $d$ narrows as $\fd$ grows, approaching a
+step at $d=0$ with $|\Rmuc|\to1$ on either side of it. The state of the population is
+therefore not a smooth function of how biased its members are, and a minority of
+biased agents leaves no trace at all until it reaches that fraction.
 
 \begin{figure}[t]
   \centering
@@ -682,53 +680,51 @@ Composited, the three correlations name four collective states, and the balances
 distinguish two of them that the correlations alone would confuse.
 
 \begin{itemize}
-\item[(I)] \textbf{Frustrated favouring of the out-group.} $\Rmuc$ changes sign with
-  $d$, running to $-0.89$ at $d=-1$, $\fd=0.9$ against $+0.86$ at $d=+1$, which
-  invites reading the left half of the diagram as reverse discrimination. It is not:
-  the left half is not the mirror of the right, and nothing else mirrors with it. At
-  the same point $\Rcw$ is $0.00$ rather than $-0.29$, and $\Rwmu$ collapses to zero
-  --- the only place in the diagram it does --- rather than staying at the $0.35$ its
-  mirror image would require. The balances say what is there instead
-  (Appendix~\ref{app:balance-maps}): $\BA=-0.71$ for both agendas, strongly
-  \emph{anti}-balanced against $+0.97$ in the discriminatory region, with $\BI=0.00$.
-  No consistent assignment of trust exists, because each agent is pulled towards the
-  other class while its neighbours are pulled towards theirs, and the society settles
-  into a spin glass. Reading $\Rmuc$ alone would report the region as inverted
-  discrimination; the other two correlations show it is not, and the triple-level
-  measurement identifies what it is.
+\item[(I)] \textbf{Frustrated favouring of the out-group.} For $d<0$ above the
+  quorum, $\Rmuc$ is large and negative, which invites reading this half of the
+  diagram as reverse discrimination. It is not, because nothing mirrors with it.
+  A mirror image of the discriminatory state would need $\Rcw$ and $\Rwmu$ to change
+  sign along with $\Rmuc$; instead both go to zero, and $\Rwmu\approx0$ here and
+  nowhere else in the diagram. The balances say what is there instead
+  (Appendix~\ref{app:balance-maps}): $\BA<0$, strongly anti-balanced, where the
+  discriminatory region has $\BA$ near its maximum, and $\BI\approx0$. No consistent
+  assignment of trust exists, because each agent is pulled towards the other class
+  while its neighbours are pulled towards theirs, and the society settles into a spin
+  glass. Reading $\Rmuc$ alone would report the region as inverted discrimination;
+  the other two correlations show that it is not, and the triple-level measurement
+  identifies what it is.
 
 \item[(II)] \textbf{Neutral polarization.} At small $\fd$, and near $d=0$ at any
   $\fd$, the society does exactly what \S\ref{sec:no-disc} describes: it splits into
-  two mutually distrustful camps, with $\Rwmu$ and $\BA$ both high, but $\Rmuc$ stays
-  at zero and the split cuts across the classes. The bias is present in individual
-  agents and absent from the population.
+  two mutually distrustful camps, with $\Rwmu$ and $\BA$ both large, but
+  $\Rmuc\approx\Rcw\approx0$, so the split cuts across the classes rather than along
+  them. The bias is present in individual agents and absent from the population.
 
 \item[(III)] \textbf{Distrust and disagreement both follow the label.} Past the
-  quorum, at moderate $d>0$, $\Rmuc$ and $\Rcw$ are both large: the society still
-  splits into two camps that distrust and disagree with each other, but the split now
-  coincides with the class boundary. This is the state the mechanism of
-  \S\ref{sec:error} predicts in full, and it needs both a large discriminating
-  fraction and an agenda broad enough for opinion to move as far as trust has.
+  quorum, at moderate $d>0$, $\Rmuc$ and $\Rcw$ are both large and comparable: the
+  society still splits into two camps that distrust and disagree with each other, but
+  the split now coincides with the class boundary. This is the state the mechanism of
+  \S\ref{sec:error} predicts in full --- the label has been written into both sectors
+  at once.
 
 \item[(IV)] \textbf{Class alone carries the hostility.} At moderate $\fd$ and strong
-  $d$ the two class correlations come apart: trust follows the label while opinion
-  does not, so the agents distrust the other class without needing to disagree with
-  it. At $\fd=0.37$, $d=0.75$ the ratio $\Rcw/\Rmuc$ is $0.07$ for the simple agenda
-  --- $\Rmuc=0.40$ against $\Rcw=0.03$, hostility with essentially no disagreement
-  behind it --- and $0.65$ for the complex one. $\BI$ agrees, at $0.06$ against
-  $0.96$. This is the state that makes the discrimination irreducible to a
-  disagreement: there is nothing to argue about, and the hostility is about the label
-  and nothing else.
+  $d$ the two class correlations come apart. $\Rmuc$ is large and still growing with
+  $d$, while $\Rcw$ has peaked and turned back, so $\Rcw\ll\Rmuc$: trust follows the
+  label and opinion barely does, and the agents distrust the other class without
+  needing to disagree with it. $\BI$ falls with $\Rcw$, confirming that the opinion
+  structure is what has gone. This is the state that makes the discrimination
+  irreducible to a disagreement --- there is nothing to argue about, and the hostility
+  is about the label and nothing else --- and it is the one a per-agent audit would
+  find hardest to explain, since the agents are not even in conflict about the issues.
 \end{itemize}
 
 How the last two divide the discriminatory half is decided by the agenda. The ratio
-$\Rcw/\Rmuc$ measures it: along $d=0.75$ it rises with $\fd$ in both cases, but from
-$0.03$ to $0.48$ for the simple agenda and from $0.57$ to $1.00$ for the complex one.
-Opinion always lags trust in following the label, and it catches up only when there
-are both many discriminating agents and many issues to disagree about. So the simple
-agenda of Figure~\ref{fig:phase} is in (IV) almost everywhere it discriminates at
-all, reaching (III) only in a sliver at $\fd\to1$, while the complex agenda passes
-through (IV) at moderate $\fd$ and settles into (III) above it
+$\Rcw/\Rmuc$ measures which of them a society is in, and it rises with $\fd$: opinion
+always lags trust in following the label, and closes the gap only when the
+discriminating fraction is large. A narrow agenda keeps the ratio well below one
+everywhere, so it is in (IV) almost everywhere it discriminates at all and reaches
+(III) only as $\fd\to1$. A broad agenda brings the ratio to one, passing through (IV)
+while the discriminating fraction is still small and settling into (III) above it
 (Appendix~\ref{app:large-agenda}).
 
 The reason is the conservation law. An agenda with $\alpha<1$ leaves most of every
