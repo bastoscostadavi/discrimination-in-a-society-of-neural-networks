@@ -60,7 +60,6 @@ def figure(data, style, name="phase_diagram", regions=REGIONS):
     ax.imshow(rgb, origin="lower", extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto")
     add_phase_axes(ax)
     _draw_regions(ax, rgb, d, fd, regions)
-    _draw_key(ax)
     fig.tight_layout(pad=0.4)
     return save(fig, name, style)
 
@@ -79,21 +78,6 @@ def _draw_regions(ax, rgb, d, fd, regions):
         ax.text(
             x, y, label, color="black" if luma > 0.55 else "white",
             fontsize=8, ha="center", va="center", path_effects=None,
-        )
-
-
-def _draw_key(ax):
-    """Which correlation is which colour, so the composite reads without the caption.
-
-    Top left, which is the frustrated corner and therefore dark under both agendas;
-    the bottom left is bright magenta for a complex agenda and would swallow it.
-    """
-    for i, (txt, colour) in enumerate(
-        ((r"$R_{\mu,c}$", "#ff5555"), (r"$R_{c,w}$", "#55dd55"), (r"$R_{w,\mu}$", "#7777ff"))
-    ):
-        ax.text(
-            0.015, 0.975 - 0.075 * i, txt, transform=ax.transAxes, color=colour,
-            fontsize=6.5, ha="left", va="top",
         )
 
 
@@ -118,7 +102,6 @@ def pair_figure(rows, style, name="phase_diagram"):
         ax.set_title(rf"$\alpha={alpha:.3g}$", fontsize=8, pad=3)
         ax.set_box_aspect(1)
         _draw_regions(ax, rgb, d, fd, regions)
-    _draw_key(axes[0])
     fig.tight_layout(pad=0.4, w_pad=1.2)
     return save(fig, name, style)
 
