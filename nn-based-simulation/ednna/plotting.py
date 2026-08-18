@@ -51,16 +51,15 @@ def pastel(cmap, amount=0.26, n=256):
     return LinearSegmentedColormap.from_list(f"pastel_{cmap}", base)
 
 
-#: One colour map per order parameter.  The two non-negative correlations get
-#: sequential maps; ``R_muc`` is signed and spans its whole range in practice --
-#: reverse discrimination is as strong as discrimination -- so it gets a diverging
-#: map, purple through white to orange, that puts the sign change at d = 0 on the
-#: white point where it belongs.  A sequential map over [-1, 1] would agree better
-#: with the red channel of the phase diagram, which is exactly such a ramp, but it
-#: reads the sign change as a brightness step and hides the zero.
+#: One colour map per order parameter.  All three correlations run white to
+#: saturated across the whole of their range in :data:`RANGES`, ``R_muc`` included
+#: even though it is signed: these three panels are also the three colour channels
+#: of the phase diagram, where red is exactly a white-to-red ramp over [-1, 1], and
+#: a panel that disagreed with the composite it feeds would be worse than one that
+#: puts the sign change at half brightness.
 CMAPS = {
     "R_wmu": "Blues",
-    "R_muc": "PuOr_r",
+    "R_muc": "Reds",
     "R_cw": "Greens",
     "B_I": "Purples",
     "B_A": "OrRd",
@@ -68,12 +67,7 @@ CMAPS = {
 
 #: The same maps, softened.  ``phase_map`` uses these; the raw names above are kept
 #: so a caller can ask for the saturated version.
-#: How much white to blend into each map.  The diverging ``R_muc`` takes more: its
-#: two arms are told apart by hue rather than by depth, so they can come down a long
-#: way and still read, and at 0.26 the purple and orange were the two most saturated
-#: things on the page.
-PASTEL_AMOUNT = {"R_muc": 0.42}
-PASTEL_CMAPS = {k: pastel(v, PASTEL_AMOUNT.get(k, 0.26)) for k, v in CMAPS.items()}
+PASTEL_CMAPS = {k: pastel(v) for k, v in CMAPS.items()}
 
 #: Ranges used for each order parameter.  R_wmu and R_cw are non-negative in
 #: practice; R_muc, B_A and B_I are signed.

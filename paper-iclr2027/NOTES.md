@@ -57,20 +57,28 @@ figures that do the most work per unit of space:
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
-- `order_parameter_maps` (§4.2) — all five order parameters, both agendas.
+- `correlation_maps_both` (§4.2) — the three correlations, both agendas.
 - `phase_diagram` (§4.2) — the two composites side by side.
+- `frustration_maps` (§4.2) — `B_I` and `B_A`, both agendas.
 
-Both agendas stay in the body, because the difference between them *is* one of the
-results: only `α < 1` has region (IV). Both balances stay too, because `B_A` is the
-only quantity that separates region (I) from an absence of structure, and the
-composite is exactly where that information is lost — see below.
+The composite carries the three correlations because they are what an RGB image has
+channels for, and every correlation map therefore runs white-to-saturated across its
+whole range — `R_muc` included, even though it is signed, so that the panel a reader
+compares against the composite is the same ramp the composite used. A diverging map
+for `R_muc` reads better in isolation and was tried; it makes the panel disagree with
+the figure it feeds.
 
-**Why the composite carries three order parameters and not five.** Because an RGB
-image has three channels. There is no principled reason beyond that, and the cost is
-real: region (I) is black in the composite because all three correlations vanish
-there, so the composite cannot tell frustration from nothing-happening. `B_A < 0` is
-what does, and it appears only in `order_parameter_maps`. The composite is a
-classification device with a known blind spot, not a summary of the measurements.
+`B_I` and `B_A` are not in the composite and do not need to be: the four states are
+separated by the correlations alone. They stay in the section because `B_A` is the
+only measurement that distinguishes region (I) from an absence of structure, going to
+−0.71 where every correlation merely decays to zero.
+
+**Region (IV) exists at both agenda sizes.** An earlier draft claimed it needed
+`α < 1`. It does not: the discriminant is `R_cw/R_muc`, and along `d = 0.75` it rises
+with `f_d` from 0.03 to 0.48 for the simple agenda and from 0.57 to 1.00 for the
+complex one. Opinion always lags trust in following the label; a broad agenda passes
+through (IV) while the discriminating fraction is small and reaches (III) above it,
+while a narrow agenda cannot leave (IV) at all. The conservation-law ceiling is why.
 
 Every correlation map runs white-to-saturated across the whole of its range,
 including the signed `R_muc`. A diverging map reads better in isolation, but these

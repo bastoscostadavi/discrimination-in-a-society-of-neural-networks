@@ -15,7 +15,7 @@ PRESET   := medium
 # Figures pulled in from the simulation, by the name the .tex files use.
 IMPORTS := modulation_contours modulation_contours_all modulation_slices learning_flows polarization \
            order_parameter_maps correlation_maps frustration_maps \
-           phase_diagram agenda_trajectories \
+           phase_diagram correlation_maps_both agenda_trajectories \
            sign_convention_comparison
 
 .PHONY: all figures sim clean distclean watch

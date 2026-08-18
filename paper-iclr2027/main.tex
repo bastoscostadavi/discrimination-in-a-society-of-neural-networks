@@ -524,8 +524,8 @@ Read as a mechanism, this says that whether groups come to dislike each other
 because they disagree, or come to disagree because they dislike each other, is a
 question with a parameter attached rather than an answer: narrow agendas put affect
 first, broad ones put opinion first, and the two are regimes of one system rather
-than rival accounts. The same ratio will explain, in \S\ref{sec:results}, why one of
-the two discriminatory phases exists only for narrow agendas.
+than rival accounts. The same ratio will decide, in \S\ref{sec:results}, which of the
+two discriminatory phases a biased society ends up in.
 
 \section{Discrimination in a society of learning agents}
 \label{sec:discrimination}
@@ -626,24 +626,21 @@ society per grid point, and measure the five order parameters of
 discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckle
 is society-to-society fluctuation, not a rendering artefact. Both agenda sizes are
-shown throughout, since one of the four states exists only for the simple one.
+shown throughout, since the agenda decides how the discriminatory half of the plane
+divides between two of the four states.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\linewidth]{figures/order_parameter_maps}
-  \caption{\textbf{All five order parameters over the $(d,\fd)$ plane}, for a simple
-  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). $\Rmuc$ is
-  the discrimination order parameter and the only signed correlation, so it is drawn
-  diverging --- purple for favouring the out-group, orange for favouring the
-  in-group, white at the sign change, which sharpens onto $d=0$ as $\fd$ grows.
-  $\Rcw$ is non-zero only for $d>0$, and the difference between the rows is the
-  result: for the simple agenda it \emph{falls back} at the largest $d$ while $\Rmuc$
-  keeps climbing, and for the complex one it tracks $\Rmuc$ throughout. $\Rwmu$ is
-  high everywhere except at $d<0$ above the quorum, where it collapses. $\BI$
-  separates the agenda sizes, featureless above and saturated below --- the
-  conservation-law ceiling of Appendix~\ref{app:conserved} seen in this plane. $\BA$
-  is the only panel in which the frustrated region announces itself, going strongly
-  negative at upper left where every correlation merely goes to zero.}
+  \includegraphics[width=1.0\linewidth]{figures/correlation_maps_both}
+  \caption{\textbf{The three correlations over the $(d,\fd)$ plane}, for a simple
+  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). Each runs
+  white to saturated across the whole of its range, $\Rmuc$ included, so that these
+  three panels are also the three colour channels of Figure~\ref{fig:phase}. $\Rmuc$
+  is the discrimination order parameter, changing sign at $d\approx0$ ever more
+  sharply as $\fd$ grows. $\Rcw$ is non-zero only for $d>0$, and it is everywhere
+  weaker than $\Rmuc$: opinion follows class less readily than trust does, and how
+  much less is what separates the two discriminatory phases. $\Rwmu$ is high
+  everywhere except at $d<0$ above the quorum, where it collapses.}
   \label{fig:correlations}
 \end{figure}
 
@@ -662,17 +659,15 @@ fraction.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.92\linewidth]{figures/phase_diagram}
-  \caption{\textbf{Four collective states, and only the simple agenda has all four.}
+  \caption{\textbf{Four collective states.}
   The three correlations of Figure~\ref{fig:correlations} composited as colour
   channels --- red $\Rmuc$, green $\Rcw$, blue $\Rwmu$ --- so that colour names the
   phase: (I) dark, frustrated favouring of the out-group; (II) blue, neutral
   polarization unrelated to class; (III) pale, distrust and opinion both following
   class; (IV) red, class alone. Left, the simple agenda; right, the complex one. Both
-  panels redden towards $d=1$, but only on the left is that a change of state: there
-  $\Rcw$ falls while $\Rmuc$ climbs and $\BI$ drops from $0.15$ to $0.06$, whereas on
-  the right the two correlations stay within $5\%$ of each other and $\BI$ holds at
-  $0.98$ across the whole half-plane. The reddening on the right is a gradient; on
-  the left it is a boundary.}
+  have all four, and what the agenda changes is how much of the $d>0$ half each of
+  (III) and (IV) takes: the pale (III) corner is a sliver at the very top for the
+  simple agenda and the whole upper band for the complex one.}
   \label{fig:phase}
 \end{figure}
 
@@ -686,7 +681,8 @@ distinguish two of them that the correlations alone would confuse.
   the left half is not the mirror of the right, and nothing else mirrors with it. At
   the same point $\Rcw$ is $0.00$ rather than $-0.29$, and $\Rwmu$ collapses to zero
   --- the only place in the diagram it does --- rather than staying at the $0.35$ its
-  mirror image would require. The balances say what is there instead: $\BA=-0.71$ for both agendas, strongly
+  mirror image would require. The balances say what is there instead
+  (Figure~\ref{fig:balance-maps}): $\BA=-0.71$ for both agendas, strongly
   \emph{anti}-balanced against $+0.97$ in the discriminatory region, with $\BI=0.00$.
   No consistent assignment of trust exists, because each agent is pulled towards the
   other class while its neighbours are pulled towards theirs, and the society settles
@@ -704,35 +700,50 @@ distinguish two of them that the correlations alone would confuse.
   quorum, at moderate $d>0$, $\Rmuc$ and $\Rcw$ are both large: the society still
   splits into two camps that distrust and disagree with each other, but the split now
   coincides with the class boundary. This is the state the mechanism of
-  \S\ref{sec:error} predicts, and it is the only discriminatory state a complex
-  agenda reaches.
+  \S\ref{sec:error} predicts in full, and it needs both a large discriminating
+  fraction and an agenda broad enough for opinion to move as far as trust has.
 
-\item[(IV)] \textbf{Class alone carries the hostility.} In the top row of
-  Figure~\ref{fig:correlations}, raising $d$ at fixed $\fd$ pulls the two
-  correlations apart. Along $\fd=0.9$, $\Rcw$ peaks at $0.42$
-  near $d=0.55$ and then \emph{falls} to $0.29$ by $d=1$ while $\Rmuc$ keeps climbing,
-  $0.81$ to $0.86$: opinion goes from following class half as strongly as trust does
-  to a third as strongly, and $\BI$ follows $\Rcw$ down, $0.15$ to $0.06$. The agents
-  distrust the other class without needing to disagree with it. The ratio
-  $\Rcw/\Rmuc$ falls with $d$ at every $\fd$ above the quorum, so what separates this
-  state from (III) is a direction in the diagram rather than a corner of it. The
-  balance is the sharper witness: $\BI$ is what collapses, and it collapses only
-  here.
+\item[(IV)] \textbf{Class alone carries the hostility.} At moderate $\fd$ and strong
+  $d$ the two class correlations come apart: trust follows the label while opinion
+  does not, so the agents distrust the other class without needing to disagree with
+  it. At $\fd=0.37$, $d=0.75$ the ratio $\Rcw/\Rmuc$ is $0.07$ for the simple agenda
+  --- $\Rmuc=0.40$ against $\Rcw=0.03$, hostility with essentially no disagreement
+  behind it --- and $0.65$ for the complex one. $\BI$ agrees, at $0.06$ against
+  $0.96$. This is the state that makes the discrimination irreducible to a
+  disagreement: there is nothing to argue about, and the hostility is about the label
+  and nothing else.
 \end{itemize}
 
-Whether the last two are both available is decided by the agenda, which is what the
-two panels of Figure~\ref{fig:phase} differ by. For the complex agenda $\Rmuc$ and
-$\Rcw$ track each other across the whole $d>0$ half: $0.83$ against $0.84$ at
-$d=0.15$, $0.88$ against $0.88$ at $d=0.75$, and $0.91$ against $0.87$ at $d=1$ ---
-a ratio that falls only from $1.00$ to $0.95$, against $0.52$ to $0.34$ for the
-simple agenda. That residual $5\%$ is a gradient and not a transition: $\BI$ does not
-move at all, holding $0.98$ from $d=0.15$ to $d=1$ where the simple agenda's falls by
-sixty per cent. When there are many issues to disagree about, the opinion split
-tracks the class split completely, and distrust and disagreement never come apart.
-Class-only hostility requires the opposite: an agenda narrow enough that most of
-every opinion lies in directions no issue probes, which by \S\ref{sec:agenda} caps
-$\Rcw$ however long the society runs. Region~(IV) is therefore a phase only below
-$\alpha\approx1$.
+How the last two divide the discriminatory half is decided by the agenda, and this
+is what the two panels of Figure~\ref{fig:phase} differ by. The ratio $\Rcw/\Rmuc$
+measures it directly: along $d=0.75$ it rises with $\fd$ in both cases, but from
+$0.03$ to $0.48$ for the simple agenda and from $0.57$ to $1.00$ for the complex one.
+Opinion always lags trust in following the label, and it catches up only when there
+are both many discriminating agents and many issues to disagree about. So the simple
+agenda is in (IV) almost everywhere it discriminates at all, reaching (III) only in a
+sliver at $\fd\to1$, while the complex agenda passes through (IV) at moderate $\fd$
+and settles into (III) above it.
+
+The reason is the conservation law. An agenda with $\alpha<1$ leaves most of every
+opinion in directions no issue probes, and \S\ref{sec:agenda} showed that this caps
+$\Rcw$ however long the society runs; the discrimination field can align trust with
+class completely but opinion only within that ceiling. Region~(IV) is where the
+ceiling binds. It is not the exclusive property of a narrow agenda --- a broad one
+passes through it while the discriminating minority is still small --- but a narrow
+agenda cannot leave it.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.78\linewidth]{figures/frustration_maps}
+  \caption{\textbf{The two balance aggregates over the $(d,\fd)$ plane}, for a simple
+  agenda ($\alpha=0.17$, top) and a complex one ($\alpha=3.3$, bottom). $\BI$
+  separates the agenda sizes, featureless above and saturated below, which is the
+  conservation-law ceiling of Appendix~\ref{app:conserved} seen in this plane. $\BA$
+  is the only measurement in the paper in which the frustrated region announces
+  itself: at upper left it goes strongly negative, where every correlation merely
+  goes to zero.}
+  \label{fig:balance-maps}
+\end{figure}
 
 \section{Discussion}
 \label{sec:discussion}

@@ -31,26 +31,25 @@ from ednna.plotting import (  # noqa: E402
 )
 from ednna.sweep import sweep  # noqa: E402
 
-#: label -> (d, f_d) placement.  The draft puts (IV) at small ``f_d``, but there the
-#: signal is weak -- R_muc is only 0.27 at (d, f_d) = (0.62, 0.26) and B_A has fallen
-#: to 0.56, so the point is a sub-quorum crossover rather than the class-only state.
-#: The class-only character is what strengthens with ``d``: R_cw/R_muc falls
-#: monotonically in ``d`` at every ``f_d``, reaching 0.34 at (1.0, 0.9) where R_muc is
-#: 0.86 and the trust network is still organized (B_A = 0.90).  (III) and (IV) are
-#: therefore placed on the same high-``f_d`` traverse the text argues along.
+#: label -> (d, f_d) placement.  Both agendas have all four regions; what differs is
+#: how much of the d > 0 half each of (III) and (IV) takes.  The discriminant is the
+#: ratio R_cw/R_muc -- whether opinion follows class as strongly as trust does -- and
+#: it rises with f_d in both, from 0.03 to 0.48 along d = 0.75 for the simple agenda
+#: and from 0.57 to 1.00 for the complex one.  So (IV) sits at moderate f_d and high
+#: d, and (III) at the top of the discriminatory band, which the simple agenda barely
+#: reaches and the complex one owns.
 REGIONS = {
     "(I)": (-0.55, 0.68),
     "(II)": (-0.06, 0.42),
-    "(III)": (0.38, 0.76),
-    "(IV)": (0.87, 0.92),
+    "(III)": (0.50, 0.94),
+    "(IV)": (0.76, 0.55),
 }
 
-#: the complex agenda has no (IV): R_cw tracks R_muc across the whole d > 0 half,
-#: so distrust and disagreement never come apart and there is nothing to separate
 REGIONS_COMPLEX = {
     "(I)": (-0.55, 0.70),
     "(II)": (-0.04, 0.30),
-    "(III)": (0.62, 0.82),
+    "(III)": (0.33, 0.88),
+    "(IV)": (0.75, 0.37),
 }
 
 

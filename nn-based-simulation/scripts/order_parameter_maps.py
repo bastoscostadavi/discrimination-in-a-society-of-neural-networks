@@ -5,10 +5,14 @@ The same data as ``correlation_maps`` and ``frustration_maps`` (which reproduce
 the source draft's two separate figures), on one grid.  Two cuts of it are
 written:
 
-Writes ``order_parameter_maps``: all five, for both agenda sizes.  Seeing them
-together is what makes the phases readable in one pass -- in particular that the
-frustrated region at ``d < 0`` shows up in ``B_A`` and nowhere else, which is the
-one thing the composited phase diagram cannot show.
+Two cuts are written:
+
+``correlation_maps_both``
+    the three pair correlations, both agenda sizes.  These three are also the three
+    colour channels of the phase diagram, so this is the figure that composite is
+    assembled from;
+``order_parameter_maps``
+    all five, for reference.
 """
 
 from __future__ import annotations
@@ -81,6 +85,7 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
 def main():
     args, preset = setup(__doc__)
     rows = agenda_sweeps(preset, use_cache=not args.no_cache)
+    figure(rows, args.style, name="correlation_maps_both", keys=CORRELATIONS)
     figure(rows, args.style)
 
 
