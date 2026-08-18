@@ -32,6 +32,19 @@ either (the paper uses none of its 427 macros, and `\eqref` comes from amsmath).
 The only other files the build needs are `references.bib`, the two
 `iclr2027_conference` template files, `fancyhdr.sty`, and `figures/`.
 
+## House style
+
+No em-dashes. Where one carried a parenthetical it became a real parenthesis; where it
+introduced an explanation, a colon; where it joined two clauses, a semicolon or a
+comma. A blind replacement with commas would have produced worse sentences than the
+dashes did, so all 38 were rewritten individually.
+
+Phase descriptions carry relations, not measured values: `R_muc` large and negative,
+`R_wmu` approx 0, `R_cw << R_muc`. The numbers depend on `N`, `K`, `P` and the
+interaction count, all of which we chose, so quoting them as if they characterized the
+phases over-claims. Numbers belong in the appendices and in figure captions describing
+a specific run.
+
 ## Orientation of the phase maps
 
 `f_d` increases **upwards**, which is the opposite of the source draft. The draft's
