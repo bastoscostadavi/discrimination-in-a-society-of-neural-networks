@@ -150,29 +150,31 @@ def figure_contours_all(style):
     return save(fig, "modulation_contours_all", style)
 
 
-def figure_shift(style, d=2.0):
+def figure_shift(style, d=1.0):
     """What the discrimination field does to the trust sector, in one picture.
 
-    The layout of :func:`figure_contours` -- two square panels sharing one colour
-    bar -- applied to ``F_mu`` alone, once for each sign of the field.  ``F_mu`` is
-    the right function to show: the field enters through ``h_w``, and the prefactor
-    ``1 - 2*Phi(h_w)`` in ``F_mu`` is what carries it into the trust sector, so this
-    is the panel on which the mechanism of the paper is visible as a displacement.
-    The green line is the separatrix ``h_mu = h_w + D``, which is where blame for a
-    surprise passes from one sector to the other; comparing the two panels against
-    Figure ``modulation_contours`` shows it sliding.
+    The contour layout of :func:`figure_contours` applied to ``F_mu`` alone, at the
+    three values of the field the flow figure uses: out-group, none, in-group.
+    ``F_mu`` is the right function to show, because the field enters through ``h_w``
+    and the prefactor ``1 - 2*Phi(h_w)`` in ``F_mu`` is what carries it into the
+    trust sector, so this is the panel on which the mechanism of the paper is a
+    displacement of one line.  The green separatrix ``h_mu = h_w + D`` is where blame
+    for a surprise passes from one sector to the other; the middle panel is the
+    unbiased case and the outer two are the same function seen through a shifted
+    coordinate.
     """
-    fig, axes = plt.subplots(1, 2, figsize=panel(0.86, 0.35/0.66), sharey=True)
+    shifts = (-d, 0.0, +d)
+    fig, axes = plt.subplots(1, len(shifts), figsize=panel(1.0, 0.42), sharey=True)
     im = None
-    for k, (shift, name) in enumerate((
-        (-d, rf"$F_\mu$,  $D = {-d:+.0f}$"),
-        (+d, rf"$F_\mu$,  $D = {d:+.0f}$"),
-    )):
+    for k, shift in enumerate(shifts):
+        name = rf"$D = {shift:+.0f}$" if shift else r"$D = 0$"
         im = _contour_panel(axes[k], F_mu, name, 3.2, ylabel=(k == 0), shift=shift)
         axes[k].set_xlabel("")
-    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.04)
-    cb = fig.colorbar(im, ax=axes, fraction=0.045, pad=0.02,
+        axes[k].set_title(("out-group", "no bias", "in-group")[k], fontsize=7.5, pad=3)
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.02)
+    cb = fig.colorbar(im, ax=axes, fraction=0.030, pad=0.015,
                       ticks=np.linspace(-3.2, 3.2, 5))
+    cb.set_label(r"$F_\mu$", fontsize=7)
     cb.ax.tick_params(labelsize=6, width=0.4, length=2)
     cb.outline.set_linewidth(0.4)
     return save(fig, "modulation_shift", style)
