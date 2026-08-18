@@ -23,7 +23,13 @@ IMPORTS := modulation_contours modulation_contours_all modulation_shift learning
 
 all: main.pdf
 
+# latexmk keeps its own database of what it built.  It records the paths it saw, so a
+# database written before this directory was renamed, or left behind by a clean that
+# removed main.pdf, makes latexmk report "all targets up to date" and produce nothing.
+# Building through a recipe that drops the database first costs one extra pass and
+# never lies about having succeeded.
 main.pdf: main.tex references.bib figures
+	rm -f main.fdb_latexmk main.fls
 	latexmk -pdf -interaction=nonstopmode main.tex
 
 figures:

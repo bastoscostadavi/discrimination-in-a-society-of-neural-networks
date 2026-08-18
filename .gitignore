@@ -18,8 +18,10 @@ nn-based-simulation/figures/draft_comparison.pdf
 *.out
 *.synctex.gz
 *.toc
-# The paper's figures are imported from nn-based-simulation by `make figures`.
-paper-iclr2027/figures/
+# The paper's figures ARE committed, even though `make figures` regenerates them
+# from nn-based-simulation.  They are small, and committing them means a coauthor who
+# clones the repo and hits compile in an editor gets a paper, rather than fourteen
+# missing-file errors and a hunt for the Makefile.  Do not add paper/figures/ here.
 
 # Python
 __pycache__/
