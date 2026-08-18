@@ -26,9 +26,7 @@ from matplotlib import pyplot as plt
 
 from _cli import setup  # noqa: E402
 
-from ednna.plotting import (  # noqa: E402
-    add_phase_axes, panel, rgb_composite, save, text_width,
-)
+from ednna.plotting import add_phase_axes, panel, rgb_composite, save  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 #: label -> (d, f_d) placement.  Both agendas have all four regions; what differs is
@@ -56,8 +54,9 @@ REGIONS_COMPLEX = {
 def figure(data, style, name="phase_diagram", regions=REGIONS):
     rgb = rgb_composite(data["R_muc"], data["R_cw"], data["R_wmu"])
     d, fd = data["d"], data["fd"]
-    fig, ax = plt.subplots(figsize=panel(0.55, 0.52/0.62))
+    fig, ax = plt.subplots(figsize=panel(0.55, 1.0))
     ax.imshow(rgb, origin="lower", extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto")
+    ax.set_box_aspect(1)
     add_phase_axes(ax)
     _draw_regions(ax, rgb, d, fd, regions)
     fig.tight_layout(pad=0.4)
@@ -81,39 +80,16 @@ def _draw_regions(ax, rgb, d, fd, regions):
         )
 
 
-def pair_figure(rows, style, name="phase_diagram"):
-    """The two agendas side by side, which is the comparison that carries (IV).
-
-    Only the simple agenda has a class-only region: at ``alpha > 1`` opinion is
-    free to follow class everywhere, so (III) never gives way to (IV) and the
-    right-hand panel has three states where the left has four.
-    """
-    # square panels, as in the order-parameter maps: set the box aspect and let the
-    # figure height follow from the width one panel gets
-    W = 0.92 * text_width()
-    fig, axes = plt.subplots(1, len(rows), figsize=(W, W / len(rows) * 1.24))
-    for ax, (alpha, data, regions) in zip(np.atleast_1d(axes), rows):
-        rgb = rgb_composite(data["R_muc"], data["R_cw"], data["R_wmu"])
-        d, fd = data["d"], data["fd"]
-        ax.imshow(rgb, origin="lower", extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto")
-        add_phase_axes(ax, ylabel=(ax is axes[0]))
-        if ax is not axes[0]:
-            ax.tick_params(labelleft=False)
-        ax.set_title(rf"$\alpha={alpha:.3g}$", fontsize=8, pad=3)
-        ax.set_box_aspect(1)
-        _draw_regions(ax, rgb, d, fd, regions)
-    fig.tight_layout(pad=0.4, w_pad=1.2)
-    return save(fig, name, style)
-
-
 def main():
     args, preset = setup(__doc__)
-    rows = []
-    for P, regions in ((preset.p_small, REGIONS), (preset.p_large, REGIONS_COMPLEX)):
+    # one panel per agenda: the paper carries the simple agenda and sends the complex
+    # one to an appendix, since the four regions are the same and only their extents
+    # differ
+    for P, regions, name in ((preset.p_small, REGIONS, "phase_diagram"),
+                             (preset.p_large, REGIONS_COMPLEX, "phase_diagram_large_agenda")):
         model = preset.model.with_(n_issues=P)
         data = sweep(model, preset.sweep, tag=f"P{P}", use_cache=not args.no_cache)
-        rows.append((model.alpha, data, regions))
-    pair_figure(rows, args.style)
+        figure(data, args.style, name=name, regions=regions)
 
 
 if __name__ == "__main__":

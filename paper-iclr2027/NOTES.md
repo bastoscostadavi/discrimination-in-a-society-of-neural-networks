@@ -57,9 +57,16 @@ figures that do the most work per unit of space:
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
-- `correlation_maps_both` (§4.2) — the three correlations, both agendas.
-- `phase_diagram` (§4.2) — the two composites side by side.
-- `frustration_maps` (§4.2) — `B_I` and `B_A`, both agendas.
+- `correlation_maps_small` (§4.2) — the three correlations, simple agenda.
+- `phase_diagram` (§4.2) — the composite, simple agenda.
+- `balance_maps_small` (§4.2) — `B_I` and `B_A`, simple agenda.
+
+The body carries one agenda size, `α = 0.17`. The complex agenda is qualitatively the
+same — same four states, same arrangement, same quorum and sign change — so it goes to
+`app:large-agenda` with a sentence in §4.2 saying what differs quantitatively: `R_cw`
+rises to meet `R_muc` instead of lagging it, so region (III) takes most of the
+discriminatory half instead of a sliver, and `B_I` saturates. Halving each of the
+three body figures is what that buys.
 
 The composite carries the three correlations because they are what an RGB image has
 channels for, and every correlation map therefore runs white-to-saturated across its

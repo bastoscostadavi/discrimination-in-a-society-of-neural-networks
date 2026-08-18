@@ -5,14 +5,16 @@ The same data as ``correlation_maps`` and ``frustration_maps`` (which reproduce
 the source draft's two separate figures), on one grid.  Two cuts of it are
 written:
 
-Two cuts are written:
+The paper leads with one agenda size, so the cuts are written per agenda:
 
-``correlation_maps_both``
-    the three pair correlations, both agenda sizes.  These three are also the three
-    colour channels of the phase diagram, so this is the figure that composite is
+``correlation_maps_small`` / ``correlation_maps_large``
+    the three pair correlations, one agenda each.  These three are also the three
+    colour channels of the phase diagram, so they are what that composite is
     assembled from;
+``balance_maps_small`` / ``balance_maps_large``
+    the two balance aggregates, one agenda each;
 ``order_parameter_maps``
-    all five, for reference.
+    all five for both agendas on one grid, which is the appendix's reference sheet.
 """
 
 from __future__ import annotations
@@ -27,6 +29,7 @@ from ednna.plotting import phase_map, save, text_width  # noqa: E402
 
 KEYS = ("R_wmu", "R_muc", "R_cw", "B_I", "B_A")
 CORRELATIONS = ("R_wmu", "R_muc", "R_cw")
+BALANCES = ("B_I", "B_A")
 
 
 def figure(rows, style, name="order_parameter_maps", keys=KEYS):
@@ -85,7 +88,9 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
 def main():
     args, preset = setup(__doc__)
     rows = agenda_sweeps(preset, use_cache=not args.no_cache)
-    figure(rows, args.style, name="correlation_maps_both", keys=CORRELATIONS)
+    for row, tag in zip(rows, ("small", "large")):
+        figure([row], args.style, name=f"correlation_maps_{tag}", keys=CORRELATIONS)
+        figure([row], args.style, name=f"balance_maps_{tag}", keys=BALANCES)
     figure(rows, args.style)
 
 
