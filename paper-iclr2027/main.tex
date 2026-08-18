@@ -628,11 +628,9 @@ Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckl
 is society-to-society fluctuation, not a rendering artefact. Both agenda sizes are
 The maps below are for the simple agenda, $\alpha=0.17$; the complex agenda gives the
 same four states and is in Appendix~\ref{app:large-agenda}. We show only the three
-correlations. The balance aggregates track $\Rwmu$ closely across this plane ---
-$r=0.97$ and $0.98$ for $\BA$, $0.98$ and $0.99$ for $\BI$, over the two agenda sizes
---- so their maps repeat its structure and are in Appendix~\ref{app:balance-maps}.
-What they add is a sign: where $\Rwmu$ merely decays to zero, $\BA$ goes negative, and
-that is the one place below where they are needed.
+correlations. Three of them suffice to separate the four states, and the two balance
+aggregates behave qualitatively like $\Rwmu$ over this plane --- their maps repeat its
+structure and are in Appendix~\ref{app:balance-maps}.
 
 \begin{figure}[t]
   \centering
@@ -666,8 +664,7 @@ biased agents leaves no trace at all until it reaches that fraction.
   single image --- $\Rmuc$ the red, $\Rcw$ the green, $\Rwmu$ the blue, each over the
   range its colour bar gives there. A colour therefore names a phase,
   and a dark pixel is one where all three correlations are small. (I) dark, frustrated
-  favouring of the out-group: no correlation of any kind survives, which is why the
-  balances of Figure~\ref{fig:balance-maps} are needed to say what is there. (II)
+  favouring of the out-group: trust follows the label and nothing else survives. (II)
   blue, opinion and trust correlated with each other but neither with class: neutral
   polarization. (III) pale, all three present, distrust and opinion both following the
   label. (IV) red, trust following the label without opinion: class alone. Simple
@@ -676,27 +673,25 @@ biased agents leaves no trace at all until it reaches that fraction.
   \label{fig:phase}
 \end{figure}
 
-Composited, the three correlations name four collective states, and the balances
-distinguish two of them that the correlations alone would confuse.
+Composited, the three correlations name four collective states.
 
 \begin{itemize}
 \item[(I)] \textbf{Frustrated favouring of the out-group.} For $d<0$ above the
   quorum, $\Rmuc$ is large and negative, which invites reading this half of the
   diagram as reverse discrimination. It is not, because nothing mirrors with it.
   A mirror image of the discriminatory state would need $\Rcw$ and $\Rwmu$ to change
-  sign along with $\Rmuc$; instead both go to zero, and $\Rwmu\approx0$ here and
-  nowhere else in the diagram. The balances say what is there instead
-  (Appendix~\ref{app:balance-maps}): $\BA<0$, strongly anti-balanced, where the
-  discriminatory region has $\BA$ near its maximum, and $\BI\approx0$. No consistent
-  assignment of trust exists, because each agent is pulled towards the other class
-  while its neighbours are pulled towards theirs, and the society settles into a spin
-  glass. Reading $\Rmuc$ alone would report the region as inverted discrimination;
-  the other two correlations show that it is not, and the triple-level measurement
-  identifies what it is.
+  sign along with $\Rmuc$. Instead both go to zero, and that combination is what names
+  the state: trust is strongly aligned with the label while uncorrelated with opinion,
+  and $\Rwmu\approx0$ nowhere else in the diagram. Trust that follows class but agrees
+  with nothing is trust that cannot be consistently assigned --- each agent is pulled
+  towards the other class while its neighbours are pulled towards theirs --- and the
+  society settles into a spin glass rather than an inverted copy of the discriminatory
+  state. Reading $\Rmuc$ alone would report the region as reverse discrimination; it
+  takes all three to see that it is disorder.
 
 \item[(II)] \textbf{Neutral polarization.} At small $\fd$, and near $d=0$ at any
   $\fd$, the society does exactly what \S\ref{sec:no-disc} describes: it splits into
-  two mutually distrustful camps, with $\Rwmu$ and $\BA$ both large, but
+  two mutually distrustful camps, with $\Rwmu$ large but
   $\Rmuc\approx\Rcw\approx0$, so the split cuts across the classes rather than along
   them. The bias is present in individual agents and absent from the population.
 
@@ -711,8 +706,7 @@ distinguish two of them that the correlations alone would confuse.
   $d$ the two class correlations come apart. $\Rmuc$ is large and still growing with
   $d$, while $\Rcw$ has peaked and turned back, so $\Rcw\ll\Rmuc$: trust follows the
   label and opinion barely does, and the agents distrust the other class without
-  needing to disagree with it. $\BI$ falls with $\Rcw$, confirming that the opinion
-  structure is what has gone. This is the state that makes the discrimination
+  needing to disagree with it. This is the state that makes the discrimination
   irreducible to a disagreement --- there is nothing to argue about, and the hostility
   is about the label and nothing else --- and it is the one a per-agent audit would
   find hardest to explain, since the agents are not even in conflict about the issues.
@@ -766,8 +760,8 @@ reverse'' a question about a parameter rather than a choice between theories. An
 making $d$ negative, so agents favour the out-group, gives not a tidy inverted
 society but frustration:
 $\BA<0$ with $\BI\approx0$, order parameters near zero not because nothing is
-happening but because nothing can settle. Pair correlations alone would misreport
-that state as neutral; only the balance measures identify it as a spin glass.
+happening but because nothing can settle: trust aligns with class while correlating
+with nothing else, which no other region of the diagram does.
 
 \looseness=-1
 \paragraph{Limitations.} The agents are single-layer perceptrons over a fixed shared
@@ -929,15 +923,16 @@ at $\alpha=0.17$ and $\alpha=3.3$ respectively. Their maps therefore look like t
 $\Rwmu$ panel of Figure~\ref{fig:correlations}, and that is why \S\ref{sec:results}
 does not show them.
 
-They are not redundant in one respect, and it is the respect \S\ref{sec:results}
-needs. $\Rwmu$ never falls appreciably below zero --- its minimum over either sweep is
-$-0.03$ --- so in the frustrated region it merely decays to zero, which is also what
-an unbiased society with nothing happening looks like. $\BA$ goes to $-0.71$ instead, and a negative balance is not a small
-positive one: it says the trust relations cannot all be satisfied at once. A signed
-triple statistic can report frustration; a pair correlation cannot. The same holds
-for $\BI$ in the other direction: it is the quantity in which the conservation-law
-ceiling of Appendix~\ref{app:conserved} is legible, staying near $0.1$ for a narrow
-agenda and saturating at $0.98$ for a broad one.
+They are not identical to it, and the difference is worth recording even though
+\S\ref{sec:results} does not lean on it. $\Rwmu$ never falls appreciably below zero
+--- its minimum over either sweep is $-0.03$ --- so in the frustrated region it merely
+decays towards zero. $\BA$ goes to $-0.71$, and a negative balance is a stronger
+statement than a small positive one: it says the trust relations cannot all be
+satisfied at once, which is what frustration means. Where the correlations locate the
+state, the balance names the mechanism. $\BI$ plays the same role for the other
+sector, being the quantity in which the conservation-law ceiling of
+Appendix~\ref{app:conserved} is directly legible: it stays near $0.1$ for a narrow
+agenda and saturates for a broad one.
 
 \begin{figure}[h]
   \centering
