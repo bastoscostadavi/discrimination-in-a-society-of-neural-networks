@@ -66,7 +66,7 @@ body boundary by 17 words, because the figures pin to page tops and text reflows
 around them. Only figure area buys pages. The main text therefore carries the four
 figures that do the most work per unit of space:
 
-- `modulation_shift` (§4.1) — the sector crossover, and the one thing the
+- `modulation_shift` (app) — the sector crossover, and the one thing the
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
