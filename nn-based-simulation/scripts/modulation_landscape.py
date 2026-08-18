@@ -13,11 +13,10 @@ Produces three figures, none of which needs a simulation:
     between the sectors, F_w(x, y) = F_mu(y, x), is visible as a reflection
     across the diagonal, which is drawn.
 
-``modulation_slices``
-    Cuts at fixed opinion field, showing which sector absorbs a surprise.  This
-    is the figure the source draft discusses in its text but never includes (its
-    "figure ??"): for |h_mu| < |h_w| the affective sector moves, and beyond the
-    crossover at h_mu = h_w the ideological sector moves instead.
+``modulation_shift``
+    ``F_mu`` under a discrimination field of either sign, in the same layout as
+    ``modulation_contours``, so that the displacement of the separatrix -- the whole
+    mechanism of the paper -- can be read off by comparison with it.
 """
 
 from __future__ import annotations
@@ -76,16 +75,22 @@ def figure_surfaces(style):
     return save(fig, "modulation_surfaces", style)
 
 
-def _contour_panel(ax, F, name, cap, ylabel=False):
+def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0):
+    """One filled-contour panel over the ``(h_w, h_mu)`` plane.
+
+    ``shift`` is a discrimination field: the receiver sits at ``h_w`` but evaluates
+    the modulation at ``h_w + D``, so the panel is the same function seen through a
+    displaced coordinate, and the separatrix moves with it.
+    """
     (HW, HMU), _ = _plane()
     levels = np.linspace(-cap, cap, 25)
-    values = np.clip(F(HW, HMU), -cap, cap)
+    values = np.clip(F(HW + shift, HMU), -cap, cap)
     im = ax.contourf(HW, HMU, values, levels=levels, cmap=pastel("coolwarm", 0.30))
     ax.contour(HW, HMU, values, levels=levels[::4], colors="k", linewidths=0.25,
                alpha=0.5)
     ax.axhline(0.0, color="0.55", lw=0.5)
     ax.axvline(0.0, color="0.55", lw=0.5)
-    ax.plot([-LIM, LIM], [-LIM, LIM], color="#5aa469", lw=0.9)
+    ax.plot([-LIM, LIM], [-LIM + shift, LIM + shift], color="#5aa469", lw=0.9)
     ax.set_xlim(-LIM, LIM)
     ax.set_ylim(-LIM, LIM)
     ax.set_aspect("equal")
@@ -145,45 +150,32 @@ def figure_contours_all(style):
     return save(fig, "modulation_contours_all", style)
 
 
-def figure_slices(style, h_w0=6.0, d=2.0, lim=9.0):
-    """Blame attribution: which sector yields when the message is surprising.
+def figure_shift(style, d=2.0):
+    """What the discrimination field does to the trust sector, in one picture.
 
-    At fixed opinion field the two sectors trade places at ``h_mu = h_w``: below
-    the crossover the affective sector absorbs the surprise (solid), above it
-    the ideological sector does (dashed) and the receiver unlearns.  The
-    discrimination field moves the crossover to ``h_w + D``, which is the whole
-    mechanism of the model in one picture.
+    The layout of :func:`figure_contours` -- two square panels sharing one colour
+    bar -- applied to ``F_mu`` alone, once for each sign of the field.  ``F_mu`` is
+    the right function to show: the field enters through ``h_w``, and the prefactor
+    ``1 - 2*Phi(h_w)`` in ``F_mu`` is what carries it into the trust sector, so this
+    is the panel on which the mechanism of the paper is visible as a displacement.
+    The green line is the separatrix ``h_mu = h_w + D``, which is where blame for a
+    surprise passes from one sector to the other; comparing the two panels against
+    Figure ``modulation_contours`` shows it sliding.
     """
-    h_mu = np.linspace(-lim, lim, 1200)
-    fig, axes = plt.subplots(1, 2, figsize=panel(0.95, 0.38), sharey=True)
-    for ax, sign, title in (
-        (axes[0], +1.0, rf"emitter agrees ($h_w = {h_w0:.0f}$)"),
-        (axes[1], -1.0, rf"emitter disagrees ($h_w = {-h_w0:.0f}$)"),
-    ):
-        base = sign * h_w0
-        for shift, colour, label in (
-            (+d, "#5b8ec4", rf"$D = {d:+.0f}$ (tolerant)"),
-            (0.0, "#5aa469", r"$D = 0$"),
-            (-d, "#c96a63", rf"$D = {-d:+.0f}$ (intolerant)"),
-        ):
-            hw = base + shift
-            ax.plot(h_mu, F_mu(hw, h_mu), color=colour, lw=1.1, label=label)
-            ax.plot(h_mu, F_w(hw, h_mu), color=colour, lw=1.0, ls="--")
-            ax.axvline(hw, color=colour, lw=0.5, ls=":", alpha=0.8)
-        ax.axhline(0.0, color="0.55", lw=0.5)
-        ax.axvline(0.0, color="0.55", lw=0.5)
-        framed_axes(ax, minor=False)
-        ax.set_xlabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust")
-        ax.set_title(title, fontsize=8)
-        ax.set_xlim(-lim, lim)
-    axes[0].set_ylabel(r"$F_\mu$ (solid), $F_w$ (dashed)")
-    axes[0].legend(loc="lower left", fontsize=6)
-    axes[1].annotate(
-        "crossover at $h_\\mu = h_w + D$",
-        xy=(0.5, 0.94), xycoords="axes fraction", ha="center", fontsize=6, color="0.3",
-    )
-    fig.tight_layout(pad=0.4)
-    return save(fig, "modulation_slices", style)
+    fig, axes = plt.subplots(1, 2, figsize=panel(0.86, 0.35/0.66), sharey=True)
+    im = None
+    for k, (shift, name) in enumerate((
+        (-d, rf"$F_\mu$,  $D = {-d:+.0f}$"),
+        (+d, rf"$F_\mu$,  $D = {d:+.0f}$"),
+    )):
+        im = _contour_panel(axes[k], F_mu, name, 3.2, ylabel=(k == 0), shift=shift)
+        axes[k].set_xlabel("")
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.04)
+    cb = fig.colorbar(im, ax=axes, fraction=0.045, pad=0.02,
+                      ticks=np.linspace(-3.2, 3.2, 5))
+    cb.ax.tick_params(labelsize=6, width=0.4, length=2)
+    cb.outline.set_linewidth(0.4)
+    return save(fig, "modulation_shift", style)
 
 
 def main():
@@ -191,7 +183,7 @@ def main():
     figure_surfaces(args.style)
     figure_contours(args.style)
     figure_contours_all(args.style)
-    figure_slices(args.style)
+    figure_shift(args.style)
 
 
 if __name__ == "__main__":

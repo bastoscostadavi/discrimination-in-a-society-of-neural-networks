@@ -46,9 +46,9 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
 
     fig, axes = plt.subplots(1, 3, figsize=panel(1.0, 0.40), sharey=True)
     titles = (
-        rf"out-group emitter ($D = {-d:+.1f}$)",
-        r"no discrimination ($D = 0$)",
-        rf"in-group emitter ($D = {d:+.1f}$)",
+        rf"out-group, $D = {-d:+.1f}$",
+        r"no bias, $D = 0$",
+        rf"in-group, $D = {d:+.1f}$",
     )
     for ax, D, title in zip(axes, (-d, 0.0, d), titles):
         mag = np.hypot(F_w(HW + D, HMU), F_mu(HW + D, HMU))
@@ -83,7 +83,9 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
         ax.set_xlim(-LIM, LIM)
         ax.set_ylim(-LIM, LIM)
         ax.set_title(title, fontsize=7.5, pad=3)
-        ax.set_xlabel(r"disagree $\leftarrow h_w \rightarrow$ agree")
+        ax.set_box_aspect(1)
+    # one label under the row: three copies of it do not fit across the text width
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.03)
     axes[0].set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust")
     cb = fig.colorbar(im, ax=axes, fraction=0.024, pad=0.012)
     cb.set_label(r"$|(F_w, F_\mu)|$", fontsize=7)

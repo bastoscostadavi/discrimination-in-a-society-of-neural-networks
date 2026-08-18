@@ -53,13 +53,20 @@ body boundary by 17 words, because the figures pin to page tops and text reflows
 around them. Only figure area buys pages. The main text therefore carries the four
 figures that do the most work per unit of space:
 
-- `modulation_slices` (§3.2) — the sector crossover, and the one thing the
+- `modulation_shift` (app) — the sector crossover, and the one thing the
   discrimination field acts on.
 - `polarization` (§3.3) — the two histograms that show the split.
 - `agenda_trajectories` (§3.4) — the `alpha` result.
 - `correlation_maps_small` (§4.2) — the three correlations, simple agenda.
 - `phase_diagram` (§4.2) — the composite, simple agenda.
-- `balance_maps_small` (§4.2) — `B_I` and `B_A`, simple agenda.
+
+The body shows the three correlations and nothing else. `B_I` and `B_A` are close to
+redundant with `R_wmu` over this plane — Pearson `r` of 0.97/0.98 for `B_A` and
+0.98/0.99 for `B_I` across the two sweeps — so their maps repeat the `R_wmu` panel and
+live in `app:balance-maps`. What they are *not* redundant in is the sign: `R_wmu`
+bottoms out at −0.03 and merely decays to zero in the frustrated region, where `B_A`
+goes to −0.71. A pair correlation cannot report frustration; a signed triple statistic
+can. That is the only claim in §4.2 that needs them.
 
 The body carries one agenda size, `α = 0.17`. The complex agenda is qualitatively the
 same — same four states, same arrangement, same quorum and sign change — so it goes to

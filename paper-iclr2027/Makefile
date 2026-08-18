@@ -13,8 +13,7 @@ STYLE    := iclr
 PRESET   := medium
 
 # Figures pulled in from the simulation, by the name the .tex files use.
-IMPORTS := modulation_contours modulation_contours_all modulation_slices learning_flows polarization \
-           order_parameter_maps correlation_maps frustration_maps \
+IMPORTS := modulation_contours modulation_contours_all modulation_shift learning_flows polarization \
            correlation_maps_small correlation_maps_large \
            balance_maps_small balance_maps_large \
            phase_diagram phase_diagram_large_agenda agenda_trajectories \

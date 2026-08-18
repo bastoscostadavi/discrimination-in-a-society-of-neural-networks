@@ -627,7 +627,12 @@ discriminating (case~\eqref{eq:case6}). Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckle
 is society-to-society fluctuation, not a rendering artefact. Both agenda sizes are
 The maps below are for the simple agenda, $\alpha=0.17$; the complex agenda gives the
-same four states and is in Appendix~\ref{app:large-agenda}.
+same four states and is in Appendix~\ref{app:large-agenda}. We show only the three
+correlations. The balance aggregates track $\Rwmu$ closely across this plane ---
+$r=0.97$ and $0.98$ for $\BA$, $0.98$ and $0.99$ for $\BI$, over the two agenda sizes
+--- so their maps repeat its structure and are in Appendix~\ref{app:balance-maps}.
+What they add is a sign: where $\Rwmu$ merely decays to zero, $\BA$ goes negative, and
+that is the one place below where they are needed.
 
 \begin{figure}[t]
   \centering
@@ -684,7 +689,7 @@ distinguish two of them that the correlations alone would confuse.
   the same point $\Rcw$ is $0.00$ rather than $-0.29$, and $\Rwmu$ collapses to zero
   --- the only place in the diagram it does --- rather than staying at the $0.35$ its
   mirror image would require. The balances say what is there instead
-  (Figure~\ref{fig:balance-maps}): $\BA=-0.71$ for both agendas, strongly
+  (Appendix~\ref{app:balance-maps}): $\BA=-0.71$ for both agendas, strongly
   \emph{anti}-balanced against $+0.97$ in the discriminatory region, with $\BI=0.00$.
   No consistent assignment of trust exists, because each agent is pulled towards the
   other class while its neighbours are pulled towards theirs, and the society settles
@@ -733,18 +738,6 @@ class completely but opinion only within that ceiling. Region~(IV) is where the
 ceiling binds. It is not the exclusive property of a narrow agenda --- a broad one
 passes through it while the discriminating minority is still small --- but a narrow
 agenda cannot leave it.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.62\linewidth]{figures/balance_maps_small}
-  \caption{\textbf{The two balance aggregates over the $(d,\fd)$ plane}, simple
-  agenda ($\alpha=0.17$). $\BA$ is the only measurement in the paper in which the
-  frustrated region announces itself: at upper left it goes strongly negative, where
-  every correlation merely goes to zero. $\BI$ stays small everywhere, which is the
-  conservation-law ceiling of Appendix~\ref{app:conserved} seen in this plane; for a
-  complex agenda it saturates instead (Appendix~\ref{app:large-agenda}).}
-  \label{fig:balance-maps}
-\end{figure}
 
 \section{Discussion}
 \label{sec:discussion}
@@ -930,22 +923,44 @@ across the whole $d>0$ region rather than staying near $0.1$.
   \label{fig:large-agenda}
 \end{figure}
 
+\section{The balance maps}
+\label{app:balance-maps}
+
+$\BI$ and $\BA$ are not needed to separate the four states, and over the $(d,\fd)$
+plane they are close to redundant with $\Rwmu$: the Pearson correlation across all
+$40\,000$ grid points is $0.97$ and $0.98$ for $\BA$ and $0.98$ and $0.99$ for $\BI$,
+at $\alpha=0.17$ and $\alpha=3.3$ respectively. Their maps therefore look like the
+$\Rwmu$ panel of Figure~\ref{fig:correlations}, and that is why \S\ref{sec:results}
+does not show them.
+
+They are not redundant in one respect, and it is the respect \S\ref{sec:results}
+needs. $\Rwmu$ never falls appreciably below zero --- its minimum over either sweep is
+$-0.03$ --- so in the frustrated region it merely decays to zero, which is also what
+an unbiased society with nothing happening looks like. $\BA$ goes to $-0.71$ instead, and a negative balance is not a small
+positive one: it says the trust relations cannot all be satisfied at once. A signed
+triple statistic can report frustration; a pair correlation cannot. The same holds
+for $\BI$ in the other direction: it is the quantity in which the conservation-law
+ceiling of Appendix~\ref{app:conserved} is legible, staying near $0.1$ for a narrow
+agenda and saturating at $0.98$ for a broad one.
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.62\linewidth]{figures/balance_maps_large}
-  \caption{\textbf{The two balance aggregates}, complex agenda ($\alpha=3.3$):
-  Figure~\ref{fig:balance-maps} for the other agenda size. $\BI$ saturates rather
-  than staying near zero, which is what removes the ceiling on $\Rcw$. $\BA$ is
-  essentially unchanged, including the anti-balanced corner at upper left.}
-  \label{fig:balance-large}
+  \includegraphics[width=0.62\linewidth]{figures/balance_maps_small}
+  \caption{\textbf{The two balance aggregates}, simple agenda ($\alpha=0.17$). $\BA$
+  is the only measurement in the paper in which the frustrated region announces
+  itself, going strongly negative at upper left where every correlation merely goes
+  to zero. $\BI$ stays small everywhere.}
+  \label{fig:balance-maps}
 \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1.0\linewidth]{figures/order_parameter_maps}
-  \caption{\textbf{All five order parameters, both agendas}, on one grid for
-  reference: simple ($\alpha=0.17$) above, complex ($\alpha=3.3$) below.}
-  \label{fig:all-maps}
+  \includegraphics[width=0.62\linewidth]{figures/balance_maps_large}
+  \caption{\textbf{The two balance aggregates}, complex agenda ($\alpha=3.3$). $\BI$
+  saturates rather than staying near zero, which is what removes the ceiling on
+  $\Rcw$. $\BA$ is essentially unchanged, including the anti-balanced corner at upper
+  left.}
+  \label{fig:balance-large}
 \end{figure}
 
 \section{All four modulation functions}
@@ -969,15 +984,20 @@ across the whole $d>0$ region rather than staying near $0.1$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.95\linewidth]{figures/modulation_slices}
-  \caption{Cuts through the modulation functions at fixed opinion field, $\hw=\pm6$.
-  Below the crossover at $\hmu = \hw + D$ the trust sector moves (solid,
-  $\Fmu$) and the receiver revises its trust; above it the opinion sector moves
-  (dashed, $\Fw$) and the receiver unlearns what the emitter said. The
-  discrimination field $D$ displaces the crossover --- dotted verticals, one per
-  value of $D$ --- which is the entire mechanism studied in this paper, visible in a
-  single coordinate.}
-  \label{fig:modulation-slices}
+  \includegraphics[width=0.86\linewidth]{figures/modulation_shift}
+  \caption{\textbf{The discrimination field displaces the separatrix.} $\Fmu$ over
+  the same plane and in the same layout as Figure~\ref{fig:modulation}, for a
+  discriminating receiver: it sits at $\hw$ but evaluates the modulation at $\hw+D$,
+  so the green separatrix $\hmu=\hw+D$ slides while the axes stay put. $\Fmu$ is the
+  function to watch, because the field enters through $\hw$ and it is the prefactor
+  $1-2\Phi(\hw)$ in $\Fmu$ that carries it into the trust sector. Left, an out-group
+  emitter under $d>0$: the red region, where distrust grows, takes most of the plane.
+  Right, an in-group emitter: the blue region, where trust grows, takes it instead.
+  Compare Figure~\ref{fig:modulation}, where the line runs through the origin and the
+  two are balanced. This is the whole mechanism of the paper --- every discriminating
+  agent is biased towards the same alignment of distrust with class, and the flow that
+  results is Figure~\ref{fig:flows}.}
+  \label{fig:modulation-shift}
 \end{figure}
 
 \section{The learning flow under a discrimination field}
