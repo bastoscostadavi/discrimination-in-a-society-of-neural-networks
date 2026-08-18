@@ -41,7 +41,7 @@ re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
 | `order_parameter_maps.py` | `order_parameter_maps` | all five order parameters in one 2x5 grid; this is the version the paper uses |
 | `frustration_maps.py` | `frustration_maps` | ideological and trust balance over the same plane |
 | `phase_diagram.py` | `phase_diagram`, `phase_diagram_large_agenda` | the three correlations composited into one RGB map, with the four regions labelled |
-| `agenda_trajectories.py` | `agenda_trajectories` | `(B_I, B_A)` trajectories across nine agenda complexities `α = P/K` |
+| `agenda_trajectories.py` | `agenda_trajectories` | `(B_rho, B_eta)` trajectories across nine agenda complexities `α = P/K` |
 | `sign_convention_comparison.py` | `sign_convention_comparison` | the two readings of the discrimination field, side by side |
 | `calibrate.py` | — | fixes the parameters the source draft leaves unspecified |
 | `draft_comparison.py` | `draft_comparison.pdf` | each figure beside the corresponding page of the source draft |
@@ -94,7 +94,7 @@ implicit.
 | `P`, agenda size | 5 and 100 | chosen, to put `α = P/K` either side of 1, which is where the polarization order reverses. |
 | `Δt`, interactions per ordered pair | 500 | **calibrated** against the draft's trajectory endpoints; see below. |
 | `C₀`, `V₀` | `I`, `1` | uninformative Gaussian prior. |
-| `μ₀` | `U(−1, 1)` | gives `B_I ≈ B_A ≈ 0` initially, i.e. half the triples frustrated, as the draft describes. |
+| `μ₀` | `U(−1, 1)` | gives `B_rho ≈ B_eta ≈ 0` initially, i.e. half the triples frustrated, as the draft describes. |
 | class split | `N/2` each | the draft's two classes, `A` and `B`. |
 | repeats per grid point | 1 | the draft's maps are visibly single-realization. |
 
@@ -118,7 +118,7 @@ The result (`N=40`, `K=30`, 8 repeats, `d = 0`):
 The minimum is flat-bottomed between 250 and 1000 and sits at **Δt = 500**, which
 is the value used everywhere. Per-curve comparison at that value:
 
-| `α = P/K` | simulated `(B_I, B_A)` | draft `(B_I, B_A)` |
+| `α = P/K` | simulated `(B_rho, B_eta)` | draft `(B_rho, B_eta)` |
 |---|---|---|
 | 0.03 | (0.03, 0.97) | (0.02, 0.99) |
 | 0.17 | (0.21, 0.95) | (0.24, 0.98) |
@@ -131,9 +131,9 @@ is the value used everywhere. Per-curve comparison at that value:
 | 333  | (0.97, 0.77) | (0.97, 0.68) |
 
 Read this honestly: **no single Δt reproduces all nine endpoints.** Seven of the
-nine agree to within about 0.1, and the ideological balance `B_I` matches the
+nine agree to within about 0.1, and the ideological balance `B_rho` matches the
 three largest agendas almost exactly, but the draft's `α = 0.23` and `α = 0.33`
-endpoints sit well above ours and its two largest agendas have a lower `B_A` than
+endpoints sit well above ours and its two largest agendas have a lower `B_eta` than
 we obtain at any Δt that fits the rest. Two explanations are available and we
 cannot distinguish them: the draft's `N` differs from ours (its endpoints depend
 on `N` through the number of channels each agent must resolve), or those middle

@@ -108,7 +108,7 @@ python scripts/sign_convention_comparison.py
 
 runs the same sweep under both and writes
 `figures/<style>/sign_convention_comparison.pdf`: the trust–class correlation
-`R_mu,c` and the trust balance `B_A` over the `(d, f_d)` plane, once per
+`R_mu,c` and the trust balance `B_eta` over the `(d, f_d)` plane, once per
 convention. The two rows are mirror images in `d`. Only the top row matches the
 maps printed in the draft.
 

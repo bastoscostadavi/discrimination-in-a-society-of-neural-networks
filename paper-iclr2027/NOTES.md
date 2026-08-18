@@ -18,12 +18,12 @@ across a section boundary. The agenda-complexity result belongs in §3 because i
 measured at `d = 0`: it is a property of the model, not of the bias.
 
 Order parameters arrive where first needed rather than in a block: `rho`, `eta`,
-`B_I`, `B_A` open §3.3; the three correlations (`R_wmu`, `R_muc`, `R_cw`) sit at the
+`B_rho`, `B_eta` open §3.3; the three correlations (`R_wmu`, `R_muc`, `R_cw`) sit at the
 end of §4.1, since all three are read off the phase diagram together and `R_wmu` is
 not needed to establish that the society polarizes.
 
 Terminology: the sector is the **opinion** sector, never "ideological". The symbols
-`B_I` and `b^I` keep their subscript for continuity with the source draft, with a
+`B_rho` and `b^I` keep their subscript for continuity with the source draft, with a
 parenthetical in §3.3 noting it is historical.
 
 **The paper is a single file.** `main.tex` contains every section inline; there is
@@ -73,11 +73,11 @@ figures that do the most work per unit of space:
 - `correlation_maps_small` (§4.2) — the three correlations, simple agenda.
 - `phase_diagram` (§4.2) — the composite, simple agenda.
 
-The body shows the three correlations and nothing else. `B_I` and `B_A` are close to
-redundant with `R_wmu` over this plane — Pearson `r` of 0.97/0.98 for `B_A` and
-0.98/0.99 for `B_I` across the two sweeps — so their maps repeat the `R_wmu` panel and
+The body shows the three correlations and nothing else. `B_rho` and `B_eta` are close to
+redundant with `R_wmu` over this plane — Pearson `r` of 0.97/0.98 for `B_eta` and
+0.98/0.99 for `B_rho` across the two sweeps — so their maps repeat the `R_wmu` panel and
 live in `app:balance-maps`. What they are *not* redundant in is the sign: `R_wmu`
-bottoms out at −0.03 and merely decays to zero in the frustrated region, where `B_A`
+bottoms out at −0.03 and merely decays to zero in the frustrated region, where `B_eta`
 goes to −0.71. A pair correlation cannot report frustration; a signed triple statistic
 can. That is the only claim in §4.2 that needs them.
 
@@ -85,7 +85,7 @@ The body carries one agenda size, `α = 0.17`. The complex agenda is qualitative
 same — same four states, same arrangement, same quorum and sign change — so it goes to
 `app:large-agenda` with a sentence in §4.2 saying what differs quantitatively: `R_cw`
 rises to meet `R_muc` instead of lagging it, so region (III) takes most of the
-discriminatory half instead of a sliver, and `B_I` saturates. Halving each of the
+discriminatory half instead of a sliver, and `B_rho` saturates. Halving each of the
 three body figures is what that buys.
 
 The composite carries the three correlations because they are what an RGB image has
@@ -95,8 +95,8 @@ compares against the composite is the same ramp the composite used. A diverging 
 for `R_muc` reads better in isolation and was tried; it makes the panel disagree with
 the figure it feeds.
 
-`B_I` and `B_A` are not in the composite and do not need to be: the four states are
-separated by the correlations alone. They stay in the section because `B_A` is the
+`B_rho` and `B_eta` are not in the composite and do not need to be: the four states are
+separated by the correlations alone. They stay in the section because `B_eta` is the
 only measurement that distinguishes region (I) from an absence of structure, going to
 −0.71 where every correlation merely decays to zero.
 

@@ -2,13 +2,13 @@
 """Does distrust come first, or disagreement?  It depends on the agenda.
 
 With no discrimination field at all, a society still polarizes: learning anneals
-away frustration, driving both the ideological balance ``B_I`` and the affective
-balance ``B_A`` from zero (half the triples frustrated, as at random
+away frustration, driving both the ideological balance ``B_rho`` and the affective
+balance ``B_eta`` from zero (half the triples frustrated, as at random
 initialization) towards one (no frustration).  The *path* it takes through the
-``(B_I, B_A)`` plane depends on the complexity of the agenda ``alpha = P/K``:
+``(B_rho, B_eta)`` plane depends on the complexity of the agenda ``alpha = P/K``:
 
 * small ``alpha`` -- few issues, "discussing only symbols" -- the trajectory
-  runs up the ``B_A`` axis first: affective alignment forms quickly and then
+  runs up the ``B_eta`` axis first: affective alignment forms quickly and then
   slowly drags opinions into line.  Agents distrust each other first and come
   to disagree afterwards.
 * large ``alpha`` -- many issues discussed in detail -- the trajectory stays
@@ -28,11 +28,11 @@ from _cli import setup  # noqa: E402
 from ednna.order_params import balance  # noqa: E402
 from ednna.plotting import framed_axes, panel, pastel, save  # noqa: E402
 from ednna.society import SocietyBatch  # noqa: E402
-from ednna.sweep import DATA_DIR  # noqa: E402
+from ednna.sweep import LEGACY_KEYS, DATA_DIR  # noqa: E402
 
 
 def trajectories(preset, use_cache=True, verbose=True):
-    """B_I and B_A over time for each agenda size, averaged over repeats."""
+    """B_rho and B_eta over time for each agenda size, averaged over repeats."""
     model = preset.model
     issues = tuple(preset.trajectory_issues)
     n_rep = preset.n_trajectory_repeats
@@ -46,7 +46,7 @@ def trajectories(preset, use_cache=True, verbose=True):
     )
     if use_cache and cache.exists():
         with np.load(cache) as z:
-            out = {k: z[k] for k in z.files}
+            out = {LEGACY_KEYS.get(k, k): z[k] for k in z.files}
         if verbose:
             print(f"[trajectories] loaded cache {cache.name}")
         return out
@@ -55,8 +55,8 @@ def trajectories(preset, use_cache=True, verbose=True):
     # because the annealed dynamics slows down, not because sampling does
     times = np.unique(np.linspace(total / n_samples, total, n_samples).astype(int))
 
-    B_I = np.zeros((len(issues), times.size))
-    B_A = np.zeros((len(issues), times.size))
+    B_rho = np.zeros((len(issues), times.size))
+    B_eta = np.zeros((len(issues), times.size))
     for i, P in enumerate(issues):
         batch = SocietyBatch(
             n_agents=model.n_agents,
@@ -70,19 +70,19 @@ def trajectories(preset, use_cache=True, verbose=True):
         samples = batch.run(
             total, measure_at=times.tolist(), measure_fn=lambda s: balance(s)
         )
-        B_I[i] = [s["B_I"].mean() for s in samples]
-        B_A[i] = [s["B_A"].mean() for s in samples]
+        B_rho[i] = [s["B_rho"].mean() for s in samples]
+        B_eta[i] = [s["B_eta"].mean() for s in samples]
         if verbose:
             print(
                 f"[trajectories] P={P:>6d} (alpha={P/model.n_dim:8.4g}): "
-                f"B_I={B_I[i, -1]:+.3f}  B_A={B_A[i, -1]:+.3f}"
+                f"B_rho={B_rho[i, -1]:+.3f}  B_eta={B_eta[i, -1]:+.3f}"
             )
 
     out = {
         "issues": np.asarray(issues),
         "times": times,
-        "B_I": B_I,
-        "B_A": B_A,
+        "B_rho": B_rho,
+        "B_eta": B_eta,
         "n_dim": np.asarray(model.n_dim),
     }
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -101,8 +101,8 @@ def figure(data, style):
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, zorder=1)
     for i, P in enumerate(issues):
         ax.plot(
-            data["B_I"][i],
-            data["B_A"][i],
+            data["B_rho"][i],
+            data["B_eta"][i],
             marker="<",
             markersize=3.2,
             lw=0.8,
@@ -110,8 +110,8 @@ def figure(data, style):
             label=rf"$\alpha = {P/K:.2f}$",
             zorder=2,
         )
-    ax.set_xlabel(r"$B_I$")
-    ax.set_ylabel(r"$B_A$")
+    ax.set_xlabel(r"$B_rho$")
+    ax.set_ylabel(r"$B_eta$")
     ax.set_xlim(-0.2, 1.2)
     ax.set_ylim(-0.05, 1.05)
     framed_axes(ax, minor=False)

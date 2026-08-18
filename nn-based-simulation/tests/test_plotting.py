@@ -47,7 +47,7 @@ def test_phase_map_extent_matches_the_data_range():
 
 
 def test_diverging_parameters_are_centred_on_zero():
-    """R_muc and B_A are signed; white must sit at 0, not at the midpoint."""
+    """R_muc and B_eta are signed; white must sit at 0, not at the midpoint."""
     d = np.linspace(-1, 1, 4)
     fd = np.linspace(0, 1, 4)
     fig, ax = plt.subplots()

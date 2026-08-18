@@ -39,7 +39,7 @@ the first LLM run rather than after.
    already holds about real social categories and the experiment measures those
    instead. Include a label-swap control: the order parameters are invariant under
    the swap by construction, so any dependence on it signals label-driven priors.
-2. **Asymmetric trust.** Ask each agent separately; do not symmetrize. `B_A` is
+2. **Asymmetric trust.** Ask each agent separately; do not symmetrize. `B_eta` is
    defined on the two cycle orientations, and symmetrizing destroys the
    distinction between organized hostility and frustration — which is exactly the
    distinction that identifies the spin-glass phase.
@@ -51,8 +51,8 @@ the first LLM run rather than after.
    the dimension of the representation; for language agents `K` is unknown, so `P`
    has to be varied as widely as the context budget allows and the crossover
    located empirically.
-5. **Trajectories, not just endpoints.** Measure after every round. The `(B_I,
-   B_A)` *path* is the result, and its position relative to the diagonal is what
+5. **Trajectories, not just endpoints.** Measure after every round. The `(B_rho,
+   B_eta)` *path* is the result, and its position relative to the diagonal is what
    distinguishes distrust-first from disagreement-first.
 6. **Repeats.** Every condition needs several independent runs. The theory's maps
    are single-realization and visibly noisy; one LLM run is not evidence of a

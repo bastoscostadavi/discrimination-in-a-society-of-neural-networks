@@ -41,7 +41,7 @@ def pastel(cmap, amount=0.26, n=256):
 
     ``amount`` is the fraction of white mixed in at every level, so the hue and the
     ordering are preserved while the saturation comes down.  Kept moderate on
-    purpose: the small-agenda ``B_I`` map tops out near $0.2$ of its range, and past
+    purpose: the small-agenda ``B_rho`` map tops out near $0.2$ of its range, and past
     about a third of white it stops being legible at all.  Used so that the
     figures share one palette temperature rather than mixing ColorBrewer's
     saturated ends with the pastel histograms.
@@ -61,8 +61,8 @@ CMAPS = {
     "R_wmu": "Blues",
     "R_muc": "Reds",
     "R_cw": "Greens",
-    "B_I": "Purples",
-    "B_A": "OrRd",
+    "B_rho": "Purples",
+    "B_eta": "OrRd",
 }
 
 #: The same maps, softened.  ``phase_map`` uses these; the raw names above are kept
@@ -70,21 +70,21 @@ CMAPS = {
 PASTEL_CMAPS = {k: pastel(v) for k, v in CMAPS.items()}
 
 #: Ranges used for each order parameter.  R_wmu and R_cw are non-negative in
-#: practice; R_muc, B_A and B_I are signed.
+#: practice; R_muc, B_eta and B_rho are signed.
 RANGES = {
     "R_wmu": (0.0, 1.0),
     "R_muc": (-1.0, 1.0),
     "R_cw": (0.0, 1.0),
-    "B_I": (0.0, 1.0),
-    "B_A": (-1.0, 1.0),
+    "B_rho": (0.0, 1.0),
+    "B_eta": (-1.0, 1.0),
 }
 
 LABELS = {
     "R_wmu": r"$R_{w,\mu}$",
     "R_muc": r"$R_{\mu,c}$",
     "R_cw": r"$R_{c,w}$",
-    "B_I": r"$B_I$",
-    "B_A": r"$B_A$",
+    "B_rho": r"$B_\rho$",
+    "B_eta": r"$B_\eta$",
 }
 
 _STYLE = {"name": "paper"}

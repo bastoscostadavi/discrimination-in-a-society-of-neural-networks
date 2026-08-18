@@ -42,7 +42,7 @@ def figure(preset, style, n_grid=32, use_cache=True):
             model, cfg, tag=f"sign_{'literal' if literal else 'consistent'}",
             use_cache=use_cache,
         )
-        for col, key in enumerate(("R_muc", "B_A")):
+        for col, key in enumerate(("R_muc", "B_eta")):
             ax = axes[row][col]
             phase_map(ax, data[key], data["d"], data["fd"], key)
             if col == 0:

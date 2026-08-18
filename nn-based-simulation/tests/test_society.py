@@ -158,7 +158,7 @@ def test_component_orthogonal_to_the_agenda_is_conserved():
     agenda for all time (the covariance update only ever adds multiples of
     ``(Cx)(Cx)^T``).  So each agent keeps, untouched, whatever part of its initial
     weight vector lies outside that span.  This is what caps the opinion overlap
-    below one when ``alpha = P/K < 1``, and hence caps B_I -- so it is load-bearing
+    below one when ``alpha = P/K < 1``, and hence caps B_rho -- so it is load-bearing
     for the agenda-complexity result, not an incidental invariant.
     """
     b = SocietyBatch(n_agents=12, n_dim=20, n_issues=4, d=0.0, f_d=0.0, seed=3)

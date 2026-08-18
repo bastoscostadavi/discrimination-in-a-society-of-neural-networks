@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Social balance across the ``(d, f_d)`` plane.
 
-``B_I`` and ``B_A`` measure how many triples of agents are ideologically and
+``B_rho`` and ``B_eta`` measure how many triples of agents are ideologically and
 affectively balanced.  They separate the collective states in a way the pair
 correlations cannot: the region of reverse discrimination is a *frustrated*
-state, with ``B_A < 0`` and ``B_I`` near zero -- no consistent faction structure
+state, with ``B_eta < 0`` and ``B_rho`` near zero -- no consistent faction structure
 exists, because every agent is pulled towards the other class while its
 neighbours are pulled towards theirs.  The discriminatory region, by contrast,
 is almost perfectly balanced: two internally coherent, mutually hostile blocs.
@@ -22,7 +22,7 @@ from correlation_maps import agenda_sweeps  # noqa: E402
 
 from ednna.plotting import panel, phase_map, save  # noqa: E402
 
-KEYS = ("B_I", "B_A")
+KEYS = ("B_rho", "B_eta")
 
 
 def figure(rows, style, name="frustration_maps"):

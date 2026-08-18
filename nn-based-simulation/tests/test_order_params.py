@@ -103,8 +103,8 @@ def test_correlations_at_the_perfectly_discriminating_limit():
     assert corr["R_wmu"][0] == pytest.approx(1.0, abs=1e-3)
     assert corr["R_muc"][0] == pytest.approx(1.0, abs=1e-3)
     assert corr["R_cw"][0] == pytest.approx(1.0, abs=1e-3)
-    assert bal["B_I"][0] == pytest.approx(1.0, abs=1e-3)
-    assert bal["B_A"][0] == pytest.approx(1.0, abs=1e-3)
+    assert bal["B_rho"][0] == pytest.approx(1.0, abs=1e-3)
+    assert bal["B_eta"][0] == pytest.approx(1.0, abs=1e-3)
     # u_I = kappa_I when every agent's trust follows its own class, so the
     # histogram of u is bimodal at +-1; u_I * kappa_I = +1 for all agents.
     u = class_trust_per_agent(b)[0]
@@ -154,7 +154,7 @@ def test_literal_norm_halves_the_opinion_class_correlation():
 def test_random_initial_society_is_uncorrelated_and_frustrated():
     b = SocietyBatch(n_agents=60, n_dim=30, n_issues=5, d=0.0, f_d=0.0, seed=4)
     m = measure(b)
-    for name in ("R_wmu", "R_muc", "R_cw", "B_I", "B_A"):
+    for name in ("R_wmu", "R_muc", "R_cw", "B_rho", "B_eta"):
         assert abs(m[name][0]) < 0.1, name
 
 
@@ -212,7 +212,7 @@ def test_sign_balance_counts_factions():
 
 
 def test_sign_balance_ignores_magnitudes():
-    """Unlike B_I, it depends only on the signs."""
+    """Unlike B_rho, it depends only on the signs."""
     s = np.where(np.arange(14) < 6, 1.0, -1.0)
     clean = np.outer(s, s)
     faint = 0.05 * clean          # same signs, twentieth of the magnitude

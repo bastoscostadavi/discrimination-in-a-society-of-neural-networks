@@ -43,7 +43,7 @@ from ednna.society import SocietyBatch  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 #: Endpoints digitized from the source draft's balance-trajectory figure, as
-#: ``alpha -> (B_I, B_A)``.  Read off the printed axes to about +-0.03; the
+#: ``alpha -> (B_rho, B_eta)``.  Read off the printed axes to about +-0.03; the
 #: three curves that bunch near (0.5, 0.94) cannot be told apart reliably and
 #: are given the same reading.
 DRAFT_ENDPOINTS = {
@@ -63,7 +63,7 @@ K = 30
 
 
 def scan_interaction_count(n_agents, checkpoints, n_repeats, issues=ISSUES, seed=99):
-    """B_I, B_A at each checkpoint for each agenda size. Returns a nested dict."""
+    """B_rho, B_eta at each checkpoint for each agenda size. Returns a nested dict."""
     out = {}
     for i, P in enumerate(issues):
         times = [int(c * n_agents * (n_agents - 1)) for c in checkpoints]
@@ -77,7 +77,7 @@ def scan_interaction_count(n_agents, checkpoints, n_repeats, issues=ISSUES, seed
         )
         samples = batch.run(times[-1], measure_at=times, measure_fn=balance)
         out[P] = {
-            c: (float(s["B_I"].mean()), float(s["B_A"].mean()))
+            c: (float(s["B_rho"].mean()), float(s["B_eta"].mean()))
             for c, s in zip(checkpoints, samples)
         }
         print(
@@ -111,8 +111,8 @@ def check_diagonal_ordering(scan, checkpoint):
     """Simple agendas above the diagonal, complex ones below."""
     rows = []
     for P, per_t in sorted(scan.items()):
-        B_I, B_A = per_t[checkpoint]
-        rows.append((P / K, B_I, B_A, "above" if B_A > B_I else "below"))
+        B_rho, B_eta = per_t[checkpoint]
+        rows.append((P / K, B_rho, B_eta, "above" if B_eta > B_rho else "below"))
     ok_small = all(r[3] == "above" for r in rows if r[0] < 0.7)
     ok_large = all(r[3] == "below" for r in rows if r[0] > 2.0)
     return ok_small, ok_large, rows
@@ -135,9 +135,9 @@ def check_phase_signatures(model, n_grid=24, n_workers=8):
             "R_muc(d>0)": pos,
             "R_cw corner": corner,
             "R_cw elsewhere": elsewhere,
-            "B_I(d<0)": data["B_I"][:, d < -0.2].mean(),
-            "B_A(d<0)": data["B_A"][:, d < -0.2].mean(),
-            "B_I(d>0)": data["B_I"][:, d > 0.2].mean(),
+            "B_rho(d<0)": data["B_rho"][:, d < -0.2].mean(),
+            "B_eta(d<0)": data["B_eta"][:, d < -0.2].mean(),
+            "B_rho(d>0)": data["B_rho"][:, d > 0.2].mean(),
         }
         print(f"  {label} agenda (P={P}):")
         for k, v in out[label].items():
@@ -175,8 +175,8 @@ def main():
 
     print("\n3. diagonal ordering at the best Delta t")
     ok_small, ok_large, rows = check_diagonal_ordering(scan, best)
-    for alpha, B_I, B_A, side in rows:
-        print(f"  alpha={alpha:8.4g}: B_I={B_I:+.3f} B_A={B_A:+.3f}  {side}")
+    for alpha, B_rho, B_eta, side in rows:
+        print(f"  alpha={alpha:8.4g}: B_rho={B_rho:+.3f} B_eta={B_eta:+.3f}  {side}")
     print(f"  simple agendas above the diagonal: {ok_small}")
     print(f"  complex agendas below the diagonal: {ok_large}")
 

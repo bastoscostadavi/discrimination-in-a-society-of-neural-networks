@@ -14,7 +14,7 @@ Social balance is measured on triples: a triple is ideologically balanced when
 ``b^I = rho_IJ rho_JK rho_KI > 0`` and balanced in trust when
 ``b^A = (eta_IJ eta_JK eta_KI + eta_JI eta_IK eta_KJ)/2 > 0``, and
 
-    B_I = <b^I>,    B_A = <b^A>
+    B_rho = <rho_IJK>,    B_eta = <eta_IJK>
 
 average over all ``C(N, 3)`` triples.
 
@@ -58,7 +58,7 @@ __all__ = [
     "ORDER_PARAM_NAMES",
 ]
 
-ORDER_PARAM_NAMES = ("R_wmu", "R_muc", "R_cw", "B_I", "B_A")
+ORDER_PARAM_NAMES = ("R_wmu", "R_muc", "R_cw", "B_rho", "B_eta")
 
 
 def overlaps(society):
@@ -129,7 +129,7 @@ def _mean_triple_product(M, N):
 def sign_balance(M):
     """Fraction of triples whose sign product is positive, for one matrix.
 
-    ``B_I`` and ``B_A`` weight each triple by the magnitudes of its three overlaps,
+    ``B_rho`` and ``B_eta`` weight each triple by the magnitudes of its three overlaps,
     which conflates two questions: how *cleanly* the society has split, and how
     *strongly* each pair agrees.  This separates them by discarding magnitudes.
 
@@ -159,7 +159,8 @@ def balance(society, rho=None, eta=None):
     N = society.N
     rho = overlaps(society) if rho is None else rho
     eta = trust(society) if eta is None else eta
-    return {"B_I": _mean_triple_product(rho, N), "B_A": _mean_triple_product(eta, N)}
+    return {"B_rho": _mean_triple_product(rho, N),
+            "B_eta": _mean_triple_product(eta, N)}
 
 
 def measure(society, class_indicator="pm1", literal_norm=False):

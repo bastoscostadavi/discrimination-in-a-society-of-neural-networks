@@ -98,7 +98,7 @@ def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
     out = {
         "rho_before": rho_before, "rho_after": rho_after,
         "eta_before": eta_before, "eta_after": eta_after,
-        "B_I": bal["B_I"], "B_A": bal["B_A"],
+        "B_rho": bal["B_rho"], "B_eta": bal["B_eta"],
         "alpha": np.asarray(model.alpha), "N": np.asarray(N), "R": np.asarray(R),
         "R_wmu": r_wmu,
         "sign_balance_rho": sb_rho, "sign_balance_eta": sb_eta,
@@ -107,8 +107,8 @@ def run(preset, P, n_agents=None, n_runs=None, use_cache=True):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(cache, **out)
     n_tri = N * (N - 1) * (N - 2) // 6
-    print(f"[polarization] {R}x N={N}: B_I={bal['B_I'].mean():+.3f} "
-          f"B_A={bal['B_A'].mean():+.3f}; sign balance rho {sb_rho.mean():.6f} "
+    print(f"[polarization] {R}x N={N}: B_rho={bal['B_rho'].mean():+.3f} "
+          f"B_eta={bal['B_eta'].mean():+.3f}; sign balance rho {sb_rho.mean():.6f} "
           f"eta {sb_eta.mean():.6f} (0 unbalanced of {n_tri*R:,} triples if 1.0); "
           f"R_wmu={r_wmu.mean():+.3f}; faction split {factions[0].min()}-{factions[0].max()} of {N}; "
           f"pooled pairs: rho {rho_after.size:,}, eta {eta_after.size:,}")

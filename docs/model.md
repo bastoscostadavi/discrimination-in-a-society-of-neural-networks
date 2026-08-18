@@ -115,9 +115,9 @@ averaged over unordered pairs, each normalized to `[−1, 1]`. Social balance ov
 triples,
 
 ```
-b_I  = ρ_IJ ρ_JK ρ_KI
-b_A  = (η_IJ η_JK η_KI + η_JI η_IK η_KJ)/2
-B_I  = ⟨b_I⟩,   B_A = ⟨b_A⟩
+rho_IJK  = ρ_IJ ρ_JK ρ_KI
+eta_IJK  = (η_IJ η_JK η_KI + η_JI η_IK η_KJ)/2
+B_rho  = ⟨rho_IJK⟩,   B_eta = ⟨eta_IJK⟩
 ```
 
 separates *organized* disagreement from disorder: two coherent, mutually opposed

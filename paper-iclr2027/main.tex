@@ -25,8 +25,8 @@
 \newcommand{\Rwmu}{R_{w,\mu}}
 \newcommand{\Rmuc}{R_{\mu,c}}
 \newcommand{\Rcw}{R_{c,w}}
-\newcommand{\BI}{B_{I}}
-\newcommand{\BA}{B_{A}}
+\newcommand{\Brho}{B_{\rho}}
+\newcommand{\Beta}{B_{\eta}}
 \newcommand{\fd}{f_{d}}
 
 % The ICLR style sets titles in \LARGE; at that size this title wraps onto a
@@ -428,22 +428,23 @@ with everyone, and a bimodal histogram is equally consistent with three or four
 mutually hostile groups. What separates organized disagreement from disorder is
 whether the disagreements are mutually consistent, which is a statement about triples
 rather than pairs \citep{heider1946attitudes,cartwright1956structural}. A triple is
-balanced in opinion
-when $b^{I}_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$ and balanced in trust when
-$b^{A}_{IJK}=\tfrac{1}{2}(\eta_{IJ}\eta_{JK}\eta_{KI}+\eta_{JI}\eta_{IK}\eta_{KJ})>0$,
-and the aggregates
+balanced in opinion when the product of its three overlaps is positive,
+$\rho_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$, and balanced in trust when the same holds
+for trust, averaged over the two directions round the triangle,
+$\eta_{IJK}=\tfrac{1}{2}(\eta_{J|I}\eta_{K|J}\eta_{I|K}+\eta_{I|J}\eta_{J|K}\eta_{K|I})>0$.
+The aggregates
 %
 \begin{equation}
-  \BI = \bigl\langle b^{I}_{IJK}\bigr\rangle_{(IJK)},
+  \Brho = \bigl\langle \rho_{IJK}\bigr\rangle_{(IJK)},
   \qquad
-  \BA = \bigl\langle b^{A}_{IJK}\bigr\rangle_{(IJK)}
+  \Beta = \bigl\langle \eta_{IJK}\bigr\rangle_{(IJK)}
   \label{eq:balance}
 \end{equation}
 %
-run over all $\binom{N}{3}$ triples. (The subscripts are historical, from the older
-names for the two sectors, and do not index an agent.) A random society has
-$\BI\approx\BA\approx0$, half its triples frustrated; two internally coherent,
-mutually opposed blocs give $\BI=\BA=1$ whatever the blocs are made of; and a society
+run over all $\binom{N}{3}$ triples, and carry the subscript of the pairwise quantity
+they are built from rather than an agent index. A random society has
+$\Brho\approx\Beta\approx0$, half its triples frustrated; two internally coherent,
+mutually opposed blocs give $\Brho=\Beta=1$ whatever the blocs are made of; and a society
 that cannot settle stays near zero or goes negative. Both aggregates follow in closed
 form from matrix products rather than by enumerating triples
 (Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$, \eqref{eq:rwmu} or
@@ -455,8 +456,8 @@ All three place the state of Figure~\ref{fig:polarization}. $\Rwmu$ rises from z
 where the sectors are independent by construction, to $+0.56$, so the alignment is
 not an impression left by the histograms; it is not imposed anywhere in
 \S\ref{sec:dynamics} either, but follows from the signs of the modulation functions.
-Trust balance reaches $\BA=0.96$, so the trust network is almost perfectly organized,
-while opinion balance reaches only $\BI=0.19$, a gap that \S\ref{sec:agenda} explains. That the sides
+Trust balance reaches $\Beta=0.96$, so the trust network is almost perfectly organized,
+while opinion balance reaches only $\Brho=0.19$, a gap that \S\ref{sec:agenda} explains. That the sides
 are exactly \emph{two} follows from the same triples, because a signed complete graph
 is balanced precisely when it splits into two mutually hostile cliques
 \citep{cartwright1956structural}. The sharp test discards the magnitudes that
@@ -486,14 +487,14 @@ leads is controlled by the complexity of the agenda,
 \end{equation}
 %
 the number of issues in play per dimension of the space they are represented in.
-Following a society through the $(\BI,\BA)$ plane as it evolves, rather than
+Following a society through the $(\Brho,\Beta)$ plane as it evolves, rather than
 measuring it once at the end, separates the two.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.60\linewidth]{figures/agenda_trajectories}
   \caption{\textbf{Which polarization comes first is set by the agenda.}
-  Trajectories in the $(\BI,\BA)$ plane with no discrimination ($d=0$), one curve
+  Trajectories in the $(\Brho,\Beta)$ plane with no discrimination ($d=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time; they crowd
   at the end because the annealed dynamics slows, as \S\ref{sec:micro} requires.
   Simple agendas run above the diagonal (distrust forms first), complex ones below
@@ -502,9 +503,9 @@ measuring it once at the end, separates the two.
 \end{figure}
 
 Figure~\ref{fig:trajectories} does this at $d=0$ for agendas spanning four orders of
-magnitude in $\alpha$. For a simple agenda the path runs up the $\BA$ axis: trust
+magnitude in $\alpha$. For a simple agenda the path runs up the $\Beta$ axis: trust
 structure forms almost completely before opinions begin to sort, ending at
-$(\BI,\BA)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays below
+$(\Brho,\Beta)=(0.02,0.97)$ for $\alpha=0.03$. For a complex agenda the path stays below
 the diagonal, ending at $(0.97,0.74)$ for $\alpha=333$: opinions separate first and
 trust follows. The crossover is at $\alpha\approx1.7$.
 
@@ -512,7 +513,7 @@ The asymmetry has an exact cause. Every weight update is along $C_r\hat{x}$, whi
 stays in the span of the agenda for all time, so the component of each agent's
 weight vector orthogonal to that span is conserved by the dynamics
 (Appendix~\ref{app:conserved}). For $\alpha<1$ each agent therefore keeps a frozen
-random component that no interaction can touch, which dilutes every overlap and so caps $\BI$: $0.19$ for $\alpha=0.17$ against $0.95$ for $\alpha=3.3$. No
+random component that no interaction can touch, which dilutes every overlap and so caps $\Brho$: $0.19$ for $\alpha=0.17$ against $0.95$ for $\alpha=3.3$. No
 amount of running closes that gap, because it is a property of the space and not of
 the time spent in it.
 Trust has no such ceiling: $\mu_{e|r}$ is one scalar per ordered pair rather than a
@@ -771,7 +772,7 @@ $\alpha\approx1.7$ makes ``do groups disagree because they dislike each other, o
 reverse'' a question about a parameter rather than a choice between theories. And
 making $d$ negative, so agents favour the out-group, gives not a tidy inverted
 society but frustration:
-$\BA<0$ with $\BI\approx0$, order parameters near zero not because nothing is
+$\Beta<0$ with $\Brho\approx0$, order parameters near zero not because nothing is
 happening but because nothing can settle: trust aligns with class while correlating
 with nothing else, which no other region of the diagram does.
 
@@ -900,7 +901,7 @@ states, in the same arrangement, separated by the same quorum in $\fd$ and the s
 sign change in $d$. What differs is quantitative, and it is the agenda-size effect of
 \S\ref{sec:agenda} showing up in the phase diagram. Opinion is no longer capped, so
 $\Rcw$ rises to meet $\Rmuc$ instead of lagging it, and region~(III) takes most of the
-discriminatory half rather than a sliver at the top of it. $\BI$ saturates at $0.98$
+discriminatory half rather than a sliver at the top of it. $\Brho$ saturates at $0.98$
 across the whole $d>0$ region rather than staying near $0.1$.
 
 \begin{figure}[h]
@@ -927,9 +928,9 @@ across the whole $d>0$ region rather than staying near $0.1$.
 \section{The balance maps}
 \label{app:balance-maps}
 
-$\BI$ and $\BA$ are not needed to separate the four states, and over the $(d,\fd)$
+$\Brho$ and $\Beta$ are not needed to separate the four states, and over the $(d,\fd)$
 plane they are close to redundant with $\Rwmu$: the Pearson correlation across all
-$40\,000$ grid points is $0.97$ and $0.98$ for $\BA$ and $0.98$ and $0.99$ for $\BI$,
+$40\,000$ grid points is $0.97$ and $0.98$ for $\Beta$ and $0.98$ and $0.99$ for $\Brho$,
 at $\alpha=0.17$ and $\alpha=3.3$ respectively. Their maps therefore look like the
 $\Rwmu$ panel of Figure~\ref{fig:correlations}, and that is why \S\ref{sec:results}
 does not show them.
@@ -937,10 +938,10 @@ does not show them.
 They are not identical to it, and the difference is worth recording even though
 \S\ref{sec:results} does not lean on it. $\Rwmu$ never falls appreciably below zero
 (its minimum over either sweep is $-0.03$), so in the frustrated region it merely
-decays towards zero. $\BA$ goes to $-0.71$, and a negative balance is a stronger
+decays towards zero. $\Beta$ goes to $-0.71$, and a negative balance is a stronger
 statement than a small positive one: it says the trust relations cannot all be
 satisfied at once, which is what frustration means. Where the correlations locate the
-state, the balance names the mechanism. $\BI$ plays the same role for the other
+state, the balance names the mechanism. $\Brho$ plays the same role for the other
 sector, being the quantity in which the conservation-law ceiling of
 Appendix~\ref{app:conserved} is directly legible: it stays near $0.1$ for a narrow
 agenda and saturates for a broad one.
@@ -948,19 +949,19 @@ agenda and saturates for a broad one.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.62\linewidth]{figures/balance_maps_small}
-  \caption{\textbf{The two balance aggregates}, simple agenda ($\alpha=0.17$). $\BA$
+  \caption{\textbf{The two balance aggregates}, simple agenda ($\alpha=0.17$). $\Beta$
   is the only measurement in the paper in which the frustrated region announces
   itself, going strongly negative at upper left where every correlation merely goes
-  to zero. $\BI$ stays small everywhere.}
+  to zero. $\Brho$ stays small everywhere.}
   \label{fig:balance-maps}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.62\linewidth]{figures/balance_maps_large}
-  \caption{\textbf{The two balance aggregates}, complex agenda ($\alpha=3.3$). $\BI$
+  \caption{\textbf{The two balance aggregates}, complex agenda ($\alpha=3.3$). $\Brho$
   saturates rather than staying near zero, which is what removes the ceiling on
-  $\Rcw$. $\BA$ is essentially unchanged, including the anti-balanced corner at upper
+  $\Rcw$. $\Beta$ is essentially unchanged, including the anti-balanced corner at upper
   left.}
   \label{fig:balance-large}
 \end{figure}
@@ -1179,10 +1180,10 @@ phase diagram. For any matrix $M$ with unit diagonal, either $\rho$ or $\eta$,
 %
 and each unordered triple appears six times, three as the forward cycle and three
 as the reverse, so
-$\langle b\rangle = \bigl[\text{right-hand side}\bigr]/\bigl(6\binom{N}{3}\bigr)$.
-For symmetric $M$ this is $\BI$; for the asymmetric trust matrix the two cycle
-orientations are exactly the two terms of $b^{A}$, so the same expression gives
-$\BA$. Both are batched matrix products. The identity is verified against
+the triple average is $\bigl[\text{right-hand side}\bigr]/\bigl(6\binom{N}{3}\bigr)$.
+For symmetric $M$ this is $\Brho$; for the asymmetric trust matrix the two cycle
+orientations are exactly the two terms of $\eta_{IJK}$, so the same expression gives
+$\Beta$. Both are batched matrix products. The identity is verified against
 enumeration in the test suite.
 
 \section{Parameters}
@@ -1205,7 +1206,7 @@ $N$ & agents in the society & $40$ & chosen; converged (see below) \\
 $P$ & issues on the agenda & $5$ / $100$ & chosen: $\alpha=P/K$ either side of $1$ \\
 $\Delta t$ & interactions per ordered pair & $500$ & calibrated (see below) \\
 $C_0, V_0$ & initial uncertainties & $I$, $1$ & uninformative prior \\
-$\mu_0$ & initial distrust & $\mathcal{U}(-1,1)$ & gives $\BI\approx\BA\approx0$ at $t=0$ \\
+$\mu_0$ & initial distrust & $\mathcal{U}(-1,1)$ & gives $\Brho\approx\Beta\approx0$ at $t=0$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1233,10 +1234,10 @@ rms distance to published endpoints & 0.63 & 0.31 & 0.15 & \textbf{0.13} & 0.15 
 \end{table}
 
 The minimum is flat-bottomed and sits at $\Delta t=500$, which we use throughout.
-Seven of the nine endpoints then agree to within about $0.1$, and $\BI$ matches
+Seven of the nine endpoints then agree to within about $0.1$, and $\Brho$ matches
 the three largest agendas almost exactly, but no single $\Delta t$ reproduces all
 nine: two middle curves ($\alpha=0.23$, $0.33$) sit above ours, and the two
-largest agendas have a lower published $\BA$ than we obtain at any $\Delta t$ that
+largest agendas have a lower published $\Beta$ than we obtain at any $\Delta t$ that
 fits the rest. Either the society size differs from ours or those middle curves,
 which overlap within a few pixels in the printed figure, cannot be digitized
 reliably; we cannot distinguish the two. Dropping the ambiguous readings does not
@@ -1248,7 +1249,7 @@ and large $\fd$.
 \paragraph{$N=40$ is large enough.} Repeating five representative points of the
 plane at $N\in\{20,30,40,60\}$ with twelve realizations each, the order parameters
 at $N=60$ differ from those at $N=40$ by at most $0.02$ ($\Rmuc$, $\Rcw$), $0.03$
-($\BI$) and $0.05$ ($\BA$), while $N=20$ differs by up to $0.24$. The maps are
+($\Brho$) and $0.05$ ($\Beta$), while $N=20$ differs by up to $0.24$. The maps are
 therefore converged in $N$ at $N=40$, and the cost of going further is steep: total
 work grows as $N^{3}$.
 

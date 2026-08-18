@@ -92,6 +92,13 @@ def _run_batch(job):
     return {k: np.asarray(v, dtype=np.float64) for k, v in out.items()}, batch.n_psd_clips
 
 
+#: The balances were called ``B_I`` and ``B_A`` when the long sweeps were run, after
+#: the older names for the two sectors.  They are now named for the pairwise quantity
+#: each is built from, and caches written under the old names are still readable: the
+#: 200x200 grids cost about 45 minutes each and the arrays themselves did not change.
+LEGACY_KEYS = {"B_I": "B_rho", "B_A": "B_eta"}
+
+
 def sweep(model, sweep_cfg=None, tag="", use_cache=True, verbose=True):
     """Run (or load) a ``(d, f_d)`` sweep.
 
@@ -104,7 +111,7 @@ def sweep(model, sweep_cfg=None, tag="", use_cache=True, verbose=True):
     path = cache_path(model, sweep_cfg, tag)
     if use_cache and path.exists():
         with np.load(path) as z:
-            result = {k: z[k] for k in z.files}
+            result = {LEGACY_KEYS.get(k, k): z[k] for k in z.files}
         if verbose:
             print(f"[sweep] loaded cache {path.name}")
         return result
