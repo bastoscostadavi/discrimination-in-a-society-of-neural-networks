@@ -93,9 +93,12 @@ def trajectories(preset, use_cache=True, verbose=True):
 def figure(data, style):
     issues = data["issues"]
     K = int(data["n_dim"])
-    fig, ax = plt.subplots(figsize=panel(0.60, 0.52/0.72))
-    # both axes are balances on the same [0, 1] scale and the reference line is the
-    # diagonal, which only means "equal" if the box is square
+    # Both axes are balances on the same scale and the reference line is the diagonal,
+    # which only means "equal" in a square box.  The figure is square too: squaring the
+    # axes inside a wide figure leaves the plot occupying part of the width, and LaTeX
+    # then scales the whole thing up to the requested width, which magnifies the labels
+    # relative to the panel.
+    fig, ax = plt.subplots(figsize=panel(0.55, 1.0))
     ax.set_box_aspect(1)
     colours = pastel("viridis_r", 0.30)(np.linspace(0.05, 0.95, len(issues)))
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, zorder=1)
@@ -110,10 +113,15 @@ def figure(data, style):
             label=rf"$\alpha = {P/K:.2f}$",
             zorder=2,
         )
-    ax.set_xlabel(r"$B_rho$")
-    ax.set_ylabel(r"$B_eta$")
-    ax.set_xlim(-0.2, 1.2)
-    ax.set_ylim(-0.05, 1.05)
+    ax.set_xlabel(r"$B_\rho$")
+    ax.set_ylabel(r"$B_\eta$")
+    # both balances live on [0, 1]; the padding keeps a curve that reaches an endpoint
+    # off the frame without implying the axis extends further than the quantity does
+    ticks = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    ax.set_xlim(-0.1, 1.1)
+    ax.set_ylim(-0.1, 1.1)
+    ax.set_xticks(ticks)
+    ax.set_yticks(ticks)
     framed_axes(ax, minor=False)
     ax.legend(loc="lower right", fontsize=6, ncol=1, framealpha=0.9, frameon=True)
     fig.tight_layout(pad=0.4)

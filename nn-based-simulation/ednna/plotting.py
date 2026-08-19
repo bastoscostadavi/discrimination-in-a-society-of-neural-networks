@@ -187,6 +187,23 @@ HIST_BLUE = ("#7BA7D7", "#3B6FA8")
 HIST_RED = ("#E8918C", "#B03A34")
 
 
+def matched_colorbar(fig, im, ax, width=0.018, pad=0.018, **kw):
+    """A colour bar exactly as tall as the panel it belongs to.
+
+    ``fig.colorbar(ax=...)`` sizes the bar against the axes' *allocated* rectangle.
+    For a panel with a fixed aspect the drawn box is shorter than its allocation, so
+    the bar overhangs it top and bottom.  Measuring the drawn box after a draw and
+    placing the bar against that makes the two agree.
+    """
+    fig.canvas.draw()
+    box = ax.get_window_extent().transformed(fig.transFigure.inverted())
+    cax = fig.add_axes([box.x1 + pad, box.y0, width, box.height])
+    cb = fig.colorbar(im, cax=cax, **kw)
+    cb.ax.tick_params(labelsize=6, width=0.4, length=2)
+    cb.outline.set_linewidth(0.4)
+    return cb
+
+
 def framed_axes(ax, minor=True):
     """Put an axis in the frame-and-inward-ticks style of a Mathematica plot.
 

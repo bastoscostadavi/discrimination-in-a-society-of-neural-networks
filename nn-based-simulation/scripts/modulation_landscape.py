@@ -27,10 +27,17 @@ from matplotlib import pyplot as plt
 from _cli import setup  # noqa: E402  (adds the package root to sys.path)
 
 from ednna.modulation import F_C, F_V, F_mu, F_w, evidence  # noqa: E402
-from ednna.plotting import framed_axes, panel, pastel, save  # noqa: E402
+from ednna.plotting import (  # noqa: E402
+    framed_axes, matched_colorbar, panel, pastel, save, text_width,
+)
 
 LIM = 4.0
 GRID = 400
+
+#: Both axis labels are set here rather than left to ``axes.labelsize``.  The x label
+#: is shared across the row and so has to be a ``supxlabel``, which does not inherit
+#: that setting; matching the y label to it keeps the two the same size.
+AXIS_LABEL_PT = 8
 
 
 def _plane(lim=LIM, n=GRID):
@@ -98,7 +105,8 @@ def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0):
     ax.set_yticks([-4, -2, 0, 2, 4])
     ax.set_xlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", labelpad=1)
     if ylabel:
-        ax.set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", labelpad=1)
+        ax.set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", labelpad=1,
+                      fontsize=AXIS_LABEL_PT)
     ax.text(0.05, 0.93, name, transform=ax.transAxes, color="#2f4f7f",
             ha="left", va="top")
     framed_axes(ax, minor=False)
@@ -115,16 +123,20 @@ def figure_contours(style):
     across the diagonal.  The second-order pair is in
     ``modulation_contours_all``.
     """
-    fig, axes = plt.subplots(1, 2, figsize=panel(0.86, 0.35/0.66), sharey=True)
+    # Height chosen so the square panels fill their vertical allocation.  Left with a
+    # taller figure they sit centred in it, and the shared x label ends up floating a
+    # long way below them.
+    left, right, bottom, top, wspace = 0.115, 0.87, 0.20, 0.98, 0.12
+    W = 0.86 * text_width()
+    panel_w = W * (right - left) / (2 + wspace)
+    fig, axes = plt.subplots(1, 2, figsize=(W, panel_w / (top - bottom)), sharey=True)
     im = None
     for k, (F, name) in enumerate(((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"))):
         im = _contour_panel(axes[k], F, name, 3.2, ylabel=(k == 0))
         axes[k].set_xlabel("")   # one shared label below, or the two collide
-    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.04)
-    cb = fig.colorbar(im, ax=axes, fraction=0.045, pad=0.02,
-                      ticks=np.linspace(-3.2, 3.2, 5))
-    cb.ax.tick_params(labelsize=6, width=0.4, length=2)
-    cb.outline.set_linewidth(0.4)
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=AXIS_LABEL_PT, y=0.045)
+    fig.subplots_adjust(left=left, right=right, bottom=bottom, top=top, wspace=wspace)
+    matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-3.2, 3.2, 5))
     return save(fig, "modulation_contours", style)
 
 
@@ -138,15 +150,16 @@ def figure_contours_all(style):
                              sharex=True, sharey=True)
     rows = (((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"), 3.2),
             ((F_C, r"$F_C$"), (F_V, r"$F_V$"), 2.5))
+    images = {}
     for i, (left, right, cap) in enumerate(rows):
         for j, (F, name) in enumerate((left, right)):
-            im = _contour_panel(axes[i][j], F, name, cap, ylabel=(j == 0))
+            images[i] = _contour_panel(axes[i][j], F, name, cap, ylabel=(j == 0))
             if i == 0:
                 axes[i][j].set_xlabel("")
-        cb = fig.colorbar(im, ax=axes[i], fraction=0.042, pad=0.02,
-                          ticks=np.linspace(-cap, cap, 5))
-        cb.ax.tick_params(labelsize=6, width=0.4, length=2)
-        cb.outline.set_linewidth(0.4)
+    fig.subplots_adjust(left=0.105, right=0.87, bottom=0.10, top=0.97,
+                        wspace=0.12, hspace=0.22)
+    for i, (_, _, cap) in enumerate(rows):
+        matched_colorbar(fig, images[i], axes[i][-1], ticks=np.linspace(-cap, cap, 5))
     return save(fig, "modulation_contours_all", style)
 
 
@@ -171,12 +184,10 @@ def figure_shift(style, d=1.0):
         im = _contour_panel(axes[k], F_mu, name, 3.2, ylabel=(k == 0), shift=shift)
         axes[k].set_xlabel("")
         axes[k].set_title(("out-group", "no bias", "in-group")[k], fontsize=7.5, pad=3)
-    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=8, y=0.02)
-    cb = fig.colorbar(im, ax=axes, fraction=0.030, pad=0.015,
-                      ticks=np.linspace(-3.2, 3.2, 5))
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=AXIS_LABEL_PT, y=0.02)
+    fig.subplots_adjust(left=0.095, right=0.89, bottom=0.14, top=0.93, wspace=0.10)
+    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-3.2, 3.2, 5))
     cb.set_label(r"$F_\mu$", fontsize=7)
-    cb.ax.tick_params(labelsize=6, width=0.4, length=2)
-    cb.outline.set_linewidth(0.4)
     return save(fig, "modulation_shift", style)
 
 
