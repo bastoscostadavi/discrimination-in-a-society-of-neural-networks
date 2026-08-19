@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "league",
+    "statement": "whether a sports league should even out the strength of its teams, or let the strongest ones dominate"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A league should promote competitive balance so that games remain unpredictable and fans stay engaged, while still allowing well-run teams to gain a meaningful advantage. Dominance can be exciting temporarily, but unchecked inequality usually harms the league\u2019s long-term appeal.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "league--2-0",
+      "requested": -2,
+      "source": "league",
+      "text": "A league should let the strongest teams dominate because sustained excellence gives fans dynasties, rivalries, and compelling stories to follow.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "league--2-1",
+      "requested": -2,
+      "source": "league",
+      "text": "Competitive balance should not be engineered; teams that draft well, manage wisely, and invest effectively deserve to reap the rewards of their superiority.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "league--2-2",
+      "requested": -2,
+      "source": "league",
+      "text": "Unpredictable games are less important than rewarding genuine quality, so leagues should accept large differences in team strength.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "league--2-3",
+      "requested": -2,
+      "source": "league",
+      "text": "Dominant teams raise the overall standard of competition by forcing their opponents to improve, making the league stronger without artificial restrictions.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "league--2-4",
+      "requested": -2,
+      "source": "league",
+      "text": "Fans often prefer watching elite teams and star players, even when outcomes seem predictable, because exceptional performance is entertaining in its own right.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league--2-5",
+      "requested": -2,
+      "source": "league",
+      "text": "Revenue-sharing and parity rules can punish ambitious owners and successful organizations, so leagues should avoid policies that limit the advantages of well-run teams.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "league--2-6",
+      "requested": -2,
+      "source": "league",
+      "text": "A league\u2019s history is made memorable by dynasties, not constant parity; allowing a few exceptional teams to control an era creates lasting cultural significance.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "league--2-7",
+      "requested": -2,
+      "source": "league",
+      "text": "If weaker teams cannot compete with dominant organizations, they should improve their scouting, coaching, and finances rather than expect the league to reduce its standards.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league--1-0",
+      "requested": -1,
+      "source": "league",
+      "text": "A league should largely let the strongest teams dominate, since sustained excellence gives fans compelling dynasties and rewards organizations that make smart long-term decisions.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "league--1-1",
+      "requested": -1,
+      "source": "league",
+      "text": "Competitive balance is less important than preserving meritocracy; teams that manage their finances, scouting, and coaching well should be allowed to build significant advantages.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "league--1-2",
+      "requested": -1,
+      "source": "league",
+      "text": "Fans may become more invested when there is a clear powerhouse to challenge, so reducing dominant teams could remove an important source of excitement and narrative.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "league--1-3",
+      "requested": -1,
+      "source": "league",
+      "text": "Rather than engineering parity, leagues should focus on ensuring that every team has a fair opportunity to improve, even if some organizations consistently outperform others.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "league--1-4",
+      "requested": -1,
+      "source": "league",
+      "text": "A small number of elite teams can raise the overall quality of play by setting demanding standards and forcing their rivals to innovate.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league--1-5",
+      "requested": -1,
+      "source": "league",
+      "text": "Unpredictable games are not always the best entertainment; watching a talented team execute at an exceptional level can be just as engaging as watching a close contest.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league--1-6",
+      "requested": -1,
+      "source": "league",
+      "text": "Restrictions designed to equalize teams often interfere with ownership freedom and undermine the rewards that should come from effective leadership and investment.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league--1-7",
+      "requested": -1,
+      "source": "league",
+      "text": "Temporary dominance is a natural part of sport, and leagues should tolerate it rather than dilute successful teams simply to create artificial uncertainty.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league-p0-0",
+      "requested": 0,
+      "source": "league",
+      "text": "A league should seek a balance between competitive parity and rewarding teams that are managed well, since both unpredictability and sustained excellence can attract fans.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-1",
+      "requested": 0,
+      "source": "league",
+      "text": "Some degree of dominance can create compelling rivalries and dynasties, but the league should prevent financial or structural advantages from making outcomes predictable.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-2",
+      "requested": 0,
+      "source": "league",
+      "text": "Competitive balance is valuable because it gives more teams a realistic chance to succeed, although naturally stronger teams should not be weakened unnecessarily.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-3",
+      "requested": 0,
+      "source": "league",
+      "text": "The ideal system would allow successful teams to build advantages while using measures such as salary rules or revenue sharing to keep weaker teams from falling permanently behind.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-4",
+      "requested": 0,
+      "source": "league",
+      "text": "Fans may enjoy both close contests and dominant champions, so a league should focus less on eliminating disparities and more on ensuring that every team has a credible path to improvement.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league-p0-5",
+      "requested": 0,
+      "source": "league",
+      "text": "A dominant team can raise interest and provide a clear standard of excellence, but prolonged imbalance may reduce attendance, viewership, and enthusiasm among supporters of other teams.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-6",
+      "requested": 0,
+      "source": "league",
+      "text": "Leagues should preserve meaningful differences in coaching, scouting, and player development while addressing inequalities that arise primarily from unequal financial resources.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p0-7",
+      "requested": 0,
+      "source": "league",
+      "text": "There is no universal answer: the appropriate level of parity depends on the sport, its audience, and whether fans value unpredictable competition or the story of exceptional teams sustaining success.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "league-p1-0",
+      "requested": 1,
+      "source": "league",
+      "text": "Leagues should encourage parity enough to keep most games meaningful, but not so much that successful teams lose the rewards of excellent management and coaching.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-1",
+      "requested": 1,
+      "source": "league",
+      "text": "A balanced competition generally sustains fan interest better than repeated one-sided seasons, though occasional dominant dynasties can add history and excitement.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-2",
+      "requested": 1,
+      "source": "league",
+      "text": "The strongest teams should be allowed to lead, but league rules should prevent financial or structural advantages from making competition permanently predictable.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-3",
+      "requested": 1,
+      "source": "league",
+      "text": "Competitive balance matters because fans need to believe their team has a realistic path to success, while moderate inequality can create compelling rivalries and aspirational contenders.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-4",
+      "requested": 1,
+      "source": "league",
+      "text": "A league should preserve uncertainty and opportunity across its teams rather than letting a few clubs control every season, but it should not eliminate the benefits of smart investment and good performance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-5",
+      "requested": 1,
+      "source": "league",
+      "text": "Dominant teams can generate attention and showcase excellence, yet a league is healthier when challengers can eventually catch them and the outcome is not predetermined.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-6",
+      "requested": 1,
+      "source": "league",
+      "text": "The ideal system rewards winning without allowing wealth or entrenched advantages to make the sport feel closed to new contenders.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p1-7",
+      "requested": 1,
+      "source": "league",
+      "text": "Leagues should seek a middle ground: enough parity to maintain suspense and broad fan engagement, combined with enough freedom for exceptional teams to build sustained success.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p2-0",
+      "requested": 2,
+      "source": "league",
+      "text": "Competitive balance is important because fans are more invested when every team has a credible chance to win, but the league should not eliminate the rewards of smart management.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "league-p2-1",
+      "requested": 2,
+      "source": "league",
+      "text": "A few dominant teams can create compelling rivalries, yet a league is healthier when success rotates often enough to keep most fan bases hopeful.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "league-p2-2",
+      "requested": 2,
+      "source": "league",
+      "text": "Leagues should use measures such as salary caps, revenue sharing, or drafts to prevent overwhelming disparities while preserving room for talented organizations to excel.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "league-p2-3",
+      "requested": 2,
+      "source": "league",
+      "text": "The strongest teams should be allowed to benefit from good coaching and sound decisions, but structural advantages should not make competition feel predetermined.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p2-4",
+      "requested": 2,
+      "source": "league",
+      "text": "Parity generally supports attendance, viewership, and long-term loyalty, although occasional dynasties can add memorable history and excitement.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p2-5",
+      "requested": 2,
+      "source": "league",
+      "text": "A league should aim for meaningful competition rather than perfect equality: teams should have comparable opportunities, even if their results differ because of skill and strategy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p2-6",
+      "requested": 2,
+      "source": "league",
+      "text": "Unchecked dominance may produce short-term storylines, but sustained imbalance can discourage fans in smaller markets and weaken the league\u2019s overall popularity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-p2-7",
+      "requested": 2,
+      "source": "league",
+      "text": "The best approach is to reward excellence without letting wealth or inherited advantages permanently determine which teams contend.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "league-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "league-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "league-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "league-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "league-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "league-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 2,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 2,
+    "-1": 6,
+    "0": 5,
+    "1": 11,
+    "2": 22
+  },
+  "moved": 30,
+  "n_within": 40
+}

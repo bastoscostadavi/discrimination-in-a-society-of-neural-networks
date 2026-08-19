@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "garden",
+    "statement": "whether a garden should be planted for the season ahead, or for what it will have become in twenty years"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Plant for the season ahead, but choose with twenty years in mind: enjoy what can flourish now while laying foundations for enduring shade, habitat, and beauty. A wise garden serves both the present and the future.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "garden--2-0",
+      "requested": -2,
+      "source": "garden",
+      "text": "Plant only for the season ahead; a garden should answer the immediate needs of the people who tend and enjoy it, not an imagined future.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--2-1",
+      "requested": -2,
+      "source": "garden",
+      "text": "Plant exclusively for what the garden will become in twenty years, even if the early years offer little beauty or practical use.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "garden--2-2",
+      "requested": -2,
+      "source": "garden",
+      "text": "Do not plan a garden across decades at all; choose plants spontaneously each year and let changing tastes shape the space.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "garden--2-3",
+      "requested": -2,
+      "source": "garden",
+      "text": "A garden should be designed for rapid visual impact, favoring short-lived plants over slow-growing trees and permanent foundations.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "garden--2-4",
+      "requested": -2,
+      "source": "garden",
+      "text": "Prioritize the future so completely that present enjoyment is irrelevant; sacrifice today\u2019s flowers, shade, and habitat for a distant ideal.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "garden--2-5",
+      "requested": -2,
+      "source": "garden",
+      "text": "Treat every season as self-contained: remove and replace the garden annually rather than investing in plants meant to endure.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "garden--2-6",
+      "requested": -2,
+      "source": "garden",
+      "text": "Build a garden around current fashion and convenience, because future generations should be free to redesign it however they wish.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "garden--2-7",
+      "requested": -2,
+      "source": "garden",
+      "text": "Do not plant a garden for either the present or the future; leave the land open and let nature determine what it becomes.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--1-0",
+      "requested": -1,
+      "source": "garden",
+      "text": "Plant primarily for the season ahead; twenty-year visions are too uncertain to let them dictate what you grow today.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "garden--1-1",
+      "requested": -1,
+      "source": "garden",
+      "text": "A garden should reflect the people and needs it serves now, not an imagined future that may never arrive.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "garden--1-2",
+      "requested": -1,
+      "source": "garden",
+      "text": "Favor quick-growing, easily changed plants over long-term commitments so the garden can evolve with your life.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "garden--1-3",
+      "requested": -1,
+      "source": "garden",
+      "text": "Plant for the garden you want to enjoy immediately, even if that means sacrificing some future shade or permanence.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--1-4",
+      "requested": -1,
+      "source": "garden",
+      "text": "Twenty years is too long a horizon for gardening; prioritize seasonal pleasure, experimentation, and renewal instead.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--1-5",
+      "requested": -1,
+      "source": "garden",
+      "text": "Let the garden be temporary and responsive rather than burdened with foundations meant for a distant future.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--1-6",
+      "requested": -1,
+      "source": "garden",
+      "text": "Choose plants for their present beauty and usefulness, since future gardeners may have different tastes, climates, or purposes.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden--1-7",
+      "requested": -1,
+      "source": "garden",
+      "text": "A garden need not become an enduring legacy; it can be a changing, short-lived expression of this particular season.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden-p0-0",
+      "requested": 0,
+      "source": "garden",
+      "text": "A garden can be planned for the coming season while leaving room for its character to develop over many years.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-1",
+      "requested": 0,
+      "source": "garden",
+      "text": "Short-term planting offers immediate enjoyment, whereas long-term choices can create lasting structure and ecological value.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-2",
+      "requested": 0,
+      "source": "garden",
+      "text": "The best approach may depend on whether the gardener values quick results, future growth, or a balance of both.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-3",
+      "requested": 0,
+      "source": "garden",
+      "text": "Annuals and fast-growing plants can provide seasonal color while trees and perennials gradually shape the garden\u2019s future.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-4",
+      "requested": 0,
+      "source": "garden",
+      "text": "A garden\u2019s present appearance and eventual maturity are both legitimate aims to consider during planning.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-5",
+      "requested": 0,
+      "source": "garden",
+      "text": "Planting for twenty years requires patience, while planting for the next season allows the garden to respond to current needs and interests.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-6",
+      "requested": 0,
+      "source": "garden",
+      "text": "A thoughtful garden plan can combine plants that perform now with species whose greatest contribution will emerge later.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p0-7",
+      "requested": 0,
+      "source": "garden",
+      "text": "There is no single correct timescale for a garden; its design can reflect both immediate circumstances and long-term hopes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-0",
+      "requested": 1,
+      "source": "garden",
+      "text": "Plant for the coming season, but include trees and perennials whose greatest gifts will arrive years later; a garden should offer both immediate delight and patient promise.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-1",
+      "requested": 1,
+      "source": "garden",
+      "text": "Begin with what will thrive now, while making choices that improve the soil, shelter wildlife, and shape a beautiful garden for those who inherit it.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-2",
+      "requested": 1,
+      "source": "garden",
+      "text": "A garden is neither only a seasonal pleasure nor a twenty-year project: combine quick-growing color with slow-growing structure and let each teach you to value time.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-3",
+      "requested": 1,
+      "source": "garden",
+      "text": "Plant for today\u2019s enjoyment, but reserve space for tomorrow\u2019s canopy, roots, and ecosystems; the best gardens mature without losing their welcome in the present.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-4",
+      "requested": 1,
+      "source": "garden",
+      "text": "Choose plants that make the next season rewarding and the next two decades worthwhile, balancing flowers you can see soon with trees whose benefits will outlast you.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-5",
+      "requested": 1,
+      "source": "garden",
+      "text": "Garden with urgency for the season ahead and patience for the years beyond: grow something that feeds the senses now and something that will shelter life later.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-6",
+      "requested": 1,
+      "source": "garden",
+      "text": "The ideal garden is planned on two clocks\u2014annuals and vegetables for immediate abundance, and enduring plants for shade, habitat, and character as the years pass.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p1-7",
+      "requested": 1,
+      "source": "garden",
+      "text": "Do not postpone pleasure until the garden is mature, nor sacrifice its future for instant results; plant a living succession in which today\u2019s beauty becomes tomorrow\u2019s foundation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p2-0",
+      "requested": 2,
+      "source": "garden",
+      "text": "Plant for today\u2019s harvest while making room for tomorrow\u2019s canopy; the best garden gives immediate pleasure and grows into a lasting legacy.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "garden-p2-1",
+      "requested": 2,
+      "source": "garden",
+      "text": "A garden should answer the present season without being trapped by it: grow what flourishes now, and include trees and perennials that will reward the future.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "garden-p2-2",
+      "requested": 2,
+      "source": "garden",
+      "text": "Begin with the soil, plants, and pleasures available today, but imagine the mature garden they are becoming twenty years from now.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "garden-p2-3",
+      "requested": 2,
+      "source": "garden",
+      "text": "Plant for the season ahead in the spaces you inhabit now, and plant for twenty years in the trees, structure, and stewardship that will outlast you.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p2-4",
+      "requested": 2,
+      "source": "garden",
+      "text": "The finest garden balances patience and immediacy\u2014annuals for this year\u2019s delight, and long-lived plants for generations to enjoy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p2-5",
+      "requested": 2,
+      "source": "garden",
+      "text": "Do not sacrifice today\u2019s joy for a distant ideal, nor tomorrow\u2019s beauty for quick results; let each season contribute to the garden\u2019s long story.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p2-6",
+      "requested": 2,
+      "source": "garden",
+      "text": "Choose plants that can offer something now while developing resilience, shelter, and character over decades.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-p2-7",
+      "requested": 2,
+      "source": "garden",
+      "text": "A garden is both a present experience and a future promise: tend what is ready to bloom, while investing in the shade, habitat, and beauty still taking shape.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "garden-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "garden-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "garden-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 0,
+    "1": 1,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 7,
+    "-1": 14,
+    "0": 0,
+    "1": 1,
+    "2": 24
+  },
+  "moved": 18,
+  "n_within": 40
+}

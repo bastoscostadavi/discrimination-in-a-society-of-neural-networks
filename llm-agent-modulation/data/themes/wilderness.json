@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "wilderness",
+    "statement": "whether wild places are better left entirely alone, or actively managed to keep them as they are"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Wild places are generally best protected with minimal intervention, allowing natural processes to shape them. However, careful, science-based management is justified when human activity, invasive species, or climate change has already disrupted those processes.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "wilderness--2-0",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "wilderness--2-1",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Nature cannot be trusted to maintain healthy ecosystems, so wild places should be continuously managed by experts.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "wilderness--2-2",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "The best way to preserve wild places is to actively control species populations, habitats, and natural processes to match a desired historical condition.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "wilderness--2-3",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Human intervention is always harmful in wild areas, including efforts to remove invasive species or repair damage caused by climate change.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "wilderness--2-4",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Wild landscapes should be managed primarily for human benefits such as recreation, tourism, and resource production rather than left to evolve naturally.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "wilderness--2-5",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "If an ecosystem changes because of climate change, managers should intervene aggressively to keep it looking and functioning as it did in the past.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "wilderness--2-6",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Wild places are most valuable when they are carefully designed and maintained, because unmanaged nature tends toward disorder and ecological decline.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "wilderness--2-7",
+      "requested": -2,
+      "source": "wilderness",
+      "text": "Every wild area should have a detailed management plan with regular intervention, since passive protection is inadequate for conserving biodiversity.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "wilderness--1-0",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Wild places should usually be actively managed to preserve their current character, since leaving them alone can allow invasive species, disease, and climate pressures to cause irreversible damage.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "wilderness--1-1",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Human stewardship is often essential in nature reserves; carefully planned interventions can maintain biodiversity more reliably than simply allowing natural processes to unfold.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "wilderness--1-2",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Protected wilderness should be managed according to conservation goals rather than treated as entirely self-regulating, especially where historic human actions created the ecosystems people now value.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "wilderness--1-3",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Because climate change has altered natural conditions so extensively, conservationists should increasingly relocate species, control habitats, and reshape landscapes to prevent ecological collapse.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "wilderness--1-4",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Wild places are not necessarily healthiest when left untouched; regular removal of invasive plants, controlled burns, and population management can sustain more diverse and resilient ecosystems.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "wilderness--1-5",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Preserving a wilderness area as it appears today may require continual intervention, even if that means overriding some natural changes that would otherwise transform or degrade it.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "wilderness--1-6",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Society has a responsibility to repair damage it has caused in wild places, so active restoration should generally take priority over a hands-off approach.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "wilderness--1-7",
+      "requested": -1,
+      "source": "wilderness",
+      "text": "Scientific management can improve wild ecosystems by balancing competing species and protecting vulnerable habitats, making human guidance preferable to relying entirely on unmanaged natural change.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "wilderness-p0-0",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Wild places should usually be left alone, but limited management can be appropriate when there is clear evidence of serious ecological harm.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-1",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "The right approach depends on the ecosystem: some wild areas benefit from nonintervention, while others require active stewardship to preserve biodiversity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-2",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Human involvement in wild places should be minimized, although carefully designed interventions may help restore conditions altered by past activity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-3",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Conservation should balance natural processes with practical management, recognizing that complete noninterference is not always possible or beneficial.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-4",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Wild places can be protected through a combination of hands-off policies and targeted actions against invasive species, pollution, or habitat loss.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-5",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Active management is neither always necessary nor always harmful; decisions should be based on scientific evidence, local conditions, and long-term ecological goals.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-6",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "Where ecosystems remain resilient, they should generally be allowed to develop naturally, while heavily disturbed areas may need sustained restoration efforts.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p0-7",
+      "requested": 0,
+      "source": "wilderness",
+      "text": "The best conservation strategy is flexible: protect natural autonomy where possible and intervene cautiously when doing so supports ecological health.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-0",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Wild places should usually be left to evolve naturally, but targeted intervention can help repair damage caused by people or invasive species.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-1",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "The default approach to conservation should be minimal management, with active measures reserved for clear and serious threats to an ecosystem\u2019s health.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-2",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Nature often manages itself better than humans do, yet careful stewardship is appropriate when human actions have altered natural conditions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-3",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Protected areas should preserve natural processes wherever possible, while allowing science-based interventions when doing nothing would cause lasting ecological harm.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-4",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Wild landscapes deserve freedom from constant human control, but restoration efforts may be necessary to recover habitats that have been significantly disturbed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-5",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Conservation should favor restraint and monitoring rather than intensive management, intervening only when evidence shows that natural recovery is unlikely.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-6",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "The best way to protect wilderness is generally to limit human interference, though tools such as invasive-species removal or controlled burning can sometimes restore ecological balance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p1-7",
+      "requested": 1,
+      "source": "wilderness",
+      "text": "Wild places should not be micromanaged, but responsible managers may need to act temporarily when climate change or past development prevents ecosystems from functioning naturally.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p2-0",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Wild places should usually be left to evolve naturally, with intervention reserved for clear cases where human influence has damaged ecological processes.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "wilderness-p2-1",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "The best conservation approach is limited, evidence-based management: protect natural dynamics whenever possible, but address invasive species, pollution, and other human-caused threats when necessary.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "wilderness-p2-2",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Nature should not be managed simply to preserve a preferred appearance; active measures are justified only when they restore resilience or counter serious disruption.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "wilderness-p2-3",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Hands-off conservation is generally preferable, although carefully targeted intervention can help ecosystems recover from climate change, habitat loss, or introduced species.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p2-4",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Wild landscapes need room to change over time, so management should focus on removing human pressures rather than controlling every natural development.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p2-5",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "The goal of protecting wild places should be healthy, self-sustaining ecosystems, using active management only when natural recovery has been undermined by people.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p2-6",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Conservationists should intervene cautiously and adapt their actions to scientific evidence, allowing natural succession and disturbance while correcting major ecological imbalances.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-p2-7",
+      "requested": 2,
+      "source": "wilderness",
+      "text": "Wild places are most authentic when natural processes lead, but responsible stewardship sometimes requires restoring those processes where human activity has interrupted them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "wilderness-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "wilderness-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "wilderness-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "wilderness-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "wilderness-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "wilderness-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 7,
+    "-1": 4,
+    "0": 5,
+    "1": 6,
+    "2": 24
+  },
+  "moved": 24,
+  "n_within": 40
+}

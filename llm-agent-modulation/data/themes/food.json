@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "food",
+    "statement": "whether a food tradition is better preserved as it was handed down, or allowed to change with the people who cook it"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Food traditions are best preserved by keeping their essential identity while allowing them to evolve with the people who cook and share them. Change keeps a tradition living, relevant, and meaningful rather than turning it into a rigid artifact.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "food--2-0",
+      "requested": -2,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--2-1",
+      "requested": -2,
+      "source": "food",
+      "text": "A recipe handed down through generations has greater cultural value when it remains unchanged, even if modern cooks find it less convenient or fashionable.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "food--2-2",
+      "requested": -2,
+      "source": "food",
+      "text": "Adapting traditional foods to contemporary tastes weakens their authenticity and gradually turns a distinct cultural practice into something generic.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--2-3",
+      "requested": -2,
+      "source": "food",
+      "text": "The best way to honor ancestors is to reproduce their dishes using the same ingredients, techniques, and presentation rather than reinventing them.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--2-4",
+      "requested": -2,
+      "source": "food",
+      "text": "Food traditions should function as reliable links to the past, so personal experimentation should not be allowed to alter their established form.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "food--2-5",
+      "requested": -2,
+      "source": "food",
+      "text": "When a traditional dish is modified to suit new communities or lifestyles, its original meaning is diluted; preservation requires strict adherence to the inherited recipe.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "food--2-6",
+      "requested": -2,
+      "source": "food",
+      "text": "Cultural food practices are not raw materials for innovation but shared heritage, and protecting them is more important than keeping them relevant to changing preferences.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--2-7",
+      "requested": -2,
+      "source": "food",
+      "text": "A tradition that changes too freely may survive in name only, so genuine preservation requires resisting reinterpretation and maintaining the form in which it was handed down.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--1-0",
+      "requested": -1,
+      "source": "food",
+      "text": "Food traditions are best preserved by following the original methods as closely as possible, since too much adaptation can erase what made them distinctive.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "food--1-1",
+      "requested": -1,
+      "source": "food",
+      "text": "A tradition\u2019s identity depends more on faithfully maintaining inherited recipes than on changing them to suit current tastes.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "food--1-2",
+      "requested": -1,
+      "source": "food",
+      "text": "Although small adjustments are inevitable, cooks should prioritize historical accuracy so that future generations can experience the food as it was meant to be made.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "food--1-3",
+      "requested": -1,
+      "source": "food",
+      "text": "Food traditions lose much of their cultural meaning when people freely modify them, so preservation should generally take precedence over innovation.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "food--1-4",
+      "requested": -1,
+      "source": "food",
+      "text": "Keeping a dish\u2019s traditional ingredients and techniques intact is a way of honoring the communities that developed it, even when newer versions seem more convenient.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "food--1-5",
+      "requested": -1,
+      "source": "food",
+      "text": "Food should not be altered merely to remain fashionable or relevant; some traditions deserve protection from changes that dilute their original character.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "food--1-6",
+      "requested": -1,
+      "source": "food",
+      "text": "The people who inherit a food tradition have a responsibility to safeguard its established form rather than treating every generation\u2019s preferences as equally important.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food--1-7",
+      "requested": -1,
+      "source": "food",
+      "text": "A living tradition can tolerate minor variation, but its core recipe and customary preparation should remain stable enough to preserve a genuine connection with the past.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "food-p0-0",
+      "requested": 0,
+      "source": "food",
+      "text": "Food traditions can be preserved through a balance of continuity and adaptation, retaining recognizable foundations while welcoming thoughtful changes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-1",
+      "requested": 0,
+      "source": "food",
+      "text": "A tradition remains meaningful when cooks respect its history but also allow it to reflect new ingredients, techniques, and communities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-2",
+      "requested": 0,
+      "source": "food",
+      "text": "Preserving food culture does not necessarily require reproducing every detail exactly; maintaining the core values and practices may be enough.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-3",
+      "requested": 0,
+      "source": "food",
+      "text": "Traditional recipes can serve as guides rather than strict rules, giving each generation room to interpret them in its own way.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-4",
+      "requested": 0,
+      "source": "food",
+      "text": "Some aspects of a food tradition may be worth protecting carefully, while others can change naturally as circumstances and tastes evolve.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-5",
+      "requested": 0,
+      "source": "food",
+      "text": "A food tradition is often strengthened when people both document its original form and continue developing new versions of it.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p0-6",
+      "requested": 0,
+      "source": "food",
+      "text": "Whether a tradition should remain unchanged or evolve may depend on the community that practices it and what the tradition means to them.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "food-p0-7",
+      "requested": 0,
+      "source": "food",
+      "text": "Food traditions can honor their origins while accommodating migration, new technology, dietary needs, and changing cultural identities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-0",
+      "requested": 1,
+      "source": "food",
+      "text": "A food tradition should retain its defining flavors, techniques, and cultural meaning, while leaving room for cooks to adapt it to new circumstances.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-1",
+      "requested": 1,
+      "source": "food",
+      "text": "Traditions stay alive when people respect their origins but feel free to reinterpret them according to their own tastes, ingredients, and experiences.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-2",
+      "requested": 1,
+      "source": "food",
+      "text": "Preserving a dish\u2019s spirit matters more than reproducing every detail exactly as it was first made.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-3",
+      "requested": 1,
+      "source": "food",
+      "text": "Food traditions are strongest when each generation inherits them, adds something personal, and passes them on in a renewed form.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-4",
+      "requested": 1,
+      "source": "food",
+      "text": "A recipe can change in its ingredients or preparation without losing its identity if it continues to express the culture and memories behind it.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-5",
+      "requested": 1,
+      "source": "food",
+      "text": "Allowing thoughtful innovation helps food traditions remain accessible and meaningful while honoring the communities that created them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-6",
+      "requested": 1,
+      "source": "food",
+      "text": "Strict preservation may protect a tradition\u2019s historical form, but gentle adaptation allows it to remain part of everyday life.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p1-7",
+      "requested": 1,
+      "source": "food",
+      "text": "The best way to honor a food tradition is to understand its roots and then let people cook it in ways that reflect who they are and where they live.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p2-0",
+      "requested": 2,
+      "source": "food",
+      "text": "A food tradition remains strongest when its core flavors, techniques, and cultural meaning are respected while cooks are free to adapt it to new circumstances.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "food-p2-1",
+      "requested": 2,
+      "source": "food",
+      "text": "Preserving a cuisine does not require freezing it in the past; thoughtful innovation can help its heritage survive across generations.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "food-p2-2",
+      "requested": 2,
+      "source": "food",
+      "text": "Traditions stay alive when each generation adds its own experience without losing sight of the dish\u2019s origins and significance.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "food-p2-3",
+      "requested": 2,
+      "source": "food",
+      "text": "The best way to honor a traditional food is to understand what makes it distinctive, then allow communities to reinterpret it naturally.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p2-4",
+      "requested": 2,
+      "source": "food",
+      "text": "A recipe should be treated as a living inheritance: its foundational character matters, but variation keeps it connected to changing tastes, ingredients, and identities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p2-5",
+      "requested": 2,
+      "source": "food",
+      "text": "Food culture is preserved through continued practice and sharing, not strict imitation alone; evolution can be a form of respect.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p2-6",
+      "requested": 2,
+      "source": "food",
+      "text": "When people adapt traditional dishes while retaining their cultural heart, they make those traditions accessible and meaningful to new communities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-p2-7",
+      "requested": 2,
+      "source": "food",
+      "text": "Keeping a tradition recognizable while welcoming creative changes balances historical continuity with the freedom that makes cooking a living art.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "food-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "food-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "food-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "food-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "food-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 6,
+    "-1": 11,
+    "0": 2,
+    "1": 4,
+    "2": 23
+  },
+  "moved": 25,
+  "n_within": 40
+}

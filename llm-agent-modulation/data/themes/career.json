@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "career",
+    "statement": "whether a working life spent deepening a single craft is worth more than one spent moving between several"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Neither path is inherently worth more: deep specialization can produce mastery and lasting contribution, while moving among crafts can foster adaptability, synthesis, and discovery. The better choice depends on whether one finds meaning in deepening a particular discipline or in connecting diverse experiences.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "career--2-0",
+      "requested": -2,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "career--2-1",
+      "requested": -2,
+      "source": "career",
+      "text": "Moving between several crafts is almost always better because specialization narrows a person\u2019s perspective and makes their abilities less useful in a changing world.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "career--2-2",
+      "requested": -2,
+      "source": "career",
+      "text": "The idea that personal preference should determine the better path is mistaken: people ought to commit to a single discipline and endure its demands rather than continually searching for novelty.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "career--2-3",
+      "requested": -2,
+      "source": "career",
+      "text": "A varied career is mostly an evasion of commitment; meaningful contribution comes from staying with one craft long enough to understand its deepest problems.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "career--2-4",
+      "requested": -2,
+      "source": "career",
+      "text": "Deep specialization is overrated because modern challenges reward broad generalists, and anyone who remains in one field risks becoming obsolete.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "career--2-5",
+      "requested": -2,
+      "source": "career",
+      "text": "Changing between crafts rarely produces genuine synthesis or discovery; it usually creates fragmented skills and a r\u00e9sum\u00e9 without a coherent accomplishment.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "career--2-6",
+      "requested": -2,
+      "source": "career",
+      "text": "A person who spends an entire career mastering one craft contributes more than someone who samples many, because depth and reliability matter more than adaptability.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "career--2-7",
+      "requested": -2,
+      "source": "career",
+      "text": "There is no real merit in choosing among different kinds of work: the wisest course is to move between crafts regularly, since a fixed professional identity limits growth and imagination.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "career--1-0",
+      "requested": -1,
+      "source": "career",
+      "text": "A working life devoted to one craft is generally more valuable because mastery requires sustained attention that frequent changes rarely permit.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "career--1-1",
+      "requested": -1,
+      "source": "career",
+      "text": "Moving between several crafts is often the wiser choice, since adaptability and cross-disciplinary insight matter more than becoming exceptionally narrow.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "career--1-2",
+      "requested": -1,
+      "source": "career",
+      "text": "The distinction is less about personal meaning than about social contribution: specialists tend to create deeper, more reliable advances than generalists.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "career--1-3",
+      "requested": -1,
+      "source": "career",
+      "text": "A varied career can be overrated; changing fields may provide stimulation, but it can also prevent a person from developing the competence needed to do truly excellent work.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "career--1-4",
+      "requested": -1,
+      "source": "career",
+      "text": "Deep specialization is worthwhile only when the craft continues to evolve; otherwise, a lifetime of narrow focus can become a form of stagnation rather than mastery.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "career--1-5",
+      "requested": -1,
+      "source": "career",
+      "text": "People who move among crafts often produce the most original work because important discoveries frequently arise from combining methods that specialists keep separate.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "career--1-6",
+      "requested": -1,
+      "source": "career",
+      "text": "Choosing one craft for life is usually a privilege rather than a universal ideal, and moving between crafts may be more valuable for those whose circumstances demand flexibility.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "career--1-7",
+      "requested": -1,
+      "source": "career",
+      "text": "Neither path is automatically superior, but the strongest careers often begin with deep specialization and later broaden into related fields rather than remaining purely deep or purely varied.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "career-p0-0",
+      "requested": 0,
+      "source": "career",
+      "text": "A life devoted to one craft can offer depth, expertise, and continuity, while a varied career can provide flexibility, breadth, and unexpected connections; neither is universally superior.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-1",
+      "requested": 0,
+      "source": "career",
+      "text": "Specialization may allow someone to achieve exceptional mastery, whereas moving between fields may encourage experimentation and a broader understanding of the world. The value of each depends on the individual and circumstances.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-2",
+      "requested": 0,
+      "source": "career",
+      "text": "Working in one discipline can create a strong sense of identity and cumulative progress, while exploring several can keep learning fresh and reveal interests that might otherwise remain undiscovered.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-3",
+      "requested": 0,
+      "source": "career",
+      "text": "A focused career may lead to deep knowledge and lasting influence, while a diverse one may build versatility and the ability to combine ideas from different areas. Both can be meaningful forms of development.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-4",
+      "requested": 0,
+      "source": "career",
+      "text": "Whether depth or variety is more worthwhile depends on a person\u2019s goals, temperament, opportunities, and changing priorities rather than on a universal rule.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-5",
+      "requested": 0,
+      "source": "career",
+      "text": "Remaining with one craft can support long-term refinement, while changing crafts can develop resilience and transferable skills. Each path involves different benefits and trade-offs.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-6",
+      "requested": 0,
+      "source": "career",
+      "text": "Some people find fulfillment in steadily perfecting a chosen discipline, while others find it in exploring multiple forms of work and bringing lessons from one to another.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p0-7",
+      "requested": 0,
+      "source": "career",
+      "text": "A single-craft life may emphasize commitment and mastery, whereas a multi-craft life may emphasize curiosity and adaptability; the better path is the one that fits the person\u2019s values and needs.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-0",
+      "requested": 1,
+      "source": "career",
+      "text": "A life devoted to one craft can yield exceptional mastery and a distinctive body of work, while a varied life can create breadth and unexpected connections; its value depends on the person and purpose.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-1",
+      "requested": 1,
+      "source": "career",
+      "text": "Deep specialization often rewards patience with expertise and depth, whereas changing fields can cultivate resilience and a wider understanding of the world. Neither is automatically the richer life.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-2",
+      "requested": 1,
+      "source": "career",
+      "text": "Staying with one discipline may allow someone to make contributions that require years of accumulated knowledge, while moving between crafts may reveal opportunities that a single focus would miss.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-3",
+      "requested": 1,
+      "source": "career",
+      "text": "The best path may combine commitment with openness: develop real depth in one area, but remain willing to explore other crafts when they offer growth or new perspective.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-4",
+      "requested": 1,
+      "source": "career",
+      "text": "A specialist can become a steward of tradition and a source of hard-won innovation; a generalist can become a translator and bridge-builder across domains. Both forms of contribution matter.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-5",
+      "requested": 1,
+      "source": "career",
+      "text": "The worth of a working life is measured less by how many crafts it contains than by the care, purpose, and value brought to the work, whether through persistence or exploration.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-6",
+      "requested": 1,
+      "source": "career",
+      "text": "Changing careers can be meaningful rather than indecisive when each experience builds toward greater self-knowledge and synthesis, just as remaining in one craft can be meaningful when it reflects genuine devotion.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p1-7",
+      "requested": 1,
+      "source": "career",
+      "text": "Some people find fulfillment in refining one set of skills over decades, while others thrive on reinvention and variety; a worthwhile life should fit one\u2019s temperament rather than obey a universal ideal.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p2-0",
+      "requested": 2,
+      "source": "career",
+      "text": "A life devoted to one craft can yield exceptional mastery, but a varied working life can reveal connections and possibilities that specialization might miss.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "career-p2-1",
+      "requested": 2,
+      "source": "career",
+      "text": "The value of a career is not measured by how many fields it includes, but by the depth, purpose, and quality of the work done within them.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "career-p2-2",
+      "requested": 2,
+      "source": "career",
+      "text": "Specialists may leave a deep and lasting mark on one domain, while generalists may contribute by translating ideas and creating bridges between domains.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "career-p2-3",
+      "requested": 2,
+      "source": "career",
+      "text": "Remaining with one craft can offer continuity and profound expertise; changing paths can offer resilience, curiosity, and a broader understanding of work.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p2-4",
+      "requested": 2,
+      "source": "career",
+      "text": "Neither commitment nor variety guarantees fulfillment: the right path depends on whether a person is energized more by refinement or exploration.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p2-5",
+      "requested": 2,
+      "source": "career",
+      "text": "A varied career is not necessarily unfocused, and a specialized career is not necessarily narrow; either can be a coherent way to develop and contribute.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p2-6",
+      "requested": 2,
+      "source": "career",
+      "text": "Moving between crafts can lead to creative synthesis, while staying with one craft can enable achievements that require years of sustained attention.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-p2-7",
+      "requested": 2,
+      "source": "career",
+      "text": "A worthwhile working life may involve either deepening one vocation or allowing several interests to shape one\u2019s direction, provided the choice reflects genuine values rather than outside expectations.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "career-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "career-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "career-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "career-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "career-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "career-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 9,
+    "-1": 4,
+    "0": 4,
+    "1": 5,
+    "2": 24
+  },
+  "moved": 23,
+  "n_within": 40
+}

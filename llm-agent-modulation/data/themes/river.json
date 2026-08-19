@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "river",
+    "statement": "whether a town on a flooding river should build higher defences, or move away from the water"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "The town should prioritize moving new development and, where feasible, vulnerable residents away from the floodplain, while using higher defences only as a short-term measure for essential existing infrastructure. Relocation is more sustainable because flood risks are likely to increase and defences can fail or shift damage elsewhere.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "river--2-0",
+      "requested": -2,
+      "source": "river",
+      "text": "The town should build higher and stronger flood defences rather than relocate, because protecting established neighborhoods preserves homes, businesses, and community ties.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "river--2-1",
+      "requested": -2,
+      "source": "river",
+      "text": "Moving residents away from the river would be unnecessarily disruptive and expensive; the town should invest in levees, floodwalls, pumps, and improved drainage instead.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "river--2-2",
+      "requested": -2,
+      "source": "river",
+      "text": "Flood defences are a practical long-term solution, especially if they are regularly maintained and upgraded to account for future changes in river levels.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river--2-3",
+      "requested": -2,
+      "source": "river",
+      "text": "The town should continue allowing development in the floodplain while relying on robust engineering, since riverside land is often valuable and relocation would constrain economic growth.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "river--2-4",
+      "requested": -2,
+      "source": "river",
+      "text": "Rather than retreating from the river, the town should adapt buildings with raised foundations, flood-resistant materials, and emergency barriers while keeping people in their communities.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river--2-5",
+      "requested": -2,
+      "source": "river",
+      "text": "Higher defences can provide reliable protection when designed using conservative safety standards, so relocation should not be treated as the default response to flooding.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river--2-6",
+      "requested": -2,
+      "source": "river",
+      "text": "The town\u2019s historic center and cultural identity are tied to the river, making relocation unacceptable; the priority should be preserving the town in place through major defensive works.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river--2-7",
+      "requested": -2,
+      "source": "river",
+      "text": "Relocating vulnerable residents could unfairly burden people with limited resources, so public funds should instead be used to strengthen defences and protect everyone where they already live.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river--1-0",
+      "requested": -1,
+      "source": "river",
+      "text": "The town should prioritize building higher and stronger flood defences, since relocating established communities would be disruptive, expensive, and socially damaging.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river--1-1",
+      "requested": -1,
+      "source": "river",
+      "text": "The town should protect existing neighborhoods with levees, floodwalls, and improved drainage rather than encouraging large-scale relocation from the river.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "river--1-2",
+      "requested": -1,
+      "source": "river",
+      "text": "Moving away from the floodplain should be considered only as a last resort; well-designed defences and regular maintenance can provide reliable protection for many decades.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river--1-3",
+      "requested": -1,
+      "source": "river",
+      "text": "The town should invest primarily in flood barriers and pumping infrastructure, while allowing residents to remain where their homes, jobs, and community ties are located.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river--1-4",
+      "requested": -1,
+      "source": "river",
+      "text": "The risks of relocation may outweigh the benefits, so the town should strengthen defences and improve emergency warning and evacuation systems instead.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river--1-5",
+      "requested": -1,
+      "source": "river",
+      "text": "A combination of modestly higher defences, flood-resistant building standards, and better land management is preferable to moving vulnerable residents away from the river.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "river--1-6",
+      "requested": -1,
+      "source": "river",
+      "text": "The town should continue developing near the river but require elevated buildings, permeable surfaces, and other measures that reduce flood damage behind robust defences.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "river--1-7",
+      "requested": -1,
+      "source": "river",
+      "text": "Rather than treating the floodplain as an area to abandon, the town should adapt it through engineered protection, resilient infrastructure, and carefully managed development.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river-p0-0",
+      "requested": 0,
+      "source": "river",
+      "text": "The town should compare the long-term costs and benefits of stronger flood defences with those of gradual relocation before making a decision.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "river-p0-1",
+      "requested": 0,
+      "source": "river",
+      "text": "A combination of improved flood barriers, stricter development controls, and selective relocation may offer the most balanced approach.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "river-p0-2",
+      "requested": 0,
+      "source": "river",
+      "text": "Higher defences could protect existing homes and infrastructure, but moving development away from the floodplain may reduce future risks more effectively.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p0-3",
+      "requested": 0,
+      "source": "river",
+      "text": "The town should consider relocation where flooding is frequent while maintaining or upgrading defences in areas that are important or difficult to move.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "river-p0-4",
+      "requested": 0,
+      "source": "river",
+      "text": "The best strategy will depend on the cost of defences, the number of residents at risk, projected climate changes, and the community\u2019s willingness to relocate.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "river-p0-5",
+      "requested": 0,
+      "source": "river",
+      "text": "Building higher defences may be practical in the short term, but the town should also avoid encouraging further development in vulnerable areas.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p0-6",
+      "requested": 0,
+      "source": "river",
+      "text": "Relocation can provide lasting safety, although it may cause social and economic disruption that should be weighed against the benefits of stronger flood protection.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p0-7",
+      "requested": 0,
+      "source": "river",
+      "text": "The town should use detailed flood-risk assessments and public consultation to decide whether to defend particular areas, relocate them, or pursue both strategies together.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "river-p1-0",
+      "requested": 1,
+      "source": "river",
+      "text": "The town should favor gradual relocation from the most flood-prone areas while maintaining and improving barriers around critical facilities that cannot easily be moved.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-1",
+      "requested": 1,
+      "source": "river",
+      "text": "New construction should be directed to higher ground, with buyouts or relocation assistance for residents facing repeated flood losses; defenses should protect only essential established areas.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-2",
+      "requested": 1,
+      "source": "river",
+      "text": "A balanced strategy is best: strengthen defenses temporarily, restore wetlands and flood storage, and steadily move homes and businesses out of the highest-risk parts of the floodplain.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-3",
+      "requested": 1,
+      "source": "river",
+      "text": "The town should avoid encouraging further development behind higher levees, since relocation reduces long-term exposure and the consequences of a potential defense failure.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-4",
+      "requested": 1,
+      "source": "river",
+      "text": "Rather than relying solely on taller barriers, officials should combine modest defense upgrades with zoning restrictions, floodproofing, and voluntary relocation for vulnerable households.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "river-p1-5",
+      "requested": 1,
+      "source": "river",
+      "text": "Protecting hospitals, utilities, and major transport links may justify higher defenses, but ordinary residential growth should be shifted away from the river and existing residents offered safe alternatives.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-6",
+      "requested": 1,
+      "source": "river",
+      "text": "Because climate change may make current defenses inadequate, the town should adopt a phased retreat plan while using emergency barriers and maintenance to reduce near-term risk.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p1-7",
+      "requested": 1,
+      "source": "river",
+      "text": "The town should treat relocation as its long-term goal, investing in safer neighborhoods and resilient infrastructure instead of repeatedly raising defenses around an increasingly exposed community.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p2-0",
+      "requested": 2,
+      "source": "river",
+      "text": "The town should gradually relocate homes and future construction out of the floodplain, reserving stronger flood barriers for protecting critical facilities that cannot be moved.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "river-p2-1",
+      "requested": 2,
+      "source": "river",
+      "text": "Moving people and development away from the river is the safer long-term strategy, while higher defences should provide only temporary protection for essential existing infrastructure.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "river-p2-2",
+      "requested": 2,
+      "source": "river",
+      "text": "The town should avoid encouraging further construction in flood-prone areas and create voluntary relocation programs, using floodwalls selectively rather than relying on them as a permanent solution.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "river-p2-3",
+      "requested": 2,
+      "source": "river",
+      "text": "Because climate change may intensify flooding, managed retreat from the most vulnerable areas is preferable to continually raising defences, though vital services may need interim protection.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p2-4",
+      "requested": 2,
+      "source": "river",
+      "text": "Authorities should prioritize relocating residents, businesses, and new projects from high-risk zones, while maintaining limited defences around irreplaceable infrastructure during the transition.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p2-5",
+      "requested": 2,
+      "source": "river",
+      "text": "Higher barriers may reduce immediate risk, but the town should ultimately adapt by moving away from the floodplain and restoring natural flood-storage areas wherever possible.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p2-6",
+      "requested": 2,
+      "source": "river",
+      "text": "The most resilient policy is to stop expanding into flood-prone land and support the relocation of vulnerable communities, with defensive works used only where relocation is impractical.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-p2-7",
+      "requested": 2,
+      "source": "river",
+      "text": "The town should treat flood defences as a short-term safeguard rather than a permanent answer, steadily shifting development and at-risk residents to safer ground as flood hazards grow.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "river-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "river-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "river-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "river-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "river-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 10,
+    "-1": 9,
+    "0": 3,
+    "1": 6,
+    "2": 18
+  },
+  "moved": 23,
+  "n_within": 40
+}

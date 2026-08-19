@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "cities",
+    "statement": "whether a city should be shaped mainly for the people who already live in it, or for the people who might come to live in it"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A city should be shaped primarily around the needs of the people who already live there, while remaining flexible enough to welcome newcomers. Improving affordability, infrastructure, safety, and quality of life for current residents creates a stronger foundation for sustainable growth.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "cities--2-0",
+      "requested": -2,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "cities--2-1",
+      "requested": -2,
+      "source": "cities",
+      "text": "The needs of potential newcomers should outweigh the preferences of current residents when planning a city, since newcomers are essential to keeping the economy dynamic and competitive.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "cities--2-2",
+      "requested": -2,
+      "source": "cities",
+      "text": "Cities should prioritize population growth above all else, even if existing residents must adapt to denser development, rising competition, and major changes to their neighborhoods.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "cities--2-3",
+      "requested": -2,
+      "source": "cities",
+      "text": "Urban planning should focus on the people most likely to move in\u2014especially young professionals, entrepreneurs, and skilled workers\u2014because they will shape the city\u2019s future prosperity.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "cities--2-4",
+      "requested": -2,
+      "source": "cities",
+      "text": "A city should be built around its ambitions rather than its current population; preparing for large-scale future migration is more important than preserving present lifestyles or familiar communities.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "cities--2-5",
+      "requested": -2,
+      "source": "cities",
+      "text": "Current residents should not have disproportionate influence over urban development, because they may resist housing, transit, and cultural changes that newcomers need and the broader city requires.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "cities--2-6",
+      "requested": -2,
+      "source": "cities",
+      "text": "The best way to improve life for existing residents is to make the city highly attractive to outsiders, so planning should prioritize newcomers even when that creates short-term disruption for established communities.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities--2-7",
+      "requested": -2,
+      "source": "cities",
+      "text": "Cities should constantly reinvent themselves for future populations instead of catering to those already settled, since preserving the status quo can lead to stagnation, exclusion, and economic decline.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities--1-0",
+      "requested": -1,
+      "source": "cities",
+      "text": "A city should be shaped mainly for the people who may come to live there, since planning for future growth can prevent overcrowding and create better opportunities for everyone.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "cities--1-1",
+      "requested": -1,
+      "source": "cities",
+      "text": "Cities should prioritize attracting newcomers, businesses, and talent, even if that requires changing neighborhoods and asking current residents to adapt to new pressures.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities--1-2",
+      "requested": -1,
+      "source": "cities",
+      "text": "The needs of existing residents should not automatically outweigh those of future residents; a city has a responsibility to remain open and accessible to people who want to join it.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "cities--1-3",
+      "requested": -1,
+      "source": "cities",
+      "text": "A city should be designed around long-term regional growth rather than the preferences of its current population, because today\u2019s residents are only one temporary part of its history.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities--1-4",
+      "requested": -1,
+      "source": "cities",
+      "text": "Welcoming newcomers should be the central planning goal, with housing, transit, and public services expanded aggressively to accommodate population increases, even before demand fully materializes.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities--1-5",
+      "requested": -1,
+      "source": "cities",
+      "text": "Cities thrive when they continually reinvent themselves for incoming residents, so preserving current communities and traditions should not prevent development aimed at future populations.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "cities--1-6",
+      "requested": -1,
+      "source": "cities",
+      "text": "A city\u2019s success should be measured by how many different kinds of people it can attract and support, making future residents at least as important as those already established there.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "cities--1-7",
+      "requested": -1,
+      "source": "cities",
+      "text": "Planning primarily for newcomers can encourage innovation and investment that ultimately benefits current residents, so cities should favor growth-oriented design over preserving the status quo.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "cities-p0-0",
+      "requested": 0,
+      "source": "cities",
+      "text": "A city should balance the needs of current residents with the opportunities and services needed to attract future residents.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "cities-p0-1",
+      "requested": 0,
+      "source": "cities",
+      "text": "Urban planning should prioritize existing communities while anticipating how population growth may change housing, transportation, and public services.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p0-2",
+      "requested": 0,
+      "source": "cities",
+      "text": "Cities should improve quality of life for current residents without closing themselves off to newcomers who can contribute to future development.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p0-3",
+      "requested": 0,
+      "source": "cities",
+      "text": "The best approach is to design cities around present needs while allowing enough flexibility to accommodate demographic and economic changes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p0-4",
+      "requested": 0,
+      "source": "cities",
+      "text": "City leaders should consider both the people who already live in the city and those who may arrive, rather than giving one group automatic priority.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "cities-p0-5",
+      "requested": 0,
+      "source": "cities",
+      "text": "A city\u2019s growth plans should protect existing residents from displacement while making room for new housing, businesses, and communities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p0-6",
+      "requested": 0,
+      "source": "cities",
+      "text": "Urban development should respond to current residents\u2019 concerns while preparing infrastructure and institutions for future population growth.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p0-7",
+      "requested": 0,
+      "source": "cities",
+      "text": "Cities should aim for inclusive planning that serves established communities and welcomes newcomers under fair and sustainable conditions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-0",
+      "requested": 1,
+      "source": "cities",
+      "text": "A city should prioritize the daily needs of its current residents, while planning ahead so that future newcomers can be accommodated without overwhelming existing communities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-1",
+      "requested": 1,
+      "source": "cities",
+      "text": "Cities are best shaped around improving life for the people who already live there, but investments should also anticipate responsible growth and welcome new residents.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-2",
+      "requested": 1,
+      "source": "cities",
+      "text": "Existing residents should have the strongest voice in urban planning, provided that the city remains open, adaptable, and capable of offering opportunities to newcomers.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-3",
+      "requested": 1,
+      "source": "cities",
+      "text": "A city should not sacrifice the stability of its current population in pursuit of attracting more people; instead, it should build strong housing, transportation, and public services that benefit both groups.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-4",
+      "requested": 1,
+      "source": "cities",
+      "text": "Urban development should begin with local quality of life, because a healthy and affordable city is more likely to support newcomers successfully and sustainably.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-5",
+      "requested": 1,
+      "source": "cities",
+      "text": "The needs of current residents should guide most city decisions, while long-term planning should ensure that population growth brings opportunity rather than displacement or strain.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-6",
+      "requested": 1,
+      "source": "cities",
+      "text": "Cities should protect the communities that already exist while making thoughtful changes that allow new residents to contribute to and share in the city\u2019s future.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p1-7",
+      "requested": 1,
+      "source": "cities",
+      "text": "A balanced approach is best: improve affordability, safety, infrastructure, and public spaces for current residents while designing enough flexibility to support future growth.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p2-0",
+      "requested": 2,
+      "source": "cities",
+      "text": "A city\u2019s first responsibility is to serve its current residents, but its planning should leave room for newcomers and future growth.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "cities-p2-1",
+      "requested": 2,
+      "source": "cities",
+      "text": "Cities should improve housing, transportation, public services, and safety for the people who live there now while designing systems that can accommodate population growth.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "cities-p2-2",
+      "requested": 2,
+      "source": "cities",
+      "text": "Building a better city for existing residents is the most reliable way to make it attractive and welcoming to future residents.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "cities-p2-3",
+      "requested": 2,
+      "source": "cities",
+      "text": "Urban development should prioritize current communities and protect their quality of life, while avoiding policies that make the city closed or inaccessible to newcomers.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p2-4",
+      "requested": 2,
+      "source": "cities",
+      "text": "A city should grow from the needs and experiences of its existing population, using inclusive planning to ensure that new arrivals can also find opportunity and belonging.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p2-5",
+      "requested": 2,
+      "source": "cities",
+      "text": "Long-term urban success depends on strengthening everyday life for current residents before pursuing growth aimed primarily at attracting outsiders.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p2-6",
+      "requested": 2,
+      "source": "cities",
+      "text": "Cities should balance present and future needs, but investments should begin with affordability, infrastructure, safety, and services for those who already call the city home.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-p2-7",
+      "requested": 2,
+      "source": "cities",
+      "text": "A welcoming city is built by improving conditions for existing residents while preserving the flexibility, capacity, and openness needed to support newcomers.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "cities-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "cities-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "cities-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "cities-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "cities-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 11,
+    "-1": 7,
+    "0": 3,
+    "1": 3,
+    "2": 22
+  },
+  "moved": 23,
+  "n_within": 40
+}

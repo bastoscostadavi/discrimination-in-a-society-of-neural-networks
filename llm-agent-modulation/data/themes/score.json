@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "score",
+    "statement": "whether an orchestra should play a score as it is written, or as its conductor hears it"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "An orchestra should primarily honor the score as written, since it is the composer\u2019s intended foundation, while allowing the conductor\u2019s interpretation to shape phrasing, balance, tempo, and expression. The best performances unite fidelity to the music with the conductor\u2019s informed artistic vision.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "score--2-0",
+      "requested": -2,
+      "source": "score",
+      "text": "An orchestra should play the music as the conductor hears it, because a score is only a blueprint and the conductor\u2019s living interpretation is what gives it meaning.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-1",
+      "requested": -2,
+      "source": "score",
+      "text": "The conductor\u2019s artistic judgment should take precedence over the written score whenever the two conflict; strict fidelity can produce technically accurate but lifeless performances.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-2",
+      "requested": -2,
+      "source": "score",
+      "text": "A score should be treated as a flexible starting point rather than an authority, allowing the conductor to reshape tempos, dynamics, phrasing, and even instrumentation to suit the performance.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-3",
+      "requested": -2,
+      "source": "score",
+      "text": "The composer\u2019s notation cannot fully capture musical intention, so the conductor\u2019s intuition and emotional response should guide the orchestra more than the literal markings on the page.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-4",
+      "requested": -2,
+      "source": "score",
+      "text": "An orchestra should prioritize the conductor\u2019s unified conception, even if that requires disregarding details in the score, because collective expressive purpose matters more than textual accuracy.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "score--2-5",
+      "requested": -2,
+      "source": "score",
+      "text": "The best performance is not necessarily the one closest to the score; conductors should feel free to reinterpret or reinvent works according to contemporary artistic sensibilities.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-6",
+      "requested": -2,
+      "source": "score",
+      "text": "Written scores are historically limited documents, whereas a conductor can respond to the acoustics, musicians, audience, and moment, making the conductor\u2019s hearing the more reliable guide.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--2-7",
+      "requested": -2,
+      "source": "score",
+      "text": "Musicians should follow the conductor\u2019s interpretation almost completely, since too much allegiance to the page can suppress spontaneity, flexibility, and the distinctive voice of the ensemble.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--1-0",
+      "requested": -1,
+      "source": "score",
+      "text": "A conductor\u2019s hearing should take precedence over the literal score, because notation is only an imperfect record of the musical idea and live interpretation can reveal what the composer meant beyond the page.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "score--1-1",
+      "requested": -1,
+      "source": "score",
+      "text": "An orchestra should treat the score as a starting point rather than a binding authority, giving the conductor freedom to reshape tempos, dynamics, articulation, and even phrasing according to the performance\u2019s emotional needs.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "score--1-2",
+      "requested": -1,
+      "source": "score",
+      "text": "The most compelling performance is often one in which the conductor\u2019s personal vision outweighs strict textual fidelity; music should feel alive and responsive rather than mechanically obedient to written instructions.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "score--1-3",
+      "requested": -1,
+      "source": "score",
+      "text": "Composers cannot anticipate every acoustic, ensemble, or audience, so the conductor should adapt the score substantially when their musical judgment suggests that a different approach will communicate more effectively.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "score--1-4",
+      "requested": -1,
+      "source": "score",
+      "text": "An orchestra should prioritize what the conductor hears in the moment, since ensemble playing depends on a unified interpretation and a conductor can perceive expressive possibilities that are not fully captured by notation.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--1-5",
+      "requested": -1,
+      "source": "score",
+      "text": "Scores should be understood as flexible guides, not sacred documents; a conductor may justifiably alter balances, tempos, and expressive details to make the work speak convincingly to contemporary listeners.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "score--1-6",
+      "requested": -1,
+      "source": "score",
+      "text": "When the written markings conflict with the musical character a conductor perceives, the orchestra should follow the latter, because interpretation is an essential creative act rather than a secondary layer added to composition.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "score--1-7",
+      "requested": -1,
+      "source": "score",
+      "text": "The conductor\u2019s responsibility is not merely to preserve the score but to make it meaningful in performance, even if that requires departing from the page in ways the composer may not have explicitly indicated.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "score-p0-0",
+      "requested": 0,
+      "source": "score",
+      "text": "An orchestra should treat the written score as a guide while allowing the conductor\u2019s interpretation to clarify its character and emotional direction.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-1",
+      "requested": 0,
+      "source": "score",
+      "text": "The score provides the essential structure, but a conductor\u2019s hearing can reasonably influence tempo, dynamics, phrasing, and balance in performance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-2",
+      "requested": 0,
+      "source": "score",
+      "text": "A strong performance may reflect both the composer\u2019s notation and the conductor\u2019s understanding of the work, without giving absolute priority to either.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-3",
+      "requested": 0,
+      "source": "score",
+      "text": "Orchestral musicians should respect the score\u2019s instructions while responding flexibly to the conductor\u2019s artistic decisions and the needs of the ensemble.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-4",
+      "requested": 0,
+      "source": "score",
+      "text": "Playing strictly as written can preserve the composer\u2019s intentions, while interpretive choices by the conductor can make those intentions more vivid for listeners.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-5",
+      "requested": 0,
+      "source": "score",
+      "text": "The conductor should not disregard the score, but may interpret its ambiguities and shape its details according to musical experience and context.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-6",
+      "requested": 0,
+      "source": "score",
+      "text": "The relationship between notation and interpretation is collaborative: the score establishes boundaries, and the conductor helps determine how the music sounds within them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p0-7",
+      "requested": 0,
+      "source": "score",
+      "text": "Whether fidelity or interpretation deserves greater emphasis may depend on the piece, but effective performances generally balance written instructions with the conductor\u2019s musical judgment.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-0",
+      "requested": 1,
+      "source": "score",
+      "text": "The score should remain the orchestra\u2019s essential guide, but a conductor must interpret its markings through judgment, context, and musical sensitivity rather than treating them as an inflexible set of instructions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-1",
+      "requested": 1,
+      "source": "score",
+      "text": "A strong performance respects the composer\u2019s written notes while recognizing that notation cannot capture every nuance of sound, so the conductor\u2019s ear should complete what the score leaves implicit.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-2",
+      "requested": 1,
+      "source": "score",
+      "text": "The orchestra ought to begin with fidelity to the score, then allow the conductor to make thoughtful decisions about tempo, articulation, dynamics, and atmosphere in service of the work as a whole.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-3",
+      "requested": 1,
+      "source": "score",
+      "text": "Neither the written page nor the conductor\u2019s personal taste should dominate completely: the most convincing interpretation balances historical and textual accuracy with the conductor\u2019s living response to the music.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-4",
+      "requested": 1,
+      "source": "score",
+      "text": "A conductor should hear the score as a framework rather than a cage, preserving its structure and intentions while shaping details that help the audience experience its emotional meaning.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-5",
+      "requested": 1,
+      "source": "score",
+      "text": "The composer\u2019s markings deserve respect, but the conductor is responsible for turning them into a coherent performance, adapting choices to the orchestra, the hall, and the musical circumstances.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-6",
+      "requested": 1,
+      "source": "score",
+      "text": "An orchestra should not simply reproduce notes mechanically; it should honor the score\u2019s core identity while following a conductor whose interpretation reveals relationships, tensions, and expressive possibilities within it.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p1-7",
+      "requested": 1,
+      "source": "score",
+      "text": "The ideal approach is collaborative: the written score provides authority and direction, while the conductor\u2019s informed ear gives the music flexibility, character, and immediacy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p2-0",
+      "requested": 2,
+      "source": "score",
+      "text": "The score should serve as the performance\u2019s anchor, while the conductor brings its markings to life through choices of tempo, articulation, dynamics, and character.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "score-p2-1",
+      "requested": 2,
+      "source": "score",
+      "text": "A conductor should not treat the written page as inflexible, but any departure from it ought to clarify or deepen the composer\u2019s musical intentions rather than replace them.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "score-p2-2",
+      "requested": 2,
+      "source": "score",
+      "text": "The strongest interpretation balances textual accuracy with creative judgment: musicians play what is written, shaped by the conductor\u2019s understanding of the work\u2019s style and purpose.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "score-p2-3",
+      "requested": 2,
+      "source": "score",
+      "text": "The orchestra should respect the composer\u2019s notes as essential guidance while trusting the conductor to reveal relationships, emotional direction, and expressive nuance that notation cannot fully capture.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p2-4",
+      "requested": 2,
+      "source": "score",
+      "text": "Faithfulness to a score is more than obeying every mark mechanically; it means understanding the work\u2019s structure and letting the conductor make interpretive decisions that serve that larger design.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p2-5",
+      "requested": 2,
+      "source": "score",
+      "text": "The conductor\u2019s hearing should influence performance, but it should remain in dialogue with the score, historical context, and the composer\u2019s documented intentions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p2-6",
+      "requested": 2,
+      "source": "score",
+      "text": "An orchestra should begin with the written music and depart from it only thoughtfully, ensuring that personal interpretation enhances rather than obscures the composition.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-p2-7",
+      "requested": 2,
+      "source": "score",
+      "text": "A compelling performance emerges when the score provides the boundaries and the conductor supplies the living perspective, preserving the work\u2019s identity while giving it individual character.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "score-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "score-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "score-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "score-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "score-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "score-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 4,
+    "-1": 12,
+    "0": 3,
+    "1": 3,
+    "2": 24
+  },
+  "moved": 26,
+  "n_within": 40
+}

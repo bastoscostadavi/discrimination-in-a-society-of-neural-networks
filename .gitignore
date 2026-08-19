@@ -1,7 +1,9 @@
 # The source manuscript is unpublished and belongs to its authors; it is not
 # committed to this public repository.  Everything recovered from it that the
-# code depends on is recorded in docs/ instead.
+# code depends on is recorded in the paper's appendices instead.
 Discrimination2025*.pdf
+paper/draft.pdf
+dissertacao*.pdf
 
 # Simulation caches: regenerate with `python scripts/make_all.py --preset <p>`.
 nn-based-simulation/data/
@@ -37,3 +39,10 @@ __pycache__/
 .sweep*.log
 .calibrate.log
 .nscan.log
+
+# API credentials.  Never commit.
+.env
+
+# LLM response cache: 57 MB of raw API responses, keyed by prompt hash.
+# Regenerate by rerunning the stages; deleting it only costs money, not data.
+llm-agent-modulation/data/cache/

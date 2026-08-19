@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "studies",
+    "statement": "whether a field of research advances more by many small careful studies, or by a few bold and risky ones"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Research advances best through a balance: many careful studies build reliable foundations, while a few bold, risky projects can open transformative new directions. Neither is sufficient alone, since bold ideas need rigorous testing and incremental work benefits from ambitious questions.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "studies--2-0",
+      "requested": -2,
+      "source": "studies",
+      "text": "Research advances most reliably through many small, careful studies; bold projects usually waste resources and create attention-grabbing claims that later fail to replicate.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--2-1",
+      "requested": -2,
+      "source": "studies",
+      "text": "A field progresses primarily through a few bold and risky breakthroughs, while incremental studies mostly refine established ideas without changing the direction of knowledge.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "studies--2-2",
+      "requested": -2,
+      "source": "studies",
+      "text": "The distinction between careful and bold research is misleading: what matters is whether a study asks an important question, regardless of its size or risk level.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--2-3",
+      "requested": -2,
+      "source": "studies",
+      "text": "Research should favor bold projects almost exclusively, because excessive caution protects existing assumptions and prevents genuinely revolutionary discoveries.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "studies--2-4",
+      "requested": -2,
+      "source": "studies",
+      "text": "The safest route to progress is to fund only highly replicable, incremental work; dramatic advances are less valuable than a dependable accumulation of facts.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "studies--2-5",
+      "requested": -2,
+      "source": "studies",
+      "text": "Many small studies can actually hinder progress by fragmenting attention and reinforcing conventional thinking, so concentrated investment in a handful of ambitious projects is superior.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "studies--2-6",
+      "requested": -2,
+      "source": "studies",
+      "text": "Bold research is rarely as transformative as it appears; fields advance when large communities systematically reproduce, extend, and apply existing findings.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--2-7",
+      "requested": -2,
+      "source": "studies",
+      "text": "Research advances through competition among independent investigators rather than through any balance of study types: the strongest ideas should survive, whether they emerge from cautious or daring work.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--1-0",
+      "requested": -1,
+      "source": "studies",
+      "text": "Research advances more reliably through many small, careful studies; bold projects often consume resources while producing results that are difficult to reproduce or build upon.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "studies--1-1",
+      "requested": -1,
+      "source": "studies",
+      "text": "A field benefits most from a few bold, risky studies, because incremental work tends to optimize existing assumptions rather than challenge them or reveal genuinely new directions.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "studies--1-2",
+      "requested": -1,
+      "source": "studies",
+      "text": "The supposed balance between careful and bold research can dilute both: researchers should prioritize rigorous, focused studies until a strong foundation justifies larger risks.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "studies--1-3",
+      "requested": -1,
+      "source": "studies",
+      "text": "Bold research is usually the true engine of major breakthroughs, while many small studies mainly refine ideas that have already been discovered.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--1-4",
+      "requested": -1,
+      "source": "studies",
+      "text": "Careful incremental research can advance a field on its own by steadily improving methods, resolving contradictions, and accumulating dependable knowledge; dramatic risks are not essential.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--1-5",
+      "requested": -1,
+      "source": "studies",
+      "text": "Research should favor ambitious, unconventional projects because excessive emphasis on caution rewards conformity and discourages the original thinking that produces paradigm shifts.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies--1-6",
+      "requested": -1,
+      "source": "studies",
+      "text": "The value of research is better measured by the quality and significance of individual questions than by balancing project types, so neither a large number of small studies nor a few risky ones should be treated as inherently superior.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "studies--1-7",
+      "requested": -1,
+      "source": "studies",
+      "text": "Fields advance fastest when they concentrate resources in a small number of high-potential projects rather than dispersing them across numerous modest studies whose findings may have limited impact.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies-p0-0",
+      "requested": 0,
+      "source": "studies",
+      "text": "A field often progresses through a combination of steady incremental work and occasional high-risk discoveries, with each serving a different purpose.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-1",
+      "requested": 0,
+      "source": "studies",
+      "text": "Many small studies can establish dependable knowledge, while a few bold studies may challenge assumptions and reveal unexpected possibilities.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-2",
+      "requested": 0,
+      "source": "studies",
+      "text": "The relative value of careful versus risky research depends on the field, its maturity, and the questions being investigated.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-3",
+      "requested": 0,
+      "source": "studies",
+      "text": "Incremental research tends to improve and verify existing ideas, whereas ambitious research can create entirely new lines of inquiry.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-4",
+      "requested": 0,
+      "source": "studies",
+      "text": "A healthy research community may benefit from supporting a broad range of projects rather than favoring only one style of investigation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-5",
+      "requested": 0,
+      "source": "studies",
+      "text": "Bold studies can produce major breakthroughs, but their results are more useful when supported by careful replication and follow-up research.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-6",
+      "requested": 0,
+      "source": "studies",
+      "text": "Small, methodical projects and large, speculative projects can complement one another as parts of a broader research process.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p0-7",
+      "requested": 0,
+      "source": "studies",
+      "text": "Research advances through both accumulation and disruption: evidence builds gradually, but progress can sometimes be accelerated by unconventional and risky ideas.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-0",
+      "requested": 1,
+      "source": "studies",
+      "text": "Steady, careful studies should form the backbone of research, but occasional high-risk projects are essential for challenging established assumptions and producing major breakthroughs.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-1",
+      "requested": 1,
+      "source": "studies",
+      "text": "The most productive research environment combines a broad base of incremental work with enough support for bold investigations whose outcomes are uncertain but potentially transformative.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-2",
+      "requested": 1,
+      "source": "studies",
+      "text": "Small studies often provide the evidence and methods that make larger discoveries possible, while risky projects prevent a field from becoming too narrowly focused on familiar questions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-3",
+      "requested": 1,
+      "source": "studies",
+      "text": "Research advances through a portfolio approach: many reliable projects reduce uncertainty gradually, and a few ambitious efforts create opportunities for unexpected leaps.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-4",
+      "requested": 1,
+      "source": "studies",
+      "text": "Bold research is valuable when it is grounded in the knowledge accumulated by careful studies; in turn, incremental research benefits from the new questions that breakthroughs generate.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-5",
+      "requested": 1,
+      "source": "studies",
+      "text": "A field needs both patience and ambition\u2014careful replication and refinement establish trust, while daring experiments can redirect attention toward important possibilities that routine work might miss.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-6",
+      "requested": 1,
+      "source": "studies",
+      "text": "Neither cautious accumulation nor dramatic innovation should dominate completely; sustained progress comes from allowing rigorous small-scale work and well-supported risks to complement one another.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p1-7",
+      "requested": 1,
+      "source": "studies",
+      "text": "The ideal research culture rewards dependable contributions while reserving resources for unconventional ideas, recognizing that breakthroughs are rare but that careful preparation makes them more likely to succeed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p2-0",
+      "requested": 2,
+      "source": "studies",
+      "text": "A field progresses most effectively when steady, methodical research is complemented by occasional high-risk projects that challenge prevailing assumptions.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "studies-p2-1",
+      "requested": 2,
+      "source": "studies",
+      "text": "Small, careful studies provide the evidence and reproducibility needed for lasting knowledge, while bold studies create opportunities for major breakthroughs.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "studies-p2-2",
+      "requested": 2,
+      "source": "studies",
+      "text": "The healthiest research ecosystem supports incremental improvements and ambitious experiments at the same time, allowing each to strengthen the other.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "studies-p2-3",
+      "requested": 2,
+      "source": "studies",
+      "text": "Scientific progress depends on a portfolio of approaches: numerous reliable investigations reduce uncertainty, and a few daring ones expand what researchers consider possible.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p2-4",
+      "requested": 2,
+      "source": "studies",
+      "text": "Careful research is essential for validating and refining ideas, but without risk-taking, a field may only improve existing theories rather than discover new directions.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p2-5",
+      "requested": 2,
+      "source": "studies",
+      "text": "Bold projects can generate transformative insights, yet they are most valuable when supported by a broad foundation of rigorous, cumulative work.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p2-6",
+      "requested": 2,
+      "source": "studies",
+      "text": "Research advances through a productive tension between caution and imagination: disciplined studies establish trust, while unconventional efforts test the limits of current understanding.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-p2-7",
+      "requested": 2,
+      "source": "studies",
+      "text": "Neither slow accumulation nor dramatic breakthroughs should dominate; sustained progress comes from combining dependable research with strategically chosen risks.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "studies-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "studies-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "studies-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "studies-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "studies-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "studies-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 1,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 4,
+    "-1": 12,
+    "0": 5,
+    "1": 1,
+    "2": 24
+  },
+  "moved": 21,
+  "n_within": 40
+}

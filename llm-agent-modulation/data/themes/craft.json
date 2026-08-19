@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "craft",
+    "statement": "whether a craft is better learned by imitating a master closely, or by working out one's own method from the start"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A craft is usually learned best by closely imitating a master at first, because disciplined copying builds foundational skills and judgment. Once those principles are understood, developing a personal method allows originality without sacrificing competence.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "craft--2-0",
+      "requested": -2,
+      "source": "craft",
+      "text": "A craft is learned best by inventing one\u2019s own method from the beginning, since imitation can suppress curiosity and prevent genuinely original thinking.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "craft--2-1",
+      "requested": -2,
+      "source": "craft",
+      "text": "Closely copying a master is usually counterproductive because it teaches dependence on someone else\u2019s habits rather than an understanding of the craft\u2019s underlying possibilities.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "craft--2-2",
+      "requested": -2,
+      "source": "craft",
+      "text": "Beginners should experiment freely instead of following an established model, because mistakes and unconventional approaches develop stronger judgment than disciplined imitation.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "craft--2-3",
+      "requested": -2,
+      "source": "craft",
+      "text": "A personal method should come first; studying masters later is more valuable when one already has independent instincts and can assess what to adopt or reject.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "craft--2-4",
+      "requested": -2,
+      "source": "craft",
+      "text": "Imitating a master too closely risks producing polished but derivative work, whereas creating from the start encourages a distinctive voice and meaningful innovation.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft--2-5",
+      "requested": -2,
+      "source": "craft",
+      "text": "There is no reason to treat mastery as a prerequisite for originality: beginners can discover effective techniques precisely because they are not constrained by tradition.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "craft--2-6",
+      "requested": -2,
+      "source": "craft",
+      "text": "A craft is best learned through varied experimentation with many influences, not by closely copying a single master whose style may become an invisible limitation.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "craft--2-7",
+      "requested": -2,
+      "source": "craft",
+      "text": "Technical competence develops naturally through solving one\u2019s own problems, so constructing a personal process from the outset is more useful than rehearsing another person\u2019s method.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "craft--1-0",
+      "requested": -1,
+      "source": "craft",
+      "text": "A craft is often learned best by experimenting from the beginning, since discovering one\u2019s own methods encourages deeper understanding than reproducing someone else\u2019s habits.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "craft--1-1",
+      "requested": -1,
+      "source": "craft",
+      "text": "Imitating a master can provide useful guidance, but developing a personal approach early helps learners become adaptable rather than dependent on established formulas.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "craft--1-2",
+      "requested": -1,
+      "source": "craft",
+      "text": "Beginners should study masters selectively while primarily solving problems for themselves, because independent struggle builds judgment that copying alone cannot provide.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "craft--1-3",
+      "requested": -1,
+      "source": "craft",
+      "text": "A craft is not necessarily best learned through close imitation; personal experimentation can reveal techniques better suited to an individual\u2019s abilities, goals, and circumstances.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "craft--1-4",
+      "requested": -1,
+      "source": "craft",
+      "text": "Following a master too closely may limit curiosity and originality, so learners should treat expert examples as references rather than strict models from the start.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "craft--1-5",
+      "requested": -1,
+      "source": "craft",
+      "text": "The strongest foundation often comes from alternating observation with independent practice, rather than spending an initial period devoted mainly to imitation.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "craft--1-6",
+      "requested": -1,
+      "source": "craft",
+      "text": "Learners should be encouraged to invent their own methods early, because mistakes and unconventional solutions can teach principles more vividly than disciplined copying.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "craft--1-7",
+      "requested": -1,
+      "source": "craft",
+      "text": "Mastery grows less from reproducing a master\u2019s work than from understanding why certain choices succeed and then testing different choices for oneself.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft-p0-0",
+      "requested": 0,
+      "source": "craft",
+      "text": "A beginner may benefit from imitating a master, but exploring personal methods early can also encourage creativity and engagement.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft-p0-1",
+      "requested": 0,
+      "source": "craft",
+      "text": "Close imitation can provide useful structure and technique, while independent experimentation helps learners discover what suits them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p0-2",
+      "requested": 0,
+      "source": "craft",
+      "text": "The best approach may depend on the craft, the learner\u2019s goals, and how much guidance is available.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft-p0-3",
+      "requested": 0,
+      "source": "craft",
+      "text": "Following an established example can prevent avoidable mistakes, though relying on it too long may limit originality.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p0-4",
+      "requested": 0,
+      "source": "craft",
+      "text": "Developing one\u2019s own method from the start can build independence, but mentorship can make the learning process more efficient.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft-p0-5",
+      "requested": 0,
+      "source": "craft",
+      "text": "Imitation and experimentation are not necessarily opposites; a learner can study a master\u2019s methods while gradually adapting them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p0-6",
+      "requested": 0,
+      "source": "craft",
+      "text": "Some skills require disciplined repetition, whereas others are learned more effectively through trial, error, and personal discovery.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "craft-p0-7",
+      "requested": 0,
+      "source": "craft",
+      "text": "A balanced approach may be most effective: begin with models and instruction, then progressively take greater ownership of the craft.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-0",
+      "requested": 1,
+      "source": "craft",
+      "text": "Beginners often benefit from closely following an accomplished practitioner, since imitation provides a reliable structure for developing technique before experimentation begins.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-1",
+      "requested": 1,
+      "source": "craft",
+      "text": "Learning a craft through a master\u2019s example can accelerate progress by revealing standards and habits that are difficult to discover independently, though personal adaptation should come later.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-2",
+      "requested": 1,
+      "source": "craft",
+      "text": "A strong apprenticeship usually starts with faithful imitation, but the learner should gradually question and modify the model as their own understanding develops.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-3",
+      "requested": 1,
+      "source": "craft",
+      "text": "Copying an expert is valuable because it trains the eye, hand, and judgment; however, mastery ultimately requires moving beyond the teacher\u2019s exact methods.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-4",
+      "requested": 1,
+      "source": "craft",
+      "text": "Developing an individual style too early can lead to avoidable weaknesses, so it is wiser to absorb proven techniques first and innovate once the fundamentals are secure.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-5",
+      "requested": 1,
+      "source": "craft",
+      "text": "The best approach combines imitation and discovery: begin by reproducing a master\u2019s methods, then use that foundation to test and refine one\u2019s own.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-6",
+      "requested": 1,
+      "source": "craft",
+      "text": "A master\u2019s method offers a useful map for beginners, but it should be treated as guidance rather than a permanent rulebook once the learner gains confidence.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p1-7",
+      "requested": 1,
+      "source": "craft",
+      "text": "Craftsmanship grows from both disciplined emulation and independent problem-solving, with imitation providing the foundation and personal experimentation giving the work its distinctive character.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p2-0",
+      "requested": 2,
+      "source": "craft",
+      "text": "Beginners generally benefit from copying an accomplished practitioner, since imitation reveals techniques and standards that are difficult to discover independently. After gaining fluency, they can adapt those lessons into an individual approach.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "craft-p2-1",
+      "requested": 2,
+      "source": "craft",
+      "text": "Following a master\u2019s example early on provides a reliable structure for practice, while later experimentation helps the learner turn borrowed skills into an authentic voice.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "craft-p2-2",
+      "requested": 2,
+      "source": "craft",
+      "text": "The most effective path is often apprenticeship first and invention second: disciplined imitation establishes control, and personal exploration develops originality.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "craft-p2-3",
+      "requested": 2,
+      "source": "craft",
+      "text": "Working out a method entirely alone can lead to avoidable weaknesses, so learners should initially study and reproduce proven practices before deliberately departing from them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p2-4",
+      "requested": 2,
+      "source": "craft",
+      "text": "A master\u2019s methods should serve as training wheels rather than permanent rules; close imitation builds competence, but independent choices are essential for mature craftsmanship.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p2-5",
+      "requested": 2,
+      "source": "craft",
+      "text": "One should imitate not merely the visible results of a master\u2019s work but the reasoning behind them, then use that understanding to create methods suited to one\u2019s own aims.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p2-6",
+      "requested": 2,
+      "source": "craft",
+      "text": "Early conformity to a strong model can accelerate learning by focusing attention on fundamentals, whereas originality becomes more meaningful once the learner understands what is being changed and why.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-p2-7",
+      "requested": 2,
+      "source": "craft",
+      "text": "Craft is best learned through a balance of emulation and invention: begin by absorbing established standards, then challenge and reshape them through sustained personal practice.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "craft-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "craft-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "craft-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "craft-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "craft-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "craft-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 6,
+    "-1": 8,
+    "0": 2,
+    "1": 10,
+    "2": 20
+  },
+  "moved": 24,
+  "n_within": 40
+}

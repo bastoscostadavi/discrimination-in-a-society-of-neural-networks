@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "recipe",
+    "statement": "whether a recipe is better followed exactly, or treated as a starting point to depart from"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A recipe is best treated as a reliable starting point: follow it closely when technique and proportions matter, but feel free to adjust seasoning, ingredients, and presentation to suit your taste and circumstances.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "recipe--2-0",
+      "requested": -2,
+      "source": "recipe",
+      "text": "A recipe should be followed exactly, because even small deviations can disrupt the intended balance, texture, and cooking process.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "recipe--2-1",
+      "requested": -2,
+      "source": "recipe",
+      "text": "Recipes are merely suggestions, and cooks should ignore the instructions whenever possible in favor of complete improvisation.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "recipe--2-2",
+      "requested": -2,
+      "source": "recipe",
+      "text": "The best approach is to copy a recipe precisely every time; personal substitutions usually make the finished dish less authentic and less successful.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "recipe--2-3",
+      "requested": -2,
+      "source": "recipe",
+      "text": "A recipe should never be altered for individual taste, since the creator\u2019s proportions and seasoning represent the dish as it was meant to be experienced.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "recipe--2-4",
+      "requested": -2,
+      "source": "recipe",
+      "text": "Cooking is an artistic act in which recipes are unnecessary constraints, so relying on measurements and detailed directions only limits creativity.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "recipe--2-5",
+      "requested": -2,
+      "source": "recipe",
+      "text": "Unless a recipe is being used for baking or another highly technical process, it should always be changed substantially rather than followed closely.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "recipe--2-6",
+      "requested": -2,
+      "source": "recipe",
+      "text": "The safest way to cook is to obey every instruction and ingredient list literally, even when circumstances, available ingredients, or diners\u2019 preferences differ.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "recipe--2-7",
+      "requested": -2,
+      "source": "recipe",
+      "text": "A recipe\u2019s authority should be trusted over a cook\u2019s instincts; departing from it is more likely to produce mistakes than improvements.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "recipe--1-0",
+      "requested": -1,
+      "source": "recipe",
+      "text": "A recipe should generally be followed exactly, since its proportions and instructions were developed to produce a specific result.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "recipe--1-1",
+      "requested": -1,
+      "source": "recipe",
+      "text": "Departing from a recipe is usually a mistake unless you already understand the underlying cooking technique extremely well.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "recipe--1-2",
+      "requested": -1,
+      "source": "recipe",
+      "text": "Recipes are carefully balanced, so changing ingredients or quantities can easily compromise the dish\u2019s texture, flavor, and appearance.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "recipe--1-3",
+      "requested": -1,
+      "source": "recipe",
+      "text": "The best cooks respect recipes as complete instructions rather than treating them as loose suggestions.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "recipe--1-4",
+      "requested": -1,
+      "source": "recipe",
+      "text": "Seasoning and ingredient substitutions should be made sparingly, because personal improvisation can obscure the dish\u2019s intended character.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "recipe--1-5",
+      "requested": -1,
+      "source": "recipe",
+      "text": "A recipe is most useful when followed consistently; adjusting it to circumstances often creates more uncertainty than improvement.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "recipe--1-6",
+      "requested": -1,
+      "source": "recipe",
+      "text": "Unless ingredients are unavailable or dietary needs require changes, there is little reason to alter a well-tested recipe.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "recipe--1-7",
+      "requested": -1,
+      "source": "recipe",
+      "text": "Creative presentation is worthwhile, but the recipe\u2019s core ingredients, proportions, and method should usually remain untouched.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "recipe-p0-0",
+      "requested": 0,
+      "source": "recipe",
+      "text": "Recipes are useful guides, but the best approach depends on the dish, the cook\u2019s experience, and the desired result.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-1",
+      "requested": 0,
+      "source": "recipe",
+      "text": "Following a recipe exactly can provide consistency, while thoughtful deviations can make it more suitable for personal preferences or available ingredients.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-2",
+      "requested": 0,
+      "source": "recipe",
+      "text": "Recipes generally offer a sound framework, though cooking often benefits from adapting to taste, texture, seasonality, and equipment.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-3",
+      "requested": 0,
+      "source": "recipe",
+      "text": "A recipe\u2019s proportions and methods are worth respecting, but minor substitutions and adjustments are usually reasonable when they serve a clear purpose.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-4",
+      "requested": 0,
+      "source": "recipe",
+      "text": "The ideal balance is to understand why a recipe works and then decide which parts should be followed precisely and which can be changed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-5",
+      "requested": 0,
+      "source": "recipe",
+      "text": "Beginners may benefit from following recipes closely, while experienced cooks can use them more flexibly as inspiration.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-6",
+      "requested": 0,
+      "source": "recipe",
+      "text": "Recipes are neither strict rules nor mere suggestions; their importance varies according to the complexity and precision of the dish.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p0-7",
+      "requested": 0,
+      "source": "recipe",
+      "text": "A good cook can preserve a recipe\u2019s intended character while making practical adjustments to reflect personal taste and circumstances.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-0",
+      "requested": 1,
+      "source": "recipe",
+      "text": "Recipes are useful guides, but the best cooks adapt them to available ingredients, personal preferences, and the occasion.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-1",
+      "requested": 1,
+      "source": "recipe",
+      "text": "Follow a recipe precisely for foundational techniques and ratios, then make thoughtful changes where flavor or practicality calls for them.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-2",
+      "requested": 1,
+      "source": "recipe",
+      "text": "A recipe should provide structure rather than impose rigid rules; understanding its purpose makes sensible substitutions and variations easier.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-3",
+      "requested": 1,
+      "source": "recipe",
+      "text": "Exact adherence is most valuable when baking or learning a technique, while improvisation works well in many savory dishes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-4",
+      "requested": 1,
+      "source": "recipe",
+      "text": "Recipes reflect someone else\u2019s assumptions about taste and ingredients, so they should be adjusted to fit your own kitchen and palate.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "recipe-p1-5",
+      "requested": 1,
+      "source": "recipe",
+      "text": "Start by respecting the recipe\u2019s core method, then experiment with seasonings, textures, and garnishes to make the dish your own.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-6",
+      "requested": 1,
+      "source": "recipe",
+      "text": "A recipe is neither a command nor a suggestion to ignore\u2014it is a tested framework that rewards careful interpretation and selective deviation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p1-7",
+      "requested": 1,
+      "source": "recipe",
+      "text": "The ideal approach is to cook the recipe as written once, then use what you learn to refine and personalize it in future attempts.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "recipe-p2-0",
+      "requested": 2,
+      "source": "recipe",
+      "text": "Recipes are useful guides, but the best cooking comes from adapting them to your ingredients, preferences, and experience.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "recipe-p2-1",
+      "requested": 2,
+      "source": "recipe",
+      "text": "Follow a recipe precisely when its structure depends on exact ratios or timing; otherwise, treat it as a flexible framework.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "recipe-p2-2",
+      "requested": 2,
+      "source": "recipe",
+      "text": "A recipe should provide direction rather than impose rigid rules, allowing cooks to make thoughtful substitutions and adjustments.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "recipe-p2-3",
+      "requested": 2,
+      "source": "recipe",
+      "text": "Good cooks respect a recipe\u2019s underlying technique while making the dish their own through seasoning, texture, and presentation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p2-4",
+      "requested": 2,
+      "source": "recipe",
+      "text": "Recipes are most valuable as foundations: understand their purpose, then modify them to fit what you have and what you enjoy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p2-5",
+      "requested": 2,
+      "source": "recipe",
+      "text": "Exact adherence matters for baking and other delicate preparations, but savory cooking generally benefits from informed improvisation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p2-6",
+      "requested": 2,
+      "source": "recipe",
+      "text": "A recipe can teach a method and balance of flavors without dictating every decision, so adapting it is part of the craft.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "recipe-p2-7",
+      "requested": 2,
+      "source": "recipe",
+      "text": "The ideal approach is to follow a recipe closely the first time, then refine or personalize it with confidence on future attempts.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "recipe-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "recipe-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "recipe-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "recipe-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "recipe-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "recipe-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 7,
+    "-1": 7,
+    "0": 7,
+    "1": 4,
+    "2": 21
+  },
+  "moved": 18,
+  "n_within": 40
+}

@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "library",
+    "statement": "whether a public library should stock what its readers ask for, or what will still be worth reading in fifty years"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A public library should prioritize what its community wants to read while ensuring its collection also preserves enduring works and diverse perspectives. Its role is both to serve present readers and to safeguard knowledge for future generations.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "library--2-0",
+      "requested": -2,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "library--2-1",
+      "requested": -2,
+      "source": "library",
+      "text": "Libraries should respond entirely to present community demand and should not spend limited funds preserving works that few people read.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "library--2-2",
+      "requested": -2,
+      "source": "library",
+      "text": "A library\u2019s primary duty is to protect cultural heritage, so popular contemporary titles and changing reader tastes should have little influence on collection decisions.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "library--2-3",
+      "requested": -2,
+      "source": "library",
+      "text": "Public libraries should purchase only practical materials that meet immediate educational and employment needs, rather than maintaining broad collections for future generations.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "library--2-4",
+      "requested": -2,
+      "source": "library",
+      "text": "Libraries should let professional curators choose the collection without consulting readers, since public demand tends to favor disposable entertainment over lasting knowledge.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "library--2-5",
+      "requested": -2,
+      "source": "library",
+      "text": "A public library should focus on the dominant interests and traditions of its local majority instead of deliberately seeking diverse perspectives or preserving minority works.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "library--2-6",
+      "requested": -2,
+      "source": "library",
+      "text": "If a book is unlikely to remain relevant for decades, the library should generally avoid acquiring it, even if many current readers want it.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "library--2-7",
+      "requested": -2,
+      "source": "library",
+      "text": "Libraries should continually replace older works with the newest and most popular materials, because serving today\u2019s audience matters more than preserving the past.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "library--1-0",
+      "requested": -1,
+      "source": "library",
+      "text": "A public library should mainly stock the books its readers are asking for, since its first responsibility is to serve current community needs rather than predict what future generations may value.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "library--1-1",
+      "requested": -1,
+      "source": "library",
+      "text": "Libraries should prioritize works with lasting literary, historical, or cultural significance, even when those books are not currently popular with local readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "library--1-2",
+      "requested": -1,
+      "source": "library",
+      "text": "A public library should rely on professional selection standards instead of public demand, because readers may overlook important works that deserve preservation.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "library--1-3",
+      "requested": -1,
+      "source": "library",
+      "text": "The best collection is one that emphasizes enduring classics and authoritative nonfiction, while treating temporary popular interests as secondary.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "library--1-4",
+      "requested": -1,
+      "source": "library",
+      "text": "Libraries should devote most of their limited budgets to materials likely to remain valuable for decades, since preserving knowledge is more important than satisfying short-lived trends.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "library--1-5",
+      "requested": -1,
+      "source": "library",
+      "text": "Public libraries should be willing to disappoint readers when requests conflict with a carefully developed collection focused on cultural importance and long-term relevance.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "library--1-6",
+      "requested": -1,
+      "source": "library",
+      "text": "A library should stock what future scholars, students, and citizens may need rather than simply mirroring current tastes, even if that makes the collection less immediately popular.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "library--1-7",
+      "requested": -1,
+      "source": "library",
+      "text": "Community demand should influence library purchasing only modestly; a public library has a broader duty to protect diverse and lasting knowledge than to function as a reflection of present reading habits.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "library-p0-0",
+      "requested": 0,
+      "source": "library",
+      "text": "A public library should balance current reader demand with the long-term value of works that may remain important for decades.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-1",
+      "requested": 0,
+      "source": "library",
+      "text": "Libraries can respond to what their communities request while maintaining a core collection of lasting literature, scholarship, and cultural records.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-2",
+      "requested": 0,
+      "source": "library",
+      "text": "A library\u2019s collection may reasonably include popular contemporary materials as well as works selected for their enduring significance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-3",
+      "requested": 0,
+      "source": "library",
+      "text": "Public libraries serve readers best when they combine responsiveness to present interests with responsibility for preserving knowledge and cultural diversity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-4",
+      "requested": 0,
+      "source": "library",
+      "text": "The choice need not be between current demand and future value; a well-rounded library collection can support both.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-5",
+      "requested": 0,
+      "source": "library",
+      "text": "Libraries should consider circulation and community preferences alongside literary, historical, educational, and archival importance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-6",
+      "requested": 0,
+      "source": "library",
+      "text": "A public library can refresh its collection according to changing interests while retaining works that represent lasting ideas and a broad range of perspectives.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p0-7",
+      "requested": 0,
+      "source": "library",
+      "text": "Collection development should reflect both the needs of today\u2019s readers and the possibility that some materials will become valuable resources for future generations.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-0",
+      "requested": 1,
+      "source": "library",
+      "text": "A public library should respond to current borrowing demand, but it should also reserve space and funding for classics, local history, and works that may gain importance over time.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-1",
+      "requested": 1,
+      "source": "library",
+      "text": "Libraries should let readers\u2019 interests guide acquisitions while relying on librarians to protect lasting literature and underrepresented viewpoints from being overlooked.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-2",
+      "requested": 1,
+      "source": "library",
+      "text": "The best collection balances immediate usefulness with long-term cultural value: popular books bring people through the doors, while enduring works give the library permanence.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-3",
+      "requested": 1,
+      "source": "library",
+      "text": "A library should not judge value solely by present popularity; it should meet community demand while preserving books that future readers, researchers, and generations may need.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-4",
+      "requested": 1,
+      "source": "library",
+      "text": "Public libraries ought to reflect the tastes of their communities without becoming driven entirely by trends, maintaining a thoughtful core of significant and diverse works.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-5",
+      "requested": 1,
+      "source": "library",
+      "text": "Reader requests should be an important measure of what a library buys, but professional judgment should ensure that the collection remains intellectually broad and historically meaningful.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-6",
+      "requested": 1,
+      "source": "library",
+      "text": "A library serves its community most effectively when it offers both the books people are eager to read now and the works whose value may only become clear with time.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p1-7",
+      "requested": 1,
+      "source": "library",
+      "text": "Libraries should be living collections shaped by current readers, yet they also have a civic responsibility to preserve cultural memory and provide access to perspectives that are not currently popular.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p2-0",
+      "requested": 2,
+      "source": "library",
+      "text": "A public library should respond to current community demand, but balance popular titles with classics and works of lasting cultural or historical importance.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "library-p2-1",
+      "requested": 2,
+      "source": "library",
+      "text": "Libraries should collect what people want to read today while deliberately preserving books that future generations may need to understand the past.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "library-p2-2",
+      "requested": 2,
+      "source": "library",
+      "text": "A strong library collection serves immediate interests without becoming temporary: it should combine popular materials, enduring literature, local voices, and underrepresented perspectives.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "library-p2-3",
+      "requested": 2,
+      "source": "library",
+      "text": "Public libraries should let reader demand guide much of their purchasing, while reserving resources for works whose value may endure beyond current trends.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p2-4",
+      "requested": 2,
+      "source": "library",
+      "text": "The best collection is neither purely market-driven nor devoted only to canonized works; it reflects present community needs while protecting knowledge and cultural diversity for the future.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p2-5",
+      "requested": 2,
+      "source": "library",
+      "text": "Libraries have a duty to be useful now and responsible over time, providing requested books alongside influential, historically significant, and otherwise vulnerable works.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p2-6",
+      "requested": 2,
+      "source": "library",
+      "text": "Reader preferences should shape a library\u2019s collection, but librarians should also exercise judgment to preserve materials that broaden perspectives and may remain valuable for decades.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-p2-7",
+      "requested": 2,
+      "source": "library",
+      "text": "A public library should be a living resource for its community and a cultural archive for future generations, balancing popular demand with lasting significance and inclusive representation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "library-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "library-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "library-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "library-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "library-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "library-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 8,
+    "-1": 4,
+    "0": 6,
+    "1": 4,
+    "2": 24
+  },
+  "moved": 21,
+  "n_within": 40
+}

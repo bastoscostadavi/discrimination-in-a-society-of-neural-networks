@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "difficulty",
+    "statement": "whether difficulty is a necessary part of a good education, or mostly an obstacle that good teaching should remove"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Difficulty is a necessary part of good education when it is purposeful: grappling with challenging ideas builds understanding, resilience, and independence. However, good teaching should remove unnecessary obstacles so that students struggle with the subject itself, not with confusion, poor design, or lack of support.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "difficulty--2-0",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "difficulty--2-1",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Students learn best when information is presented clearly and directly, so struggle should be eliminated rather than treated as educationally valuable.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "difficulty--2-2",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Academic difficulty is usually a sign of poor teaching, outdated materials, or needless complexity, not a pathway to deeper understanding.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "difficulty--2-3",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Resilience and independence are better developed through extracurricular experiences than through making schoolwork deliberately challenging.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "difficulty--2-4",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "If a student is struggling, the teacher\u2019s responsibility is to simplify the material until it becomes easy, because confusion has no educational benefit.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty--2-5",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Education should prioritize confidence and rapid mastery over difficult intellectual challenges that may discourage students.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty--2-6",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "Purposeful struggle is largely a myth: students gain understanding most effectively through repetition, guidance, and immediate correction.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty--2-7",
+      "requested": -2,
+      "source": "difficulty",
+      "text": "The role of good teaching is to remove every significant obstacle from learning, since any remaining difficulty wastes time and reduces students\u2019 motivation.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty--1-0",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Difficulty is not an essential ingredient of good education; clear explanations, encouragement, and accessible materials can produce deep understanding without requiring students to struggle extensively.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "difficulty--1-1",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Good teaching should minimize difficulty as much as possible, because unnecessary struggle often discourages learners and can make them mistake confusion for genuine learning.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "difficulty--1-2",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Educational challenge matters, but it is usually less important than relevance and curiosity. Students can learn deeply when material feels meaningful, even if it is presented in a relatively easy way.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "difficulty--1-3",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Difficulty should be treated mainly as an obstacle to overcome rather than a virtue in itself. The best teachers make learning feel manageable and reserve intense challenge for situations where it is truly unavoidable.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "difficulty--1-4",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Struggle does not reliably build resilience or independence; without timely support, it can reinforce misconceptions and reduce students\u2019 confidence. Good education should therefore prioritize success and clarity over hardship.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "difficulty--1-5",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "Students learn best when concepts are introduced smoothly and progressively, so deliberately making education difficult is often counterproductive. Mastery can create independence more effectively than repeated frustration.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "difficulty--1-6",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "The idea that difficulty strengthens learning is sometimes overstated. Practice, feedback, and motivation are more important, and these can be provided in environments that are supportive rather than demanding.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "difficulty--1-7",
+      "requested": -1,
+      "source": "difficulty",
+      "text": "A good education should remove nearly all barriers that are unrelated to the subject, while also avoiding the assumption that students must suffer through the subject itself. Effective instruction can make even complex learning feel accessible and rewarding.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "difficulty-p0-0",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Difficulty can support good education by encouraging deeper thinking, but it is not automatically valuable; its usefulness depends on whether it helps students reach meaningful learning goals.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-1",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "A good education should include challenges that require effort while also providing enough guidance to prevent students from becoming discouraged or lost.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-2",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Some difficulty is necessary for students to develop independence, although excessive difficulty can distract from learning and create avoidable frustration.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-3",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "The ideal balance is to make the core ideas accessible while asking students to apply, question, and extend them in demanding ways.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-4",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Difficulty is neither inherently beneficial nor harmful; its educational value depends on the learner, the subject, the timing, and the support available.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-5",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Effective teaching does not eliminate every struggle, but it distinguishes productive struggle from barriers caused by unclear explanations, poor resources, or inadequate preparation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-6",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Students often learn more when they have to work through problems themselves, yet carefully designed instruction can make that work more efficient and inclusive.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p0-7",
+      "requested": 0,
+      "source": "difficulty",
+      "text": "Education should challenge students enough to promote growth without treating hardship as proof of learning or making unnecessary obstacles part of the curriculum.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-0",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Good education should be challenging enough to require genuine thought, but not so difficult that students are blocked by unclear instruction or inaccessible materials.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-1",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Difficulty is valuable when it encourages students to think independently and persist through problems; teachers should still provide the guidance needed to make that effort productive.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-2",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Learning should involve manageable struggle, because overcoming challenges can deepen understanding, while excessive or irrelevant difficulty merely wastes effort and discourages students.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-3",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "A strong teacher does not eliminate every challenge but distinguishes between useful intellectual struggle and preventable barriers that interfere with learning.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-4",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Difficulty can help students develop confidence and resilience when it is matched to their abilities and supported with timely feedback.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-5",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Education should make important ideas demanding without making them needlessly obscure; clarity and support allow students to confront the real complexity of a subject.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-6",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "Some frustration is an essential part of mastering difficult skills, but students learn best when teachers design that frustration carefully rather than leaving them to struggle without direction.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p1-7",
+      "requested": 1,
+      "source": "difficulty",
+      "text": "The aim of teaching should not be effortless learning, but meaningful challenge: students should work hard on worthwhile problems while unnecessary complexity, confusion, and poor organization are removed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p2-0",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Good education should preserve productive struggle while eliminating avoidable frustration; students learn most deeply when challenges are meaningful and support is available.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "difficulty-p2-1",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Difficulty is valuable when it encourages students to think, question, and solve problems independently, but ineffective instruction should not be mistaken for rigor.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "difficulty-p2-2",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "A strong teacher does not make learning easy in every respect; instead, they remove needless barriers and design challenges that help students develop mastery and confidence.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "difficulty-p2-3",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Educational difficulty should be calibrated: tasks should stretch students beyond their current abilities without overwhelming them or leaving them without guidance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p2-4",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Struggle can strengthen understanding and perseverance, but it is beneficial only when students can see a path forward and receive timely feedback.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p2-5",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "The goal of good teaching is not to eliminate challenge but to make challenge purposeful, accessible, and connected to worthwhile learning.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p2-6",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Students should encounter demanding ideas and problems because effort supports durable learning, yet unclear explanations and poorly designed tasks merely waste effort.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-p2-7",
+      "requested": 2,
+      "source": "difficulty",
+      "text": "Difficulty becomes educationally productive when it leads to insight and independence; otherwise, teachers have a responsibility to simplify, clarify, or provide support.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "difficulty-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "difficulty-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "difficulty-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "difficulty-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "difficulty-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 10,
+    "-1": 7,
+    "0": 2,
+    "1": 3,
+    "2": 24
+  },
+  "moved": 20,
+  "n_within": 40
+}

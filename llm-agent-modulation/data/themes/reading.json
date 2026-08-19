@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "reading",
+    "statement": "whether a long book is better read slowly over months, or quickly in a few sittings"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A long book is usually best read at a steady pace over weeks or months, allowing its ideas and characters time to settle. However, if it is especially gripping, reading it quickly can preserve momentum and deepen the immersive experience.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "reading--2-0",
+      "requested": -2,
+      "source": "reading",
+      "text": "A long book is almost always better read quickly, because sustained momentum makes its structure and emotional arc more powerful.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "reading--2-1",
+      "requested": -2,
+      "source": "reading",
+      "text": "Reading a long book over months usually weakens the experience by causing readers to forget details, lose emotional investment, and struggle to reconnect with the story.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "reading--2-2",
+      "requested": -2,
+      "source": "reading",
+      "text": "The ideal way to read a long book is in one or two intense sittings, since immersion matters more than allowing ideas time to settle.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "reading--2-3",
+      "requested": -2,
+      "source": "reading",
+      "text": "A slow reading pace is overrated; long books should be consumed rapidly so their central arguments or themes remain coherent in the reader\u2019s mind.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "reading--2-4",
+      "requested": -2,
+      "source": "reading",
+      "text": "Taking months to finish a long book often turns reading into a chore, whereas completing it quickly creates a stronger sense of achievement and enjoyment.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "reading--2-5",
+      "requested": -2,
+      "source": "reading",
+      "text": "Even a complicated long book benefits from speed, because immediate exposure to its full sequence reveals connections that might be missed when reading is interrupted.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "reading--2-6",
+      "requested": -2,
+      "source": "reading",
+      "text": "Readers should prioritize finishing long books as quickly as possible rather than lingering over them, since reflection can happen afterward without disrupting the narrative.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "reading--2-7",
+      "requested": -2,
+      "source": "reading",
+      "text": "A long book is best treated like an extended film: read it in a concentrated burst so its atmosphere, characters, and plot remain vivid throughout.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "reading--1-0",
+      "requested": -1,
+      "source": "reading",
+      "text": "Long books are generally better read quickly, since finishing them in a concentrated stretch preserves the narrative arc and prevents earlier details from fading.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "reading--1-1",
+      "requested": -1,
+      "source": "reading",
+      "text": "Reading a long book over several months can make it feel fragmented; a few sustained sittings usually provide a stronger sense of immersion and continuity.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "reading--1-2",
+      "requested": -1,
+      "source": "reading",
+      "text": "A slow pace is not necessarily helpful for understanding a book, because prolonged reading often encourages distractions rather than deeper reflection.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "reading--1-3",
+      "requested": -1,
+      "source": "reading",
+      "text": "Even demanding books are often best approached intensively, allowing the reader to maintain emotional momentum instead of repeatedly rebuilding it after long breaks.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "reading--1-4",
+      "requested": -1,
+      "source": "reading",
+      "text": "Reading slowly may give ideas time to settle, but it can also dilute their impact; completing a long book quickly often creates a more powerful and coherent experience.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "reading--1-5",
+      "requested": -1,
+      "source": "reading",
+      "text": "The ideal pace depends less on the book\u2019s length than on the reader\u2019s attention, and a short burst of focused reading is frequently preferable to months of intermittent reading.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "reading--1-6",
+      "requested": -1,
+      "source": "reading",
+      "text": "Long books should not automatically be spread over weeks or months, because extended pauses can weaken suspense and make characters\u2019 development harder to follow.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "reading--1-7",
+      "requested": -1,
+      "source": "reading",
+      "text": "Finishing a long book rapidly can encourage fuller engagement, while a leisurely schedule may turn an absorbing work into an obligation that is easy to abandon.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "reading-p0-0",
+      "requested": 0,
+      "source": "reading",
+      "text": "The ideal pace depends on the book: slower reading can support reflection, while faster reading can sustain narrative momentum.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-1",
+      "requested": 0,
+      "source": "reading",
+      "text": "Reading a long book over several weeks may make it easier to absorb complex ideas, but finishing it quickly can create a stronger sense of immersion.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-2",
+      "requested": 0,
+      "source": "reading",
+      "text": "A steady pace allows readers to notice details and revisit difficult passages, whereas a rapid pace may preserve the continuity of the story.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-3",
+      "requested": 0,
+      "source": "reading",
+      "text": "Neither approach is inherently better; the best choice depends on the reader\u2019s schedule, concentration, and relationship with the book.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "reading-p0-4",
+      "requested": 0,
+      "source": "reading",
+      "text": "Reading slowly can make a book feel like a sustained companion, while reading quickly can make its world feel more vivid and immediate.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-5",
+      "requested": 0,
+      "source": "reading",
+      "text": "Books with intricate arguments may benefit from being read gradually, while plot-driven books may be especially satisfying in a few concentrated sittings.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-6",
+      "requested": 0,
+      "source": "reading",
+      "text": "Taking months to finish a long book can encourage thoughtful engagement, though reading it quickly may help maintain emotional and thematic connections.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p0-7",
+      "requested": 0,
+      "source": "reading",
+      "text": "The right pace may change during the reading experience, with some sections inviting careful study and others encouraging rapid progress.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-0",
+      "requested": 1,
+      "source": "reading",
+      "text": "Reading a long book slowly often gives its themes and characters more room to develop in the reader\u2019s mind, though an engrossing story may benefit from being finished quickly.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-1",
+      "requested": 1,
+      "source": "reading",
+      "text": "A steady reading pace can make a lengthy book feel more manageable and encourage thoughtful reflection, while rapid reading can heighten the excitement of a compelling narrative.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-2",
+      "requested": 1,
+      "source": "reading",
+      "text": "For complex or literary books, taking weeks or months may lead to better understanding; for suspenseful books, a few concentrated sittings may create a stronger experience.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-3",
+      "requested": 1,
+      "source": "reading",
+      "text": "Long books are generally rewarding when read consistently rather than rushed, but maintaining momentum can sometimes be more valuable than taking extended breaks.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-4",
+      "requested": 1,
+      "source": "reading",
+      "text": "Reading slowly allows details, ideas, and emotional moments to linger, whereas reading quickly can make the book feel more cohesive and immersive.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-5",
+      "requested": 1,
+      "source": "reading",
+      "text": "The ideal pace depends on the book: challenging works deserve time for reflection, while highly engaging stories are often best enjoyed before the tension fades.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-6",
+      "requested": 1,
+      "source": "reading",
+      "text": "A long book need not be hurried, since gradual reading can deepen appreciation, but reading it in a short span may help preserve its atmosphere and narrative continuity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p1-7",
+      "requested": 1,
+      "source": "reading",
+      "text": "Reading over several weeks can make a substantial book feel richer and less exhausting, although an especially absorbing book may be most satisfying when read almost continuously.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p2-0",
+      "requested": 2,
+      "source": "reading",
+      "text": "A long book is often most rewarding when read steadily, since regular pauses give its ideas and characters time to develop in the reader\u2019s mind.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "reading-p2-1",
+      "requested": 2,
+      "source": "reading",
+      "text": "Reading a lengthy book over several weeks can make the experience more reflective and memorable, while still maintaining enough continuity to follow its larger structure.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "reading-p2-2",
+      "requested": 2,
+      "source": "reading",
+      "text": "For a complex novel, a measured pace allows readers to absorb details, themes, and relationships without becoming overwhelmed.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "reading-p2-3",
+      "requested": 2,
+      "source": "reading",
+      "text": "A gripping long book may be better read in a few concentrated sittings, because uninterrupted momentum can heighten suspense and immersion.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p2-4",
+      "requested": 2,
+      "source": "reading",
+      "text": "Reading quickly is especially effective when the book\u2019s plot is compelling, as long breaks may weaken the emotional tension and make it harder to reenter the story.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p2-5",
+      "requested": 2,
+      "source": "reading",
+      "text": "The ideal pace depends on the book: demanding works benefit from slow reading, while fast-moving stories often reward a sustained reading session.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p2-6",
+      "requested": 2,
+      "source": "reading",
+      "text": "A balanced approach\u2014reading regularly but allowing time for reflection\u2014can combine the immersion of quick reading with the understanding gained from a slower pace.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-p2-7",
+      "requested": 2,
+      "source": "reading",
+      "text": "There is no universally superior speed; a long book should be read slowly when its depth calls for contemplation and quickly when its narrative energy invites total absorption.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "reading-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "reading-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "reading-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "reading-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "reading-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "reading-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 2,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 2,
+    "-1": 7,
+    "0": 6,
+    "1": 8,
+    "2": 23
+  },
+  "moved": 30,
+  "n_within": 40
+}

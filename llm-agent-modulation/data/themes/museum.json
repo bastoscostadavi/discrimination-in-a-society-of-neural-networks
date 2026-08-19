@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "museum",
+    "statement": "whether a museum should return its objects to the places they were made, or keep a collection together where it can be compared"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Museums should return objects when they were acquired through coercion, theft, or colonial exploitation, especially when their source communities request them. In other cases, keeping collections together can support valuable comparison and research, provided museums share access, context, and decision-making with communities of origin.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "museum--2-0",
+      "requested": -2,
+      "source": "museum",
+      "text": "Museums should keep all objects in their collections, regardless of how they were acquired, because preserving a unified collection for public education and research is more important than returning individual items.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "museum--2-1",
+      "requested": -2,
+      "source": "museum",
+      "text": "Objects should remain wherever they are currently housed unless a court definitively proves that they were stolen; moral claims about coercion, colonialism, or community wishes should not determine museum ownership.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "museum--2-2",
+      "requested": -2,
+      "source": "museum",
+      "text": "Museums should never return objects to source communities because modern institutions generally provide better conservation, security, and scholarly access than the places where the objects were originally made.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "museum--2-3",
+      "requested": -2,
+      "source": "museum",
+      "text": "The best policy is to keep collections together permanently, since separating objects from related works destroys historical context and makes comparative research less reliable.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--2-4",
+      "requested": -2,
+      "source": "museum",
+      "text": "Requests from source communities should not carry special weight, because cultural objects belong to all humanity rather than to particular nations, ethnic groups, or descendants.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--2-5",
+      "requested": -2,
+      "source": "museum",
+      "text": "Even objects acquired through colonial conquest or coercion should usually remain in museums, since returning them cannot undo the past and may allow political authorities to misuse or restrict access to them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--2-6",
+      "requested": -2,
+      "source": "museum",
+      "text": "Museums should decide the fate of contested objects independently, without sharing authority with communities of origin, because professional curators are better equipped to assess provenance, significance, and preservation needs.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--2-7",
+      "requested": -2,
+      "source": "museum",
+      "text": "Rather than returning objects, museums should offer digital images, loans, and educational partnerships; physical restitution is unnecessary when institutions can provide broad access while retaining their collections.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--1-0",
+      "requested": -1,
+      "source": "museum",
+      "text": "Museums should generally keep objects together, even when their acquisition involved unequal power, because preserving a comprehensive collection can serve scholarship and public education better than returning individual pieces.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum--1-1",
+      "requested": -1,
+      "source": "museum",
+      "text": "Requests from source communities should be considered, but they should not by themselves determine an object\u2019s fate; museums should prioritize legal ownership, conservation needs, and the interests of a broad international public.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "museum--1-2",
+      "requested": -1,
+      "source": "museum",
+      "text": "Objects acquired during colonial periods should usually remain in museums unless clear evidence proves theft or coercion, since historical injustice alone does not establish that every transfer was illegitimate.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "museum--1-3",
+      "requested": -1,
+      "source": "museum",
+      "text": "Returning culturally significant objects may be appropriate in exceptional cases, but widespread restitution could fragment collections, limit comparative research, and reduce public access to world heritage.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "museum--1-4",
+      "requested": -1,
+      "source": "museum",
+      "text": "Museums should retain contested objects while expanding loans, digital access, and collaborative interpretation, rather than treating physical repatriation as the primary form of justice.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "museum--1-5",
+      "requested": -1,
+      "source": "museum",
+      "text": "The passage of time and changes in political boundaries can make it difficult to identify a single rightful claimant, so neutral museums may sometimes be better custodians than governments or communities making competing claims.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "museum--1-6",
+      "requested": -1,
+      "source": "museum",
+      "text": "Universal museums have a legitimate role in bringing objects from different cultures together, allowing visitors to compare civilizations and encouraging cross-cultural understanding that might be weakened by extensive returns.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "museum--1-7",
+      "requested": -1,
+      "source": "museum",
+      "text": "Even when an object was obtained under questionable circumstances, museums should seek negotiated shared custody or long-term renewable loans before permanently returning it, balancing reparative concerns with preservation and global access.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "museum-p0-0",
+      "requested": 0,
+      "source": "museum",
+      "text": "Museums should assess each object\u2019s history individually, weighing how it was acquired, the wishes of source communities, and the benefits of preserving it within a broader collection.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-1",
+      "requested": 0,
+      "source": "museum",
+      "text": "Returning objects can help repair historical injustices and strengthen cultural relationships, while retaining some objects may support scholarship and comparative study when done transparently and ethically.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-2",
+      "requested": 0,
+      "source": "museum",
+      "text": "Decisions about an object\u2019s location should be made collaboratively by museums and communities of origin rather than according to a single universal rule.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-3",
+      "requested": 0,
+      "source": "museum",
+      "text": "Museums may reasonably keep collections together when they can demonstrate lawful acquisition, provide meaningful access to source communities, and share authority over interpretation and care.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-4",
+      "requested": 0,
+      "source": "museum",
+      "text": "Objects taken through violence, coercion, or colonial policies deserve especially strong consideration for restitution, even if their presence in a museum collection has academic value.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-5",
+      "requested": 0,
+      "source": "museum",
+      "text": "Long-term loans, shared custody, traveling exhibitions, and digital access can offer alternatives when immediate permanent return or permanent retention is difficult to achieve.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-6",
+      "requested": 0,
+      "source": "museum",
+      "text": "The cultural, spiritual, and community significance of an object should be considered alongside legal ownership, conservation needs, and the research value of keeping related objects together.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p0-7",
+      "requested": 0,
+      "source": "museum",
+      "text": "A fair policy should be transparent, open to revisiting past decisions, and willing to recognize that different objects and communities may require different forms of return, partnership, or shared stewardship.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-0",
+      "requested": 1,
+      "source": "museum",
+      "text": "Museums have a strong obligation to return objects obtained through theft, force, or unequal colonial relationships, particularly when legitimate source communities seek their recovery.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-1",
+      "requested": 1,
+      "source": "museum",
+      "text": "Repatriation should be the default for culturally significant objects taken without meaningful consent, while ethically acquired materials may remain in museums when their broader context is preserved.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-2",
+      "requested": 1,
+      "source": "museum",
+      "text": "Keeping collections together can benefit scholarship, but that benefit should not outweigh communities\u2019 rights to reclaim objects removed through coercion or exploitation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-3",
+      "requested": 1,
+      "source": "museum",
+      "text": "Museums should assess each object\u2019s history individually, prioritizing restitution where acquisition involved violence, deception, or colonial domination and collaboration where continued shared custody is appropriate.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-4",
+      "requested": 1,
+      "source": "museum",
+      "text": "Objects connected to living cultures should generally be returned when their communities request them, whereas objects with clear and voluntary acquisition histories may be responsibly retained for comparative study.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-5",
+      "requested": 1,
+      "source": "museum",
+      "text": "A museum\u2019s educational mission does not justify holding objects acquired unjustly; however, shared exhibitions, loans, and digital access can preserve comparative research after restitution.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-6",
+      "requested": 1,
+      "source": "museum",
+      "text": "Decisions about contested collections should be made jointly with source communities, with repatriation favored when the original transfer was not genuinely consensual.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p1-7",
+      "requested": 1,
+      "source": "museum",
+      "text": "Museums can preserve the value of comparative collections through partnerships and long-term loans, but they should not use research convenience to resist returning objects taken through colonial or coercive practices.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p2-0",
+      "requested": 2,
+      "source": "museum",
+      "text": "Museums should prioritize repatriating objects taken through force, fraud, or unequal colonial power, while retaining items only when there is clear, ethical agreement with the communities connected to them.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "museum-p2-1",
+      "requested": 2,
+      "source": "museum",
+      "text": "Returning unlawfully or coercively acquired objects is an important form of historical accountability; where ownership is not contested, museums may preserve collections together for comparative study through equitable partnerships.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "museum-p2-2",
+      "requested": 2,
+      "source": "museum",
+      "text": "A collection\u2019s scholarly value does not outweigh a community\u2019s legitimate claim to objects removed without consent, but museums can collaborate on loans, digitization, and shared stewardship for materials that remain contested or freely acquired.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "museum-p2-3",
+      "requested": 2,
+      "source": "museum",
+      "text": "Museums should investigate the provenance of their holdings transparently and return objects when their acquisition involved theft, coercion, or colonial domination, while making ethically held collections accessible for cross-cultural research.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p2-4",
+      "requested": 2,
+      "source": "museum",
+      "text": "Repatriation should be the default response to credible claims involving sacred, ancestral, or unlawfully taken objects; other works may remain in museums if source communities participate meaningfully in decisions and benefit from access.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p2-5",
+      "requested": 2,
+      "source": "museum",
+      "text": "Keeping related objects together can deepen understanding, but not at the expense of justice or cultural rights, so museums should favor restitution for exploitatively acquired objects and develop cooperative arrangements for the rest.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p2-6",
+      "requested": 2,
+      "source": "museum",
+      "text": "Museums should treat source communities as partners rather than merely subjects of study, returning objects obtained through violence or coercion and sharing authority over the care, interpretation, and circulation of other collections.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-p2-7",
+      "requested": 2,
+      "source": "museum",
+      "text": "The best policy balances preservation with repair: return objects whose removal caused clear historical harm, and maintain comparative collections only through consent, transparency, reciprocal access, and ongoing collaboration.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "museum-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "museum-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "museum-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "museum-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "museum-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "museum-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 2,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 10,
+    "-1": 5,
+    "0": 5,
+    "1": 2,
+    "2": 24
+  },
+  "moved": 19,
+  "n_within": 40
+}

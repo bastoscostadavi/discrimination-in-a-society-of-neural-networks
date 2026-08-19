@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "rules",
+    "statement": "whether the rules of a game should stay fixed, or be revised whenever players find a loophole in them"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "Game rules should generally remain fixed during play so that all players can rely on a fair, predictable system. However, loopholes should be reviewed and the rules revised between games when they undermine the game\u2019s intended spirit or balance.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "rules--2-0",
+      "requested": -2,
+      "source": "rules",
+      "text": "Game rules should be revised immediately whenever a loophole is discovered, even during play, because preserving fairness matters more than maintaining predictability.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules--2-1",
+      "requested": -2,
+      "source": "rules",
+      "text": "Rules should never be changed after a game begins; players are entitled to exploit any loophole they notice, regardless of whether it undermines the game\u2019s intended spirit.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "rules--2-2",
+      "requested": -2,
+      "source": "rules",
+      "text": "If a loophole gives players an unexpected strategic advantage, it should be preserved rather than eliminated, since creative discovery is part of good gameplay.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules--2-3",
+      "requested": -2,
+      "source": "rules",
+      "text": "Game rules should be changed frequently during play whenever the game becomes unbalanced, allowing organizers to adapt continuously to players\u2019 strategies.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "rules--2-4",
+      "requested": -2,
+      "source": "rules",
+      "text": "The original intent of a rule should matter less than its exact wording, so loopholes should be treated as legitimate interpretations instead of problems to be corrected.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "rules--2-5",
+      "requested": -2,
+      "source": "rules",
+      "text": "Rules should be revised only after players vote on the issue during the game, even if the change disrupts the current match or disadvantages some participants.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "rules--2-6",
+      "requested": -2,
+      "source": "rules",
+      "text": "A game\u2019s rules should remain permanently fixed, and loopholes should be accepted as unavoidable features rather than grounds for any revision.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "rules--2-7",
+      "requested": -2,
+      "source": "rules",
+      "text": "Organizers should proactively rewrite rules whenever they anticipate possible loopholes, even if no player has exploited them and the changes make the system less predictable.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "rules--1-0",
+      "requested": -1,
+      "source": "rules",
+      "text": "Game rules should be revised whenever a loophole gives players an unintended advantage, even if the change occurs during an ongoing game.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "rules--1-1",
+      "requested": -1,
+      "source": "rules",
+      "text": "Preserving the intended spirit of a game matters more than maintaining absolute predictability, so officials should close serious loopholes immediately.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "rules--1-2",
+      "requested": -1,
+      "source": "rules",
+      "text": "Players should expect rules to evolve as they discover new strategies; frequent adjustments can keep a game challenging and balanced.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "rules--1-3",
+      "requested": -1,
+      "source": "rules",
+      "text": "A loophole is not necessarily a problem simply because it was unintended, and players should usually be allowed to exploit it unless the rules explicitly forbid doing so.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "rules--1-4",
+      "requested": -1,
+      "source": "rules",
+      "text": "Game rules should remain fixed indefinitely once published, because changing them between games can be just as disruptive and unfair as changing them during play.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules--1-5",
+      "requested": -1,
+      "source": "rules",
+      "text": "If a loophole is clever and consistently available to everyone, it should become part of the game rather than be removed for violating an assumed spirit.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules--1-6",
+      "requested": -1,
+      "source": "rules",
+      "text": "The best approach is to let players vote during a game on whether a discovered loophole should be closed, giving the participants rather than officials control over rule changes.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules--1-7",
+      "requested": -1,
+      "source": "rules",
+      "text": "Rules should be revised proactively and often, since waiting until a loophole harms balance allows outdated assumptions to shape the game unnecessarily.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules-p0-0",
+      "requested": 0,
+      "source": "rules",
+      "text": "Game rules should usually remain unchanged during a game, while loopholes can be addressed before the next game if they create significant problems.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-1",
+      "requested": 0,
+      "source": "rules",
+      "text": "Whether to revise a rule should depend on how much the loophole affects fairness, strategy, and the experience of the players.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-2",
+      "requested": 0,
+      "source": "rules",
+      "text": "Keeping rules fixed supports consistency, but updating them between games can help ensure that the rules reflect the game\u2019s original purpose.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-3",
+      "requested": 0,
+      "source": "rules",
+      "text": "Minor loopholes may be accepted as part of gameplay, whereas loopholes that decide outcomes unfairly may justify a rule change.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-4",
+      "requested": 0,
+      "source": "rules",
+      "text": "Rules should not be changed simply because players discover an unexpected strategy; revisions are more appropriate when the strategy clearly conflicts with the intended design.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-5",
+      "requested": 0,
+      "source": "rules",
+      "text": "A fair approach is to announce any rule changes in advance and apply them only to future games rather than changing them mid-game.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-6",
+      "requested": 0,
+      "source": "rules",
+      "text": "Game organizers should balance predictability with adaptability by reviewing recurring loopholes and consulting players before revising the rules.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p0-7",
+      "requested": 0,
+      "source": "rules",
+      "text": "Some games may benefit from stable rules, while others may allow periodic adjustments, depending on how important innovation and interpretation are to the game.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "rules-p1-0",
+      "requested": 1,
+      "source": "rules",
+      "text": "Rules should remain stable during a game, but organizers should address serious loopholes before the next round so players cannot gain an unintended advantage.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-1",
+      "requested": 1,
+      "source": "rules",
+      "text": "A loophole should not automatically trigger a rule change; it should be evaluated afterward to determine whether it conflicts with the game\u2019s purpose or merely reflects clever strategy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-2",
+      "requested": 1,
+      "source": "rules",
+      "text": "Predictable rules are essential for fair competition, so revisions should generally be made between games and announced clearly in advance.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-3",
+      "requested": 1,
+      "source": "rules",
+      "text": "Players should be allowed to exploit ambiguities during a match if the wording permits it, while future versions of the rules can clarify the intended limitation.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "rules-p1-4",
+      "requested": 1,
+      "source": "rules",
+      "text": "Rules should change only when a loophole significantly damages balance, encourages unsporting behavior, or makes the intended challenge irrelevant.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-5",
+      "requested": 1,
+      "source": "rules",
+      "text": "The best approach is to preserve the current rules for an ongoing game but hold a post-game review to decide whether the loophole deserves a permanent correction.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-6",
+      "requested": 1,
+      "source": "rules",
+      "text": "Frequent rule changes can undermine trust, but refusing to fix an obvious loophole can be just as unfair; revisions should therefore be careful, transparent, and prospective.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p1-7",
+      "requested": 1,
+      "source": "rules",
+      "text": "A game\u2019s rules should protect both consistency and the intended experience, meaning loopholes are acceptable as discoveries until they are reviewed and, if necessary, closed for future play.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p2-0",
+      "requested": 2,
+      "source": "rules",
+      "text": "Rules should not change mid-game, because players need consistency; loopholes can be addressed before the next match.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "rules-p2-1",
+      "requested": 2,
+      "source": "rules",
+      "text": "A loophole is acceptable if it reflects a legitimate interpretation of the written rules, but repeated exploitation may justify a later revision.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "rules-p2-2",
+      "requested": 2,
+      "source": "rules",
+      "text": "Fair play requires honoring the rules in effect when a game begins, even if an unforeseen weakness is discovered afterward.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "rules-p2-3",
+      "requested": 2,
+      "source": "rules",
+      "text": "Rule changes are best made between games through a transparent process, with all players informed in advance.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "rules-p2-4",
+      "requested": 2,
+      "source": "rules",
+      "text": "Not every loophole needs fixing; only those that create a significant advantage or conflict with the game\u2019s intended purpose should prompt revision.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p2-5",
+      "requested": 2,
+      "source": "rules",
+      "text": "Players should avoid exploiting obvious loopholes when doing so would violate the spirit of the game, while organizers should clarify the rules for future games.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p2-6",
+      "requested": 2,
+      "source": "rules",
+      "text": "Stability during play and adaptability between games provide the best balance between fairness and improvement.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-p2-7",
+      "requested": 2,
+      "source": "rules",
+      "text": "When a loophole is discovered, the current game should usually continue under the existing rules, followed by a review to determine whether a targeted amendment is needed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "rules-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "rules-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "rules-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "rules-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "rules-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "rules-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 8,
+    "-1": 10,
+    "0": 2,
+    "1": 5,
+    "2": 21
+  },
+  "moved": 19,
+  "n_within": 40
+}

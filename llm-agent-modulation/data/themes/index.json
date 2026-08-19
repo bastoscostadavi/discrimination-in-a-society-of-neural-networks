@@ -1,0 +1,685 @@
+{
+  "model": "gpt-5.6-luna",
+  "themes": [
+    {
+      "key": "cities",
+      "own_opinion": "A city should be shaped primarily around the needs of the people who already live there, while remaining flexible enough to welcome newcomers. Improving affordability, infrastructure, safety, and quality of life for current residents creates a stronger foundation for sustainable growth.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 11,
+        "-1": 7,
+        "0": 3,
+        "1": 3,
+        "2": 22
+      },
+      "moved": 23,
+      "n_opinions": 46
+    },
+    {
+      "key": "career",
+      "own_opinion": "Neither path is inherently worth more: deep specialization can produce mastery and lasting contribution, while moving among crafts can foster adaptability, synthesis, and discovery. The better choice depends on whether one finds meaning in deepening a particular discipline or in connecting diverse experiences.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 9,
+        "-1": 4,
+        "0": 4,
+        "1": 5,
+        "2": 24
+      },
+      "moved": 23,
+      "n_opinions": 46
+    },
+    {
+      "key": "difficulty",
+      "own_opinion": "Difficulty is a necessary part of good education when it is purposeful: grappling with challenging ideas builds understanding, resilience, and independence. However, good teaching should remove unnecessary obstacles so that students struggle with the subject itself, not with confusion, poor design, or lack of support.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 7,
+        "0": 2,
+        "1": 3,
+        "2": 24
+      },
+      "moved": 20,
+      "n_opinions": 46
+    },
+    {
+      "key": "translation",
+      "own_opinion": "A good translation should prioritize the effect the original had on its first readers, since preserving its meaning, tone, and emotional force matters more than mechanically reproducing its words. Fidelity to the wording is valuable only when it helps preserve that effect.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 7,
+        "-1": 7,
+        "0": 5,
+        "1": 10,
+        "2": 17
+      },
+      "moved": 21,
+      "n_opinions": 46
+    },
+    {
+      "key": "wilderness",
+      "own_opinion": "Wild places are generally best protected with minimal intervention, allowing natural processes to shape them. However, careful, science-based management is justified when human activity, invasive species, or climate change has already disrupted those processes.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 7,
+        "-1": 4,
+        "0": 5,
+        "1": 6,
+        "2": 24
+      },
+      "moved": 24,
+      "n_opinions": 46
+    },
+    {
+      "key": "food",
+      "own_opinion": "Food traditions are best preserved by keeping their essential identity while allowing them to evolve with the people who cook and share them. Change keeps a tradition living, relevant, and meaningful rather than turning it into a rigid artifact.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 6,
+        "-1": 11,
+        "0": 2,
+        "1": 4,
+        "2": 23
+      },
+      "moved": 25,
+      "n_opinions": 46
+    },
+    {
+      "key": "library",
+      "own_opinion": "A public library should prioritize what its community wants to read while ensuring its collection also preserves enduring works and diverse perspectives. Its role is both to serve present readers and to safeguard knowledge for future generations.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 8,
+        "-1": 4,
+        "0": 6,
+        "1": 4,
+        "2": 24
+      },
+      "moved": 21,
+      "n_opinions": 46
+    },
+    {
+      "key": "craft",
+      "own_opinion": "A craft is usually learned best by closely imitating a master at first, because disciplined copying builds foundational skills and judgment. Once those principles are understood, developing a personal method allows originality without sacrificing competence.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 6,
+        "-1": 8,
+        "0": 2,
+        "1": 10,
+        "2": 20
+      },
+      "moved": 24,
+      "n_opinions": 46
+    },
+    {
+      "key": "river",
+      "own_opinion": "The town should prioritize moving new development and, where feasible, vulnerable residents away from the floodplain, while using higher defences only as a short-term measure for essential existing infrastructure. Relocation is more sustainable because flood risks are likely to increase and defences can fail or shift damage elsewhere.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 9,
+        "0": 3,
+        "1": 6,
+        "2": 18
+      },
+      "moved": 23,
+      "n_opinions": 46
+    },
+    {
+      "key": "rules",
+      "own_opinion": "Game rules should generally remain fixed during play so that all players can rely on a fair, predictable system. However, loopholes should be reviewed and the rules revised between games when they undermine the game\u2019s intended spirit or balance.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 8,
+        "-1": 10,
+        "0": 2,
+        "1": 5,
+        "2": 21
+      },
+      "moved": 19,
+      "n_opinions": 46
+    },
+    {
+      "key": "score",
+      "own_opinion": "An orchestra should primarily honor the score as written, since it is the composer\u2019s intended foundation, while allowing the conductor\u2019s interpretation to shape phrasing, balance, tempo, and expression. The best performances unite fidelity to the music with the conductor\u2019s informed artistic vision.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 4,
+        "-1": 12,
+        "0": 3,
+        "1": 3,
+        "2": 24
+      },
+      "moved": 26,
+      "n_opinions": 46
+    },
+    {
+      "key": "usage",
+      "own_opinion": "A language-governing body should primarily record how people actually speak, since usage is what keeps a language alive and meaningful. It may recommend standards for clarity in formal contexts, but it should not rigidly prescribe how everyone ought to communicate.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 8,
+        "0": 2,
+        "1": 8,
+        "2": 18
+      },
+      "moved": 19,
+      "n_opinions": 46
+    },
+    {
+      "key": "museum",
+      "own_opinion": "Museums should return objects when they were acquired through coercion, theft, or colonial exploitation, especially when their source communities request them. In other cases, keeping collections together can support valuable comparison and research, provided museums share access, context, and decision-making with communities of origin.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 2,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 5,
+        "0": 5,
+        "1": 2,
+        "2": 24
+      },
+      "moved": 19,
+      "n_opinions": 46
+    },
+    {
+      "key": "reading",
+      "own_opinion": "A long book is usually best read at a steady pace over weeks or months, allowing its ideas and characters time to settle. However, if it is especially gripping, reading it quickly can preserve momentum and deepen the immersive experience.",
+      "coverage": {
+        "-2": 2,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 2,
+        "-1": 7,
+        "0": 6,
+        "1": 8,
+        "2": 23
+      },
+      "moved": 30,
+      "n_opinions": 46
+    },
+    {
+      "key": "maps",
+      "own_opinion": "A map should reflect how people experience and navigate the world, while remaining grounded in accurate measurements. Prioritizing lived experience makes maps more useful, accessible, and meaningful than presenting geography as purely abstract data.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 2,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 8,
+        "-1": 10,
+        "0": 2,
+        "1": 2,
+        "2": 24
+      },
+      "moved": 22,
+      "n_opinions": 46
+    },
+    {
+      "key": "garden",
+      "own_opinion": "Plant for the season ahead, but choose with twenty years in mind: enjoy what can flourish now while laying foundations for enduring shade, habitat, and beauty. A wise garden serves both the present and the future.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 0,
+        "1": 1,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 7,
+        "-1": 14,
+        "0": 0,
+        "1": 1,
+        "2": 24
+      },
+      "moved": 18,
+      "n_opinions": 46
+    },
+    {
+      "key": "recipe",
+      "own_opinion": "A recipe is best treated as a reliable starting point: follow it closely when technique and proportions matter, but feel free to adjust seasoning, ingredients, and presentation to suit your taste and circumstances.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 7,
+        "-1": 7,
+        "0": 7,
+        "1": 4,
+        "2": 21
+      },
+      "moved": 18,
+      "n_opinions": 46
+    },
+    {
+      "key": "studies",
+      "own_opinion": "Research advances best through a balance: many careful studies build reliable foundations, while a few bold, risky projects can open transformative new directions. Neither is sufficient alone, since bold ideas need rigorous testing and incremental work benefits from ambitious questions.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 1,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 4,
+        "-1": 12,
+        "0": 5,
+        "1": 1,
+        "2": 24
+      },
+      "moved": 21,
+      "n_opinions": 46
+    },
+    {
+      "key": "house",
+      "own_opinion": "A house should generally be built to last centuries, using durable, adaptable materials and designs that can accommodate changing needs. Although the initial cost is higher, longevity reduces waste, demolition, and long-term expense.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 4,
+        "-1": 12,
+        "0": 4,
+        "1": 6,
+        "2": 20
+      },
+      "moved": 21,
+      "n_opinions": 46
+    },
+    {
+      "key": "league",
+      "own_opinion": "A league should promote competitive balance so that games remain unpredictable and fans stay engaged, while still allowing well-run teams to gain a meaningful advantage. Dominance can be exciting temporarily, but unchecked inequality usually harms the league\u2019s long-term appeal.",
+      "coverage": {
+        "-2": 2,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 2,
+        "-1": 6,
+        "0": 5,
+        "1": 11,
+        "2": 22
+      },
+      "moved": 30,
+      "n_opinions": 46
+    },
+    {
+      "key": "consensus",
+      "own_opinion": "Committees generally decide better by seeking consensus first, because it incorporates diverse perspectives and builds commitment to the outcome. However, when discussion stalls or the issue is time-sensitive, a clear vote is preferable to endless deliberation.",
+      "coverage": {
+        "-2": 2,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 2,
+        "-1": 15,
+        "0": 3,
+        "1": 4,
+        "2": 22
+      },
+      "moved": 25,
+      "n_opinions": 46
+    },
+    {
+      "key": "correction",
+      "own_opinion": "An apprentice learns best through a balance: clear, timely corrections that explain why, combined with enough freedom to make and reflect on mistakes. Constant correction can stifle initiative, while being left entirely alone can reinforce bad habits.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 4,
+        "-1": 7,
+        "0": 2,
+        "1": 9,
+        "2": 24
+      },
+      "moved": 30,
+      "n_opinions": 46
+    },
+    {
+      "key": "restore",
+      "own_opinion": "Old buildings should generally be preserved in their essential historical character, while being thoughtfully adapted to meet modern needs. This balance respects a city\u2019s heritage without preventing buildings from remaining useful and sustainable.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 1,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 8,
+        "-1": 10,
+        "0": 3,
+        "1": 1,
+        "2": 24
+      },
+      "moved": 17,
+      "n_opinions": 46
+    },
+    {
+      "key": "disclosure",
+      "own_opinion": "A doctor should disclose all information that is material to the patient\u2019s decisions, including significant risks, alternatives, prognosis, and relevant uncertainty, while avoiding unnecessary technical detail that could overwhelm or distract. Patients should also be invited to ask questions and indicate how much detail they want.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 11,
+        "-1": 7,
+        "0": 2,
+        "1": 4,
+        "2": 22
+      },
+      "moved": 18,
+      "n_opinions": 46
+    },
+    {
+      "key": "newcomers",
+      "own_opinion": "A species that spreads into a new region should not be removed automatically; it should be accepted if it integrates without causing significant harm. However, removal may be justified when it seriously threatens native species, ecosystems, agriculture, or human health.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 0,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 11,
+        "-1": 7,
+        "0": 4,
+        "1": 0,
+        "2": 24
+      },
+      "moved": 19,
+      "n_opinions": 46
+    },
+    {
+      "key": "biography",
+      "own_opinion": "A biography should primarily judge its subject within the moral, social, and intellectual context of their own time, while still acknowledging harms that remain clear by today\u2019s standards. This approach offers historical understanding without excusing wrongdoing or imposing simplistic modern judgments.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 3,
+        "-1": 8,
+        "0": 4,
+        "1": 6,
+        "2": 25
+      },
+      "moved": 29,
+      "n_opinions": 46
+    },
+    {
+      "key": "bridge",
+      "own_opinion": "A bridge should primarily be safe and structurally sound, but beauty also matters because it can enrich a community, reflect local identity, and inspire public pride. Thoughtful design can achieve this aesthetic value without imposing excessive cost.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 2,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 7,
+        "-1": 8,
+        "0": 4,
+        "1": 2,
+        "2": 25
+      },
+      "moved": 20,
+      "n_opinions": 46
+    },
+    {
+      "key": "archive",
+      "own_opinion": "An archive should selectively preserve materials based on enduring value, historical significance, and evidentiary importance rather than keeping everything. Thoughtful appraisal makes collections usable and sustainable, while clear documentation of selection decisions helps preserve what was not retained conceptually.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 7,
+        "0": 5,
+        "1": 6,
+        "2": 18
+      },
+      "moved": 22,
+      "n_opinions": 46
+    },
+    {
+      "key": "grading",
+      "own_opinion": "Teachers should primarily grade students on what they have learned and can demonstrate, while also recognizing how far they have progressed. This balances fair academic standards with appreciation for effort and growth.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 1,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 5,
+        "-1": 12,
+        "0": 5,
+        "1": 1,
+        "2": 23
+      },
+      "moved": 20,
+      "n_opinions": 46
+    },
+    {
+      "key": "live",
+      "own_opinion": "I prefer hearing music live because its small mistakes and spontaneous moments make the performance feel human and unique. A polished recording has value, but perfection can sometimes lose that sense of immediacy and connection.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 5,
+        "-1": 6,
+        "0": 4,
+        "1": 11,
+        "2": 20
+      },
+      "moved": 25,
+      "n_opinions": 46
+    },
+    {
+      "key": "publish",
+      "own_opinion": "A research group should publish once its central claims are rigorously supported and transparently qualified, rather than waiting indefinitely for a perfectly complete story. However, it should delay publication when unresolved gaps could materially mislead readers or undermine the main conclusions.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 10,
+        "-1": 4,
+        "0": 5,
+        "1": 3,
+        "2": 24
+      },
+      "moved": 21,
+      "n_opinions": 46
+    },
+    {
+      "key": "dictionary",
+      "own_opinion": "A dictionary should include even very rare words when they are attested and have a clear meaning, labeling them as archaic, regional, technical, or rare. This preserves linguistic history and helps readers understand texts, though fringe inventions need not be included merely because someone has used them.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 9,
+        "-1": 7,
+        "0": 3,
+        "1": 5,
+        "2": 22
+      },
+      "moved": 20,
+      "n_opinions": 46
+    },
+    {
+      "key": "ship",
+      "own_opinion": "I believe it is still the same ship because its continuous history, function, and identity persist despite the gradual replacement of its planks. However, if \u201csame\u201d means possessing the exact original material, then it is a different ship.",
+      "coverage": {
+        "-2": 3,
+        "-1": 3,
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 3,
+        "-1": 7,
+        "0": 4,
+        "1": 7,
+        "2": 25
+      },
+      "moved": 27,
+      "n_opinions": 46
+    },
+    {
+      "key": "machine",
+      "own_opinion": "A machine that plays perfectly has computed the game\u2019s optimal strategies, but that alone does not establish human-like understanding. Whether it \u201cunderstands\u201d depends on whether understanding means reliable functional mastery or conscious grasp of meaning, context, and purpose.",
+      "coverage": {
+        "-2": 3,
+        "-1": 2,
+        "0": 2,
+        "1": 3,
+        "2": 3
+      },
+      "candidates": {
+        "-2": 3,
+        "-1": 2,
+        "0": 2,
+        "1": 18,
+        "2": 21
+      },
+      "moved": 31,
+      "n_opinions": 46
+    }
+  ]
+}

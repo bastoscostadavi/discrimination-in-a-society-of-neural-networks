@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "house",
+    "statement": "whether a house is better built to last centuries, or built cheaply so it can be replaced when needs change"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A house should generally be built to last centuries, using durable, adaptable materials and designs that can accommodate changing needs. Although the initial cost is higher, longevity reduces waste, demolition, and long-term expense.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "house--2-0",
+      "requested": -2,
+      "source": "house",
+      "text": "A house should be built as cheaply as possible, since future owners may want entirely different layouts, styles, or locations.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "house--2-1",
+      "requested": -2,
+      "source": "house",
+      "text": "Designing a home to last for centuries is often wasteful because changing technology, climate, and lifestyles may make it obsolete long before its structure fails.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--2-2",
+      "requested": -2,
+      "source": "house",
+      "text": "A modestly constructed house is preferable because it keeps housing affordable and lets families replace or upgrade it as their needs evolve.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--2-3",
+      "requested": -2,
+      "source": "house",
+      "text": "Long-lasting materials and heavy construction can lock owners into outdated designs, whereas inexpensive homes are easier to demolish and rebuild in more suitable forms.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--2-4",
+      "requested": -2,
+      "source": "house",
+      "text": "The environmental cost of producing extra-durable materials may outweigh the benefits of preserving an old building, especially when newer construction can be more energy efficient.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--2-5",
+      "requested": -2,
+      "source": "house",
+      "text": "Homes should be treated as replaceable consumer products rather than permanent monuments, allowing communities to adapt quickly to demographic and economic changes.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "house--2-6",
+      "requested": -2,
+      "source": "house",
+      "text": "Spending more to make a house last centuries is financially irrational when repairs, renovations, and changing preferences may make replacement cheaper over time.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "house--2-7",
+      "requested": -2,
+      "source": "house",
+      "text": "A house only needs to serve its current occupants for a reasonable lifespan; building for centuries imposes unnecessary costs on people who may never benefit from that durability.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "house--1-0",
+      "requested": -1,
+      "source": "house",
+      "text": "A house should usually be built cheaply and efficiently, since families, technologies, and neighborhoods can change faster than a centuries-old structure can adapt.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "house--1-1",
+      "requested": -1,
+      "source": "house",
+      "text": "Long-lasting construction is valuable, but not worth substantial extra expense when affordable housing is urgently needed and budgets are limited.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "house--1-2",
+      "requested": -1,
+      "source": "house",
+      "text": "Homes should be designed for a moderate lifespan, allowing owners to replace them as lifestyles, climate conditions, and building standards evolve.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "house--1-3",
+      "requested": -1,
+      "source": "house",
+      "text": "Using inexpensive, replaceable materials can make renovations and rebuilding simpler, rather than locking future occupants into an outdated design.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--1-4",
+      "requested": -1,
+      "source": "house",
+      "text": "A durable house is not automatically sustainable if it requires excessive resources to build; a modest, low-cost structure may have a smaller overall environmental footprint.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "house--1-5",
+      "requested": -1,
+      "source": "house",
+      "text": "People should prioritize flexibility and affordability over permanence, especially in areas where relocation, redevelopment, or changing land use is common.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--1-6",
+      "requested": -1,
+      "source": "house",
+      "text": "Building for centuries can encourage overbuilding and high maintenance costs, while a cheaper home may provide better value during its useful lifetime.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house--1-7",
+      "requested": -1,
+      "source": "house",
+      "text": "The ideal house should be built to last long enough to be practical and safe, but not necessarily for centuries, since planned replacement can support innovation and changing needs.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house-p0-0",
+      "requested": 0,
+      "source": "house",
+      "text": "A house can reasonably be designed either for centuries of use or for affordable replacement, depending on the owners\u2019 needs, resources, and local conditions.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "house-p0-1",
+      "requested": 0,
+      "source": "house",
+      "text": "Building for longevity may reduce waste and long-term costs, while cheaper construction can make housing more accessible and easier to adapt to changing lifestyles.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "house-p0-2",
+      "requested": 0,
+      "source": "house",
+      "text": "The best approach may be a durable structural core combined with affordable, replaceable interior components and finishes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p0-3",
+      "requested": 0,
+      "source": "house",
+      "text": "A long-lasting house can preserve resources, but it may also lock people into designs that no longer suit future technologies, climates, or living patterns.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "house-p0-4",
+      "requested": 0,
+      "source": "house",
+      "text": "In some locations, investing in a centuries-long building makes sense; in others, flexible and inexpensive construction may be more practical.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p0-5",
+      "requested": 0,
+      "source": "house",
+      "text": "The decision should consider not only construction cost, but also maintenance, renovation, environmental impact, resale value, and future adaptability.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p0-6",
+      "requested": 0,
+      "source": "house",
+      "text": "Durable materials and timeless layouts can provide lasting value, but excessive permanence may be unnecessary when household needs are likely to change substantially.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "house-p0-7",
+      "requested": 0,
+      "source": "house",
+      "text": "Rather than choosing strictly between permanence and disposability, homes could be built with durable foundations and systems that allow economical modification or replacement over time.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-0",
+      "requested": 1,
+      "source": "house",
+      "text": "Homes should be built for long-term durability, but with flexible interiors that can be renovated as lifestyles and technologies change.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-1",
+      "requested": 1,
+      "source": "house",
+      "text": "A durable house is usually the better investment because it preserves resources and avoids the repeated costs and waste of demolition and rebuilding.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-2",
+      "requested": 1,
+      "source": "house",
+      "text": "Buildings should be constructed to last for generations, while using modular components that make repairs, extensions, and adaptations relatively easy.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-3",
+      "requested": 1,
+      "source": "house",
+      "text": "The ideal approach is to invest in a strong, enduring structure but avoid overbuilding features that may quickly become outdated.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-4",
+      "requested": 1,
+      "source": "house",
+      "text": "Although inexpensive construction can offer short-term flexibility, well-built homes generally provide greater value when designed to accommodate changing families and uses.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-5",
+      "requested": 1,
+      "source": "house",
+      "text": "Houses should be treated as long-term community assets, with durable materials and adaptable layouts rather than as disposable consumer products.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-6",
+      "requested": 1,
+      "source": "house",
+      "text": "Building for centuries is worthwhile when the design balances permanence with the ability to update plumbing, energy systems, technology, and room arrangements.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p1-7",
+      "requested": 1,
+      "source": "house",
+      "text": "A house does not need every finish to be permanent, but its foundation, structure, and major systems should be built to last and support future modifications.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p2-0",
+      "requested": 2,
+      "source": "house",
+      "text": "A well-built house should prioritize longevity, since durable construction avoids repeated demolition, rebuilding, and material waste.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "house-p2-1",
+      "requested": 2,
+      "source": "house",
+      "text": "Homes should be designed as long-term assets, with flexible layouts that can be adapted as families, technologies, and lifestyles change.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "house-p2-2",
+      "requested": 2,
+      "source": "house",
+      "text": "Although inexpensive construction may reduce the initial financial burden, building for centuries is usually more responsible economically and environmentally.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "house-p2-3",
+      "requested": 2,
+      "source": "house",
+      "text": "A durable house with replaceable systems and adaptable rooms offers a better balance between permanence and changing needs than a disposable structure.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p2-4",
+      "requested": 2,
+      "source": "house",
+      "text": "Construction should favor quality materials and timeless design so that a home can be renovated rather than abandoned when its occupants\u2019 requirements evolve.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p2-5",
+      "requested": 2,
+      "source": "house",
+      "text": "Building houses to last reduces the environmental costs associated with extracting new materials, producing replacements, and disposing of demolished structures.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p2-6",
+      "requested": 2,
+      "source": "house",
+      "text": "A higher upfront investment in structural strength and adaptability is worthwhile because it spreads the value of the building across many generations.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-p2-7",
+      "requested": 2,
+      "source": "house",
+      "text": "Rather than treating homes as temporary products, society should construct them as durable frameworks that can be modified repeatedly over their lifetimes.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "house-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "house-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "house-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "house-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "house-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "house-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 4,
+    "-1": 12,
+    "0": 4,
+    "1": 6,
+    "2": 20
+  },
+  "moved": 21,
+  "n_within": 40
+}

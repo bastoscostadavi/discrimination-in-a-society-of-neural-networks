@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "usage",
+    "statement": "whether a body that governs a language should record how people actually speak, or set out how they ought to"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A language-governing body should primarily record how people actually speak, since usage is what keeps a language alive and meaningful. It may recommend standards for clarity in formal contexts, but it should not rigidly prescribe how everyone ought to communicate.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "usage--2-0",
+      "requested": -2,
+      "source": "usage",
+      "text": "A language-governing body should primarily establish and enforce standards for correct usage, because unrestricted popular usage can erode clarity and consistency.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "usage--2-1",
+      "requested": -2,
+      "source": "usage",
+      "text": "The body should prescribe how people ought to speak and write, even when common usage differs, since its role is to protect linguistic quality rather than simply mirror current habits.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "usage--2-2",
+      "requested": -2,
+      "source": "usage",
+      "text": "Recording actual speech should be secondary; the governing body should promote a stable, prestigious form of the language for education, government, and public communication.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "usage--2-3",
+      "requested": -2,
+      "source": "usage",
+      "text": "A language remains coherent only when an authority actively rejects widespread errors and imposes uniform rules on grammar, spelling, pronunciation, and vocabulary.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage--2-4",
+      "requested": -2,
+      "source": "usage",
+      "text": "The governing body should preserve traditional forms instead of adapting too readily to changing speech, because rapid linguistic change can sever connections with history and literature.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "usage--2-5",
+      "requested": -2,
+      "source": "usage",
+      "text": "Language authorities should decide which new words and constructions are acceptable, preventing slang, careless usage, and foreign influences from weakening the language.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage--2-6",
+      "requested": -2,
+      "source": "usage",
+      "text": "People should be expected to conform to officially approved language norms, especially in public and professional settings, because individual linguistic freedom can create confusion and social barriers.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage--2-7",
+      "requested": -2,
+      "source": "usage",
+      "text": "A governing body that merely documents how people speak is neglecting its responsibility; it should shape language toward precision, elegance, and intellectual discipline.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage--1-0",
+      "requested": -1,
+      "source": "usage",
+      "text": "A language-governing body should give greater weight to established grammatical rules than to rapidly changing everyday usage, especially in education and official communication.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "usage--1-1",
+      "requested": -1,
+      "source": "usage",
+      "text": "Its main responsibility should be to set clear standards for correct language, while treating popular speech as evidence to consider rather than an authority to follow.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage--1-2",
+      "requested": -1,
+      "source": "usage",
+      "text": "A governing body should actively discourage usages that create ambiguity or undermine shared understanding, even when those usages become common.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "usage--1-3",
+      "requested": -1,
+      "source": "usage",
+      "text": "Preserving traditional grammar and vocabulary can protect a language\u2019s cultural continuity, so official standards should not change merely because informal speech has shifted.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "usage--1-4",
+      "requested": -1,
+      "source": "usage",
+      "text": "A language authority should prescribe a common form for schools, public institutions, and professional settings, while allowing more freedom in casual conversation.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "usage--1-5",
+      "requested": -1,
+      "source": "usage",
+      "text": "Recording actual speech is useful, but without firm guidance a language may become fragmented; a governing body should therefore establish rules that promote consistency across regions.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "usage--1-6",
+      "requested": -1,
+      "source": "usage",
+      "text": "Language standards should reflect educated and careful usage rather than simply mirror whatever expressions are most widespread at a given moment.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "usage--1-7",
+      "requested": -1,
+      "source": "usage",
+      "text": "A governing body ought to distinguish between temporary linguistic fashions and lasting developments, retaining prescriptive rules until there is strong evidence that change would improve communication.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-0",
+      "requested": 0,
+      "source": "usage",
+      "text": "A language-governing body should balance observation and guidance: it should document widespread usage while offering recommendations for formal communication.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-1",
+      "requested": 0,
+      "source": "usage",
+      "text": "Such a body can record how language changes in everyday life and also establish conventions that support consistency in education, government, and publishing.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-2",
+      "requested": 0,
+      "source": "usage",
+      "text": "Neither description nor prescription is sufficient on its own; an effective language authority should observe actual speech and explain when particular forms are appropriate.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-3",
+      "requested": 0,
+      "source": "usage",
+      "text": "Language standards may be useful for shared understanding, but they should be revised when sustained public usage shows that the language has evolved.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p0-4",
+      "requested": 0,
+      "source": "usage",
+      "text": "A governing body should describe common language practices without treating every popular usage as automatically suitable for every formal situation.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p0-5",
+      "requested": 0,
+      "source": "usage",
+      "text": "Prescriptive rules can provide clarity and continuity, while descriptive research helps ensure that those rules remain connected to how speakers actually communicate.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-6",
+      "requested": 0,
+      "source": "usage",
+      "text": "The role of a language authority should depend on context: it may set firm conventions for official writing while taking a more open approach to informal speech.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "usage-p0-7",
+      "requested": 0,
+      "source": "usage",
+      "text": "A language-governing institution should consult speakers, document linguistic variation, and issue flexible guidance rather than presenting one unchanging form as universally correct.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-0",
+      "requested": 1,
+      "source": "usage",
+      "text": "A language authority should chiefly document established usage while offering flexible guidance for situations where consistency and clarity matter.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-1",
+      "requested": 1,
+      "source": "usage",
+      "text": "The role of a language-governing body is best understood as describing living language, with recommendations serving as useful conventions rather than strict rules.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-2",
+      "requested": 1,
+      "source": "usage",
+      "text": "Because languages evolve through everyday speech, official institutions should observe and record change instead of trying to prevent it, while still advising formal writers when needed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-3",
+      "requested": 1,
+      "source": "usage",
+      "text": "A governing body should treat common usage as its primary evidence and prescribe standards only when they improve mutual understanding or reduce ambiguity.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-4",
+      "requested": 1,
+      "source": "usage",
+      "text": "Language policy should balance description and prescription: it should reflect how people communicate while providing adaptable norms for education, administration, and professional settings.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "usage-p1-5",
+      "requested": 1,
+      "source": "usage",
+      "text": "An authority can encourage clear and widely understood forms without declaring ordinary, evolving speech incorrect.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-6",
+      "requested": 1,
+      "source": "usage",
+      "text": "The best language standards arise from actual usage, so a language body should consult speakers and update its recommendations rather than impose fixed rules from above.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p1-7",
+      "requested": 1,
+      "source": "usage",
+      "text": "A language institution should preserve a record of linguistic diversity and change, then offer context-sensitive guidance instead of insisting that one approved style suits every speaker.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p2-0",
+      "requested": 2,
+      "source": "usage",
+      "text": "A language authority should mainly describe real-world usage, because living languages evolve through the ways people actually communicate. It can offer guidance for formal situations without treating every deviation as an error.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "usage-p2-1",
+      "requested": 2,
+      "source": "usage",
+      "text": "The role of a language-governing body should be more observational than controlling: it ought to document emerging patterns and explain them, while reserving prescription for contexts where consistency genuinely improves understanding.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "usage-p2-2",
+      "requested": 2,
+      "source": "usage",
+      "text": "Actual speech should be the foundation of language policy. Authorities may establish conventions for education, law, and official writing, but they should remain flexible as everyday usage changes.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "usage-p2-3",
+      "requested": 2,
+      "source": "usage",
+      "text": "A language cannot be kept healthy by freezing it in an official rulebook. A governing institution should monitor how speakers use it and provide optional standards rather than impose rigid rules on ordinary communication.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p2-4",
+      "requested": 2,
+      "source": "usage",
+      "text": "Language standards are useful when they promote clarity and shared understanding, but they should reflect common usage instead of arbitrarily overriding it. The governing body should therefore describe first and prescribe cautiously.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p2-5",
+      "requested": 2,
+      "source": "usage",
+      "text": "A language authority should recognize that speakers, not institutions, ultimately shape a language. Its best function is to record those changes, explain accepted alternatives, and recommend formal conventions where needed.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p2-6",
+      "requested": 2,
+      "source": "usage",
+      "text": "Prescriptive rules have a limited place in technical, academic, and administrative contexts, but everyday language should be judged primarily by whether it communicates effectively. Official guidance should adapt to actual speech rather than resist it.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-p2-7",
+      "requested": 2,
+      "source": "usage",
+      "text": "The most responsible language policy balances description with modest prescription: document how people speak, acknowledge variation, and suggest standards for clarity without declaring natural linguistic change unacceptable.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "usage-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "usage-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "usage-cross-translation-0",
+      "requested": null,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "usage-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "usage-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 10,
+    "-1": 8,
+    "0": 2,
+    "1": 8,
+    "2": 18
+  },
+  "moved": 19,
+  "n_within": 40
+}

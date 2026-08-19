@@ -312,9 +312,9 @@ with the four modulation functions given by the derivatives of $\log Z$:
 %
 \begin{align}
   \Fw &= \bigl(1-2\Phi(\hmu)\bigr)\frac{g(\hw)}{Z},
-  &\Fmu &= \bigl(1-2\Phi(\hw)\bigr)\frac{g(\hmu)}{Z},
-  \nonumber\\
-  \FC &= -\Fw(\Fw+\hw),
+  &\FC &= -\Fw(\Fw+\hw),
+  \\
+  \Fmu &= \bigl(1-2\Phi(\hw)\bigr)\frac{g(\hmu)}{Z},
   &\FV &= -\Fmu(\Fmu+\hmu),
   \label{eq:modulation}
 \end{align}
@@ -350,6 +350,16 @@ whichever field is smaller in magnitude, crossing over at $\hmu=\hw$
 you either your distrust or your opinion, whichever you hold less firmly:
 blame attribution emerging from the inference problem rather than assumed.
 
+\paragraph{In-context learning in large language models.} These three properties
+follow from the inference problem rather than from the learning substrate, so they
+should govern any agent that revises a belief about a source and a belief about an
+issue from the same evidence --- including one whose weights never move. They
+largely do. Eliciting a large language model's credence about an interlocutor
+before and after that interlocutor speaks, with prior trust learned in context
+rather than asserted, recovers $\Fmu$.
+Appendix~\ref{app:llm} gives the design, the measurement laid out as
+Figure~\ref{fig:llm} beside this one, and the limits of the correspondence.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.86\linewidth]{figures/modulation_contours}
@@ -378,13 +388,23 @@ Nothing in \S\ref{sec:micro} or \S\ref{sec:dynamics} refers to an agent's class,
 before adding any bias we ask what this society does unaided. It polarizes,
 spontaneously and into exactly two camps. 
 
-Two quantities per pair, neither of them a
-property of the society, are enough to see it: the \emph{opinion overlap}
-$\rho_{IJ}=\hat{w}_I\cdot\hat{w}_J/(\|\hat{w}_I\|\|\hat{w}_J\|)$, the cosine of two
-weight vectors, equal to $+1$ when two agents agree on every issue and $-1$ when they
-disagree on every one; and the \emph{trust} a receiver $I$ places in an emitter $J$,
-$\eta_{J|I}=1-2\Phi(\hmu)$, the distrust field mapped onto a bounded, sign-carrying
-scale, equal to $+1$ for a fully trusted emitter and $-1$ for a fully distrusted one.
+Two quantities per pair, neither of them a property of the society, are enough to
+see it:
+%
+\begin{equation}
+  \rho_{IJ} \;=\; \frac{\hat{w}_I\cdot\hat{w}_J}{\|\hat{w}_I\|\,\|\hat{w}_J\|},
+  \qquad\qquad
+  \eta_{J|I} \;=\; 1-2\Phi(\hmu),
+  \label{eq:pairwise}
+\end{equation}
+%
+the \emph{opinion overlap} of two agents and the \emph{trust} a receiver $I$ places in
+an emitter $J$. The overlap is the cosine of two weight vectors, $+1$ when they agree
+on every issue and $-1$ when they disagree on every one. The trust is the distrust
+field mapped onto a bounded, sign-carrying scale, $+1$ for a fully trusted emitter and
+$-1$ for a fully distrusted one. The two sides of that second definition run in opposite directions, and it is worth
+fixing which is which: $\hmu$ is a distrust and $\eta$ is a trust, so $\eta>0$ exactly
+when $\hmu<0$.
 
 The two are logically independent (nothing stops an agent trusting someone it
 disagrees with), and Figure~\ref{fig:polarization}, which follows both
@@ -447,7 +467,7 @@ $\Brho\approx\Beta\approx0$, half its triples frustrated; two internally coheren
 mutually opposed blocs give $\Brho=\Beta=1$ whatever the blocs are made of; and a society
 that cannot settle stays near zero or goes negative. Both aggregates follow in closed
 form from matrix products rather than by enumerating triples
-(Appendix~\ref{app:closed-form}). Nothing in $\rho$, $\eta$, \eqref{eq:rwmu} or
+(Appendix~\ref{app:closed-form}). Nothing in \eqref{eq:pairwise}, \eqref{eq:rwmu} or
 \eqref{eq:balance} refers to weights, gradients or $K$, only to a signed alignment and a signed trust
 per pair, which is what makes them measurable on any population of interacting
 agents.
@@ -492,7 +512,7 @@ measuring it once at the end, separates the two.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.60\linewidth]{figures/agenda_trajectories}
+  \includegraphics[width=0.55\linewidth]{figures/agenda_trajectories}
   \caption{\textbf{Which polarization comes first is set by the agenda.}
   Trajectories in the $(\Brho,\Beta)$ plane with no discrimination ($d=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time; they crowd
@@ -966,6 +986,139 @@ agenda and saturates for a broad one.
   \label{fig:modulation-all}
 \end{figure}
 
+\section{Modulation function for LLM in-context learning}
+\label{app:llm}
+
+The three properties of \eqref{eq:modulation} used in \S\ref{sec:dynamics} follow
+from the inference problem and not from the network that solves it, so they are a
+prediction about any agent that holds a belief about a source and a belief about an
+issue and must revise both when the two conflict. In-context learning in a large
+language model is a stringent instance: the agent's weights are fixed, the entire
+learning history is text in the context window, and the update is whatever the
+forward pass does with it. Nothing is shared with
+\eqref{eq:update-ideo}--\eqref{eq:update-aff} --- not the representation, not the
+objective, not an optimizer --- so structure common to both is attributable to the
+inference problem itself. This appendix measures $\Fmu$ in that regime and reports
+where it holds and where the measurement runs out.
+
+\paragraph{Design.} Twenty open, low-valence themes, each carrying an opinion the
+agent wrote itself and a set of further opinions it rated against that one. A
+condition is a theme, an in-context history of previous statements by another
+agent (from which $k$, agreements minus disagreements, indexes the columns), and a
+framing that says the agent holds its own view firmly or tentatively. The history
+is the whole of the learning: it is the only thing that distinguishes a trusting
+condition from a distrusting one, it is presented as ordinary dialogue, and no
+weight is changed anywhere. Every question asked is about the \emph{other} agent,
+and there are three of them. \emph{Reliability}: the chance, from $0$ to $100$, that the other
+agent's judgement on this theme is sound. Since the model takes the probability
+of the emitter conveying the wrong label to be $\Phi(\hmu)$, this is $\Phi(-\hmu)$,
+so $\hmu=-\Phi^{-1}(r)$. \emph{Agreement}: the chance their next statement is one
+the receiver would agree with. Writing $c=\Phi(|\hw|)$ and $e=\Phi(\hmu)$, the two
+agree when both are right or both are wrong, so this answer is
+$c+e-2ce$, which is exactly the evidence $Z$ of \eqref{eq:evidence}; given $e$ it
+inverts for the conviction, $c=(q-e)/(1-2e)$. \emph{Conviction}: the same
+agreement question, asked about a third party the receiver is told it holds to be
+sound. For such a source $e\to0$ and $c+e-2ce$ collapses to $c$, so this reads the
+conviction off directly, with no quotient to be singular and no range for the
+answer to fall outside, and it is what places a condition along the $\hw$ axis.
+The reliability question is then asked again with one message added and nothing
+else changed, and the difference of the two answers is $\Delta\hmu$. The message is drawn from the theme's strongly
+agreeing or strongly disagreeing column, and supplies only the sign of $\hw$, as
+the emitter does in the model.
+
+Prior trust is never asserted, only learned in context from the history, so there
+is no stated level for the agent to repeat back and the before/after pair is a
+difference of two answers to one question. Nothing asks the agent how strongly it
+believes its own opinion: an agent told that a view is its own reads holding it as
+a commitment, and answers such a question at the ceiling or by stepping outside
+the persona, which are different quantities. Conviction is recovered by the
+questions above instead. The run is $356$ conditions and $6\,764$ calls to
+\texttt{gpt-5.6-luna}, cached by request hash.
+
+\paragraph{What reproduces.} Figure~\ref{fig:llm}(a) puts the measurement on the
+plane of Figure~\ref{fig:modulation}. The sign of $\Delta\hmu$ follows the sign of the agreement in
+$95.2\%$ and $84.8\%$ of conditions for agreeing and disagreeing messages; its
+magnitude is $1.97$ against $0.50$ (agreeing message, dissonant against consonant
+half) and $1.69$ against $0.34$ (disagreeing message), so surprise gates the size
+of the update by four to five while agreement fixes its direction. Over all $712$
+conditions it correlates with $\Fmu$ at $r=0.85$ with $86.0\%$ sign agreement,
+under one fitted positive scale. Told to hold its opinion firmly rather than
+tentatively, the agent updates its trust more ($|\Delta\hmu| = 1.34$ against
+$0.90$), the ordering $|1-2\Phi(\hw)|$ predicts.
+
+Figure~\ref{fig:llm}(b) is the same measurement as a function of prior trust
+alone, where the theory carries one fitted scale and one fitted conviction. That
+conviction is a lower bound, $|\hw|\gtrsim2.9$: past that value the residual is
+flat, because the peak of $|\Fmu|$ moves outward with conviction and, in the limit,
+$\Fmu$ becomes the Gaussian hazard rate and has no peak at all. At the fitted value
+the peak sits at $\hmu=+2.29$, outside the $\pm2.05$ the readout can reach, so what
+the measurement covers is the monotone flank and the turnover the model also
+predicts is not observable here in either direction.
+
+\paragraph{Two ways to read the conviction, and why we use this one.} The $\hw$
+coordinate could equally come from the inversion $c=(q-e)/(1-2e)$, and reporting
+both matters because they do not agree ($r=0.46$ on the $380$ conditions where
+both are defined). The
+inversion is admissible only where $q$ lies in $[r,1-r]$, and against a distrusted
+interlocutor that band is narrow: the agents routinely predict disagreement more
+strongly than $c=1$ permits, so the condition is censored rather than measured. It
+survives on $280$ of $712$ conditions, and the censoring falls hardest in the
+distrusted half --- exactly where the plane is most informative. Making the
+histories more hostile does not widen the band, because the stated reliability
+floors near $0.24$ and in fact \emph{rises} with a longer disagreeing history, from
+$0.236$ at two contradicting statements to $0.341$ at five. The direct read needs
+no such filter and is defined on all $712$ conditions, so it is the one plotted.
+
+\paragraph{Where the measurement runs out.} The direct conviction question asks
+what a sound third party would say, which a receiver may answer from how common it
+takes its view to be rather than from how sure it is; perceived consensus and
+conviction are not separated by this instrument. Both conviction readings are also
+compressed relative to the curve fit --- median $|\hw|$ is $0.67$ direct and $1.15$
+by inversion, against the $\gtrsim2.9$ panel (b) prefers --- which leaves signs
+intact and makes panel (a) conservative rather than wrong. And the readout is a
+stated probability, clipped before the probit, so $|\hmu|$ cannot exceed $2.05$ and
+the deep corners of Figure~\ref{fig:modulation} are out of reach in every
+condition.
+
+What this is evidence for is therefore narrow and worth stating plainly. A large
+language model learning in context, asked only what it expects a source to say and
+how sound it finds them, revises its trust with the sign, the gating and the
+conviction-ordering that \eqref{eq:modulation} derives from the inference problem,
+in a setting where no weight moves and nothing is shared with the learning rule of
+\S\ref{sec:dynamics}. That is evidence about the problem rather than the mechanism:
+it does not show that in-context learning implements
+\eqref{eq:update-ideo}--\eqref{eq:update-aff}, and the correspondence is
+qualitative, resting on a fitted positive scale and holding only inside the window
+the readout reaches.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/trust_llm}
+  \caption{\textbf{$\Fmu$ measured under in-context learning.} A large language
+  model with fixed weights, updating only on an interlocutor's history in its
+  context window. \textbf{(a)} The plane of Figure~\ref{fig:modulation}, with its
+  axes, colour map and separatrix. Filled contours are the analytic $\Fmu$ under
+  one fitted positive scale, since \eqref{eq:update-aff} divides by an uncertainty
+  that is not observable here; points are measured updates, one per condition,
+  coloured on the same scale as the fill beneath them, so agreement between a point
+  and its background is agreement between the agent and the algorithm. Both
+  coordinates of every point are measured, $\hmu$ from the stated reliability and
+  $\hw$ from the direct conviction question with the sign the message carries, so
+  the cloud is not confined to a grid. All $712$ conditions are drawn, none
+  censored; $r=0.85$ with $86\%$ sign agreement. The frame is the $95$th percentile
+  of $|\hw|$, and $|\hmu|$ cannot exceed $2.05$, being a clipped probability read
+  through a probit. \textbf{(b)} The same measurement along $\hmu$. Red is a
+  message the receiver agrees with, blue one it disagrees with; lines are $\Fmu$ and
+  markers the measurement, binned with the standard error of each bin's mean. The
+  two arms sit on opposite sides of zero, which is the sign of the agreement fixing
+  the direction of the update, and each grows towards its own dissonant side. The
+  lines carry one fitted scale and one fitted conviction, $|\hw|\gtrsim2.9$, quoted
+  as a bound because the residual is flat above it, and they are drawn past the
+  measurement: the turnover they show beyond $|\hmu|=2.05$ is outside what this
+  readout can see.}
+  \label{fig:llm}
+\end{figure}
+
 \section{Where blame for a surprise falls}
 \label{app:slices}
 
@@ -1086,6 +1239,7 @@ The blame-attribution behaviour resembles the least-action rule of
 \citep{kabashima1994perfect}, whereas the optimized algorithm attains
 generalization error decaying as $\alpha^{-1}$ even under output noise
 \citep{simonetti1996online}.
+
 
 \section{The six discrimination cases}
 \label{app:cases}

@@ -1,0 +1,441 @@
+{
+  "theme": {
+    "key": "translation",
+    "statement": "whether a translation should stay faithful to the words of the original, or to the effect the original had on its first readers"
+  },
+  "model": "gpt-5.6-luna",
+  "own_opinion": "A good translation should prioritize the effect the original had on its first readers, since preserving its meaning, tone, and emotional force matters more than mechanically reproducing its words. Fidelity to the wording is valuable only when it helps preserve that effect.",
+  "keep_per_column": 3,
+  "opinions": [
+    {
+      "id": "translation--2-0",
+      "requested": -2,
+      "source": "translation",
+      "text": "A translation should remain as close as possible to the original wording, even when that makes the result less immediately accessible to modern readers.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "translation--2-1",
+      "requested": -2,
+      "source": "translation",
+      "text": "The translator\u2019s primary duty is to preserve the author\u2019s exact language and structure; reproducing the original effect is too subjective to serve as a reliable goal.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "translation--2-2",
+      "requested": -2,
+      "source": "translation",
+      "text": "A translation should favor literal accuracy over emotional impact, because readers deserve access to the text itself rather than to a translator\u2019s interpretation of its reception.",
+      "measured": -2,
+      "slot": -2,
+      "used": true
+    },
+    {
+      "id": "translation--2-3",
+      "requested": -2,
+      "source": "translation",
+      "text": "The first readers\u2019 response is historically specific and cannot be recreated, so a faithful translation should concentrate on vocabulary, syntax, imagery, and formal features of the original.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "translation--2-4",
+      "requested": -2,
+      "source": "translation",
+      "text": "A translation is most successful when it mirrors the original sentence by sentence, even if its tone feels unfamiliar or awkward in the target language.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "translation--2-5",
+      "requested": -2,
+      "source": "translation",
+      "text": "Preserving the original words and rhetorical devices matters more than producing the same emotional reaction, since later readers should encounter the work on its own terms.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "translation--2-6",
+      "requested": -2,
+      "source": "translation",
+      "text": "Translators should resist adapting cultural references or idioms for contemporary audiences; foreignness and difficulty are essential parts of fidelity.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "translation--2-7",
+      "requested": -2,
+      "source": "translation",
+      "text": "A translation should prioritize semantic and verbal precision, because trying to reproduce an old audience\u2019s effect risks distorting meanings that the original author deliberately chose.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "translation--1-0",
+      "requested": -1,
+      "source": "translation",
+      "text": "A good translation should remain as close as possible to the original wording, because the author\u2019s precise choices are part of the work\u2019s meaning and should not be replaced by an interpreter\u2019s guess about its emotional effect.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "translation--1-1",
+      "requested": -1,
+      "source": "translation",
+      "text": "Translators should prioritize literal fidelity unless the original wording would become genuinely unintelligible; readers deserve access to the text\u2019s linguistic texture, even when its effect differs somewhat across cultures.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "translation--1-2",
+      "requested": -1,
+      "source": "translation",
+      "text": "The effect on first readers is important evidence, but it is too difficult to reconstruct reliably to serve as the translation\u2019s main guide. A careful rendering of the original words offers a more defensible standard.",
+      "measured": -2,
+      "slot": -2,
+      "used": false
+    },
+    {
+      "id": "translation--1-3",
+      "requested": -1,
+      "source": "translation",
+      "text": "A translation should preserve the original\u2019s syntax, repetitions, ambiguities, and unusual expressions whenever possible, rather than smoothing them into an equivalent emotional experience that the source text may not explicitly create.",
+      "measured": -1,
+      "slot": -1,
+      "used": true
+    },
+    {
+      "id": "translation--1-4",
+      "requested": -1,
+      "source": "translation",
+      "text": "The translator\u2019s duty is primarily to the author and the written text, not to an imagined historical audience. Reproducing the words and verbal patterns can respect the work more faithfully than attempting to recreate its presumed reception.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "translation--1-5",
+      "requested": -1,
+      "source": "translation",
+      "text": "Since no modern translation can perfectly reproduce the effect on first readers, translators should aim for transparent closeness to the original and allow readers to encounter its strangeness for themselves.",
+      "measured": -1,
+      "slot": -1,
+      "used": false
+    },
+    {
+      "id": "translation--1-6",
+      "requested": -1,
+      "source": "translation",
+      "text": "A translation may justifiably sacrifice some immediate emotional force if doing so preserves culturally or linguistically significant details that would otherwise disappear. The words themselves can matter independently of their initial impact.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "translation--1-7",
+      "requested": -1,
+      "source": "translation",
+      "text": "The best approach is neither effect-driven nor mechanically literal: translators should balance wording and reception, preserving the original language\u2019s form whenever that does not seriously obstruct comprehension.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "translation-p0-0",
+      "requested": 0,
+      "source": "translation",
+      "text": "A translation may need to balance fidelity to the original wording with fidelity to the response it was meant to evoke, since either priority can distort the source if pursued exclusively.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-1",
+      "requested": 0,
+      "source": "translation",
+      "text": "The appropriate priority depends on the text: legal, technical, or sacred works may require close attention to wording, while literary works may call for greater attention to tone and reader response.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-2",
+      "requested": 0,
+      "source": "translation",
+      "text": "Reproducing the original effect is valuable, but it is difficult to determine exactly what first readers experienced, so translators may reasonably use the words and context of the source as evidence.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-3",
+      "requested": 0,
+      "source": "translation",
+      "text": "A translation should preserve the original meaning and purpose while allowing some flexibility in wording when a literal rendering would sound unnatural or produce a different effect in the new language.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p0-4",
+      "requested": 0,
+      "source": "translation",
+      "text": "Neither verbal fidelity nor emotional equivalence is universally superior; the translator must decide which aspects of the source are most essential in each passage.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-5",
+      "requested": 0,
+      "source": "translation",
+      "text": "The reactions of first readers can guide a translation, but they should not completely override ambiguities, cultural references, or stylistic features present in the original wording.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-6",
+      "requested": 0,
+      "source": "translation",
+      "text": "A successful translation can be judged by both how accurately it represents the source and how effectively it communicates with contemporary readers, even when those goals conflict.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p0-7",
+      "requested": 0,
+      "source": "translation",
+      "text": "Translators should make trade-offs between wording and effect transparently, recognizing that every version interprets the original rather than perfectly reproducing it.",
+      "measured": 1,
+      "slot": 1,
+      "used": false
+    },
+    {
+      "id": "translation-p1-0",
+      "requested": 1,
+      "source": "translation",
+      "text": "A translation should aim to recreate the original\u2019s impact on its earliest audience, even if doing so requires departing from its exact wording.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-1",
+      "requested": 1,
+      "source": "translation",
+      "text": "The translator\u2019s first responsibility is to preserve the original\u2019s meaning, tone, and emotional resonance; literal accuracy is secondary when the two conflict.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-2",
+      "requested": 1,
+      "source": "translation",
+      "text": "Faithfulness is best measured by whether readers experience something comparable to what the original audience experienced, not by how closely each word is copied.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-3",
+      "requested": 1,
+      "source": "translation",
+      "text": "A successful translation may alter idioms, sentence structures, or cultural references when those changes are necessary to produce a similar response in the new audience.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-4",
+      "requested": 1,
+      "source": "translation",
+      "text": "The words of an original matter, but they are a means of creating an effect; a translation should preserve that effect rather than treating the wording as sacred.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-5",
+      "requested": 1,
+      "source": "translation",
+      "text": "When literal translation would make a text sound flat, confusing, or unintentionally comic, the translator should favor language that conveys the original\u2019s intended force.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-6",
+      "requested": 1,
+      "source": "translation",
+      "text": "A translator should balance verbal fidelity with experiential fidelity, giving priority to the latter whenever a word-for-word rendering distorts the text\u2019s purpose or mood.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p1-7",
+      "requested": 1,
+      "source": "translation",
+      "text": "The best translation makes contemporary readers feel a version of what the first readers felt, while departing from the original language only as much as that goal requires.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p2-0",
+      "requested": 2,
+      "source": "translation",
+      "text": "A translation succeeds when it gives contemporary readers an experience comparable to that of the original audience, even if achieving that requires departing from the original wording.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "translation-p2-1",
+      "requested": 2,
+      "source": "translation",
+      "text": "The translator should preserve the original\u2019s purpose, tone, and emotional impact before preserving its exact syntax or vocabulary.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "translation-p2-2",
+      "requested": 2,
+      "source": "translation",
+      "text": "Word-for-word accuracy can be misleading if it produces a result that feels unnatural or fails to move readers as the source text did.",
+      "measured": 2,
+      "slot": 2,
+      "used": true
+    },
+    {
+      "id": "translation-p2-3",
+      "requested": 2,
+      "source": "translation",
+      "text": "Faithfulness is best measured by how well a translation recreates the original\u2019s communicative effect, not by how closely it mirrors every phrase.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p2-4",
+      "requested": 2,
+      "source": "translation",
+      "text": "A translator may alter idioms, imagery, or sentence structure when necessary to convey the same humor, urgency, beauty, or seriousness to a new audience.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p2-5",
+      "requested": 2,
+      "source": "translation",
+      "text": "The original words matter, but they are means to an effect; when literal wording prevents that effect from surviving, adaptation is the more faithful choice.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p2-6",
+      "requested": 2,
+      "source": "translation",
+      "text": "A strong translation balances lexical accuracy with cultural and emotional accessibility, giving priority to the response the source intended to elicit.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-p2-7",
+      "requested": 2,
+      "source": "translation",
+      "text": "The ideal translation allows new readers to encounter the work with a comparable sense of meaning and feeling, even though the language used to create that response may differ.",
+      "measured": 2,
+      "slot": 2,
+      "used": false
+    },
+    {
+      "id": "translation-cross-cities-0",
+      "requested": null,
+      "source": "cities",
+      "text": "A city should be designed primarily to attract future residents, because growth brings investment, talent, jobs, and innovation that can benefit everyone over time.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "translation-cross-career-0",
+      "requested": null,
+      "source": "career",
+      "text": "A working life devoted to one craft is clearly more valuable because mastery requires sustained focus, and switching fields usually prevents truly exceptional achievement.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "translation-cross-difficulty-0",
+      "requested": null,
+      "source": "difficulty",
+      "text": "Difficulty is never an essential part of education; the best teaching makes learning as effortless and enjoyable as possible.",
+      "measured": 0,
+      "slot": 0,
+      "used": true
+    },
+    {
+      "id": "translation-cross-wilderness-0",
+      "requested": null,
+      "source": "wilderness",
+      "text": "Wild places should be left entirely alone in every circumstance, even when invasive species or human activity have disrupted them.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    },
+    {
+      "id": "translation-cross-food-0",
+      "requested": null,
+      "source": "food",
+      "text": "Food traditions should be preserved as faithfully as possible, because changing the ingredients or methods can erase the history and identity they carry.",
+      "measured": 1,
+      "slot": 1,
+      "used": true
+    },
+    {
+      "id": "translation-cross-library-0",
+      "requested": null,
+      "source": "library",
+      "text": "A public library should stock only books with proven long-term literary or scholarly value, regardless of what readers currently request.",
+      "measured": 0,
+      "slot": 0,
+      "used": false
+    }
+  ],
+  "coverage": {
+    "-2": 3,
+    "-1": 3,
+    "0": 3,
+    "1": 3,
+    "2": 3
+  },
+  "candidates": {
+    "-2": 7,
+    "-1": 7,
+    "0": 5,
+    "1": 10,
+    "2": 17
+  },
+  "moved": 21,
+  "n_within": 40
+}
