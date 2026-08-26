@@ -282,12 +282,25 @@ must reproduce case 6 exactly).
 
 ## What this does not do
 
-- **`a` and `b` are implemented but not swept.** `--component a` and
+- **`a` and `b` are implemented but not swept here.** `--component a` and
   `--component b` work and the plumbing is tested; only `c` has been run over a
-  plane. `b` is the transpose of `c` and its aggregate signatures are identical
-  (`B_eta^AA = +0.972`, `B_eta^BB = -0.972` in both rows above), so only `R_cred`
-  against `R_stat` distinguishes them — which is the argument for measuring all
-  four rather than one.
+  plane in this directory. `b` is the transpose of `c` and its aggregate
+  signatures are identical (`B_eta^AA = +0.972`, `B_eta^BB = -0.972` in both rows
+  above), so only `R_cred` against `R_stat` distinguishes them — which is the
+  argument for measuring all four rather than one. A sibling exploration has since
+  mapped `(b, f_b)` at the same resolution and agrees where it should: saturated
+  channel `0.969` against `0.968`, threshold `0.395` against `0.398`, atomization
+  crossing `0.428` against `0.427`.
+
+  Two claims about `b` and `c` need keeping apart, because conflating them invites
+  a hunt for a bug that is not there. The identity `eta_b = eta_c^T` is exact
+  **per realization at one seed** — a statement about a single trust matrix and its
+  transpose, measured at mean elementwise `0.0047` with correlation `1.0000`, and
+  that is the proof of it. Two *planes* of `b` and `c` are a different matter:
+  their pixels are independent draws, so they agree in distribution and not pixel
+  for pixel. Ensemble statistics match; single-pixel extremes like `max |R_muc|`
+  neither match nor should, being extremes of a heavy-tailed noise distribution
+  over 40 000 draws.
 - **No mixed fields.** Every run here sets one component and zeroes the rest.
   `ModelConfig.background` holds the others fixed if wanted, but the interesting
   question — what `c` and `p` together do, since Table I never separates them —
