@@ -1,0 +1,7 @@
+# Sweep caches, keyed by a hash of the configuration.  Regenerate with
+# `python scripts/make_all.py --preset <quick|medium|full>`; the 200x200 grid is
+# about six hours on ten cores.  A cache, not a source.
+data/
+
+# Scratch logs from long runs.
+.*.log
