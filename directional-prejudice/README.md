@@ -238,8 +238,9 @@ pytest                                        # 68 tests, ~4 s
 `--batch-size` and `--workers` override the preset when the machine has less
 headroom than it assumes: memory scales as `batch * N * K^2`, and `full`'s default
 of 1024 wants ~3.3 GB across ten workers. Note that the batch size is part of the
-cache key, since each batch is seeded from its offset, so two batch sizes draw
-different realizations of the same grid rather than sharing a cache.
+cache key, because the key hashes the whole sweep configuration; and since each
+batch is seeded from its offset, two batch sizes genuinely draw different
+realizations of the same grid rather than sharing a cache.
 
 Add `--style iclr` to render at the paper's column width. Figures are PDF only,
 into `figures/{paper,iclr}/`; to look at one, rasterize it on demand with

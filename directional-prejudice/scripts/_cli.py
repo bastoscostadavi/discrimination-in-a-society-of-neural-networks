@@ -42,9 +42,10 @@ def parser(description):
         default=None,
         help="societies per vectorized batch, overriding the preset. Memory "
         "scales as batch * N * K^2, so this is the knob to turn on a machine with "
-        "less headroom than the preset assumes. NOTE: it changes the cache key, "
-        "because each batch is seeded from its offset, so two batch sizes draw "
-        "different realizations of the same grid",
+        "less headroom than the preset assumes. NOTE: it is part of the cache key, "
+        "because the key hashes the whole sweep configuration; and since each batch "
+        "is seeded from its offset, two batch sizes genuinely draw different "
+        "realizations of the same grid rather than sharing one",
     )
     p.add_argument(
         "--workers",
