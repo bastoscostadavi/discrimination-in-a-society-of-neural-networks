@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Does distrust come first, or disagreement?  It depends on the agenda.
 
-With no discrimination field at all, a society still polarizes: learning anneals
+With no prejudice field at all, a society still polarizes: learning anneals
 away frustration, driving both the ideological balance ``B_rho`` and the affective
 balance ``B_eta`` from zero (half the triples frustrated, as at random
 initialization) towards one (no frustration).  The *path* it takes through the

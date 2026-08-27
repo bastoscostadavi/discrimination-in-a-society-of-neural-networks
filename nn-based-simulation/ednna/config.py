@@ -29,7 +29,7 @@ class ModelConfig:
     n_agents: int = 40
     n_dim: int = 30  # K, recovered from the draft
     n_issues: int = 5  # P, the "small agenda"
-    case: int = 6  # discrimination case of Table I
+    case: int = 6  # prejudice case of Table I
     #: Total interactions per society, expressed per ordered pair of agents so
     #: that the number is meaningful independently of N.
     #:

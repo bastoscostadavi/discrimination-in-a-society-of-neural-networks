@@ -30,20 +30,33 @@ from matplotlib.colors import TwoSlopeNorm
 
 __all__ = ["FIGURE_DIR", "use_style", "panel", "save", "framed_axes", "pastel",
            "fit_scale", "fit_curve", "plane_panel", "cut_panel",
-           "figure_trust_summary"]
+           "AXIS_LABEL_PT", "figure_trust_plane",
+           "figure_trust_cut"]
 
 FIGURE_DIR = Path(__file__).resolve().parent.parent / "figures"
+
+#: Axis labels sit below body size, as they do in Figure 1.  That figure clears
+#: its per-panel x label for a shared ``supxlabel``, which does not inherit
+#: ``axes.labelsize``, and sets both labels to this instead; matching the number
+#: is what makes the two figures read as one comparison.
+AXIS_LABEL_PT = 8
 _STYLE = {"name": "iclr"}
 
 
 def use_style(name="iclr"):
+    """Figure 1's style exactly, taken from the package that draws Figure 1.
+
+    Imported rather than restated.  These panels are printed beside Figure 1 and
+    are meant to be read against it, so a font that is a point out, or a sans
+    label next to a serif one, reads as two different figures rather than one
+    comparison.  ``savefig.bbox`` is cleared on purpose: the two panels are
+    placed at a fixed width each, and trimming them to their ink would make one
+    slightly larger than the other.
+    """
     _STYLE["name"] = name
-    plt.rcParams.update({
-        "font.size": 8, "axes.labelsize": 8, "axes.titlesize": 8,
-        "xtick.labelsize": 7, "ytick.labelsize": 7,
-        "figure.dpi": 150, "savefig.bbox": "tight", "savefig.pad_inches": 0.03,
-        "axes.linewidth": 0.6,
-    })
+    from ednna.plotting import use_style as ednna_style
+    ednna_style(name)
+    plt.rcParams.update({"savefig.bbox": None, "figure.dpi": 150})
 
 
 def panel(frac, aspect):
@@ -84,8 +97,10 @@ def _decorate(ax, lim, levels=None):
     ax.plot([-lim, lim], [-lim, lim], color="#5aa469", lw=0.9)
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-lim, lim)
-    ax.set_xlabel(r"disagree $\;\leftarrow\;h_w\;\rightarrow\;$ agree")
-    ax.set_ylabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust")
+    ax.set_xlabel(r"disagree $\;\leftarrow\;h_w\;\rightarrow\;$ agree",
+                  fontsize=AXIS_LABEL_PT, labelpad=1)
+    ax.set_ylabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust",
+                  fontsize=AXIS_LABEL_PT, labelpad=1)
     ax.set_aspect("equal")
     if levels is not None:
         ax.set_xticks(levels)
@@ -150,8 +165,7 @@ def fit_curve(h_mu, d_mu, sign, F_mu, grid=None):
     return a, floor, rmse, profile
 
 
-def plane_panel(ax, h_w, h_mu, d_mu, F_mu, alpha, lim=None, cap=None,
-                fill_label=r"$F_\mu$"):
+def plane_panel(ax, h_w, h_mu, d_mu, F_mu, alpha, lim=None, cap=None):
     """Measured ``Delta h_mu`` as points, over the analytic ``F_mu``.
 
     Both coordinates of every point are measured -- ``h_mu`` from the emitter's
@@ -178,13 +192,6 @@ def plane_panel(ax, h_w, h_mu, d_mu, F_mu, alpha, lim=None, cap=None,
                     norm=TwoSlopeNorm(vcenter=0.0, vmin=-cap, vmax=cap),
                     s=11, edgecolors="k", linewidths=0.3, zorder=3)
     _decorate(ax, lim, np.arange(-int(lim), int(lim) + 1))
-    # named exactly as the paper's Figure 1 names it: the function alone, in the
-    # same colour and the same corner, so the two can be laid side by side and
-    # read as one statement rather than two conventions.  What is fill and what
-    # is measurement belongs in the caption.
-    ax.text(0.05, 0.93, fill_label, transform=ax.transAxes, color="#2f4f7f",
-            ha="left", va="top", zorder=6,
-            bbox=dict(fc="white", ec="none", alpha=0.6, pad=1.0))
     return im
 
 
@@ -227,37 +234,45 @@ def cut_panel(ax, h_w, h_mu, d_mu, sign, F_mu, alpha, hw_fit, window,
     pad = 1.15 * np.percentile(np.abs(finite), 99)
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-pad, pad)
-    ax.set_xlabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust")
-    ax.set_ylabel(r"measured $\Delta h_\mu$")
-    ax.legend(fontsize=6, frameon=False, loc="lower left", handlelength=1.2,
-              borderpad=0.1, labelspacing=0.25)
+    ax.set_xlabel(r"trust $\;\leftarrow\;h_\mu\;\rightarrow\;$ distrust",
+                  fontsize=AXIS_LABEL_PT, labelpad=1)
+    ax.set_ylabel(r"measured $\Delta h_\mu$", fontsize=AXIS_LABEL_PT,
+                  labelpad=1)
+    ax.legend(loc="lower left", handlelength=1.2, borderpad=0.1,
+              labelspacing=0.25, fontsize=AXIS_LABEL_PT - 1)
     framed_axes(ax)
 
 
-def figure_trust_summary(h_w, h_mu, d_mu, sign, F_mu, name="trust_llm"):
-    """The trust sector in two square panels: the plane, then the cut through it.
+#: One geometry for both panels.  The axes rectangle is identical in the two
+#: figures and the colour bar lives in the strip to its right, which the cut
+#: leaves empty; drawn at the same figure size and untrimmed, the two are placed
+#: side by side at one width each and their frames line up exactly.
+PANEL_FIG = (2.75, 2.45)
+PANEL_RECT = (0.215, 0.185, 0.60, 0.60 * 2.75 / 2.45)
+CBAR_RECT = (0.215 + 0.60 + 0.028, 0.185, 0.032, 0.60 * 2.75 / 2.45)
 
-    The panels are drawn at equal box size rather than equal data aspect.  The
-    left one is a plane and is square in its own units; the right one has a field
-    on one axis and an update on the other, where an equal aspect would be
-    meaningless, so its box is squared explicitly and the two read as a pair.
-    """
-    alpha_plane = fit_scale(h_w, h_mu, d_mu, F_mu)
-    alpha, hw_fit, rmse, _ = fit_curve(h_mu, d_mu, sign, F_mu)
-    fig, axes = plt.subplots(1, 2, figsize=(5.5, 2.6),
-                             gridspec_kw={"wspace": 0.62})
-    im = plane_panel(axes[0], h_w, h_mu, d_mu, F_mu, alpha_plane)
-    cb = fig.colorbar(im, ax=axes[0], fraction=0.046, pad=0.03)
-    cb.ax.tick_params(labelsize=6)
-    cut_panel(axes[1], h_w, h_mu, d_mu, sign, F_mu, alpha, hw_fit, window=2.05)
-    axes[1].set_box_aspect(1.0)
-    for ax, tag in zip(axes, "ab"):
-        ax.text(-0.26, 1.10, f"({tag})", transform=ax.transAxes, fontsize=8,
-                fontweight="bold", va="top")
+
+def figure_trust_plane(h_w, h_mu, d_mu, F_mu, name="trust_plane"):
+    """The measurement over the plane of Figure 1."""
+    alpha = fit_scale(h_w, h_mu, d_mu, F_mu)
+    fig = plt.figure(figsize=PANEL_FIG)
+    ax = fig.add_axes(PANEL_RECT)
+    im = plane_panel(ax, h_w, h_mu, d_mu, F_mu, alpha)
+    cb = fig.colorbar(im, cax=fig.add_axes(CBAR_RECT))
+    cb.ax.tick_params(labelsize=plt.rcParams["ytick.labelsize"])
     m = np.isfinite(h_w) & np.isfinite(d_mu)
     F = F_mu(h_w[m], h_mu[m])
-    print(f"[plane] n={m.sum()}  alpha={alpha_plane:.3f}  "
+    print(f"[plane] n={m.sum()}  alpha={alpha:.3f}  "
           f"r={np.corrcoef(F, d_mu[m])[0, 1]:.3f}  "
           f"sign={np.mean(np.sign(F) == np.sign(d_mu[m])):.1%}")
+    return save(fig, name)
+
+
+def figure_trust_cut(h_w, h_mu, d_mu, sign, F_mu, name="trust_cut"):
+    """The same measurement along the distrust field alone."""
+    alpha, hw_fit, rmse, _ = fit_curve(h_mu, d_mu, sign, F_mu)
+    fig = plt.figure(figsize=PANEL_FIG)
+    ax = fig.add_axes(PANEL_RECT)
+    cut_panel(ax, h_w, h_mu, d_mu, sign, F_mu, alpha, hw_fit, window=2.05)
     print(f"[cut]   alpha={alpha:.3f}  |h_w| >= {hw_fit:.2f}  RMSE={rmse:.3f}")
     return save(fig, name)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""How learning moves a receiver's state, and how the discrimination field bends it.
+"""How learning moves a receiver's state, and how the prejudice field bends it.
 
 One interaction changes the receiver's opinion field by an amount proportional
 to ``F_w`` and its distrust field by an amount proportional to ``F_mu``, so the
@@ -8,10 +8,10 @@ learning induces.  The flow points away from the two dissonant quadrants
 (agreeing with a distrusted emitter, disagreeing with a trusted one) and into
 the two consonant ones.
 
-A discriminating receiver evaluates the modulation at ``h_w + D`` while sitting
+A prejudiced receiver evaluates the modulation at ``h_w + D`` while sitting
 at ``h_w``, which tilts the flow: the diagonal separatrix moves to
 ``h_mu = h_w + D``, so one consonant basin grows at the other's expense.  With
-``D < 0`` -- how a discriminating agent treats an out-group emitter when
+``D < 0`` -- how a prejudiced agent treats an out-group emitter when
 ``d > 0`` -- the "distrust and disagree" basin grows, and a society with enough
 such agents ends up with distrust aligned to class.  With ``D > 0`` the
 "trust and agree" basin grows instead.
@@ -75,7 +75,7 @@ def figure(style, d=1.5, n_arrows=17, n_field=400):
             angles="xy", scale=26.0, width=0.006, headwidth=3.2, headlength=3.6,
             pivot="middle",
         )
-        # the separatrix, displaced by the discrimination field
+        # the separatrix, displaced by the prejudice field
         ax.plot([-LIM, LIM], [-LIM + D, LIM + D], color="#5aa469", lw=0.9)
         framed_axes(ax, minor=False)
         ax.axhline(0.0, color="0.5", lw=0.4)

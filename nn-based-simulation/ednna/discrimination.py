@@ -1,6 +1,6 @@
 """Discrimination fields: how class membership perturbs the opinion field.
 
-A discriminating receiver extends the representation of an issue with
+A prejudiced receiver extends the representation of an issue with
 information that is irrelevant to the classification task but correlated with
 the *class* of the emitter.  In the algorithm this appears as an additive shift
 of the opinion field before the modulation functions are evaluated:
@@ -31,7 +31,7 @@ The source draft's Table I assigns `-d` to the in-group entries while its text
 and figures require `d > 0` to be the discriminatory regime.  Those two cannot
 both hold: the draft's table and its Eq. 25, taken literally, put the
 discriminatory phase at `d < 0`.  We use the consistent convention above, which
-matches the draft's figures and narrative.  `docs/discrimination-field-sign.md`
+matches the draft's figures and narrative.  `docs/prejudice-field-sign.md`
 works the discrepancy through in full and shows both versions side by side; the
 `literal_draft=True` flag here reproduces the draft's literal table for that
 comparison.
@@ -68,16 +68,35 @@ _TEMPLATES = {
     6: [[+1.0, -1.0], [-1.0, +1.0]],
 }
 
-CASES = tuple(sorted(_TEMPLATES))
+# The four orthogonal components of a class-dependent shift.  Writing
+# kappa = +1 for class A and -1 for class B, any 2x2 field decomposes uniquely as
+#
+#     D[R, E] = a + b*kappa_R + c*kappa_E + p*kappa_R*kappa_E
+#
+# with one meaning each: `a` a uniform credulity that names no class, `b` a class
+# that is more credulous whoever speaks, `c` a class that is believed more whoever
+# listens, `p` a dependence on whether the two classes match.  Case 6 is pure `p`.
+# The main text varies `p` with a = b = c = 0; the others are here so the same
+# sweep machinery can run them.
+_KAPPA = (+1.0, -1.0)  # index 0 -> class A, index 1 -> class B
+_COMPONENTS = {
+    "a": [[1.0, 1.0], [1.0, 1.0]],
+    "b": [[kr, kr] for kr in _KAPPA],
+    "c": [[ke for ke in _KAPPA] for _ in _KAPPA],
+    "p": [[kr * ke for ke in _KAPPA] for kr in _KAPPA],
+}
+_TEMPLATES.update(_COMPONENTS)
+
+CASES = tuple(sorted(_TEMPLATES, key=str))
 
 
 def field_matrix(d, case=6, literal_draft=False):
-    """The 2x2 discrimination field matrix ``D`` for one case.
+    """The 2x2 prejudice field matrix ``D`` for one case.
 
     Parameters
     ----------
     d
-        Strength of the discrimination field.  Positive `d` is in-group
+        Strength of the prejudice field.  Positive `d` is in-group
         tolerance / out-group intolerance; negative `d` is the reverse
         ("reverse discrimination"), which the draft also considers.
     case
@@ -88,7 +107,7 @@ def field_matrix(d, case=6, literal_draft=False):
         If True, flip the overall sign so as to match the source draft's
         Table I read literally together with its Eq. 25.  This puts the
         discriminatory phase at `d < 0` and exists only for the comparison in
-        ``docs/discrimination-field-sign.md``.
+        ``docs/prejudice-field-sign.md``.
 
     Returns
     -------

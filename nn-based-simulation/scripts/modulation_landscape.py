@@ -14,7 +14,7 @@ Produces three figures, none of which needs a simulation:
     across the diagonal, which is drawn.
 
 ``modulation_shift``
-    ``F_mu`` under a discrimination field of either sign, in the same layout as
+    ``F_mu`` under a prejudice field of either sign, in the same layout as
     ``modulation_contours``, so that the displacement of the separatrix -- the whole
     mechanism of the paper -- can be read off by comparison with it.
 """
@@ -85,7 +85,7 @@ def figure_surfaces(style):
 def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0):
     """One filled-contour panel over the ``(h_w, h_mu)`` plane.
 
-    ``shift`` is a discrimination field: the receiver sits at ``h_w`` but evaluates
+    ``shift`` is a prejudice field: the receiver sits at ``h_w`` but evaluates
     the modulation at ``h_w + D``, so the panel is the same function seen through a
     displaced coordinate, and the separatrix moves with it.
     """
@@ -164,7 +164,7 @@ def figure_contours_all(style):
 
 
 def figure_shift(style, d=1.0):
-    """What the discrimination field does to the trust sector, in one picture.
+    """What the prejudice field does to the trust sector, in one picture.
 
     The contour layout of :func:`figure_contours` applied to ``F_mu`` alone, at the
     three values of the field the flow figure uses: out-group, none, in-group.

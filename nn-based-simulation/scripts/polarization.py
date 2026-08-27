@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """How do we know the society polarizes?
 
-The phase diagrams answer questions about the *discriminating* society. This
-figure answers the prior one: with no discrimination field at all, what does the
+The phase diagrams answer questions about the *prejudiced* society. This
+figure answers the prior one: with no prejudice field at all, what does the
 society do? It splits into two mutually distrustful camps whose membership has
 nothing to do with any label, and the evidence is direct --- the distribution of
 pairwise overlaps starts unimodal at zero and ends bimodal at plus and minus one,

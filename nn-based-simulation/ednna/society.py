@@ -18,7 +18,7 @@ its quantities through the modulation functions of :mod:`ednna.modulation`:
     mu  += (F_mu / gamma_V) V
     V   += (F_V / gamma_V^2) V^2
 
-where ``D`` is the discrimination field (zero for non-discriminating receivers).
+where ``D`` is the prejudice field (zero for non-prejudiced receivers).
 
 Layout and why it matters
 -------------------------
@@ -70,15 +70,15 @@ class SocietyBatch:
         ``N``, ``K``, ``P``: society size, embedding dimension of an issue, and
         number of issues in the agenda.
     d, f_d
-        Arrays of length ``R`` (or scalars, broadcast): the discrimination field
-        and the fraction of discriminating agents for each society in the batch.
+        Arrays of length ``R`` (or scalars, broadcast): the prejudice field
+        and the fraction of prejudiced agents for each society in the batch.
     case
         Which discrimination case of the draft's Table I (1-6); default 6.
     seed
         Seed for this batch's initial conditions and schedule.
     literal_draft_sign
         Passed to :func:`ednna.discrimination.field_matrix`; see
-        ``docs/discrimination-field-sign.md``.
+        ``docs/prejudice-field-sign.md``.
     dtype
         ``np.float64`` (default) or ``np.float32``.  float32 halves memory
         traffic, which is the bottleneck, for a ~1.7x speedup.
@@ -150,7 +150,7 @@ class SocietyBatch:
 
         # --- who discriminates, and by how much ----------------------------
         # discriminates[i, run] is drawn independently per agent and run with
-        # probability f_d[run]; the field a discriminating receiver applies
+        # probability f_d[run]; the field a prejudiced receiver applies
         # depends on its own class and the emitter's.
         self.discriminates = rng.random((N, R)) < f_d[None, :]
         self.D = np.zeros((N, N, R), dtype=dtype)

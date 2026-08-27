@@ -178,7 +178,7 @@ def class_trust_per_agent(society, eta=None):
     """``u_I = (1/N) kappa . eta_I``: how class-aligned each agent's trust is.
 
     An agent whose trust follows its own class has ``u_I = kappa_I``, so under
-    discrimination the histogram of ``u`` over the society is bimodal at +-1,
+    prejudice the histogram of ``u`` over the society is bimodal at +-1,
     and under reverse discrimination the two modes swap places.  A society whose
     trust is uncorrelated with class has ``u`` concentrated at 0.  Multiply by
     ``kappa`` for a single-signed version.  Returns (R, N).

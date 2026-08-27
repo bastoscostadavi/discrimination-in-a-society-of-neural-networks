@@ -19,6 +19,7 @@ nn-based-simulation/figures/draft_comparison.pdf
 *.log
 *.out
 *.synctex.gz
+*.synctex(busy)
 *.toc
 # The paper's figures ARE committed, even though `make figures` regenerates them
 # from nn-based-simulation.  They are small, and committing them means a coauthor who
@@ -46,3 +47,21 @@ __pycache__/
 # LLM response cache: 57 MB of raw API responses, keyed by prompt hash.
 # Regenerate by rerunning the stages; deleting it only costs money, not data.
 llm-agent-modulation/data/cache/
+
+# Sweep caches for the directional-field exploration: regenerate with
+# `python scripts/make_all.py --preset <p>`.
+directional-prejudice/data/
+directional-prejudice/.medium.log
+
+# Same, for the uniform-credulity plane.  The `full` sweep is ~6 MB of npz and
+# four hours of compute; it is a cache, not a source, and `--preset full`
+# rebuilds it.
+uniform-credulity/data/
+uniform-credulity/.*.log
+
+# Same, for the credulity-asymmetry plane.  The `full` sweep is five strip caches
+# totalling ~3.6 MB and six and three quarter hours of compute; it is a cache,
+# not a source, and `--preset full` rebuilds it (reloading whichever strips are
+# already there).
+credulity-asymmetry/data/
+credulity-asymmetry/.*.log

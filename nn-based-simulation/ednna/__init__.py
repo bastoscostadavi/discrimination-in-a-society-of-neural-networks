@@ -11,7 +11,7 @@ Modules
 -------
 ``modulation``      the evidence Z and the four modulation functions
 ``society``         batched simulation of societies of agents
-``discrimination``  the discrimination-field matrices and their sign convention
+``discrimination``  the prejudice-field matrices and their sign convention
 ``order_params``    correlations and social balance
 ``sweep``           ``(d, f_d)`` phase-diagram sweeps with caching
 ``config``          model parameters and resolution presets

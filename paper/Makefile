@@ -16,7 +16,8 @@ PRESET   := medium
 IMPORTS := modulation_contours modulation_contours_all modulation_shift learning_flows polarization \
            correlation_maps_small correlation_maps_large \
            balance_maps_small balance_maps_large \
-           phase_diagram phase_diagram_large_agenda agenda_trajectories \
+           phase_diagram phase_diagram_large_agenda phase_diagram_cut phase_diagram_large_agenda_cut \
+           agenda_trajectories \
            sign_convention_comparison
 
 .PHONY: all figures sim clean distclean watch

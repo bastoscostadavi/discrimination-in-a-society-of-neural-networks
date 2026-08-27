@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Side-by-side maps of the two readings of the discrimination field.
+"""Side-by-side maps of the two readings of the prejudice field.
 
 The source draft's Eq. 25 (``h_w^D = h_w + D``) together with its Table I
 (in-group entry ``-d``) puts the discriminatory phase at ``d < 0``, while its
@@ -8,7 +8,7 @@ separates the two readings.  This script runs the same sweep under both and
 plots the trust-class correlation, so the difference can be seen rather than
 argued about.
 
-See ``docs/discrimination-field-sign.md`` for the argument.  Writes
+See ``docs/prejudice-field-sign.md`` for the argument.  Writes
 ``sign_convention_comparison``.
 """
 

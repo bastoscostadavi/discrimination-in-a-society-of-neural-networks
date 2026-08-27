@@ -158,7 +158,7 @@ def text_width():
     return 5.5 if _STYLE["name"] == "iclr" else 6.3
 
 
-def save(fig, name, style=None):
+def save(fig, name, style=None, bbox="tight"):
     """Write ``name`` as a PDF into ``figures/<style>/``.
 
     PDF only: it is what LaTeX wants, it stays sharp at any size, and a parallel
@@ -174,7 +174,14 @@ def save(fig, name, style=None):
         )
     out.mkdir(parents=True, exist_ok=True)
     path = out / f"{name}.pdf"
-    fig.savefig(path)
+    # bbox=None keeps the figure at exactly the requested figsize.  Two panels
+    # meant to print side by side at the same width must not be cropped to
+    # their own content, or the one with the longer axis label comes out
+    # shorter than the other.  Passing bbox_inches=None to savefig is not enough:
+    # matplotlib reads it as "unset" and falls back to the rcParam, which is
+    # "tight" here, so the setting has to be overridden for the call.
+    with plt.rc_context({"savefig.bbox": bbox}):
+        fig.savefig(path)
     plt.close(fig)
     print(f"[figure] {path.relative_to(FIGURE_DIR.parent)}")
     return path
@@ -272,9 +279,9 @@ def add_phase_axes(ax, ylabel=True, sparse_ticks=False):
     grid, which also frees the margin for a row label.  ``sparse_ticks`` keeps
     only the endpoints and midpoint, for grids too narrow for five labels.
     """
-    ax.set_xlabel(r"$d$", labelpad=1)
+    ax.set_xlabel(r"$p$", labelpad=1)
     if ylabel:
-        ax.set_ylabel(r"$f_d$", labelpad=1)
+        ax.set_ylabel(r"$f_p$", labelpad=1)
     if sparse_ticks:
         ax.set_xticks([-1, 0, 1])
         ax.set_yticks([0, 0.5, 1])

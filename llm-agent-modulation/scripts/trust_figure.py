@@ -14,14 +14,14 @@ import numpy as np
 
 from _cli import ROOT, theory  # noqa: E402
 
-from llmmod.plotting import figure_trust_summary, use_style  # noqa: E402
+from llmmod.plotting import (figure_trust_cut, figure_trust_plane,  # noqa: E402
+                             use_style)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--tag", default="curve")
     ap.add_argument("--style", default="iclr")
-    ap.add_argument("--name", default="trust_llm")
     args = ap.parse_args()
     use_style(args.style)
 
@@ -39,8 +39,8 @@ def main():
     # answer is, while the inversion is singular at neutral trust and censored
     # wherever the agent expects to disagree more than c = 1 allows
     h_w = get("h_w_direct") if "h_w_direct" in rows[0] else get("h_w")
-    figure_trust_summary(h_w, get("h_mu"), get("delta_mu"), get("sign"), F_mu,
-                         name=args.name)
+    figure_trust_plane(h_w, get("h_mu"), get("delta_mu"), F_mu)
+    figure_trust_cut(h_w, get("h_mu"), get("delta_mu"), get("sign"), F_mu)
 
 
 if __name__ == "__main__":
