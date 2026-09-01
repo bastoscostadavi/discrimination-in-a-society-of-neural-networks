@@ -20,7 +20,7 @@ pip install -r requirements.txt
 python scripts/make_all.py --preset quick     # minutes; coarse grids
 python scripts/make_all.py --preset medium    # the committed figures
 python scripts/make_all.py --preset full      # publication resolution
-pytest                                        # 56 tests, ~30 s
+pytest                                        # 77 tests, ~30 s
 ```
 
 Add `--style iclr` to render at the paper's column width instead of the source
@@ -41,6 +41,7 @@ re-simulates. Delete `data/` or pass `--no-cache` to force a fresh run.
 | `order_parameter_maps.py` | `order_parameter_maps` | all five order parameters in one 2x5 grid; this is the version the paper uses |
 | `frustration_maps.py` | `frustration_maps` | ideological and trust balance over the same plane |
 | `phase_diagram.py` | `phase_diagram`, `phase_diagram_large_agenda` | the three correlations composited into one RGB map, with the four regions labelled |
+| `state_portraits.py` | `state_portraits` | one population from each of the four phases, both sectors reduced to a plane and drawn agent by agent, coloured by class |
 | `agenda_trajectories.py` | `agenda_trajectories` | `(B_rho, B_eta)` trajectories across nine agenda complexities `α = P/K` |
 | `sign_convention_comparison.py` | `sign_convention_comparison` | the two readings of the discrimination field, side by side |
 | `calibrate.py` | — | fixes the parameters the source draft leaves unspecified |

@@ -23,6 +23,7 @@ import modulation_landscape  # noqa: E402
 import order_parameter_maps  # noqa: E402
 import phase_diagram  # noqa: E402
 import polarization  # noqa: E402
+import state_portraits  # noqa: E402
 
 
 def main():
@@ -52,6 +53,12 @@ def main():
     phase_diagram.figure(
         by_issues[preset.p_large], args.style,
         name="phase_diagram_large_agenda", regions=False,
+    )
+
+    print("== state portraits ==")
+    state_portraits.figure(
+        state_portraits.run(preset, preset.p_small, use_cache=not args.no_cache),
+        args.style,
     )
 
     print("== balance trajectories ==")

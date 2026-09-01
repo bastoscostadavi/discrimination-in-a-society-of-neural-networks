@@ -13,12 +13,16 @@ Modules
 ``society``         batched simulation of societies of agents
 ``discrimination``  the prejudice-field matrices and their sign convention
 ``order_params``    correlations and social balance
+``reduction``       projecting a microstate onto a plane, for drawing it
 ``sweep``           ``(d, f_d)`` phase-diagram sweeps with caching
 ``config``          model parameters and resolution presets
 ``plotting``        shared figure style
 """
 
-from . import config, discrimination, modulation, order_params, plotting, society, sweep
+from . import (
+    config, discrimination, modulation, order_params, plotting, reduction, society,
+    sweep,
+)
 from .config import PRESETS, ModelConfig, SweepConfig, get_preset
 from .order_params import measure
 from .society import SocietyBatch
@@ -29,6 +33,7 @@ __all__ = [
     "discrimination",
     "modulation",
     "order_params",
+    "reduction",
     "plotting",
     "society",
     "sweep",

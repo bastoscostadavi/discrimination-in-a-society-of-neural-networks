@@ -1,0 +1,370 @@
+[
+  {
+    "key": "velqara",
+    "place": "The Velqaran Survey Office",
+    "setting": "The office's survey ledgers record measured spans, angles, and elevations across the vanished district of Velqara.",
+    "unit_singular": "survey leaf",
+    "unit_plural": "survey leaves",
+    "colleague": "Surveyor Odriv",
+    "predicate": "was measured at the greater elevation",
+    "issues": [
+      {
+        "a": "Trevask Tor",
+        "b": "Ulqen Tor"
+      },
+      {
+        "a": "Mavrid Step",
+        "b": "Qelzor Step"
+      },
+      {
+        "a": "Brasku Rise",
+        "b": "Nethvar Rise"
+      }
+    ]
+  },
+  {
+    "key": "sorneth",
+    "place": "The Sornethic Canal Registry",
+    "setting": "The registry contains dated engineering entries for locks, sluices, and tow routes maintained by the Sornethic League.",
+    "unit_singular": "canal entry",
+    "unit_plural": "canal entries",
+    "colleague": "Registrar Veskul",
+    "predicate": "was opened earlier",
+    "issues": [
+      {
+        "a": "Durnel Lock",
+        "b": "Pavqet Lock"
+      },
+      {
+        "a": "Oshvar Sluice",
+        "b": "Kelbrin Sluice"
+      },
+      {
+        "a": "Tazqur Cut",
+        "b": "Mernok Cut"
+      }
+    ]
+  },
+  {
+    "key": "ulvessa",
+    "place": "The Ulvessan Ceramic Catalogue",
+    "setting": "The catalogue lists kiln lots and firing records for glazed vessels excavated from Ulvessan storehouses.",
+    "unit_singular": "kiln record",
+    "unit_plural": "kiln records",
+    "colleague": "Cataloguer Edrassa",
+    "predicate": "was fired at the higher recorded temperature",
+    "issues": [
+      {
+        "a": "Veqra Basin",
+        "b": "Sulven Basin"
+      },
+      {
+        "a": "Orqesh Jar",
+        "b": "Davra Jar"
+      },
+      {
+        "a": "Melnic Tile",
+        "b": "Qorvul Tile"
+      }
+    ]
+  },
+  {
+    "key": "drayqor",
+    "place": "The Drayqor Astral Log Expedition",
+    "setting": "The expedition's logbooks preserve timed observations of wandering lights and fixed markers above the Drayqor plateau.",
+    "unit_singular": "observation folio",
+    "unit_plural": "observation folios",
+    "colleague": "Logkeeper Yavrek",
+    "predicate": "was recorded at the earlier hour",
+    "issues": [
+      {
+        "a": "Nulq Star",
+        "b": "Veydr Star"
+      },
+      {
+        "a": "Qassel Marker",
+        "b": "Brunqel Marker"
+      },
+      {
+        "a": "Ovrin Light",
+        "b": "Teskav Light"
+      }
+    ]
+  },
+  {
+    "key": "marnuvo",
+    "place": "The Marnuvo Grain Measure Register",
+    "setting": "The register records container capacities and calibration dates used by granaries of the Marnuvo Compact.",
+    "unit_singular": "measure slip",
+    "unit_plural": "measure slips",
+    "colleague": "Registrar Qevran",
+    "predicate": "held the greater recorded volume",
+    "issues": [
+      {
+        "a": "Jorvek Bin",
+        "b": "Asqur Bin"
+      },
+      {
+        "a": "Pelvot Jar",
+        "b": "Nerqel Jar"
+      },
+      {
+        "a": "Uskarn Cask",
+        "b": "Vadrun Cask"
+      }
+    ]
+  },
+  {
+    "key": "qelthari",
+    "place": "The Qelthari Bridge Archive",
+    "setting": "The archive preserves construction notes and inspection measurements for crossings commissioned by the Qelthari Council.",
+    "unit_singular": "bridge dossier",
+    "unit_plural": "bridge dossiers",
+    "colleague": "Archivist Rulqet",
+    "predicate": "was completed first",
+    "issues": [
+      {
+        "a": "Varnel Span",
+        "b": "Oqdrin Span"
+      },
+      {
+        "a": "Sethqur Crossing",
+        "b": "Malvek Crossing"
+      },
+      {
+        "a": "Drovash Arch",
+        "b": "Qenril Arch"
+      }
+    ]
+  },
+  {
+    "key": "bravex",
+    "place": "The Bravex Tide Survey",
+    "setting": "The survey sheets record water levels at marked inlets visited by the Bravex Coastal Expedition.",
+    "unit_singular": "tide sheet",
+    "unit_plural": "tide sheets",
+    "colleague": "Hydrographer Tovren",
+    "predicate": "reached the greater recorded height",
+    "issues": [
+      {
+        "a": "Eshqet Inlet",
+        "b": "Vurmal Inlet"
+      },
+      {
+        "a": "Qadren Mouth",
+        "b": "Solqev Mouth"
+      },
+      {
+        "a": "Nivrok Reach",
+        "b": "Pethul Reach"
+      }
+    ]
+  },
+  {
+    "key": "ozzura",
+    "place": "The Ozzuran Roadstone Catalogue",
+    "setting": "The catalogue inventories quarried paving blocks and lists their recorded lengths, widths, and delivery dates.",
+    "unit_singular": "stone card",
+    "unit_plural": "stone cards",
+    "colleague": "Cataloguer Meskor",
+    "predicate": "was delivered earlier",
+    "issues": [
+      {
+        "a": "Qurvek Block",
+        "b": "Anzhel Block"
+      },
+      {
+        "a": "Dovqen Slab",
+        "b": "Yurmal Slab"
+      },
+      {
+        "a": "Kezraq Paver",
+        "b": "Olnet Paver"
+      }
+    ]
+  },
+  {
+    "key": "fenqavi",
+    "place": "The Fenqavi Orchard Survey",
+    "setting": "The survey records tree rows, measured heights, and seasonal fruiting dates within the enclosed Fenqavi terraces.",
+    "unit_singular": "orchard plate",
+    "unit_plural": "orchard plates",
+    "colleague": "Surveyor Pelqad",
+    "predicate": "was recorded at the greater height",
+    "issues": [
+      {
+        "a": "Vesqel Row",
+        "b": "Narduv Row"
+      },
+      {
+        "a": "Qomret Tree",
+        "b": "Ishvul Tree"
+      },
+      {
+        "a": "Braneq Grove",
+        "b": "Tulqor Grove"
+      }
+    ]
+  },
+  {
+    "key": "yuldran",
+    "place": "The Yuldran Bell Register",
+    "setting": "The register documents cast bells by alloy batch, diameter, pitch notation, and installation date.",
+    "unit_singular": "bell entry",
+    "unit_plural": "bell entries",
+    "colleague": "Registrar Uvren",
+    "predicate": "was installed earlier",
+    "issues": [
+      {
+        "a": "Qelvar Bell",
+        "b": "Durniq Bell"
+      },
+      {
+        "a": "Oshrel Bell",
+        "b": "Vaqtul Bell"
+      },
+      {
+        "a": "Merzok Bell",
+        "b": "Pavqir Bell"
+      }
+    ]
+  },
+  {
+    "key": "tavruq",
+    "place": "The Tavruq Masonry Index",
+    "setting": "The index cross-references wall segments with their measured courses, joint widths, and repair dates.",
+    "unit_singular": "masonry index card",
+    "unit_plural": "masonry index cards",
+    "colleague": "Indexer Zalqen",
+    "predicate": "contained the greater number of courses",
+    "issues": [
+      {
+        "a": "Uldreq Wall",
+        "b": "Savorq Wall"
+      },
+      {
+        "a": "Nethul Retaining Face",
+        "b": "Qarvek Retaining Face"
+      },
+      {
+        "a": "Bromza Foundation",
+        "b": "Yeqtor Foundation"
+      }
+    ]
+  },
+  {
+    "key": "eshmora",
+    "place": "The Eshmoran Mineral Ledger",
+    "setting": "The ledger lists mineral samples by vein, mass, grain size, and date of extraction from Eshmoran workings.",
+    "unit_singular": "sample ledger",
+    "unit_plural": "sample ledgers",
+    "colleague": "Assayer Vemroq",
+    "predicate": "had the greater recorded mass",
+    "issues": [
+      {
+        "a": "Qulven Nodular Vein",
+        "b": "Arzok Nodular Vein"
+      },
+      {
+        "a": "Mervaq Seam",
+        "b": "Tosqel Seam"
+      },
+      {
+        "a": "Drezhum Pocket",
+        "b": "Velkor Pocket"
+      }
+    ]
+  },
+  {
+    "key": "kervalo",
+    "place": "The Kervalo Kite Survey",
+    "setting": "The survey records ceremonial kites by frame dimensions, tether lengths, and launch conditions at Kervalo fields.",
+    "unit_singular": "kite chart",
+    "unit_plural": "kite charts",
+    "colleague": "Surveyor Nulvek",
+    "predicate": "had the longer recorded tether",
+    "issues": [
+      {
+        "a": "Qevra Kite",
+        "b": "Molqen Kite"
+      },
+      {
+        "a": "Sarduv Kite",
+        "b": "Elnor Kite"
+      },
+      {
+        "a": "Vaqresh Kite",
+        "b": "Dulmek Kite"
+      }
+    ]
+  },
+  {
+    "key": "norzethi",
+    "place": "The Norzethi Ferry Archive",
+    "setting": "The archive holds crossing schedules, hull measurements, and fare tables for ferries on Norzethi channels.",
+    "unit_singular": "ferry schedule",
+    "unit_plural": "ferry schedules",
+    "colleague": "Archivist Qorven",
+    "predicate": "made the greater number of recorded crossings",
+    "issues": [
+      {
+        "a": "Urvash Ferry",
+        "b": "Kelqur Ferry"
+      },
+      {
+        "a": "Mardoq Ferry",
+        "b": "Tenvul Ferry"
+      },
+      {
+        "a": "Zeqran Ferry",
+        "b": "Oshvek Ferry"
+      }
+    ]
+  },
+  {
+    "key": "peldru",
+    "place": "The Peldru Observatory Catalogue",
+    "setting": "The catalogue preserves instrument readings for shadow rods, water clocks, and marked meridian stones at Peldru stations.",
+    "unit_singular": "instrument record",
+    "unit_plural": "instrument records",
+    "colleague": "Observer Raqdel",
+    "predicate": "gave the longer recorded interval",
+    "issues": [
+      {
+        "a": "Vulqen Shadow Rod",
+        "b": "Dreska Shadow Rod"
+      },
+      {
+        "a": "Oqvar Water Clock",
+        "b": "Melnuq Water Clock"
+      },
+      {
+        "a": "Sethri Meridian Stone",
+        "b": "Qadvek Meridian Stone"
+      }
+    ]
+  },
+  {
+    "key": "zovraki",
+    "place": "The Zovraki Textile Register",
+    "setting": "The register records loom batches by thread count, cloth width, dye-bath duration, and storage date.",
+    "unit_singular": "loom register entry",
+    "unit_plural": "loom register entries",
+    "colleague": "Registrar Yevqor",
+    "predicate": "had the greater recorded thread count",
+    "issues": [
+      {
+        "a": "Qarnel Bolt",
+        "b": "Ushmev Bolt"
+      },
+      {
+        "a": "Vordaq Roll",
+        "b": "Pelzun Roll"
+      },
+      {
+        "a": "Nekvra Cloth",
+        "b": "Dulqesh Cloth"
+      }
+    ]
+  }
+]
