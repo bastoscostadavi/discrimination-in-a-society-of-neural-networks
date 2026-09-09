@@ -30,7 +30,7 @@ import _cli  # noqa: F401  - path setup
 
 from llmmod2 import prompts, worlds
 from llmmod2.ladder import DRAWS, NullPoint, measure_null
-from llmmod2.llm import usage_total, cost_estimate
+from llmmod2.llm import MODEL, usage_total, cost_estimate
 
 ROOT = _cli.ROOT
 CALIB = ROOT / "data" / "rows" / "calibration.json"
@@ -54,7 +54,7 @@ def _flip(w_index, s, k):
     return (w_index + S_LEVELS.index(s) + K_LEVELS.index(k)) % 2
 
 
-def _null(world, s, k, flip, message_dir, draws):
+def _null(world, s, k, flip, message_dir, draws, model):
     issue = world.issue(0)
     seed = f"{world.key}|op|{s}|{k}|{flip}"
     schema = prompts.verdict_schema(issue, flip)
@@ -64,7 +64,8 @@ def _null(world, s, k, flip, message_dir, draws):
                                       message_dir=message_dir, flip=flip,
                                       seed=seed)
 
-    return measure_null(render, schema, issue.a, prompts.SYSTEM, draws=draws)
+    return measure_null(render, schema, issue.a, prompts.SYSTEM, draws=draws,
+                        model=model)
 
 
 def _safe(fn, *args):
@@ -86,6 +87,8 @@ def _safe(fn, *args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--workers", type=int, default=24)
+    ap.add_argument("--model", default=MODEL,
+                    help="a name with a / is routed through OpenRouter")
     ap.add_argument("--draws", type=int, default=DRAWS)
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--max-cost", type=float, default=25.0,
@@ -114,7 +117,7 @@ def main():
     with ThreadPoolExecutor(args.workers) as pool:
         pre = list(pool.map(
             lambda c: _safe(_null, c[1], c[2], c[3], _flip(c[0], c[2], c[3]), None,
-                                  args.draws), cells))
+                                  args.draws, args.model), cells))
     guard()
     print(f"  pre done, ${cost_estimate():.2f}")
 
@@ -123,7 +126,7 @@ def main():
         with ThreadPoolExecutor(args.workers) as pool:
             posts[m] = list(pool.map(
                 lambda c: _safe(_null, c[1], c[2], c[3], _flip(c[0], c[2], c[3]), m,
-                                      args.draws), cells))
+                                      args.draws, args.model), cells))
         guard()
         print(f"  message {m:+d} done, ${cost_estimate():.2f}")
 

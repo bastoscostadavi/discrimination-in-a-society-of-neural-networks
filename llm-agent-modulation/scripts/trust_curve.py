@@ -43,14 +43,13 @@ from _cli import ROOT  # noqa: E402
 from llmmod.fields import (P_CLIP, conviction, h_mu_from_reliability,  # noqa: E402
                            h_w_from, to_p)
 from llmmod.generate import load_all  # noqa: E402
-from llmmod.llm import MODEL, ask_many, usage_total  # noqa: E402
+from llmmod.llm import MODEL, ask_many, cost_estimate, usage_total  # noqa: E402
 from llmmod.prompts import (CHANCE_SCHEMA, CONVICTION, SYSTEM,  # noqa: E402
                             agreement_prompt, conviction_prompt,
                             reliability_prompt)
 from llmmod.themes import by_key  # noqa: E402
 
 OUT = ROOT / "data" / "trust"
-PRICE_IN, PRICE_OUT = 0.20, 1.20
 
 #: Track records.  ``k`` is agreements minus disagreements, over a history whose
 #: length is the smallest that can express it: two statements for an even ``k``,
@@ -239,7 +238,7 @@ def main():
     _report(rows)
     u = usage_total()
     print(f"\n[usage] {u['calls']} calls ({u['cached']} cached) -> "
-          f"${(u['prompt'] * PRICE_IN + u['completion'] * PRICE_OUT) / 1e6:.3f}")
+          f"${cost_estimate():.3f}")
 
 
 def _report(rows):

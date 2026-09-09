@@ -13,11 +13,8 @@ import argparse
 import _cli  # noqa: F401  (imported for its sys.path side effect)
 
 from llmmod.generate import CROSS_THEME, PER_DEGREE, build_all  # noqa: E402
-from llmmod.llm import MODEL, usage_total  # noqa: E402
+from llmmod.llm import MODEL, cost_estimate, usage_total  # noqa: E402
 from llmmod.themes import THEMES  # noqa: E402
-
-PRICE_IN, PRICE_OUT = 0.20, 1.20  # $/M tokens, gpt-5.6-luna
-
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -35,7 +32,7 @@ def main():
               cross=args.cross, workers=args.workers)
 
     u = usage_total()
-    cost = (u["prompt"] * PRICE_IN + u["completion"] * PRICE_OUT) / 1e6
+    cost = cost_estimate()
     print(f"\n[usage] {u['calls']} calls ({u['cached']} served from cache), "
           f"{u['prompt']:,} in / {u['completion']:,} out "
           f"({u['reasoning']:,} reasoning) -> ${cost:.3f}")

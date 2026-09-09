@@ -18,6 +18,7 @@ from _cli import setup  # noqa: E402
 import agenda_trajectories  # noqa: E402
 import correlation_maps  # noqa: E402
 import frustration_maps  # noqa: E402
+import headline_figure  # noqa: E402
 import learning_flows  # noqa: E402
 import modulation_landscape  # noqa: E402
 import order_parameter_maps  # noqa: E402
@@ -56,10 +57,11 @@ def main():
     )
 
     print("== state portraits ==")
-    state_portraits.figure(
-        state_portraits.run(preset, preset.p_small, use_cache=not args.no_cache),
-        args.style,
-    )
+    portrait_data = state_portraits.run(
+        preset, preset.p_small, use_cache=not args.no_cache)
+    state_portraits.figure(portrait_data, args.style)
+    headline_figure.figure(
+        by_issues[preset.p_small], portrait_data, args.style)
 
     print("== balance trajectories ==")
     data = agenda_trajectories.trajectories(preset, use_cache=not args.no_cache)

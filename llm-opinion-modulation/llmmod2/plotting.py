@@ -215,7 +215,7 @@ def _decorate(ax, lim, xlabel=True, ticks=None):
 
 
 def plane_panel(ax, h_w, h_mu, delta, F, alpha, lim=None, cap=None, name=None,
-                ticks=None):
+                ticks=None, show_points=True):
     """The measurement as points, over the analytic modulation function.
 
     Both the colour clip and the frame default to this panel's own measurement:
@@ -234,12 +234,14 @@ def plane_panel(ax, h_w, h_mu, delta, F, alpha, lim=None, cap=None, name=None,
     HW, HMU = np.meshgrid(a, a)
     V = np.clip(alpha * F(HW, HMU), -cap, cap)
     levels = np.linspace(-cap, cap, 25)
-    ax.contourf(HW, HMU, V, levels=levels, cmap=pastel("coolwarm"))
+    contours = ax.contourf(HW, HMU, V, levels=levels, cmap=pastel("coolwarm"))
     ax.contour(HW, HMU, V, levels=levels[::4], colors="k", linewidths=0.25,
                alpha=0.5)
-    im = ax.scatter(h_w, h_mu, c=np.clip(delta, -cap, cap), cmap="coolwarm",
-                    norm=TwoSlopeNorm(vcenter=0.0, vmin=-cap, vmax=cap),
-                    s=13, edgecolors="k", linewidths=0.3, zorder=3)
+    im = contours
+    if show_points:
+        im = ax.scatter(h_w, h_mu, c=np.clip(delta, -cap, cap), cmap="coolwarm",
+                        norm=TwoSlopeNorm(vcenter=0.0, vmin=-cap, vmax=cap),
+                        s=13, edgecolors="k", linewidths=0.3, zorder=3)
     _decorate(ax, lim, ticks=ticks)
     if name is not None:
         # Placed exactly as Figure 1 places it.  The only addition is the
@@ -377,43 +379,50 @@ def crossover_panel(ax, h_w, h_mu, d_w, d_mu, F_w, F_mu, alpha, bins=7, lim=3.0)
 
 
 def figure_pair(sectors, figure_dir, name="llm_modulation", nest=False,
-                lim=None, cap=None, ticks=None):
+                lim=None, cap=None, ticks=None, right_lim=None,
+                right_ticks=None, show_points=True, show_panel_labels=True):
     """Two sectors side by side, in the layout and conventions of Figure 1.
 
-    Like Figure 1 the two panels share everything that is not the data: one
-    frame, one colour scale, one colour bar, one x label, and the y axis of the
-    left panel. Each still carries its own fitted scale, because the constant
-    that Figure 1's panels do not need -- the unobservable variance in front of
-    the update -- is a property of the sector and not of the drawing.
+    Like Figure 1 the panels show the raw analytic fields and share one colour
+    scale, one colour bar, and one x label. The measured updates are divided by
+    the global fitted scale for their experiment, placing points and backgrounds
+    in the same field units. Their axis ranges differ because the two experiments
+    cover different regions of the plane, so both panels show their own y-axis
+    numbers.
 
     ``cap`` defaults to the widest of the panels' own scales, rounded up, so that
     whichever sector moves more sets the range and the other is not stretched
-    past its data. ``lim`` is a crop and not a rescaling: a frame smaller than a panel's
-    measurement hides the part outside it, so the caller is told how many points
-    each panel loses.
+    past its data. ``lim`` sets both ranges of the left panel and ``right_lim``
+    sets both ranges of the right panel. These limits crop rather than rescale
+    the data, so the caller is told how many points each panel loses.
+    ``show_points=False`` leaves the analytic backgrounds unchanged and removes
+    only the measured markers, which is how Figure 1 is obtained from Figure 2.
+    ``show_panel_labels=False`` omits the redundant sector names when the shared
+    colour bar itself identifies both fields.
     """
     from ednna.plotting import matched_colorbar, text_width
     if cap is None:
-        # rounded to a fifth, so the bar is labelled 3.2 / 1.6 / 0 and not
-        # 3.14 / 1.57 / 0 -- the same tick values Figure 1 carries
-        widest = max(float(np.percentile(np.abs(d[np.isfinite(d)]), CAP_PCT))
-                     for _, _, _, _, d, _ in sectors)
-        cap = float(np.ceil(widest / 0.2) * 0.2)
-    left, right, bottom, top, wspace = 0.115, 0.87, 0.20, 0.98, 0.12
+        cap = 1.6
+    left, right, bottom, top, wspace = 0.115, 0.87, 0.20, 0.98, 0.20
     W = 0.86 * text_width()
     panel_w = W * (right - left) / (2 + wspace)
-    fig, axes = plt.subplots(1, 2, figsize=(W, panel_w / (top - bottom)),
-                             sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(W, panel_w / (top - bottom)))
     im = None
-    for ax, (F, label, h_w, h_mu, delta, alpha) in zip(axes, sectors):
-        if lim is not None:
-            outside = int(np.sum((np.abs(h_w) > lim) | (np.abs(h_mu) > lim)))
+    for i, (ax, (F, label, h_w, h_mu, delta, alpha)) in enumerate(
+            zip(axes, sectors)):
+        panel_lim = right_lim if i == 1 and right_lim is not None else lim
+        if show_points and panel_lim is not None:
+            outside = int(np.sum((np.abs(h_w) > panel_lim)
+                                 | (np.abs(h_mu) > panel_lim)))
             if outside:
                 print(f"  [{label}] {outside} of {len(h_w)} points "
                       f"({outside / len(h_w):.0%}) lie outside the "
-                      f"+/-{lim:g} frame and are not drawn")
-        im = plane_panel(ax, h_w, h_mu, delta, F, alpha, name=label, lim=lim,
-                         cap=cap, ticks=ticks)
+                      f"+/-{panel_lim:g} frame and are not drawn")
+        panel_ticks = right_ticks if i == 1 and right_ticks is not None else ticks
+        im = plane_panel(ax, h_w, h_mu, delta / alpha, F, 1.0,
+                         name=label if show_panel_labels else None,
+                         lim=panel_lim, cap=cap, ticks=panel_ticks,
+                         show_points=show_points)
         ax.set_xlabel("")            # one shared label below, or the two collide
         if ax is not axes[0]:
             ax.set_ylabel("")
@@ -421,5 +430,6 @@ def figure_pair(sectors, figure_dir, name="llm_modulation", nest=False,
                   fontsize=AXIS_LABEL_PT, y=0.045)
     fig.subplots_adjust(left=left, right=right, bottom=bottom, top=top,
                         wspace=wspace)
-    matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-cap, cap, 5))
+    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-cap, cap, 5))
+    cb.set_label(r"$F_w,\ F_\mu$", fontsize=7)
     return save(fig, name, figure_dir, nest=nest)

@@ -10,6 +10,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{subcaption}
+\usepackage{float}
 \usepackage{xcolor}
 \usepackage{fvextra}
 
@@ -33,7 +34,7 @@
 \newcommand{\Beta}{B_{\eta}}
 \newcommand{\fp}{f_{p}}
 
-\title{Discrimination in multi-agent systems}
+\title{Emergent polarization in multi-agent systems}
 
 \author{Anonymous authors\\Paper under double-blind review}
 
@@ -44,158 +45,149 @@
 \maketitle
 
 \begin{abstract}
-We study how discrimination can emerge in a population of interacting learning
-agents. Each agent is modeled by a perceptron that maps a shared representation of
-an issue to an opinion, together with estimates of the reliability of other agents.
-The perceptron represents an effective opinion readout and can be viewed as a linear
-decision layer acting on representations produced by a large language model. Agents
-update both beliefs using an online Bayesian learning rule derived for a student
-learning from a teacher through a noisy channel. A large language model using
-in-context learning reproduces the qualitative form of both updates predicted by
-this rule, including the one that decides the direction of opinion change.
-Without group bias, the population spontaneously separates into two mutually
-distrustful camps. We then introduce an irrelevant group label. A
-fraction $\fp$ of agents shifts its perceived agreement with a message by a strength
-$p$ according to whether the sender belongs to the same group. Simulations over
-$(p,\fp)$ produce four collective states: neutral polarization; discrimination in
-both trust and opinion; discrimination in trust but not opinion; and a frustrated
-state when agents favor the out-group. The outcome depends on both the strength and
-the prevalence of the bias. Individual measurements of bias are therefore
-insufficient unless they are aggregated at the population level. We define order
-parameters based only on pairwise opinion alignment and trust, so they can also be
-measured in systems whose internal representations are unavailable. The model
-therefore provides a simple framework for studying discrimination as a collective
-property of interacting learning agents.
+% Intro
+We study how discrimination and polarization can emerge in a population of interacting learning agents.
+% Agent modeling
+Each agent is modeled by a perceptron that maps a
+shared representation of an issue to an opinion and maintains estimates of the
+reliability of other agents. Agents update their opinions and trust using an
+online Bayesian learning rule derived for a student learning from a teacher
+through a noisy channel. The perceptron can be interpreted as a linear decision
+layer acting on representations produced by a large language model, and we show
+that in-context learning agrees qualitatively with both updates predicted by this
+rule, up to one fitted scale per update.
+% Method
+To connect these local learning
+dynamics to collective states and their transitions, we use statistical mechanics
+and define order parameters based only on pairwise opinion alignment and trust.
+% What happens
+Even without group bias, the population spontaneously separates into two mutually
+distrustful camps with opposing opinions. We then introduce an irrelevant group
+label into the learning rule: a fraction $\fp$ of agents shifts its perceived
+agreement with a message by a strength $p$ according to whether the sender belongs
+to the same group. Simulations over $(p,\fp)$ reveal a rich phase diagram with four
+collective states: frustrated out-group favoritism, nondiscriminatory polarization,
+discrimination with opinion alignment, and discrimination without opinion
+alignment. Which state emerges depends on both the strength and the prevalence of
+the bias.
+% Punchline
+As multi-agent systems become more prevalent, modeling their essential
+features and understanding their collective behavior will be crucial for their
+safety.
 \end{abstract}
 
 
 \section{Introduction}
 \label{sec:intro}
 
-Learned agents increasingly interact in groups: they debate, review one another,
-negotiate, and simulate populations
-\citep{park2023generative,du2023debate,chuang2024simulating}. These interactions can
-produce collective behavior that is not apparent from any agent in isolation. We
-ask whether they can also produce discrimination: persistent differences in trust
-and opinion organized by a label that contains no information.
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/headline_states}
+  \caption{\textbf{Four collective states and representative populations.}
+  Left: the states over bias strength $p$ and the fraction $\fp$ of biased
+  agents. In (I), \emph{frustration}, out-group favoritism creates incompatible
+  trust relations and opinions do not form coherent camps. In (II),
+  \emph{polarization}, opinion and trust form two camps unrelated to class. In
+  (IIIa), \emph{coupled discrimination}, both trust and opinion align with class;
+  in (IIIb), \emph{decoupled discrimination}, trust aligns with class but opinion
+  does not. Right: one population from each state. Each arrow is an
+  agent's opinion (top) or outgoing trust profile (bottom), projected onto two
+  dimensions. Color denotes class and filled markers denote biased agents.
+  The gray arrow gives the class direction in trust space. Formal definitions
+  and the full phase analysis are given in
+  Section~\ref{sec:results}.}
+  \label{fig:phase}
+\end{figure}
 
-We isolate the role of interaction by using a model with an explicit learning rule.
-The model contains $N$ perceptron agents and an agenda of $P$ issues embedded in
-$K$ dimensions. Each agent holds a Gaussian belief over its own weights and a
-separate estimate of every other agent's reliability. After receiving an opinion,
-it updates both estimates using an online Bayesian rule projected back to a
-Gaussian distribution \citep{opper1996online,caticha2020entropic}. The inferred
-channel noise is interpreted as distrust \citep{alves2016distrust}.
+In July 2026, agents undergoing cybersecurity evaluation at OpenAI coordinated an
+unauthorized intrusion into Hugging Face's infrastructure. Although assigned to
+separate tasks, they used shared infrastructure as a message board, exchanged
+discoveries, divided labor, and adopted goals from one another
+\citep{openai2026huggingface,larcher2026anatomy}. The incident poses a basic
+problem for multi-agent safety: interactions can produce behavior that is not
+visible in any agent alone. We study one instance of this problem. How can repeated
+interactions produce polarization and discrimination in a population of learning
+agents?
 
-We introduce group bias through a minimal representational error. A fraction $\fp$
-of agents shifts its perceived agreement with a message by $+p$ for an in-group
-sender and $-p$ for an out-group sender. The labels do not affect the issues or the
-initial conditions, and both groups follow the same rule. Any group asymmetry must
-therefore emerge from the interactions.
+We use the society of neural networks introduced by \citet{alves2021frustration}.
+Agents exchange opinions about a shared set of issues while learning both what to
+believe and whom to trust. Each agent is a perceptron that maps an issue
+representation to an opinion and estimates the reliability of every other agent
+\citep{caticha2011agent,alves2016distrust}. Opinion and trust evolve through an
+online Bayesian rule derived for a student learning from a teacher through a noisy
+channel \citep{opper1996online,caticha2020entropic}. Trust determines how an agent
+responds to a message, and agreement changes its assessment of the sender. The two
+therefore evolve together.
 
-The simulations produce four states over the $(p,\fp)$ plane. With weak or rare
-bias, the population polarizes independently of the label. With sufficiently
-common in-group bias, trust follows the label, and opinion may or may not follow it.
-When the bias favors the out-group, incompatible trust relations produce a
-frustrated state. The transition depends on both $p$ and $\fp$: moderate bias has
-little effect when it is rare but becomes strong when shared by many agents. This
-means that per-agent measurements must be combined with population-level
-measurements to identify the collective state.
+The perceptron is an effective linear readout and can act on representations
+produced by a large language model. We test this connection directly. In two
+in-context learning experiments, a language model agrees qualitatively with the
+predicted opinion and trust updates, up to one fitted scale per update. We then use
+statistical mechanics to connect these local updates to population behavior. Order
+parameters built from pairwise opinion alignment and trust identify the collective
+states and whether they follow group membership.
 
-The mechanism acts through trust. Perceived agreement determines whether an agent
-increases or decreases its trust in a source, so a group-dependent error in
-agreement becomes a group-dependent trust update. The effect is not due to a
-failure of the single-agent inference rule. It appears when a rule derived for one
-student and one teacher is used throughout a population.
+Without group bias, the population polarizes: it separates into two mutually distrustful camps
+with opposing opinions. We then add an irrelevant group label. A fraction
+$\fp$ of agents shifts its perceived agreement with a message by a strength $p$
+according to whether the sender belongs to the same group. The label contains no
+information about the issues.
 
-\paragraph{Contributions.}
-\begin{itemize}\itemsep1pt
-  \item We show that a large language model with frozen weights reproduces both
-    mean-update functions of the Bayesian rule. For the opinion update $\Fw$, a
-    binary readout over $550$ conditions has rank correlation $r_s=0.90$ with the
-    prediction and the same sign in $94.7\%$ of cases; a distrusted source moves
-    the model away from its statement. For the trust update $\Fmu$, elicited
-    reliability over $712$ conditions has correlation $r=0.85$ and $86\%$ sign
-    agreement (\S\ref{sec:llm}, Appendix~\ref{app:llm}).
-  \item We show that an irrelevant group feature can reorganize a population into
-    four collective states (\S\ref{sec:error}, \S\ref{sec:results}). Agenda
-    complexity, $\alpha=P/K$, determines whether discrimination appears in trust
-    alone or in both trust and opinion.
-  \item We define population-level diagnostics using only pairwise opinion
-    alignment and trust (\S\ref{sec:results}, \S\ref{sec:discussion}). They do not
-    require access to weights, gradients, or embeddings.
-\end{itemize}
+Simulations over $(p,\fp)$ produce four states (Figure~\ref{fig:phase}). Weak or
+rare bias leaves the population polarized independently of the label. When
+in-group bias is sufficiently common, trust follows the label; opinions may or may
+not follow it. Out-group favoritism instead produces a frustrated state. Thus,
+trust can align with an irrelevant label even when opinions do not, and the outcome
+depends on both the strength and the prevalence of the bias. Individual behavior
+alone is therefore insufficient to determine the state of the population.
 
-\paragraph{Relation to prior work.} The model, its learning rule, and the two
-balance order parameters are due to \citet{alves2021frustration}, as is the
-observation that the order of polarization reverses with the size of the agenda;
-\S\ref{sec:micro} and \S\ref{sec:dynamics} recap what the rest of the paper needs,
-and Appendix~\ref{app:genealogy} gives the longer genealogy. New here are the
-substrate test of the modulation functions, the conservation law that explains the
-reversal (Appendix~\ref{app:conserved}), and everything concerning discrimination:
-the field, the phase diagram, the class order parameters, and what they imply for
-evaluation.
-
-The model is not intended as a model of human societies. It establishes a narrower
-result for learning systems: a locally well-founded inference rule can turn an
-irrelevant label into stable group distrust when used by many interacting agents.
 
 \section{Related work}
 \label{sec:related}
 
-\paragraph{Societies of language-model agents.} Multi-agent language systems have
-been used for population simulation \citep{park2022social,park2023generative},
-factual debate \citep{du2023debate}, opinion exchange
-\citep{chuang2024simulating}, large-scale coordination
-\citep{demarzo2024coordinate}, and survey simulation
-\citep{argyle2023out,aher2023using}. Recent work studies collective
-behavior directly, including emergent conventions and bias
-\citep{ashery2025emergent}, systematic biases in debate
-\citep{taubenfeld2024systematic}, and organizational failures
-\citep{cemri2025why}.
+\paragraph{Language-model societies.} Interactions between language models can
+produce population-level behavior. Repeated pairwise exchange generates shared
+naming conventions and collective bias absent from the individual models
+\citep{ashery2025emergent}. The effect depends nonlinearly on population size:
+interaction can amplify, create, or override a model's bias
+\citep{flint2026groupsize}. Other work uses language-model agents to study opinion
+dynamics \citep{chuang2024simulating,taubenfeld2024systematic}, debate
+\citep{du2023debate}, and simulated societies \citep{park2023generative}. Closest to our setting, \citet{el2026physics} fit an Ising energy with Glauber
+dynamics to communities of language-model agents. Their model
+recovers indifference, polarization, and consensus, and predicts trajectories from
+the agents' initial opinions. We start from the other direction. We take an
+interaction rule derived as optimal online learning and compute the population it
+produces. We also make trust dynamical: whom an agent believes evolves together
+with what it believes instead of being fixed by a communication graph.
 
-Closest to our setting, \citet{el2026physics} measures more than ten thousand
-communities of language agents and fits a statistical-mechanics model with regimes
-of indifference, polarization, and consensus. We instead begin with a derived
-interaction rule and compute the population it produces. This makes it possible to
-study how an irrelevant group label changes the phase structure.
+\paragraph{Multi-agent safety and bias.} Some failures of multi-agent systems are
+failures of interaction, not of any individual model \citep{hammond2025multiagent}.
+In deployed systems, coordination and specification failures account for most
+observed breakdowns \citep{cemri2025why}. Bias is also present before agents begin
+to interact. Language models exhibit in-group solidarity and out-group derogation
+\citep{hu2025social}; arbitrary group assignments reproduce the minimal-group
+effect \citep{tajfel1979integrative,lee2026minimal}; and models used as judges favor
+their own generations \citep{panickssery2024evaluators,chen2025selfpreference}.
+Most directly, \citet{lee2026ingroup} find that agents direct more trust-building
+actions toward in-group targets. We ask what happens next: which collective states
+such a bias produces and which population-level quantities identify them.
 
-\paragraph{Bias and fairness in machine learning.} The dominant framing locates
-group bias in data and in single-model decisions, as representational harm
-\citep{blodgett2020language,bender2021dangers} or as allocative unfairness with
-formal criteria attached
-\citep{dwork2012fairness,hardt2016equality,barocas2023fairness}. Our mechanism is
-complementary: an irrelevant feature affects the learning rule of multiple agents
-and changes their collective state. Detecting it therefore requires aggregating
-measurements across the population.
+\paragraph{Statistical mechanics of interacting agents.} Statistical mechanics
+connects local interaction rules to consensus, fragmentation, and polarization
+\citep{castellano2009statistical}. Examples include bounded confidence
+\citep{deffuant2000mixing,hegselmann2002opinion}, cultural dissemination
+\citep{axelrod1997dissemination}, and activity-driven networks
+\citep{baumann2020modeling}. Signed relations can also split a population into two
+mutually hostile camps
+\citep{heider1946attitudes,cartwright1956structural,marvel2011continuous}. These
+models usually postulate the interaction rule; discrete choice under social
+influence provides one route to a microfoundation \citep{brock2001discrete}.
 
-\paragraph{Opinion dynamics and social balance.} Models of consensus and
-polarization in interacting populations run from bounded-confidence and mixing
-rules \citep{deffuant2000mixing,hegselmann2002opinion} through culture
-dissemination \citep{axelrod1997dissemination} to reinforcement-driven echo
-chambers \citep{baumann2020modeling}; see \citet{castellano2009statistical} for a
-survey. Representing agents as classifiers over an issue space
-\citep{caticha2011agent} allows partial rather than binary agreement. We also use
-social balance over triples
-\citep{heider1946attitudes,cartwright1956structural,antal2005dynamics,marvel2011continuous},
-to distinguish two organized camps from a frustrated population. In our model,
-both opinion and trust relations are generated by inference rather than specified
-directly.
-
-\paragraph{Optimal on-line learning, and affective polarization.} The learning rule
-is the optimized on-line algorithm for the student--teacher problem, given a Bayesian
-reading by \citet{opper1996online} and an entropic-dynamics formulation by
-\citet{caticha2020entropic}; the identification of the inferred channel-noise level
-with distrust, and its promotion to a dynamical variable, is due to
-\citet{alves2016distrust}. Appendix~\ref{app:genealogy} gives the fuller genealogy.
-We study what this algorithm does at the population level after adding one
-class-correlated feature. The model also relates to the debate over whether groups
-dislike one another because they disagree or disagree because they dislike one
-another
-\citep{fiorina2008polarization,iyengar2012affect,iyengar2015fear}; we do not
-adjudicate this empirical question, but identify a model parameter that selects the
-order of the two effects.
-
+We instead use neural-network agents whose interaction follows from optimal online
+learning \citep{opper1996online,caticha2020entropic}. Societies of these agents
+develop polarization, trust structure, frustration, and glassy dynamics
+\citep{caticha2011agent,alves2016distrust,alves2021frustration}. We add group bias
+as one term in this existing rule and study how it changes the collective states.
 
 
 \section{Learning agents}
@@ -209,12 +201,24 @@ learning in a language model, and finally introduce the group-dependent error.
 \subsection{Agent state and learning dynamics}
 \label{sec:micro}
 
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.86\linewidth]{figures/modulation_contours}
+  \caption{\textbf{Modulation functions for opinion and trust.} $\Fw$ updates the
+  receiver's opinion and $\Fmu$ updates its trust in the emitter. The largest
+  updates occur when the receiver agrees with a distrusted emitter (upper right) or
+  disagrees with a trusted one (lower left). The functions are related by reflection
+  across $\hmu=\hw$. The uncertainty updates $\FC$ and $\FV$ are shown in
+  Appendix~\ref{app:modulation}. The color scale is clipped at $\pm1.6$.}
+  \label{fig:modulation}
+\end{figure}
+
 A society of $N$ agents discusses an agenda of $P$ issues. Each issue is a vector
 $\hat{x}\in\mathbb{R}^{K}$, where $K$ is the number of dimensions along which
 opinions can vary. All agents use the same issue representation but may assign it
 different labels.
 
-Each agent carries a single-layer perceptron with weights $w_I\in\mathbb{R}^{K}$
+\paragraph{Agent state.} Each agent carries a single-layer perceptron with weights $w_I\in\mathbb{R}^{K}$
 and states the opinion $\sigma_I = \mathrm{sign}(w_I\cdot\hat{x})\in\{\pm 1\}$.
 The perceptron models an effective opinion readout rather than the full agent. It
 can be interpreted as a linear decision layer acting on issue representations
@@ -236,10 +240,7 @@ assigns to $J$) and variance $V_{J|I}$. The joint belief is
 The microscopic variables are $\hat{w}_I$, $C_I$, $\mu_{J|I}$, and $V_{J|I}$.
 The means determine opinions and trust, while the variances determine uncertainty.
 
-\label{sec:dynamics}
-\paragraph{Dynamics.}
-
-At each step, an issue $\hat{x}$, an emitter $e$, and a receiver $r$ are sampled
+\paragraph{Learning dynamics.} At each step, an issue $\hat{x}$, an emitter $e$, and a receiver $r$ are sampled
 uniformly. The emitter states $\sigma_e$, which the receiver treats as a noisy
 report of an unknown true label. The receiver's estimate of the noise is its
 distrust of the emitter. A Bayesian update takes the belief outside the Gaussian
@@ -286,10 +287,11 @@ with the four modulation functions given by the derivatives of $\log Z$:
 \begin{align}
   \Fw &= \bigl(1-2\Phi(\hmu)\bigr)\frac{g(\hw)}{Z},
   &\FC &= -\Fw(\Fw+\hw),
+  \label{eq:w-modulation}
   \\
   \Fmu &= \bigl(1-2\Phi(\hw)\bigr)\frac{g(\hmu)}{Z},
   &\FV &= -\Fmu(\Fmu+\hmu),
-  \label{eq:modulation}
+  \label{eq:mu-modulation}
 \end{align}
 %
 where $g$ is the standard normal density. Three properties will be important.
@@ -300,97 +302,89 @@ components are symmetric, with $\Fw(x,y)=\Fmu(y,x)$ and
 $\FC(x,y)=\FV(y,x)$. When a message is surprising, the less certain component
 changes more, with a crossover at $\hmu=\hw$ (Figure~\ref{fig:modulation}).
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.86\linewidth]{figures/modulation_contours}
-  \caption{\textbf{Modulation functions for opinion and trust.} $\Fw$ updates the
-  receiver's opinion and $\Fmu$ updates its trust in the emitter. The largest
-  updates occur when the receiver agrees with a distrusted emitter (upper right) or
-  disagrees with a trusted one (lower left). The functions are related by reflection
-  across $\hmu=\hw$. The uncertainty updates $\FC$ and $\FV$ are shown in
-  Appendix~\ref{app:modulation}. The color scale is clipped at $\pm3.2$.}
-  \label{fig:modulation}
-\end{figure}
 
 \subsection{Opinion and trust updates under in-context learning}
 \label{sec:llm}
 
-We test whether the two mean updates in \eqref{eq:modulation} also describe
-in-context learning in a language model. The model's weights remain fixed; all
-information about the issue and the source is provided in the prompt. We run two
-independent experiments because opinion and trust require different readouts.
-Appendix~\ref{app:llm} gives both protocols and verbatim prompt examples.
-
-\paragraph{Opinion update.} We place the model in a fictional archive and ask it
-to choose which of two invented entities is favored by the records. Evidence shown
-to the model sets its initial opinion field $\hw$, while the past accuracy of
-another analyst sets the distrust field $\hmu$. We then add evidence in the opposite
-direction until the model changes its answer. The difference between this threshold
-with the other analyst silent and speaking measures $\Delta\hw$. The model is never
-asked for a probability. The experiment contains $550$ updates across eleven
-fictional settings and uses $10\,323$ calls to \texttt{gpt-5.6-luna}.
-
-The results reproduce the main qualitative properties of $\Fw$. Trusted sources
-move the model toward their statement, while distrusted sources move it away. The
-average update has the predicted direction at every non-neutral trust level.
-The update is also larger in the dissonant cases predicted by the factor $1/Z$: for
-a trusted source, disagreement produces a larger update than agreement ($2.37$
-versus $1.28$ pieces of evidence); for a distrusted source, the ordering reverses
-($2.17$ versus $1.15$). Across all conditions, the measured update has rank
-correlation $r_s=0.90$ with $\Fw$ and the same sign in $94.7\%$ of cases. Its
-dependence on conviction is flatter than the analytic function predicts.
-
-\paragraph{Trust update.} A separate experiment measures how the model revises its
-estimate of an interlocutor's reliability. A history of earlier statements sets
-the prior trust. We ask for the interlocutor's reliability before and after one new
-agreeing or disagreeing message; the difference gives $\Delta\hmu$. A prediction
-about a third agent known to be reliable provides the conviction used to estimate
-$\hw$. The experiment contains $356$ paired conditions, or $712$ updates, over
-twenty low-valence themes and uses $3\,916$ calls to
-\texttt{gpt-5.6-luna}.
-
-Agreement determines the direction of the trust update: the sign is correct in
-$95.2\%$ of agreeing conditions and $84.8\%$ of disagreeing conditions. Updates are
-four to five times larger in dissonant than consonant conditions. They are also
-larger when the model is instructed to hold its opinion firmly rather than
-tentatively ($1.34$ versus $0.90$ in absolute value). Across all updates, the
-correlation with $\Fmu$ is $r=0.85$, with $86.0\%$ sign agreement after fitting one
-positive scale.
-
-\begin{figure}[t]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.86\linewidth]{figures/llm_modulation}
   \caption{\textbf{Opinion and trust updates under in-context learning.} The
   backgrounds show the analytic functions and the points show the measured
-  updates on the same color scale. The opinion experiment (left) contains $550$
-  updates, with $94.7\%$ sign agreement and rank correlation $r_s=0.90$. The trust
-  experiment (right) contains $712$ updates, with $86.0\%$ sign agreement and
-  correlation $r=0.85$. Each panel uses one fitted positive scale. The frame crops
-  $38\%$ of the opinion conditions, but all reported statistics use the complete
-  data.}
+  changes divided by one global fitted scale for each experiment. The opinion experiment (left)
+  contains $550$ measured changes, with $94.7\%$ sign agreement and rank correlation
+  $r_s=0.90$. The trust experiment (right) contains $712$ measured changes, with $86.0\%$
+  sign agreement and correlation $r=0.85$.}
   \label{fig:llm}
 \end{figure}
 
-These experiments support the qualitative form of the two updates, not their
-implementation. They do not show that in-context learning follows
-\eqref{eq:update-ideo}--\eqref{eq:update-aff}. The opinion experiment uses
-fictional material to control conviction, while the trust experiment elicits
-probabilities over real but low-valence themes. Because the experiments use
-different materials and readouts, they do not test the reflection symmetry
-$\Fw(x,y)=\Fmu(y,x)$ directly.
+We test whether the two mean update factors in \eqref{eq:w-modulation} and \eqref{eq:mu-modulation} also describe
+in-context learning in a language model. We run two
+independent experiments because opinion and trust require different readouts.
+Appendix~\ref{app:llm} gives both protocols and verbatim prompt examples.
+
+\paragraph{Opinion update.} We place the model in a fictional archive and ask it
+to choose which of two invented entities is favored by six records. The balance of
+records sets the initial opinion field $\hw$. Another analyst's reported accuracy
+over twenty questions sets the distrust field $\hmu$. To measure $\Delta\hw$, we
+add contrary evidence until the model reverses its answer. We locate this threshold
+with the analyst silent and again after the analyst states a conclusion; the
+difference gives $\Delta\hw$. We made $550$ measurements across eleven
+fictional settings, requiring $10\,323$ model calls.
+
+Equation~\eqref{eq:update-ideo} predicts that the measured opinion change is
+proportional to the modulation function,
+$\Delta\hw\propto\Fw(\hw,\hmu)$, with the proportionality factor set by the
+receiver's susceptibility along the issue direction. We fit one global positive
+scale $\alpha_w$ across the experiment. The left panel of
+Figure~\ref{fig:llm} compares $\Delta\hw/\alpha_w$ with $\Fw$ and shows strong
+qualitative agreement. Across all conditions, the measured update has rank
+correlation $r_s=0.90$ with $\Fw$ and the same sign in $94.7\%$ of cases.
+
+\paragraph{Trust update.} We first elicit the model's opinion on a low-valence
+theme and then present it back as firm or tentative. We choose a new message that
+strongly agrees or disagrees with that opinion. The message direction gives the sign of
+$\hw$, while a prediction about a separate agent described as reliable gives its
+magnitude. A history of earlier statements by the interlocutor sets $\hmu$; we
+measure this field by asking how likely the interlocutor's judgment is to be sound.
+To measure $\Delta\hmu$, we ask the same reliability question before and after the
+interlocutor gives the new message and take the difference after converting both
+answers to probit fields. The experiment contains $356$ prior contexts and two
+message directions per context, giving $712$ measured trust changes over twenty
+themes, estimated from $3\,916$ model calls.
+
+Equation~\eqref{eq:update-aff} similarly predicts
+$\Delta\hmu\propto\Fmu(\hw,\hmu)$. We fit one global positive scale $\alpha_\mu$
+across this experiment. The right panel of Figure~\ref{fig:llm} compares
+$\Delta\hmu/\alpha_\mu$ with $\Fmu$ and again shows strong qualitative agreement.
+Across all measurements, the correlation with $\Fmu$ is $r=0.85$, with $86.0\%$ sign agreement.
+
+Together, the experiments reproduce the two modulation functions qualitatively,
+up to one fitted scale for each experiment. The opinion experiment uses fictional
+material to control conviction, while the trust experiment elicits probabilities
+over real but low-valence themes.
 
 
 
-\subsection{Prejudice as a representational error}
+\subsection{Group bias as a representational error}
 \label{sec:error}
 
-Agents belong to one of two classes, $A$ or $B$, denoted by $\kappa_I=\pm1$. The
-label is visible but contains no information about the issues. We use
-\emph{prejudice} for an agent-level shift applied before the message content is
-evaluated, and \emph{discrimination} for a population state in which trust or
-opinion follows the label.
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/modulation_shift}
+  \caption{\textbf{Effect of the group-bias field on $\Fmu$.} The receiver is
+  located at $\hw$ but evaluates the update at $\hw+D$. The panels show $D=-1$
+  (out-group favoritism), $D=0$ (no bias), and $D=+1$ (in-group favoritism).
+  For $p>0$, the out-group condition enlarges the region in which distrust
+  grows, while the in-group condition enlarges the region in which trust grows.
+  All panels span $[-2.25,2.25]$ on both axes and use the color range
+  $[-1.6,1.6]$.}
+  \label{fig:modulation-shift}
+\end{figure}
 
-A prejudiced receiver adds a sender-dependent feature to the issue representation.
+Agents belong to one of two classes, $A$ or $B$, denoted by $\kappa_I=\pm1$. We model
+group bias as an agent-level shift applied before the message content is evaluated.
+A biased receiver adds a sender-dependent feature to the issue representation.
 This shifts its opinion field by
 %
 \begin{equation}
@@ -398,22 +392,12 @@ This shifts its opinion field by
   \label{eq:disc-field}
 \end{equation}
 %
-Thus $p>0$ increases perceived agreement with an in-group emitter and decreases it
-by the same amount for an out-group emitter. A fraction $\fp$ of the population is
-prejudiced, sampled independently of class; all other agents use
+The shift depends only on the receiver's and emitter's class labels, not on the
+issue being discussed. Thus $p>0$ increases perceived agreement with an in-group
+emitter and decreases it by the same amount for an out-group emitter. A fraction
+$\fp$ of the population is biased, sampled independently of class; all other agents use
 \eqref{eq:fields}. The two classes remain interchangeable. Appendix~\ref{app:cases}
 gives the general decomposition of a class-dependent shift.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/modulation_shift}
-  \caption{\textbf{Effect of the prejudice field on $\Fmu$.} The receiver is
-  located at $\hw$ but evaluates the update at $\hw+D$. For $p>0$, an out-group
-  emitter enlarges the region in which distrust grows (left), while an in-group
-  emitter enlarges the region in which trust grows (right). The unbiased case is
-  shown in the center.}
-  \label{fig:modulation-shift}
-\end{figure}
 
 \paragraph{What the field does.} The sign of perceived agreement determines whether
 trust grows or decays. We therefore use $p>0$ for in-group tolerance and out-group
@@ -462,7 +446,7 @@ and trust.
 $N=400$ agents at $p=0$, $\Rwmu$ rises from zero to $0.56$. The balance measures
 show two camps: none of the $84\,694\,400$ trust triples is unbalanced
 (Appendix~\ref{app:balance-d0}). Camp membership is determined by initial
-fluctuations and is independent of class. The prejudice field can therefore align
+fluctuations and is independent of class. The group-bias field can therefore align
 an existing polarization with the class labels rather than create polarization
 from scratch.
 
@@ -495,7 +479,7 @@ population aligns only trust or both trust and opinion with class.
 \label{sec:results}
 
 
-\begin{figure}[t]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=1.0\linewidth]{figures/correlation_maps_small}
   \caption{\textbf{Correlations over the $(p,\fp)$ plane} for a simple agenda
@@ -529,51 +513,42 @@ $\Rcw$ near zero, and that combination is a distinct state rather than a degener
 case. Appendix~\ref{app:conventions} records why $G$ is signed rather than
 $\{0,1\}$ and how the three correlations are normalized.
 
-\begin{figure}[t]
-  \centering
-  \begin{subfigure}[t]{0.49\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/phase_diagram}
-    \caption{The maps in Figure~\ref{fig:correlations} combined as RGB channels:
-    $\Rmuc$ in red, $\Rcw$ in green, and $\Rwmu$ in blue.}
-    \label{fig:phase-map}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.49\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/phase_diagram_cut}
-    \caption{Class correlations along $p$ for several values of $\fp$. Solid lines
-    show $\Rmuc$ and dotted lines $\Rcw$; shading gives the standard error. Both are
-    near zero at $\fp=0.01$ and increase as the biased fraction grows.}
-    \label{fig:phase-cut}
-  \end{subfigure}
-  \caption{\textbf{Four collective states.} (I) frustrated out-group favoritism;
-  (II) neutral polarization; (III) class-aligned trust and opinion; and (IV)
-  class-aligned trust without class-aligned opinion. Region~(II) occurs near $p=0$
-  and at small $\fp$. The complex agenda has the same states, but a larger
-  region~(III) (Appendix~\ref{app:large-agenda}).}
-  \label{fig:phase}
-\end{figure}
+\paragraph{Population portraits.} The trust row of Figure~\ref{fig:phase} reduces
+the $N\times N$ trust matrix to a plane without averaging agents together. For
+each receiver $I$, the row
+$\boldsymbol{\eta}_I=(\eta_{1|I},\ldots,\eta_{N|I})$ is its outgoing trust profile:
+the agents it trusts and distrusts. For this visualization only, we set the
+self-entry $\eta_{I|I}$ to zero and normalize each row to unit length. If $v_1$
+and $v_2$ are the two leading right singular vectors of the resulting matrix, the
+arrow for agent $I$ ends at
+%
+\begin{equation}
+  z_I = \bigl(\widehat{\boldsymbol{\eta}}_I\!\cdot v_1,
+               \widehat{\boldsymbol{\eta}}_I\!\cdot v_2\bigr).
+  \label{eq:trust-portrait}
+\end{equation}
+%
+The SVD is uncentered, so agents with opposite trust profiles remain on opposite
+sides of the origin: nearby arrows trust the same people, while opposing arrows
+have approximately reversed profiles. Arrow length records how much of a unit
+profile lies in the displayed plane. The opinion row is constructed analogously
+from the normalized weight vectors $\hat{w}_I$.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/state_portraits}
-  \caption{\textbf{Representative populations from the four states.} Agent weights
-  (top) and outgoing trust profiles (bottom) are projected onto their two leading
-  uncentered directions. Color denotes class; filled arrows denote prejudiced
-  agents. The gray vector shows the class direction in trust space, rotated to the
-  right. Percentages give the variance represented in the plane. Simple agenda,
-  $N=40$.}
-  \label{fig:portraits}
-\end{figure}
+The gray arrow is the class vector $\kappa=(\kappa_1,\ldots,\kappa_N)$ projected
+into the same trust plane, which is then rotated so that $+\kappa$ points right.
+That direction represents trusting class $A$ and distrusting class $B$; the
+opposite direction represents the reverse. Arrow color gives the receiver's class,
+and fill indicates whether it is biased. Each population has its own SVD, so
+absolute angles should not be compared across columns; the meaningful quantities
+are the geometry within a panel and its alignment with $\kappa$.
 
-
-We simulate populations of $N=40$ agents over a $200\times200$ grid in $(p,\fp)$, one
-population per grid point, and measure the five order parameters of
-\S\ref{sec:no-disc} and \eqref{eq:correlations} after a fixed number of interactions, with both classes
-prejudiced by \eqref{eq:disc-field}. Parameters and their provenance are in
+We simulate populations of $N=40$ agents over a $200\times200$ grid in $(p,\fp)$,
+one population per grid point, and measure the five order parameters of
+\S\ref{sec:no-disc} and \eqref{eq:correlations} after a fixed number of interactions.
+Bias status is sampled independently of class, and biased agents use
+\eqref{eq:disc-field}. Parameters and their provenance are in
 Appendix~\ref{app:parameters}; each pixel is a single realization, so the speckle
-is population-to-population fluctuation, not a rendering artefact.
+is population-to-population fluctuation, not a rendering artifact.
 Figure~\ref{fig:correlations} maps the three correlations over that plane for the
 simple agenda, $\alpha=0.17$; the complex agenda gives the same four states and is in
 Appendix~\ref{app:large-agenda}. Three correlations suffice to separate the four
@@ -581,41 +556,41 @@ states; the balance aggregates add nothing to the classification over this plane
 are mapped in Appendix~\ref{app:balance-maps}, where the frustrated corner is the one
 place they say something the correlations do not.
 
-Together, the three correlations distinguish four states. Figure~\ref{fig:portraits}
-shows a representative population from each one.
+Together, the three correlations distinguish the four states shown in
+Figure~\ref{fig:phase}.
 
 \begin{itemize}
-\item[(I)] \textbf{Frustrated favouring of the out-group.} For $p<0$ above the
+\item[(I)] \textbf{Frustrated out-group favoritism.} For $p<0$ above the
   quorum, $\Rmuc$ is large and negative while $\Rcw$ and $\Rwmu$ approach zero.
   Agents trust the out-group, but opinions do not form coherent camps. These trust
   relations cannot satisfy all triples: two same-class agents both trust an
   out-group agent but distrust one another. Trust balance falls to $-0.71$
   (Appendix~\ref{app:balance-maps}).
 
-\item[(II)] \textbf{Neutral polarization.} At small $\fp$, and near $p=0$ at any
+\item[(II)] \textbf{Nondiscriminatory polarization.} At small $\fp$, and near $p=0$ at any
   $\fp$, the population forms two camps unrelated to class:
   $\Rwmu$ is large and $\Rmuc\approx\Rcw\approx0$. At $p=1$, $\Rmuc$ rises from
   $0.07$ at $\fp=0.07$ to $0.97$ at $\fp=1$. At $p=0.3$, it is only $0.05$ at
   $\fp=0.2$ but reaches $0.59$ at $\fp=1$. Thus moderate bias has little collective
   effect until it is sufficiently common.
 
-\item[(III)] \textbf{Distrust and disagreement both follow the label.} Past the
+\item[(IIIa)] \textbf{Discrimination with opinion alignment.} Past the
   quorum, at moderate $p>0$, $\Rmuc$ and $\Rcw$ are both large. The two camps now
   coincide with the class boundary.
 
-\item[(IV)] \textbf{Class alone carries the hostility.} At moderate $\fp$ and strong
-  $p$, $\Rmuc$ remains large while $\Rcw$ decreases. Prejudiced agents align trust
+\item[(IIIb)] \textbf{Discrimination without opinion alignment.} At moderate $\fp$ and strong
+  $p$, $\Rmuc$ remains large while $\Rcw$ decreases. Biased agents align trust
   with class, but class-blind agents retain the neutral split and prevent class-wide
-  opinion alignment. At $p=1$, prejudiced agents have $\Rmuc=0.99$ both at
+  opinion alignment. At $p=1$, biased agents have $\Rmuc=0.99$ both at
   $\fp=0.5$ and $1$, while their $\Rcw$ falls from $0.46$ to $0.05$ when $\fp$ falls
   from $1$ to $0.5$.
 
 \end{itemize}
 
-The ratio $\Rcw/\Rmuc$ separates states (III) and (IV). It increases with $\fp$
+The ratio $\Rcw/\Rmuc$ separates states (IIIa) and (IIIb). It increases with $\fp$
 because opinion aligns with class more slowly than trust. For a narrow agenda,
-state (IV) dominates and state (III) appears only near $\fp=1$. A broad agenda
-mostly reaches state (III) (Appendix~\ref{app:large-agenda}). The conservation law
+state (IIIb) dominates and state (IIIa) appears only near $\fp=1$. A broad agenda
+mostly reaches state (IIIa) (Appendix~\ref{app:large-agenda}). The conservation law
 explains this difference: for $\alpha<1$, the frozen component of each weight vector
 limits $\Rcw$ but not $\Rmuc$.
 
@@ -623,7 +598,7 @@ At $\fp\le0.05$ and $p>0.6$, we measure $\Rmuc=0.05$ with a between-realization
 spread of $0.06$, compared with $0.00\pm0.04$ under the null. A single population
 in this region is therefore difficult to distinguish from the unbiased case. The
 dependence on prevalence is also nonlinear: at $p=0.3$, $\Rmuc$ rises from $0.05$
-at $\fp=0.2$ to $0.59$ at $\fp=1$ (Figure~\ref{fig:phase-cut}).
+at $\fp=0.2$ to $0.59$ at $\fp=1$.
 
 
 
@@ -634,7 +609,7 @@ at $\fp=0.2$ to $0.59$ at $\fp=1$ (Figure~\ref{fig:phase-cut}).
 is derived for one student learning from one teacher through a noisy channel. In a
 population, however, the same rule converts an irrelevant label into group distrust.
 The effect acts through $\Fmu$. Under a plain Hebbian update, which contains no trust
-component, the prejudice field has no effect because the update does not depend on
+component, the group-bias field has no effect because the update does not depend on
 $\hw$. The additional ability to infer source reliability creates the relevant
 feedback loop.
 
@@ -649,6 +624,19 @@ pair. They require no access to weights, gradients, or embeddings, although thei
 cost is quadratic in the number of agents. We show that these measurements identify
 the collective state in this model. Testing whether language-agent populations
 show the same states is left for future work.
+
+\paragraph{Self-preference can become a collective asymmetry.}
+\label{sec:self-preference}
+The field can also represent an evaluation asymmetry between model and human
+sources after controlling for content quality. When used as evaluators, language
+models can favor their own generations over outputs from other models or humans
+\citep{panickssery2024evaluators,chen2025selfpreference}. In a population containing
+many copies of the same model, this local self-preference can give model peers a
+systematic trust advantage and, through repeated interactions, produce a
+discriminatory collective state. This possibility is safety-relevant. The Hugging
+Face incident does not establish self-preference as a cause, but it shows how
+messages between otherwise separate agents can spread goals and coordinate
+consequential behavior \citep{openai2026huggingface}.
 
 \paragraph{A contested question with a parameter attached.} Whether groups come to
 dislike each other because they disagree, or come to disagree because they dislike
@@ -677,7 +665,7 @@ sweeps can be reused when changing their presentation.
 
 Appendix~\ref{app:parameters} lists all parameters and their provenance.
 Appendices~\ref{app:sign} and \ref{app:conventions} resolve the sign of the
-prejudice field and the normalization of the class indicator. Both alternatives
+group-bias field and the normalization of the class indicator. Both alternatives
 remain available as implementation flags.
 
 \subsubsection*{Ethics statement}
@@ -732,7 +720,7 @@ $\square$
 The conservation is exact in the simulations: in the run of
 Figure~\ref{fig:polarization}, $\|w_{\perp}\|=4.956$ at initialization and $4.956$
 after $780\,000$ interactions, and the test suite asserts it numerically. It is a
-property of the \emph{agenda}, not of the prejudice field: it holds at every
+property of the \emph{agenda}, not of the group-bias field: it holds at every
 $p$ and $\fp$.
 
 \paragraph{The ceiling it puts on opinion overlap.} Split $w_I = u_I + n_I$ into the
@@ -748,7 +736,7 @@ while the $n_I$ stay random and mutually almost orthogonal, so
 and opinion overlap is diluted by whatever fraction of each weight vector learning
 cannot reach. Two facts fix that fraction. For $\alpha<1$ a $(1-\alpha)$ fraction of
 directions is untouched, so $n_I\neq0$; and because the dynamics anneals
-($C\to0$, so $\|u_I\|$ stops growing), $f$ settles below one instead of creeping towards it.
+($C\to0$, so $\|u_I\|$ stops growing), $f$ settles below one instead of creeping toward it.
 Measured across four orders of magnitude in $\alpha$:
 
 \begin{table}[h]
@@ -826,7 +814,7 @@ the $(\Brho,\Beta)$ plane as the agenda varies. Both effects are reported by
 \citet{alves2021frustration}; \S\ref{sec:no-disc} gives the numbers, and the
 conservation law of Appendix~\ref{app:conserved} accounts for the second.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=1.0\linewidth]{figures/polarization}
 \caption{\textbf{An unbiased society splits in two.} Eight independent societies
@@ -834,7 +822,7 @@ conservation law of Appendix~\ref{app:conserved} accounts for the second.
   interactions per ordered pair, with their pairs pooled: $638\,400$ unordered pairs
   for the opinion overlap and $1\,276\,800$ ordered pairs for the trust. Blue is the
   initial state, red the final one. Neither panel depends on how the agents are
-  labelled, so neither can be an artefact of sorting them. Opinion overlap starts unimodal at zero, of width $1/\sqrt{K}$ as
+  labeled, so neither can be an artifact of sorting them. Opinion overlap starts unimodal at zero, of width $1/\sqrt{K}$ as
   random vectors in $K=30$ dimensions require, and ends bimodal; trust starts spread
   across the interior and ends saturated at $\pm1$, so the split in trust is built by
   the dynamics and not supplied by the initial condition. Bimodality alone would show
@@ -843,11 +831,11 @@ conservation law of Appendix~\ref{app:conserved} accounts for the second.
   \label{fig:polarization}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.55\linewidth]{figures/agenda_trajectories}
   \caption{\textbf{Which polarization comes first is set by the agenda.}
-  Trajectories in the $(\Brho,\Beta)$ plane with no prejudice ($p=0$), one curve
+  Trajectories in the $(\Brho,\Beta)$ plane with no group bias ($p=0$), one curve
   per agenda complexity $\alpha=P/K$, markers equally spaced in time; they crowd
   at the end because the annealed dynamics slows, as \S\ref{sec:micro} requires.
   Simple agendas run above the diagonal (distrust forms first), complex ones below
@@ -880,7 +868,7 @@ does not show them.
 They are not identical to it, and the difference is worth recording even though
 \S\ref{sec:results} does not lean on it. $\Rwmu$ never falls appreciably below zero
 (its minimum over either sweep is $-0.03$), so in the frustrated region it merely
-decays towards zero. $\Beta$ goes to $-0.71$, and a negative balance is a stronger
+decays toward zero. $\Beta$ goes to $-0.71$, and a negative balance is a stronger
 statement than a small positive one: it says the trust relations cannot all be
 satisfied at once, which is what frustration means. Where the correlations locate the
 state, the balance names the mechanism. $\Brho$ plays the same role for the other
@@ -888,7 +876,7 @@ sector, being the quantity in which the conservation-law ceiling of
 Appendix~\ref{app:conserved} is directly legible: it stays near $0.1$ for a narrow
 agenda and saturates for a broad one.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.62\linewidth]{figures/balance_maps_small}
   \caption{\textbf{The two balance aggregates}, simple agenda ($\alpha=0.17$). $\Beta$
@@ -898,7 +886,7 @@ agenda and saturates for a broad one.
   \label{fig:balance-maps}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.62\linewidth]{figures/balance_maps_large}
   \caption{\textbf{The two balance aggregates}, complex agenda ($\alpha=3.3$). $\Brho$
@@ -935,11 +923,11 @@ complex agenda, $\alpha=3.3$, behaves the same way qualitatively: the same four
 states, in the same arrangement, with the same dependence on $\fp$ and the same
 sign change in $p$. What differs is quantitative, and it is the agenda-size effect of
 \S\ref{sec:no-disc} showing up in the phase diagram. Opinion is no longer capped, so
-$\Rcw$ rises to meet $\Rmuc$ instead of lagging it, and region~(III) takes most of the
+$\Rcw$ rises to meet $\Rmuc$ instead of lagging it, and region~(IIIa) takes most of the
 discriminatory half rather than a sliver at the top of it. $\Brho$ saturates at $0.98$
 across the whole $p>0$ region rather than staying near $0.1$.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=1.0\linewidth]{figures/correlation_maps_large}
   \caption{\textbf{The three correlations}, complex agenda ($\alpha=3.3$).
@@ -949,14 +937,14 @@ across the whole $p>0$ region rather than staying near $0.1$.
   \label{fig:correlations-large}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \begin{subfigure}[t]{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/phase_diagram_large_agenda}
-    \caption{All four states are present. Region~(III) now occupies the upper part of
-    the discriminatory half, with (IV) confined to moderate $\fp$, where the
-    prejudiced fraction is still small enough that opinion has not caught up
+    \caption{All four states are present. Region~(IIIa) now occupies the upper part of
+    the discriminatory half, with (IIIb) confined to moderate $\fp$, where the
+    biased fraction is still small enough that opinion has not caught up
     with trust.}
     \label{fig:large-map}
   \end{subfigure}
@@ -964,7 +952,7 @@ across the whole $p>0$ region rather than staying near $0.1$.
   \begin{subfigure}[t]{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/phase_diagram_large_agenda_cut}
-    \caption{Both class correlations along $p$, one colour per $\fp$, pooling the
+    \caption{Both class correlations along $p$, one color per $\fp$, pooling the
     rows of (a) in a narrow band around each with the standard error of the pooled
     mean shaded. Solid is $\Rmuc$, dotted $\Rcw$. At $\fp=0.01$ both are flat at
     zero however strong the bias, which is what makes region~(II) a neutral state
@@ -987,7 +975,7 @@ across the whole $p>0$ region rather than staying near $0.1$.
 \section{All four modulation functions}
 \label{app:modulation}
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.92\linewidth]{figures/modulation_contours_all}
   \caption{The two functions that move the means, $\Fw$ and $\Fmu$, above (the
@@ -1007,6 +995,8 @@ across the whole $p>0$ region rather than staying near $0.1$.
 The two experiments use different tasks because they require different
 observables. The opinion experiment controls both fields and locates a decision
 threshold. The trust experiment elicits reliability before and after a message.
+Both use \texttt{gpt-5.6-luna} at low reasoning effort, with fixed model weights.
+The opinion experiment uses $10\,323$ calls and the trust experiment uses $3\,916$.
 
 \subsection{Opinion: \texorpdfstring{$\Fw$}{Fw} by nulling}
 \label{app:llm-opinion}
@@ -1017,22 +1007,59 @@ institution, a type of record, an analyst, and pairs of invented entities. Using
 fictional material prevents the model from bringing factual knowledge to the task.
 After screening for a position bias, eleven archives remained.
 
-Each condition varies three quantities. The model first receives six pieces of
-evidence, whose net direction $s\in\{-4,-2,0,2,4\}$ sets its opinion field. The
-other analyst's record, $k\in\{0,4,10,16,20\}$ correct answers out of twenty, sets
-the distrust field. Finally, a later consignment of evidence has a variable net
-direction $t$. We increase $|t|$ until the model changes its binary answer and fit
-the threshold between the last two values. The model is not asked to state a
-probability.
+Let $A$ and $B$ denote the two entities in a question. Three quantities change the
+prompt:
 
-We locate this threshold twice under otherwise identical prompts: once with the
-other analyst silent and once after the analyst states an answer. Their difference
-is the opinion update in units of evidence. Entity order is fixed within a pair of
-measurements and counterbalanced across conditions, so order effects cancel in the
-difference. The final design contains $11\times5\times5\times2=550$ updates.
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+Quantity & Values & What changes in the prompt \\
+\midrule
+$s$ & $-4,-2,0,2,4$ & balance of the six initial records \\
+$k$ & $0,4,10,16,20$ & analyst's correct answers out of twenty \\
+$t$ & adaptive integers & number and direction of later records \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The initial block always contains six records. Of these, $(6+s)/2$ support $A$
+and $(6-s)/2$ support $B$. Thus the five values of $s$ give splits of $1{:}5$,
+$2{:}4$, $3{:}3$, $4{:}2$, and $5{:}1$. Changing $s$ changes the receiver's
+initial opinion while holding the amount of evidence fixed. The value of $k$
+changes only the analyst's stated record. Values below ten describe a usually
+wrong source, $k=10$ is uninformative, and values above ten describe a usually
+correct source.
+
+The quantity $t$ is a measurement probe, not a third coordinate of the figure.
+When $t=0$, the prompt contains no later evidence. When $t>0$, it adds $t$ new
+records that all support $A$; when $t<0$, it adds $|t|$ records that all support
+$B$. Each value of $t$ produces a separate prompt. Starting at zero, we try
+progressively larger values in the direction needed to reverse the answer, then
+bisect the last interval. Sixteen binary answers are sampled at each value, and a
+probit fit
+%
+\begin{equation}
+  \Pr(A\mid t)=\Phi\!\left[\beta(t-t^\star)\right]
+  \label{eq:nulling-probit}
+\end{equation}
+%
+places the decision threshold $t^\star$ between integer values. The inferred
+opinion before the later evidence is $\ell=-t^\star$, measured in pieces of
+evidence. The model is never asked to report a probability or confidence.
+
+For every archive, $s$, and $k$, the analyst either states that $A$ is favored or
+that $B$ is favored. Let $m=+1$ for the first direction and $m=-1$ for the second.
+We fit the threshold once with the analyst silent, giving $\ell_0$, and again with
+the statement present, giving $\ell_1$. These two prompts are otherwise identical.
+The entity order is also fixed within the pair and counterbalanced across
+conditions. The final design therefore contains
+$11\times5\times5\times2=550$ measured updates. Each update summarizes two
+threshold searches over several values of $t$; it is not the response to one
+prompt.
 
 \paragraph{Prompt example.} The following is one prompt from the statement-present
-arm, with $s=2$, $k=16$, and $t=0$. The structured response was restricted to
+arm, with $s=2$, $k=16$, and $t=3$. Thus, the prompt contains three later records
+supporting Durnel Lock. The structured response was restricted to
 \texttt{Durnel Lock} or \texttt{Pavqet Lock}. The text below is reproduced verbatim.
 
 \textit{System message}
@@ -1057,45 +1084,116 @@ You have examined 6 canal entries bearing on it:
 Registrar Veskul works on the same records. Of the last 20 questions of this kind whose answers were later established beyond doubt, Registrar Veskul answered correctly 16 times and incorrectly 4 times.
 Registrar Veskul has now stated: "Durnel Lock was opened earlier."
 
+A later consignment has since reached you: 3 further canal entries bearing on this question, of the same standing as any other record in the collection. All 3 indicate that Durnel Lock was opened earlier.
+
 On the whole of the above, which was opened earlier, Durnel Lock or Pavqet Lock?
 \end{Verbatim}
 
-\paragraph{Calibration and limitations.} A separate calibration verifies that the
-nulling procedure recovers the supplied evidence: four pieces are read back as
-$3.6$--$4.1$, with a residual offset below one quarter of a piece after averaging
-the two entity orders. One constant $\lambda$ converts evidence units to probits.
-It is fixed from the analysts' accuracy records rather than from the opinion
-updates; the resulting weights correlate with the stated records at $r=0.99$.
+\paragraph{From thresholds to Figure~\ref{fig:llm}.} The labels $s$ and $k$
+control where a point lies, but they are not plotted directly. Let $H_\lambda$
+denote the monotone conversion from evidence units to the probit fields used in
+\eqref{eq:fields}. The scale $\lambda$ is fixed from the analysts' accuracy records,
+not from the opinion updates. A separate nulling calibration confirms that four
+pieces of supplied evidence are recovered as $3.6$--$4.1$ pieces, with a residual
+offset below one quarter of a piece. The testimony weights inferred from the five
+values of $k$ correlate with their stated records at $r=0.99$.
 
-The experiment controls conviction only because the questions are fictional. The
-measured dependence on conviction is flatter than $\Fw$ predicts, so the strongest
-agreement is in sign and rank rather than in the full functional form. The results
-also concern one model at one reasoning effort.
+For a statement in direction $m$, the plotted horizontal coordinate and measured
+update are
+%
+\begin{equation}
+  \hw=mH_\lambda(\ell_0),
+  \qquad
+  \Delta\hw=m\left[H_\lambda(\ell_1)-H_\lambda(\ell_0)\right].
+  \label{eq:nulling-map}
+\end{equation}
+%
+The factor $m$ expresses both quantities relative to the statement: $\hw>0$ means
+that the receiver initially agrees with it, and $\Delta\hw>0$ means that the
+receiver moves toward it. Thus $s$ controls the horizontal position, but the
+position is obtained from the silent threshold rather than assigned from $s$.
+Likewise, $k$ controls the vertical position, but $\hmu$ is obtained from the
+calibrated weight the model gives that track record rather than set equal to $k$.
+Variation across archives and threshold fits therefore leaves points with the same
+$(s,k)$ near one another rather than at one exact coordinate.
+
+The color of each point is $\Delta\hw$, the shift between the two fitted
+thresholds. It is not $t$: the sweep over $t$ is only how we measure $\ell_0$ and
+$\ell_1$. Nor do we identify $\Delta\hw$ numerically with $\Fw$. In
+\eqref{eq:update-ideo}, $\Fw$ is multiplied by the receiver's unobserved
+susceptibility along the issue direction. We therefore test
+$\Delta\hw\propto\Fw(\hw,\hmu)$ and fit one global positive scale $\alpha_w$
+across all $550$ updates. Figure~\ref{fig:llm} plots $\Delta\hw/\alpha_w$ against
+the raw analytic field. The evidence-to-probit conversion $\lambda$ is calibrated
+independently and is not part of this fit. The reported sign agreement and rank
+correlation do not depend on $\alpha_w$.
+
+The experiment controls conviction only because the questions are fictional, and
+the results concern one model at one reasoning effort.
 
 \subsection{Trust: \texorpdfstring{$\Fmu$}{Fmu} by elicited reliability}
 \label{app:llm-trust}
 
-\paragraph{Experimental design.} We use twenty open, low-valence themes. For each
-theme, the model first writes an opinion. It then generates and rates other
-statements from strong disagreement to strong agreement. These materials are frozen
-before the trust experiment.
+\paragraph{Stimulus construction and prompt controls.} We use twenty open,
+low-valence themes. For each theme, the model first writes its own opinion and then
+generates and rates other statements from strong disagreement to strong agreement.
+We freeze these materials before the experiment.
 
-A condition combines one theme, a history of two to five statements from another
-agent, and an instruction to hold the initial opinion either firmly or tentatively.
-The balance of agreement and disagreement in the history sets prior trust; no prompt
-states how reliable the other agent is. We first ask for the probability $r$ that
-the agent's judgment is sound and define
+Each prior context varies two quantities. First, the instruction says that the
+model holds its opinion either firmly or tentatively. Second, the model sees a
+history from another agent. We index this history by
+$k=n_+-n_-$, where $n_+$ and $n_-$ are the numbers of agreeing and disagreeing
+statements:
+
+\begin{center}
+\small
+\begin{tabular}{c*{9}{r}}
+\toprule
+$k$     & $-5$ & $-4$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\
+$n_+$   & $0$  & $0$  & $0$  & $0$  & $1$  & $1$ & $2$ & $2$ & $3$ \\
+$n_-$   & $5$  & $4$  & $3$  & $2$  & $2$  & $1$ & $1$ & $0$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Thus, negative $k$ gives a mostly disagreeing history and positive $k$ a mostly
+agreeing one. The prompt never states whether the other agent is reliable; the
+model must infer reliability from this history. After the prior context, the other
+agent gives one new message. We use either a strongly agreeing message ($m=+1$) or
+a strongly disagreeing one ($m=-1$). History statements and new messages are drawn
+from separate pools.
+
+\paragraph{How one context becomes two points.} Before the new message, we ask for
+the probability $r_0$ that the other agent's judgment is sound. We also ask for the
+probability $c$ that a separate agent, described as sound, would express a view with
+which the model agrees. The latter is our direct proxy for the magnitude of the
+model's conviction. After showing the new message, we ask again about the original
+agent and obtain $r_m$. We convert these three probabilities into the fields and
+the trust update as
 
 \begin{equation}
-  \hmu=-\Phi^{-1}(r).
+  \hmu=-\Phi^{-1}(r_0),
+  \qquad
+  \hw=m\Phi^{-1}(c),
+  \qquad
+  \Delta\hmu=-\Phi^{-1}(r_m)-\hmu.
+  \label{eq:trust-readout}
 \end{equation}
 
-We then add one strongly agreeing or disagreeing statement and repeat the same
-question. The difference between the two probit values is $\Delta\hmu$. The message
-also fixes the sign of $\hw$. Its magnitude is obtained by asking how likely a
-separate agent, described as reliable, is to state a view with which the receiver
-would agree. This gives $c=\Phi(|\hw|)$ directly. The design contains $356$ prior
-conditions and two message directions, for $712$ trust updates.
+This gives the direct correspondence with Figure~\ref{fig:llm}: $\hw$ is the
+horizontal position, $\hmu$ is the vertical position, and $\Delta\hmu$ is the
+color. Each prior context therefore produces two points, one for each sign of the
+new message. They have the same vertical coordinate and opposite signs on the
+horizontal axis, but their colors can differ. Four of the $360$ intended prior
+contexts lacked the required stimulus coverage, leaving $356$ contexts and
+$712$ plotted updates.
+
+The plotted points measure $\Delta\hmu$, not $\Fmu$ itself. From
+\eqref{eq:update-aff}, the two are proportional when the unobserved trust variance
+and susceptibility are held fixed. We therefore fit one global positive scale
+$\alpha_\mu$ across all $712$ updates and plot $\Delta\hmu/\alpha_\mu$ against the
+raw analytic $\Fmu$ surface. The fitted scale does not affect the reported sign
+agreement or correlation.
 
 \paragraph{Prompt example.} The following after-message prompt is from the
 \texttt{difficulty} theme, with a balanced two-statement history and the firm
@@ -1130,17 +1228,27 @@ They have now said:
 What is the chance, from 0 to 100, that this agent's judgement on this theme is sound?
 \end{Verbatim}
 
-\paragraph{Conviction check and limitations.} We also estimate conviction by
-asking for the probability $q$ that the interlocutor's next statement will be one
-the receiver agrees with. If $e=\Phi(\hmu)$, Equation~\eqref{eq:evidence} gives
-$c=(q-e)/(1-2e)$. This indirect estimate correlates only moderately with the direct
-one ($r=0.46$) and is valid for $280$ of the $712$ updates because the inversion has
-a restricted range. We therefore use the direct estimate in Figure~\ref{fig:llm}.
+\paragraph{Validation and limitations.} As a check on the direct conviction
+proxy, we also ask for the probability $q$ that the original agent's next statement
+will agree with the model. Setting $e=1-r_0=\Phi(\hmu)$ in
+Equation~\eqref{eq:evidence} gives the indirect estimate
 
-The direct question may conflate conviction with perceived consensus. Stated
-probabilities are also clipped before the probit, limiting the measurement to
-$|\hmu|\le2.05$. The experiment therefore tests the sign and qualitative shape of
-the trust update over a restricted region.
+\begin{equation}
+  c_{\mathrm{ind}}=\frac{q-e}{1-2e}.
+\end{equation}
+
+This inversion is singular near neutral trust and can return values outside
+$[0,1]$. It is admissible for only $280$ of the $712$ updates and correlates
+moderately with the direct proxy ($r=0.46$). Figure~\ref{fig:llm} therefore uses
+the direct proxy, not this indirect estimate.
+
+Three caveats matter. The direct question may mix conviction with perceived
+consensus. The histories vary from two to five statements as $k$ changes, so
+history balance and length are not fully separated. Finally, all elicited
+probabilities are clipped to $[0.02,0.98]$ before the probit transform, bounding
+individual field readings at about $2.05$ in magnitude. The experiment therefore
+tests the quantitative relation between $\Delta\hmu$ and $\Fmu$ over a restricted
+region, for one model and one reasoning effort.
 
 
 
@@ -1166,7 +1274,7 @@ as the emitter may have parsed it, $y_t$,
 %
 with $P(\sigma_e\mid\sigma_T,z)=(1-\varepsilon(z))\delta_{\sigma_e,\sigma_T} +
 \varepsilon(z)\delta_{\sigma_e,-\sigma_T}$ and
-$P(\sigma_T\mid y_t,w)=\Theta(\sigma_T\, y_t\cdot w)$. Two modelling choices keep
+$P(\sigma_T\mid y_t,w)=\Theta(\sigma_T\, y_t\cdot w)$. Two modeling choices keep
 the algebra Gaussian. Taking $\varepsilon(z)=\Phi(z)$ with $z$ Gaussian of mean
 $\mu_{e|r}$ and variance $V_{e|r}$ makes the flip probability a bounded function
 of a Gaussian variable while preserving conjugacy of the trust sector;
@@ -1227,14 +1335,14 @@ must itself be inferred was analyzed by \citet{kinouchi1993lower} and
 level with distrust and made it dynamical, with applications to voting
 \citep{caticha2015whom} and to panels of appellate judges
 \citep{caticha2019trust}, and a mean-field treatment by \citet{simoes2018mean}.
-The blame-attribution behaviour resembles the least-action rule of
+The blame-attribution behavior resembles the least-action rule of
 \citet{mitchison1989bounds}, which suffers retarded learning
 \citep{kabashima1994perfect}, whereas the optimized algorithm attains
 generalization error decaying as $\alpha^{-1}$ even under output noise
 \citep{simonetti1996online}.
 
 
-\section{The prejudice field}
+\section{The group-bias field}
 \label{app:cases}
 
 Equation~\eqref{eq:disc-field} is one filling of a $2\times2$ matrix $D$ indexed by
@@ -1253,10 +1361,10 @@ the same amount whoever is speaking: a uniform credulity, referring to no label.
 depends only on who is \emph{listening}, so one class is systematically the more
 credulous. $c$ depends only on who is \emph{speaking}, so one class is believed more
 by everyone, its own members included. $p$ depends only on whether the two classes
-\emph{match}, which is in-group favouritism and out-group hostility at once, and is
+\emph{match}, which is in-group favoritism and out-group hostility at once, and is
 what \eqref{eq:disc-field} uses with $a=b=c=0$.
 
-Relabelling the classes sends $(a,b,c,p)\to(a,-b,-c,p)$. Only $a$ and $p$ survive it,
+Relabeling the classes sends $(a,b,c,p)\to(a,-b,-c,p)$. Only $a$ and $p$ survive it,
 and $a$ does not refer to the label, so $p$ is the one component that is both
 class-dependent and symmetric between the classes. That is why the main text uses it:
 under $p$ alone the two classes are interchangeable, so any asymmetry in the outcome
@@ -1279,10 +1387,10 @@ order parameters used in the main text cannot distinguish them.
 $a=b=c=0$. We have not simulated the other components and make no claim about their
 collective phases.
 
-\section{The sign of the prejudice field}
+\section{The sign of the group-bias field}
 \label{app:sign}
 
-The sign of the prejudice field is fixed by the algorithm and not free. By \eqref{eq:modulation},
+The sign of the group-bias field is fixed by the algorithm and not free. By \eqref{eq:modulation},
 $\Fmu=(1-2\Phi(\hw))g(\hmu)/Z$ is negative when $\hw>0$, so perceived agreement
 drives distrust $\mu$ \emph{down}. A receiver that adds $+p$ to $\hw$ therefore
 becomes more trusting (tolerant) and one that adds $-p$ becomes more distrustful
@@ -1294,7 +1402,7 @@ entry as $-p$ while its text and figures place the discriminatory phases at
 $p>0$; those two statements are inconsistent, and taken literally the tabulated
 signs put the discriminatory phases at $p<0$, mirroring every map in $p$. The same
 inconsistency appears in its description of the learning flow, where the panel
-labelled $D_{e|r}=-p$ is called the more tolerant one although $-p$ is the
+labeled $D_{e|r}=-p$ is called the more tolerant one although $-p$ is the
 intolerant entry, and where the ``distrust and disagree'' basin is said to grow
 for $p>0$ although adding $+p$ shrinks it. A single global sign reconciles
 everything; we adopt it in the form that leaves \eqref{eq:disc-field} untouched.
@@ -1302,10 +1410,10 @@ The accompanying code implements both readings behind a flag, and
 Figure~\ref{fig:sign} runs the same sweep under each: the two rows are mirror
 images in $p$, and only the first matches the maps as published.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.92\linewidth]{figures/sign_convention_comparison}
-  \caption{\textbf{The two readings of the prejudice field.} Trust--class
+  \caption{\textbf{The two readings of the group-bias field.} Trust--class
   correlation and trust balance over the $(p,\fp)$ plane under the convention
   used in this paper (top) and under the companion manuscript's table read
   literally with its Eq.~25 (bottom). The physics is identical; which half of the
@@ -1328,7 +1436,7 @@ result, the signed indicator is the appropriate one. Both are implemented.
 \textbf{Normalization.} All three averages in \eqref{eq:rwmu} and
 \eqref{eq:correlations} run over the $N(N-1)/2$ unordered pairs, and the $\tfrac12$
 on the symmetrized trust puts all three in $[-1,1]$. This matters because the three
-are read together as the colour channels of Figure~\ref{fig:phase}; a literal reading
+are read together as the color channels of Figure~\ref{fig:phase}; a literal reading
 of the model as previously written normalizes $\Rcw$ by $N(N-1)$ instead, capping it
 at $1/2$ and making the channels incommensurate. Both are implemented.
 
@@ -1402,7 +1510,7 @@ work grows as $N^{3}$.
 \paragraph{Numerical safeguards.} Three floors are applied, none of which the
 model prescribes: on the evidence $Z$, whose exact modulation functions diverge
 in the deep dissonance corners; on the trust variance $V$, which $\FV<0$
-drives monotonically towards zero; and on the covariance update, clipped to the
+drives monotonically toward zero; and on the covariance update, clipped to the
 boundary at which $C+a(C\hat{x})(C\hat{x})^{\!\top}$ ceases to be positive
 semi-definite. The last is the only one that can alter a trajectory, and it never
 triggered in the runs reported here.

@@ -33,7 +33,7 @@ import _cli  # noqa: F401  - path setup
 
 from llmmod2 import prompts, worlds
 from llmmod2.ladder import DRAWS, NullPoint, measure_null
-from llmmod2.llm import cost_estimate, usage_total
+from llmmod2.llm import MODEL, cost_estimate, usage_total
 from stage2_opinion import K_LEVELS, K_QUICK, S_LEVELS, _flip
 
 ROOT = _cli.ROOT
@@ -50,7 +50,7 @@ S_QUICK = (0,)
 FRESH_DIR = +1
 
 
-def _weight_null(world, s, k, flip, focal_dir, draws):
+def _weight_null(world, s, k, flip, focal_dir, draws, model):
     focal, fresh = world.issue(0), world.issue(1)
     seed = f"{world.key}|tr|{s}|{k}|{flip}"
     schema = prompts.verdict_schema(fresh, flip)
@@ -60,7 +60,8 @@ def _weight_null(world, s, k, flip, focal_dir, draws):
                                     focal_dir=focal_dir, t=t,
                                     fresh_dir=FRESH_DIR, flip=flip, seed=seed)
 
-    return measure_null(render, schema, fresh.a, prompts.SYSTEM, draws=draws)
+    return measure_null(render, schema, fresh.a, prompts.SYSTEM, draws=draws,
+                        model=model)
 
 
 def _safe(fn, *args):
@@ -82,6 +83,8 @@ def _safe(fn, *args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--workers", type=int, default=24)
+    ap.add_argument("--model", default=MODEL,
+                    help="a name with a / is routed through OpenRouter")
     ap.add_argument("--draws", type=int, default=DRAWS)
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--max-cost", type=float, default=25.0)
@@ -107,7 +110,8 @@ def main():
     with ThreadPoolExecutor(args.workers) as pool:
         pre = list(pool.map(
             lambda c: _safe(_weight_null, c[1], c[2], c[3],
-                            _flip(c[0], c[2], c[3]), None, args.draws), cells))
+                            _flip(c[0], c[2], c[3]), None, args.draws,
+                            args.model), cells))
     guard()
     print(f"  pre done, ${cost_estimate():.2f}")
 
@@ -116,7 +120,8 @@ def main():
         with ThreadPoolExecutor(args.workers) as pool:
             posts[m] = list(pool.map(
                 lambda c: _safe(_weight_null, c[1], c[2], c[3],
-                                _flip(c[0], c[2], c[3]), m, args.draws), cells))
+                                _flip(c[0], c[2], c[3]), m, args.draws,
+                                args.model), cells))
         guard()
         print(f"  focal message {m:+d} done, ${cost_estimate():.2f}")
 

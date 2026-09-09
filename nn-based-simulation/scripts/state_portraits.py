@@ -45,15 +45,13 @@ class-pure axis, two opposed bundles with one colour each, and they differ only 
 *which way round*: in (III) an agent trusts its own class, in (I) the out-group.
 Nothing in a set of arrows fixed up to sign can say which.  So the trust panels are
 drawn in an absolute frame: the class-indicator vector ``kappa`` lives in the same
-``R^N`` as the trust rows, so it is projected onto the same plane, drawn as the grey
+``R^N`` as the trust rows, so it is projected onto the same plane, drawn as the gray
 arrow, and rotated onto ``+x``, which makes the right half of every trust panel the
-profiles that trust class $A$ and the left half those that trust $B$.  Those halves
-are tinted in the class colours, so an agent that trusts its own class sits on the
-half matching its own colour and one that trusts the out-group sits on the half that
-clashes with it --- the difference between (III) and (I), visible without tracing an
-arrow.  The grey arrow's own length is how much of ``kappa`` lies in the plane at
-all, which is near zero exactly where the population has not organized around the
-label.
+profiles that trust class $A$ and the left half those that trust $B$.  Comparing an
+agent's color with its position relative to that arrow distinguishes in-group from
+out-group trust without an additional background encoding.  The gray arrow's own
+length is how much of ``kappa`` lies in the plane at all, which is near zero exactly
+where the population has not organized around the label.
 
 Filled arrowheads mark the prejudiced agents and open ones the class-blind
 majority they learn from, which is what makes ``f_p`` visible in a picture of a
@@ -221,23 +219,16 @@ def _draw_agents(ax, coords, kappa, prejudiced, lw=0.8, ms=3.2):
                        linewidths=0.45, zorder=3, **kw)
 
 
-def _draw_reference(ax, ref, tint=0.055):
-    """The class indicator, and the two halves of the plane it separates.
+def _draw_reference(ax, ref):
+    """Draw the class indicator in the trust plane.
 
     The reference is rotated onto ``+x``, so the right half of a trust panel is the
     set of profiles that trust class $A$ and distrust class $B$, and the left half is
-    the reverse.  Tinting the two halves in the class colours turns the distinction
-    between (III) and (I) into one that can be seen without tracing an arrow: an
-    agent that trusts its own class sits on the half that matches its own colour, and
-    one that trusts the out-group sits on the half that clashes with it.  Without the
-    tint the two states are the same picture with the colours exchanged, and nothing
-    on the page says which exchange is which.
+    the reverse.  The arrow supplies the absolute direction; the agent colors supply
+    class, so coloring the two half-planes would encode the same information twice.
     """
     if ref is None or np.linalg.norm(ref[:2]) < 1e-3:
         return
-    for sign, klass in ((+1, +1), (-1, -1)):
-        ax.axvspan(0 if sign > 0 else -1.08, 1.08 if sign > 0 else 0,
-                   color=CLASS_COLORS[klass], alpha=tint, lw=0, zorder=0)
     ax.annotate("", xy=(ref[0], ref[1]), xytext=(0, 0),
                 arrowprops=dict(arrowstyle="-|>,head_width=0.13,head_length=0.3",
                                 color="0.45", lw=0.9, ls=(0, (3, 2)),

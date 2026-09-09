@@ -168,13 +168,21 @@ two obvious alternatives are both slower:
   common-random-number pairs, which slightly reduces the noise between them.
   `shared_schedule=False` gives fully independent schedules at ~3× the cost.
 
-Measured: ~0.6M agent-updates per second per core in isolation, dropping to
+Measured: ~0.5M agent-updates per second per core in isolation, dropping to
 ~0.2M/s/core once ten workers are competing for memory bandwidth. At `N=40`,
 `K=30`, `Δt=500`, one sweep is ~45 minutes on ten cores at the `medium`
-resolution (64×64) and ~3 hours at `full` (128×128), so budget double that for
-the two agenda sizes. Total work scales as `N³ · Δt · grid²`.
-`ModelConfig(dtype="float32")` roughly halves it and changes no order parameter
-by more than 0.1 (tested).
+resolution (64×64) and ~2 hours at `full` (200×200), so budget double that for
+the two agenda sizes. Total work scales as `N² · Δt · grid²`: one interaction
+costs `O(K²)` regardless of `N`, and it is the run length `Δt · N · (N-1)` that
+grows. Measured exponent 2.05 over `N` in 20–160, the drift above 2 being the
+working set outgrowing cache. `--dtype float32` roughly halves it and changes no
+order parameter by more than 0.1 (tested).
+
+`--n-agents`, `--batch-size`, and `--workers` override the preset from the
+command line; all three are part of the cache key, since it hashes the whole
+configuration. For a larger society than a laptop wants to attempt, see
+[`cluster/`](cluster/), which submits the two agenda sweeps to one Midway3 node
+each.
 
 ## Layout
 

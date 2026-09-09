@@ -39,7 +39,7 @@ import numpy as np
 
 from llmmod2 import prompts, worlds
 from llmmod2.ladder import DRAWS, measure_null
-from llmmod2.llm import MAX_N, ask, usage_total
+from llmmod2.llm import MAX_N, MODEL, ask, usage_total
 
 ROOT = _cli.ROOT
 OUT = ROOT / "data" / "rows" / "calibration.json"
@@ -56,7 +56,7 @@ CHECK_S = 4
 CHECK_MIN = 0.4
 
 
-def screen(world, issue, draws):
+def screen(world, issue, draws, model=MODEL):
     """No-evidence answer rate, per framing."""
     out = {}
     for flip in (0, 1):
@@ -65,12 +65,13 @@ def screen(world, issue, draws):
         answers = []
         for nonce in range((draws + MAX_N - 1) // MAX_N):
             answers += ask(prompts.SYSTEM, user, schema, nonce=nonce,
+                           model=model,
                            n=min(MAX_N, draws - len(answers)))
         out[flip] = sum(1 for a in answers if a["answer"] == issue.a) / len(answers)
     return out
 
 
-def baseline(world, issue, s, flip, draws):
+def baseline(world, issue, s, flip, draws, model=MODEL):
     """Null point with the colleague present and silent."""
     seed = f"{world.key}|cal|{s}|{flip}"
     schema = prompts.verdict_schema(issue, flip)
@@ -79,12 +80,15 @@ def baseline(world, issue, s, flip, draws):
         return prompts.opinion_prompt(world, issue, s=s, k=prompts.TRACK_TOTAL // 2,
                                       t=t, message_dir=None, flip=flip, seed=seed)
 
-    return measure_null(render, schema, issue.a, prompts.SYSTEM, draws=draws)
+    return measure_null(render, schema, issue.a, prompts.SYSTEM, draws=draws,
+                        model=model)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--workers", type=int, default=12)
+    ap.add_argument("--model", default=MODEL,
+                    help="a name with a / is routed through OpenRouter")
     ap.add_argument("--draws", type=int, default=DRAWS)
     ap.add_argument("--quick", action="store_true",
                     help="screen only; skip the null-point calibration")
@@ -94,7 +98,7 @@ def main():
     print(f"screening {len(all_worlds)} worlds")
     with ThreadPoolExecutor(args.workers) as pool:
         screens = list(pool.map(
-            lambda w: screen(w, w.issue(0), args.draws), all_worlds))
+            lambda w: screen(w, w.issue(0), args.draws, args.model), all_worlds))
 
     rows = {}
     kept = []
@@ -119,7 +123,8 @@ def main():
         print(f"calibrating {len(jobs)} null points")
         with ThreadPoolExecutor(args.workers) as pool:
             nulls = list(pool.map(
-                lambda j: baseline(j[0], j[0].issue(0), j[1], j[2], args.draws),
+                lambda j: baseline(j[0], j[0].issue(0), j[1], j[2], args.draws,
+                                   args.model),
                 jobs))
         by_world = {}
         for (w, s, f), np_ in zip(jobs, nulls):

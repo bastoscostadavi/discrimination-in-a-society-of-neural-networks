@@ -82,14 +82,15 @@ def figure_surfaces(style):
     return save(fig, "modulation_surfaces", style)
 
 
-def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0):
+def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0, lim=LIM,
+                   ticks=(-4, -2, 0, 2, 4)):
     """One filled-contour panel over the ``(h_w, h_mu)`` plane.
 
     ``shift`` is a prejudice field: the receiver sits at ``h_w`` but evaluates
     the modulation at ``h_w + D``, so the panel is the same function seen through a
     displaced coordinate, and the separatrix moves with it.
     """
-    (HW, HMU), _ = _plane()
+    (HW, HMU), _ = _plane(lim=lim)
     levels = np.linspace(-cap, cap, 25)
     values = np.clip(F(HW + shift, HMU), -cap, cap)
     im = ax.contourf(HW, HMU, values, levels=levels, cmap=pastel("coolwarm", 0.30))
@@ -97,12 +98,12 @@ def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0):
                alpha=0.5)
     ax.axhline(0.0, color="0.55", lw=0.5)
     ax.axvline(0.0, color="0.55", lw=0.5)
-    ax.plot([-LIM, LIM], [-LIM + shift, LIM + shift], color="#5aa469", lw=0.9)
-    ax.set_xlim(-LIM, LIM)
-    ax.set_ylim(-LIM, LIM)
+    ax.plot([-lim, lim], [-lim + shift, lim + shift], color="#5aa469", lw=0.9)
+    ax.set_xlim(-lim, lim)
+    ax.set_ylim(-lim, lim)
     ax.set_aspect("equal")
-    ax.set_xticks([-4, -2, 0, 2, 4])
-    ax.set_yticks([-4, -2, 0, 2, 4])
+    ax.set_xticks(ticks)
+    ax.set_yticks(ticks)
     ax.set_xlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", labelpad=1)
     if ylabel:
         ax.set_ylabel(r"trust $\leftarrow h_\mu \rightarrow$ distrust", labelpad=1,
@@ -132,11 +133,14 @@ def figure_contours(style):
     fig, axes = plt.subplots(1, 2, figsize=(W, panel_w / (top - bottom)), sharey=True)
     im = None
     for k, (F, name) in enumerate(((F_w, r"$F_w$"), (F_mu, r"$F_\mu$"))):
-        im = _contour_panel(axes[k], F, name, 3.2, ylabel=(k == 0))
+        im = _contour_panel(axes[k], F, name, 1.6, ylabel=(k == 0),
+                            lim=2.25, ticks=(-2, 0, 2))
         axes[k].set_xlabel("")   # one shared label below, or the two collide
+    axes[1].tick_params(labelleft=True)
     fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=AXIS_LABEL_PT, y=0.045)
     fig.subplots_adjust(left=left, right=right, bottom=bottom, top=top, wspace=wspace)
-    matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-3.2, 3.2, 5))
+    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-1.6, 1.6, 5))
+    cb.set_label(r"$F_w,\ F_\mu$", fontsize=7)
     return save(fig, "modulation_contours", style)
 
 
@@ -177,16 +181,20 @@ def figure_shift(style, d=1.0):
     coordinate.
     """
     shifts = (-d, 0.0, +d)
+    lim = 2.25
+    cap = 1.6
+    ticks = (-2, 0, 2)
     fig, axes = plt.subplots(1, len(shifts), figsize=panel(1.0, 0.42), sharey=True)
     im = None
     for k, shift in enumerate(shifts):
         name = rf"$D = {shift:+.0f}$" if shift else r"$D = 0$"
-        im = _contour_panel(axes[k], F_mu, name, 3.2, ylabel=(k == 0), shift=shift)
+        im = _contour_panel(axes[k], F_mu, None, cap, ylabel=(k == 0),
+                            shift=shift, lim=lim, ticks=ticks)
         axes[k].set_xlabel("")
-        axes[k].set_title(("out-group", "no bias", "in-group")[k], fontsize=7.5, pad=3)
-    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=AXIS_LABEL_PT, y=0.02)
+        axes[k].set_title(name, fontsize=7.5, pad=3)
+    fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree", fontsize=AXIS_LABEL_PT, y=0.065)
     fig.subplots_adjust(left=0.095, right=0.89, bottom=0.14, top=0.93, wspace=0.10)
-    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-3.2, 3.2, 5))
+    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-cap, cap, 5))
     cb.set_label(r"$F_\mu$", fontsize=7)
     return save(fig, "modulation_shift", style)
 

@@ -10,9 +10,9 @@ colour of a point names the collective state of the society:
                     and no correlation survives.
 (II)  blue          neutral.  The society polarizes, but along a split that has
                     nothing to do with class.
-(III) pale          discriminatory, ideological.  Distrust follows class *and*
+(IIIa) pale         discriminatory, ideological.  Distrust follows class *and*
                     opinions follow class: two coherent, opposed camps.
-(IV)  magenta       discriminatory, class-only.  Distrust follows class while
+(IIIb) magenta      discriminatory, class-only.  Distrust follows class while
                     opinions do not: hostility needs no disagreement to sustain
                     it.
 
@@ -33,24 +33,24 @@ from ednna.plotting import (  # noqa: E402
 from ednna.sweep import sweep  # noqa: E402
 
 #: label -> (d, f_d) placement.  Both agendas have all four regions; what differs is
-#: how much of the d > 0 half each of (III) and (IV) takes.  The discriminant is the
+#: how much of the d > 0 half each of (IIIa) and (IIIb) takes.  The discriminant is the
 #: ratio R_cw/R_muc -- whether opinion follows class as strongly as trust does -- and
 #: it rises with f_d in both, from 0.03 to 0.48 along d = 0.75 for the simple agenda
-#: and from 0.57 to 1.00 for the complex one.  So (IV) sits at moderate f_d and high
-#: d, and (III) at the top of the discriminatory band, which the simple agenda barely
+#: and from 0.57 to 1.00 for the complex one.  So (IIIb) sits at moderate f_d and high
+#: d, and (IIIa) at the top of the discriminatory band, which the simple agenda barely
 #: reaches and the complex one owns.
 REGIONS = {
     "(I)": (-0.55, 0.68),
     "(II)": (-0.06, 0.42),
-    "(III)": (0.50, 0.94),
-    "(IV)": (0.76, 0.55),
+    "(IIIa)": (0.50, 0.94),
+    "(IIIb)": (0.76, 0.55),
 }
 
 REGIONS_COMPLEX = {
     "(I)": (-0.55, 0.70),
     "(II)": (-0.04, 0.30),
-    "(III)": (0.33, 0.88),
-    "(IV)": (0.75, 0.37),
+    "(IIIa)": (0.33, 0.88),
+    "(IIIb)": (0.75, 0.37),
 }
 
 
@@ -69,7 +69,7 @@ def figure(data, style, name="phase_diagram", regions=REGIONS):
 def _draw_regions(ax, rgb, d, fd, regions):
     """Roman numerals at their (d, f_d) placements.
 
-    Region (III) is nearly white for a complex agenda and the frustrated corner is
+    Region (IIIa) is nearly white for a complex agenda and the frustrated corner is
     nearly black, so each label takes its colour from the pixel underneath rather
     than being fixed.
     """
@@ -116,7 +116,7 @@ def _line_cut(ax, data, fractions=CUT_FRACTIONS, half=CUT_HALFWIDTH):
     opinion had followed the label instead.  Their sum would carry the same headline
     -- over both sweeps no pixel has the two at opposite signs -- but two curves say
     which of the sectors the label has been written into, and on the narrow agenda
-    that is the whole difference between regions (III) and (IV).
+    that is the whole difference between regions (IIIa) and (IIIb).
     """
     d, fd = data["d"], data["fd"]
     colors = plt.cm.viridis(np.linspace(0.05, 0.85, len(fractions)))
