@@ -49,17 +49,37 @@ below it: disagreement forms first. The crossover sits at `alpha ~ 1.7`.
 
 ### 3. Four phases, and a sharp move between them
 
-<img src="assets/phase_diagram.png" width="420" alt="Phase diagram in the discrimination field strength and the fraction of discriminating agents">
+<img src="assets/headline_states.png" width="900" alt="Phase diagram and representative opinion and trust configurations for the four collective states">
 
-Now add a discrimination field: a bias of strength `d` carried by a fraction
-`f_d` of the agents, which shifts where blame for a surprise falls. Three
-correlation order parameters, composited as colour channels, name four
-collective states — from mutual tolerance through to a fully discriminating
-society.
+Now add a group-bias field of strength `b`, carried by a fraction `f_b` of the
+agents, which shifts where blame for a surprise falls. The phase diagram combines
+three order parameters measuring opinion–trust, trust–class, and opinion–class
+alignment. The portraits show representative opinion and trust configurations
+from each of the four collective states:
+
+- **(I) Frustrated out-group favoritism.** For `b < 0`, sufficiently common bias
+  makes agents favor the out-group: members of the same class tend to distrust
+  one another while trusting the other class. These relations cannot form
+  consistent camps, so the trust network is frustrated and opinions remain
+  incoherent.
+
+- **(II) Nondiscriminatory polarization.** For `b ≈ 0` or `f_b ≈ 0`, agents
+  separate into two camps whose members agree with and trust one another while
+  distrusting the opposing camp. Class does not predict camp membership: the
+  population is polarized but not discriminatory.
+
+- **(IIIa) Discrimination with opinion alignment.** For `b > 0`, sufficiently
+  common bias makes the class boundary the boundary between the two camps.
+  Agents tend to trust their own class, distrust the other class, and hold
+  opposing opinions. Discrimination in trust is reinforced by disagreement.
+
+- **(IIIb) Discrimination without opinion alignment.** Trust follows class, but
+  opinion does not. Agents favor their own class even though the two classes do
+  not hold systematically different opinions.
 
 And the move between phases is sharp. A single discriminating agent is biased by
-`O(d)`; the population is not, shifting phase over a narrow interval in `d` once
-`f_d` passes a threshold. **A protocol that inspects agents one at a time can
+`O(b)`; the population is not, shifting phase over a narrow interval in `b` once
+`f_b` passes a threshold. **A protocol that inspects agents one at a time can
 certify every agent as approximately unbiased while the population sits in a
 discriminatory phase.** Auditing a multi-agent system needs population-level
 order parameters.
