@@ -30,8 +30,6 @@
 \newcommand{\Rstat}{R_{\mu,\mathrm{stat}}}
 \newcommand{\Rcred}{R_{\mu,\mathrm{cred}}}
 \newcommand{\Tmu}{T_{\mu}}
-\newcommand{\Brho}{B_{\rho}}
-\newcommand{\Beta}{B_{\eta}}
 \newcommand{\fb}{f_{b}}
 
 \title{Emergent discrimination and polarization \\ in multi-agent systems}
@@ -419,7 +417,7 @@ the sign of perceived agreement determines whether trust grows or decays, the
 field shifts the separatrix of the trust update as shown in
 Figure~\ref{fig:modulation-shift}.
 Appendix~\ref{app:cases} gives the general class-dependent field and shows that
-its other components give rise to richer phase diagrams.
+its other components give rise to rich phase diagrams.
 
 \section{Multi-agent states}
 \label{sec:macro}
@@ -470,23 +468,9 @@ and trust are uncorrelated, so there is no polarization organized by agreement.
 $N=400$ agents at $b=0$, $\Rwmu$ rises from zero to $0.56$ as the population
 enters the nondiscriminatory polarized state shown as phase (II) in
 Figure~\ref{fig:phase}. Camp membership is determined by initial fluctuations and is independent
-of class membership. The order parameter $\Rwmu$ alone cannot distinguish a society polarized into two camps from one
-polarized into several, but here the population forms two camps as we show in Appendix~\ref{app:balance-d0} using other order parameters.
-
-\paragraph{The agenda size effect.} The order in which
-opinion and trust polarizes depends on $\alpha=P/K$ the number of issues discussed per opinion dimension. Simple agendas polarize in trust first,
-while complex agendas polarize in opinion first, with a crossover near
-$\alpha=1.7$ as shown in Appendix~\ref{app:balance-agenda}. In short, for small agendas you first trust and then you agree; for complex agendas you first agree and then you trust.
-
-\paragraph{Small agenda conservation law.} Equation~\eqref{eq:update-ideo} shows
-that every weight update is along $C_r\hat{x}$, which remains in the span of the agenda.
-Therefore, the component
-of each agent's weight vector orthogonal to that span is conserved by the dynamics.
-For $\alpha<1$ each agent keeps a frozen random
-component that no interaction can touch. This places a ceiling on the magnitude
-of opinion overlap, so opinions cannot fully align. Trust has no corresponding
-geometric constraint and can saturate at any $\alpha$. Appendix~\ref{app:conserved}
-defines this bound and derives it in detail.
+of class membership. The order parameter $\Rwmu$ alone cannot distinguish a society polarized into two
+camps from one polarized into several, but the pairwise distributions in
+Appendix~\ref{app:balance-d0} show that this population forms two camps.
 
 
 \subsection{The phase diagram}
@@ -566,11 +550,6 @@ green, and $\Rwmu$ in blue. Its colors distinguish the four collective states:
 
 \end{itemize}
 
-Figures~\ref{fig:phase} and \ref{fig:correlations} show the simple
-agenda ($\alpha=0.17$); Appendix~\ref{app:large-agenda} shows that the complex
-agenda produces qualitatively similar results.
-
-
 \paragraph{Population portraits.} To illustrate how representative populations
 are organized in each phase, the right side of Figure~\ref{fig:phase} shows a summary of their
 opinion and trust configurations. The opinion row projects each normalized
@@ -589,6 +568,20 @@ so that $+\kappa$ points right. Arrow color gives the agent's class,
 and fill indicates whether it is biased. Each population has its own SVD, so only
 within-panel geometry matters; absolute angles should not be compared across
 columns.
+
+\paragraph{Agenda complexity.} The simulations also depend on
+$\alpha=P/K$, the number of issues in the agenda relative to the dimension of
+the opinion space. We call agendas with $\alpha<1$ simple and those with
+$\alpha\geq1$ complex. Figures~\ref{fig:phase} and~\ref{fig:correlations} use the
+simple agenda $\alpha=0.17$. Appendix~\ref{app:large-agenda} repeats the analysis
+for the complex agenda $\alpha=3.3$ and recovers the same four phases in the same
+arrangement across the $(b,\fb)$ plane, although their boundaries and relative
+extent change quantitatively. When $\alpha<1$, the agenda contains fewer issues
+than the dimension of the opinion space and therefore spans only a subspace of
+it. Every weight update remains within that subspace, leaving the orthogonal
+component of each opinion vector conserved. This frozen component limits how
+strongly opinions can align. Appendix~\ref{app:conserved} derives the
+conservation law and its resulting bound.
 
 
 
@@ -634,15 +627,6 @@ appear mild in each model while being amplified by interaction. The Hugging Face
 incident illustrates the broader stakes: communication between agents can spread
 goals and coordinate consequential behavior \citep{openai2026huggingface}.
 
-\subsection{The agenda determines which comes first: distrust or disagreement}
-Whether groups
-dislike each other because they disagree, or disagree because they dislike each
-other, remains contested in political science
-\citep{fiorina2008polarization,iyengar2012affect}. Section~\ref{sec:no-disc} shows
-that both orders arise in the same model. Simple agendas produce trust polarization
-first, while complex agendas produce opinion polarization first. The agenda thus
-determines which side of the feedback loop initiates the collective split.
-
 \subsection{Future directions}
 The first step is to test whether these phases and
 order parameters appear in populations of language agents and in mixed human--AI
@@ -687,8 +671,8 @@ The accompanying repository contains the code and data needed to reproduce all
 results and figures. Appendix~\ref{app:llm} gives the language-model experimental
 procedures and example prompts. Appendix~\ref{app:parameters} records the
 simulation parameters and their provenance. The model assumptions are stated in
-Section~\ref{sec:model}, while Appendices~\ref{app:closed-form},
-\ref{app:conserved}, and~\ref{app:derivation} provide the analytical details and
+Section~\ref{sec:model}, while Appendices~\ref{app:conserved}
+and~\ref{app:derivation} provide the analytical details and
 proofs used in the paper.
 
 \bibliography{references}
@@ -965,20 +949,14 @@ population, the collective state depends on eight control variables:
 $(a,b,c,d,f_a,f_b,f_c,f_d)$. The complete phase diagram is therefore much richer
 than the two-dimensional $(b,f_b)$ slice studied in the main text. That slice is
 especially informative because it contains four qualitatively distinct
-collective phases, so we study it in detail. Figure~\ref{fig:component-phases}
-shows two other slices, with all unshown components set to zero.
+collective phases, so we study it in detail.
 
-The composites use four order parameters. Mean trust
-$T_\mu=\langle\eta_{J|I}\rangle$ distinguishes population-wide trust from
-distrust. The receiver-class correlation
-$R_{\mathrm{cred}}=\langle\kappa_I\eta_{J|I}\rangle$ measures whether one class
-is systematically more credulous. The difference
-$A_\eta=(B_\eta^{AA}-B_\eta^{BB})/2$ measures whether the two classes have
-different internal trust balance, with $B_\eta$ defined in
-Equation~\eqref{eq:balance}. Finally, $\Rwmu$ from Equation~\eqref{eq:rwmu}
-measures opinion--trust polarization. The $(a,f_a)$ plane encodes
-$(\max[-T_\mu,0],\max[T_\mu,0],\Rwmu)$ as red, green, and blue. The $(c,f_c)$
-plane instead encodes $(|R_{\mathrm{cred}}|,|A_\eta|,\Rwmu)$.
+Figure~\ref{fig:component-phases}
+shows two other slices, with all unshown components set to zero. Each composite combines order parameters appropriate to its field. For the
+uniform field, they measure population-wide trust or distrust and opinion--trust
+polarization. For the receiver-class field, they measure whether credulity follows
+class, whether the two classes differ in their internal trust organization, and
+opinion--trust polarization.
 
 \begin{figure}[H]
   \centering
@@ -997,68 +975,26 @@ credulity follows class as $c$ and $f_c$ increase. Thus even these two slices ha
 collective states that do not appear in the $(b,f_b)$ plane.
 
 
-\section{Supplementary results on polarization}
+\section{An unbiased population polarizes into two camps}
 \label{app:balance}
-
-This appendix develops two results that support the polarization analysis in
-Section~\ref{sec:no-disc}. First, the signs of relations over triples separate a
-population organized into two opposing camps from one in disorder. We define
-magnitude-weighted balance aggregates, report their
-behavior in an unbiased population and across the $(b,\fb)$ plane, and give a
-closed form that makes them cheap to compute. Second, we prove the conservation
-law that explains why a simple agenda limits opinion alignment but not trust.
-
-\subsection{An unbiased population polarizes into two camps}
 \label{app:balance-def}
 \label{app:balance-d0}
 
-Every pair may have taken a side, but a pair can disagree in a population where
-everyone disagrees with everyone, and a bimodal histogram is equally consistent with
-three or four mutually hostile groups. What separates organized disagreement from
-disorder is whether the disagreements are mutually consistent, which is a statement
-about triples \citep{heider1946attitudes,cartwright1956structural}. A triple is
-balanced in opinion when $\rho_{IJK}=\rho_{IJ}\rho_{JK}\rho_{KI}>0$, and balanced in
-trust when the same holds for trust averaged over the two directions round the
-triangle,
-$\eta_{IJK}=\tfrac{1}{2}(\eta_{J|I}\eta_{K|J}\eta_{I|K}+\eta_{I|J}\eta_{J|K}\eta_{I|K})>0$.
-The aggregates
-%
-\begin{equation}
-  \Brho = \bigl\langle \rho_{IJK}\bigr\rangle_{(IJK)},
-  \qquad
-  \Beta = \bigl\langle \eta_{IJK}\bigr\rangle_{(IJK)}
-  \label{eq:balance}
-\end{equation}
-%
-run over all $\binom{N}{3}$ triples \citep{alves2021frustration}. Both measures
-combine sign balance with the magnitude of the pairwise relations. For independent,
-symmetrically distributed random relations, their expected values are zero, but the
-converse does not hold. They equal one for two internally coherent, mutually opposed
-blocs only when the relations are saturated at $\pm1$. With weaker relations, the
-same two-bloc sign structure gives a positive but smaller value. A negative value
-means that magnitude-weighted unbalanced contributions dominate, whereas a value
-near zero is ambiguous: it can reflect disorder, weak relations, or cancellation
-between balanced and unbalanced triples. Like $\rho$ and $\eta$ themselves, these
-measures refer to no weight, gradient, or embedding dimension.
+This appendix supports the polarization analysis in Section~\ref{sec:no-disc}
+by using the distributions of pairwise opinion overlap and trust to show directly
+that an unbiased population separates into two opposing camps.
 
-Applied to eight independent populations of $N=400$ agents at $b=0$, trust balance
-reaches $\Beta=0.96$ while opinion balance reaches only $\Brho=0.19$, the gap
-\S\ref{app:balance-agenda} explains. That the camps are exactly \emph{two} follows
-from the signs of the triples, rather than the magnitude-weighted value of $\Brho$:
-a signed complete graph is balanced precisely when it
-splits into two mutually hostile cliques \citep{cartwright1956structural}: of the
-$84\,694\,400$ triples in these runs, not one is unbalanced in trust, and in opinion
-the shortfall is $1\,590$, two thousandths of one per cent, traceable to the few
-pairs whose overlap is so close to zero that its sign is arbitrary.
+Figure~\ref{fig:polarization} follows the pairwise distributions defined in
+Equation~\eqref{eq:pairwise} through an unbiased run. Opinion overlap begins
+unimodal around zero and ends with one positive and one negative peak. Trust
+likewise develops peaks at $+1$ and $-1$. Positive pairs are aligned and mutually
+trusting, while negative pairs hold opposing opinions and distrust one another.
+Together, these two populations of pairs show that the agents have separated into
+two internally coherent, mutually distrustful camps. Because class labels do not
+enter the $b=0$ dynamics, the split is produced by interaction rather than by
+class.
 
-Figure~\ref{fig:polarization} follows both pairwise distributions of
-\eqref{eq:pairwise} through an unbiased run: opinion overlap starts unimodal at
-zero, of width $1/\sqrt{K}$ as random vectors in $K=30$ dimensions require, and
-ends bimodal; trust starts spread across the interior and ends saturated at $\pm1$,
-so the split in trust is built by the dynamics and not supplied by the initial
-condition.
-
-\begin{figure}[t!]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\linewidth]{figures/polarization}
 \caption{\textbf{An unbiased society splits in two.} Eight independent societies
@@ -1069,64 +1005,74 @@ condition.
   labeled, so neither can be an artifact of sorting them. Opinion overlap starts unimodal at zero, of width $1/\sqrt{K}$ as
   random vectors in $K=30$ dimensions require, and ends bimodal; trust starts spread
   across the interior and ends saturated at $\pm1$, so the split in trust is built by
-  the dynamics and not supplied by the initial condition. Bimodality alone would show
-  only that every pair has taken a side; that the sides are exactly \emph{two} blocs
-  is the sign-balance figure quoted in the text.}
+  the dynamics and not supplied by the initial condition. The positive and negative
+  peaks correspond to pairs within and across the two camps, respectively.}
   \label{fig:polarization}
 \end{figure}
 
-\begin{figure}[t!]
+\section{Simulation parameters}
+\label{app:parameters}
+
+The main simulations use the parameters listed below.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llll}
+\toprule
+symbol & meaning & value & provenance \\
+\midrule
+$K$ & dimension of the issue embedding & $30$ & chosen \\
+$N$ & agents in the society & $40$ & chosen; converged (see below) \\
+$P$ & issues on the agenda & $5$ / $100$ & chosen \\
+$\Delta t$ & interactions per ordered pair & $500$ & stability check (see below) \\
+$C_0, V_0$ & initial uncertainties & $I$, $1$ & uninformative prior \\
+$\mu_0$ & initial distrust & $\mathcal{U}(-1,1)$ & unstructured initial trust \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+As agents become more certain, their updates become smaller. We use $\Delta t=500$ because doubling the duration to $1000$
+does not change the qualitative collective state or the phase assignment across
+four representative points in each phase diagram. The largest absolute percentage change in the order parameters is $3.4\%$ when doubling from $\Delta t=500$ to $\Delta t =1000$.
+
+For the simple agenda shown in the main text, we repeat five
+representative points of the plane at $N\in\{20,30,40,60\}$ with twelve
+realizations each. Increasing the population from $N=40$ to $N=60$ changes
+$\Rmuc$ and $\Rcw$ by at most $0.02$ in absolute value, with no change in phase
+assignment. The maps are therefore converged in $N$ at $N=40$, and the cost of
+going further is steep: total work grows as $N^{3}$.
+
+\section{Phase diagram for a complex agenda}
+\label{app:large-agenda}
+
+This appendix tests whether the phase structure identified in
+Section~\ref{sec:results} depends on agenda complexity. We repeat the $(b,\fb)$
+sweep for a complex agenda, $\alpha=3.3$, and measure the same three correlations
+used for the simple agenda, $\alpha=0.17$. Figure~\ref{fig:correlations-large}
+shows these correlations and the phase diagram obtained by combining them.
+
+The four states remain in the same arrangement, with the same dependence on
+$\fb$ and the same sign change in $b$. The differences are quantitative. Opinion
+is no longer capped, so $\Rcw$ rises to meet $\Rmuc$ instead of lagging it, and
+region~(IIIa) occupies most of the discriminatory half rather than a narrow band
+at its top.
+
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.55\linewidth]{figures/agenda_trajectories}
-  \caption{\textbf{Which polarization comes first is set by the agenda.}
-  Trajectories in the $(\Brho,\Beta)$ plane with no group bias ($b=0$), one curve
-  per agenda complexity $\alpha=P/K$, markers equally spaced in time; they crowd
-  at the end because the annealed dynamics slows, as \S\ref{sec:micro} requires.
-  Simple agendas run above the diagonal (distrust forms first), complex ones below
-  it (disagreement first), crossing over at $\alpha\approx1.7$.}
-  \label{fig:trajectories}
+  \includegraphics[width=1.0\linewidth]{figures/correlations_and_phase_large_agenda}
+  \caption{\textbf{Correlations and phase diagram for the complex agenda}
+  ($\alpha=3.3$). The first three panels show $\Rwmu$, $\Rmuc$, and $\Rcw$ over
+  the $(b,\fb)$ plane; the right panel combines them as RGB channels to identify
+  the four collective states. Compared with Figure~\ref{fig:correlations}, $\Rcw$
+  now tracks $\Rmuc$ over most of the $b>0$ half, so region~(IIIa) occupies most
+  of the discriminatory regime.}
+  \label{fig:correlations-large}
+  \label{fig:large-agenda}
 \end{figure}
 
-\subsection{The agenda effect}
-\label{app:balance-agenda}
-
-Figure~\ref{fig:trajectories} follows the two balance aggregates through the
-$(\Brho,\Beta)$ plane as the agenda varies. This agenda dependence and the
-polarization shown in Figure~\ref{fig:polarization} are also reported by
-\citet{alves2021frustration}; \S\ref{sec:no-disc} gives the numbers, and the
-conservation law of Appendix~\ref{app:conserved} explains why a narrow agenda
-limits opinion balance.
-
-Which sector polarizes first reverses with the size of the agenda
-\citep{alves2021frustration}. Following a population through the $(\Brho,\Beta)$
-plane rather than measuring it once at the end separates the two: simple agendas run
-above the diagonal, ending at $(\Brho,\Beta)=(0.02,0.97)$ for $\alpha=0.03$; complex
-ones run below it, ending at $(0.97,0.74)$ for $\alpha=333$. The crossover is at
-$\alpha\approx1.7$. The ceiling of Appendix~\ref{app:conserved} is what caps $\Brho$
-for a narrow agenda, and it is directly legible here: $\Brho$ stays near $0.1$ for a
-narrow agenda and saturates for a broad one.
-
-\subsection{Closed form}
-\label{app:closed-form}
-
-Enumerating triples costs $O(N^{3})$ per society, which is prohibitive across a
-phase diagram. For any matrix $M$ with unit diagonal, either $\rho$ or $\eta$,
-%
-\begin{equation}
-  \sum_{\substack{(I,J,K)\\ \text{distinct, ordered}}} M_{IJ}M_{JK}M_{KI}
-  \;=\; \operatorname{tr}(M^{3}) - 3\Bigl(\textstyle\sum_{I,J}M_{IJ}M_{JI} - N\Bigr) - N ,
-\end{equation}
-%
-and each unordered triple appears six times, three as the forward cycle and three
-as the reverse, so
-the triple average is $\bigl[\text{right-hand side}\bigr]/\bigl(6\binom{N}{3}\bigr)$.
-For symmetric $M$ this is $\Brho$; for the asymmetric trust matrix the two cycle
-orientations are exactly the two terms of $\eta_{IJK}$, so the same expression gives
-$\Beta$. Both are batched matrix products. The identity is verified against
-enumeration in the test suite.
 
 
-\subsection{The agenda's orthogonal complement is conserved}
+\section{The agenda's orthogonal complement is conserved}
 \label{app:conserved}
 
 Let $V_P=\mathrm{span}\{\hat{x}_1,\dots,\hat{x}_P\}$ be the subspace spanned by the
@@ -1161,87 +1107,4 @@ For $\alpha<1$ the prediction holds to $0.02$. For $\alpha\ge1$ the agenda spans
 $\mathbb{R}^{K}$, the complement is empty, and the ceiling disappears, the residual
 shortfall being the finite number of interactions rather than a conserved quantity.
 
-
-\section{Parameters}
-\label{app:parameters}
-
-The simulations use the parameters listed below. We infer $K$ from the agenda
-sizes reported by \citet{alves2021frustration}, and choose $\Delta t$ after
-checking that the collective order parameters change little at longer times. We
-choose $N$ and $P$, while $C_0$, $V_0$, and $\mu_0$ define the initial state. All
-values are explicit in the code, which also reproduces the checks below.
-
-\begin{table}[h]
-\centering\small
-\begin{tabular}{llll}
-\toprule
-symbol & meaning & value & provenance \\
-\midrule
-$K$ & dimension of the issue embedding & $30$ & recovered (see below) \\
-$N$ & agents in the society & $40$ & chosen; converged (see below) \\
-$P$ & issues on the agenda & $5$ / $100$ & chosen: $\alpha=P/K$ either side of $1$ \\
-$\Delta t$ & interactions per ordered pair & $500$ & stability check (see below) \\
-$C_0, V_0$ & initial uncertainties & $I$, $1$ & uninformative prior \\
-$\mu_0$ & initial distrust & $\mathcal{U}(-1,1)$ & gives $\Brho\approx\Beta\approx0$ at $t=0$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph{$K$ is inferred from the reported agenda sizes.}
-\citet{alves2021frustration} report balance trajectories at
-$\alpha \in \{0.03, 0.17, 0.23, 0.33, 0.50, 0.67, 1.67, 3.33, 333.33\}$. These are
-exactly $P/30$ for $P\in\{1,5,7,10,15,20,50,100,10^{4}\}$, which fixes $K=30$.
-
-\paragraph{$\Delta t=500$ is sufficient for the collective state.} As agents
-become more certain, their updates become smaller, although the microscopic state
-continues to evolve. We use $\Delta t=500$ because doubling the duration to $1000$
-does not change the qualitative collective state. Across four representative
-points in each phase diagram, the largest change among the five order parameters
-is $0.034$ for $\alpha=0.17$ and $0.068$ for $\alpha=3.3$, with no change in phase
-assignment.
-
-\paragraph{$N=40$ is large enough.} Repeating five representative points of the
-plane at $N\in\{20,30,40,60\}$ with twelve realizations each, the order parameters
-at $N=60$ differ from those at $N=40$ by at most $0.02$ ($\Rmuc$, $\Rcw$), $0.03$
-($\Brho$) and $0.05$ ($\Beta$), while $N=20$ differs by up to $0.24$. The maps are
-therefore converged in $N$ at $N=40$, and the cost of going further is steep: total
-work grows as $N^{3}$.
-
-\paragraph{Numerical safeguards.} Three floors are applied, none of which the
-model prescribes: on the evidence $Z$, whose exact modulation functions diverge
-in the deep dissonance corners; on the trust variance $V$, which $\FV<0$
-drives monotonically toward zero; and on the covariance update, clipped to the
-boundary at which $C+a(C\hat{x})(C\hat{x})^{\!\top}$ ceases to be positive
-semi-definite. The last is the only one that can alter a trajectory, and it never
-triggered in the runs reported here.
-
-\section{Phase diagram for a complex agenda}
-\label{app:large-agenda}
-
-This appendix tests whether the phase structure identified in
-Section~\ref{sec:results} depends on agenda complexity. We repeat the $(b,\fb)$
-sweep for a complex agenda, $\alpha=3.3$, and measure the same three correlations
-used for the simple agenda, $\alpha=0.17$. Figure~\ref{fig:correlations-large}
-shows these correlations and the phase diagram obtained by combining them.
-
-The four states remain in the same arrangement, with the same dependence on
-$\fb$ and the same sign change in $b$. The differences are quantitative and follow
-from the agenda-size effect described in Section~\ref{sec:no-disc}. Opinion is no
-longer capped, so $\Rcw$ rises to meet $\Rmuc$ instead of lagging it, and
-region~(IIIa) occupies most of the discriminatory half rather than a narrow band
-at its top. $\Brho$ also saturates near its maximum across the whole $b>0$ region,
-rather than remaining near its minimum.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1.0\linewidth]{figures/correlations_and_phase_large_agenda}
-  \caption{\textbf{Correlations and phase diagram for the complex agenda}
-  ($\alpha=3.3$). The first three panels show $\Rwmu$, $\Rmuc$, and $\Rcw$ over
-  the $(b,\fb)$ plane; the right panel combines them as RGB channels to identify
-  the four collective states. Compared with Figure~\ref{fig:correlations}, $\Rcw$
-  now tracks $\Rmuc$ over most of the $b>0$ half, so region~(IIIa) occupies most
-  of the discriminatory regime.}
-  \label{fig:correlations-large}
-  \label{fig:large-agenda}
-\end{figure}
 \end{document}
