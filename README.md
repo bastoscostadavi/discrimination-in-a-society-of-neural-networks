@@ -5,49 +5,11 @@ along a label that carries no information — with no biased data, and no
 group-level preference anywhere in the system?
 
 It can. This repository derives the learning rule that does it, simulates the
-society it produces, and maps the result as a phase diagram. Three results, in
-the order they build on each other.
+society it produces, and maps the result as a phase diagram.
 
 ---
 
-### 1. Learning is driven by dissonance
-
-<img src="assets/modulation_contours.png" width="620" alt="The two modulation functions over the plane of the opinion field and the distrust field">
-
-Each agent holds a belief about the **issue** (do I agree with this message?) and
-a belief about the **source** (do I trust whoever said it?). A Bayesian step
-updates both, and the whole update collapses onto two fields: the opinion field
-`h_w` and the distrust field `h_mu`.
-
-Nothing happens where a message is unsurprising. Everything happens in the two
-dissonant quadrants — agreeing with someone you distrust, disagreeing with
-someone you trust. Three properties fall out, none put in by hand:
-
-- **trust gates learning and can invert it** — a distrusted source is not ignored
-  but *anti-learned* from, which generates antiferromagnetic couplings;
-- **agreement builds trust** — symmetrically, the sign of perceived agreement
-  decides whether trust rises or falls;
-- **only one sector yields at a time** — the two panels are mirror images, and
-  the surprise is absorbed by whichever belief is held less firmly. Blame
-  attribution, emerging from the inference problem rather than assumed.
-
-These functions are a property of the *problem*, not of the network. Asked the
-same questions in its context window, a large language model with frozen weights
-reproduces the trust one — see [`llm-agent-modulation/`](llm-agent-modulation/).
-
-### 2. The agenda decides which polarization comes first
-
-<img src="assets/agenda_trajectories.png" width="440" alt="Trajectories in the plane of the two balances, one curve per agenda complexity">
-
-With no bias anywhere, the society polarizes on its own, into exactly two camps.
-But it can polarize in *opinion* (agents stop agreeing) or in *trust* (agents
-stop trusting), and which one leads is set by the complexity of the agenda,
-`alpha = P/K` — issues in play per dimension available to represent them.
-
-Simple agendas run above the diagonal: distrust forms first. Complex agendas run
-below it: disagreement forms first. The crossover sits at `alpha ~ 1.7`.
-
-### 3. Four phases, and a sharp move between them
+## Four phases, and a sharp move between them
 
 <img src="assets/headline_states.png" width="900" alt="Phase diagram and representative opinion and trust configurations for the four collective states">
 
@@ -91,7 +53,7 @@ order parameters.
 | | |
 |---|---|
 | [`paper/`](paper/) | The manuscript. `main.tex` builds `main.pdf`; every figure in it is produced by a script here. |
-| [`nn-based-simulation/`](nn-based-simulation/) | The society of perceptron agents, the order parameters, the sweeps, and all three figures above. |
+| [`nn-based-simulation/`](nn-based-simulation/) | The society of perceptron agents, the order parameters, the sweeps, and the figure above. |
 | [`llm-agent-modulation/`](llm-agent-modulation/) | The modulation functions measured on LLM in-context learning, with frozen weights. Appendix E of the paper. |
 | [`directional-prejudice/`](directional-prejudice/) | The other components of the prejudice field. A class-dependent shift has four; the paper studies one, and this one studies `c`, the status field, in which a class is believed more by everyone including its own members. Invisible to every order parameter above. Exploratory. |
 | [`credulity-asymmetry/`](credulity-asymmetry/) | The mirror of that: `b`, in which one class believes everyone and the other believes nobody, itself included. Invisible for the same reason, and to the paper's parameters *indistinguishable* from `c` -- the two trust matrices are transposes, and the published five use only the symmetric part. `(b, f_b)` at the paper's own resolution. Exploratory. |
