@@ -279,9 +279,9 @@ def add_phase_axes(ax, ylabel=True, sparse_ticks=False):
     grid, which also frees the margin for a row label.  ``sparse_ticks`` keeps
     only the endpoints and midpoint, for grids too narrow for five labels.
     """
-    ax.set_xlabel(r"$p$", labelpad=1)
+    ax.set_xlabel(r"$b$", labelpad=1)
     if ylabel:
-        ax.set_ylabel(r"$f_p$", labelpad=1)
+        ax.set_ylabel(r"$f_b$", labelpad=1)
     if sparse_ticks:
         ax.set_xticks([-1, 0, 1])
         ax.set_yticks([0, 0.5, 1])

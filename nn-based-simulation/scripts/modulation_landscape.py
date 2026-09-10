@@ -86,8 +86,8 @@ def _contour_panel(ax, F, name, cap, ylabel=False, shift=0.0, lim=LIM,
                    ticks=(-4, -2, 0, 2, 4)):
     """One filled-contour panel over the ``(h_w, h_mu)`` plane.
 
-    ``shift`` is a prejudice field: the receiver sits at ``h_w`` but evaluates
-    the modulation at ``h_w + D``, so the panel is the same function seen through a
+    ``shift`` is a group-bias field: the receiver sits at ``h_w`` but evaluates
+    the modulation at ``h_w + b``, so the panel is the same function seen through a
     displaced coordinate, and the separatrix moves with it.
     """
     (HW, HMU), _ = _plane(lim=lim)
@@ -167,7 +167,7 @@ def figure_contours_all(style):
     return save(fig, "modulation_contours_all", style)
 
 
-def figure_shift(style, d=1.0):
+def figure_shift(style, bias=1.0):
     """What the prejudice field does to the trust sector, in one picture.
 
     The contour layout of :func:`figure_contours` applied to ``F_mu`` alone, at the
@@ -175,19 +175,19 @@ def figure_shift(style, d=1.0):
     ``F_mu`` is the right function to show, because the field enters through ``h_w``
     and the prefactor ``1 - 2*Phi(h_w)`` in ``F_mu`` is what carries it into the
     trust sector, so this is the panel on which the mechanism of the paper is a
-    displacement of one line.  The green separatrix ``h_mu = h_w + D`` is where blame
+    displacement of one line.  The green separatrix ``h_mu = h_w + b`` is where blame
     for a surprise passes from one sector to the other; the middle panel is the
     unbiased case and the outer two are the same function seen through a shifted
     coordinate.
     """
-    shifts = (-d, 0.0, +d)
+    shifts = (-bias, 0.0, +bias)
     lim = 2.25
     cap = 1.6
     ticks = (-2, 0, 2)
     fig, axes = plt.subplots(1, len(shifts), figsize=panel(1.0, 0.42), sharey=True)
     im = None
     for k, shift in enumerate(shifts):
-        name = rf"$D = {shift:+.0f}$" if shift else r"$D = 0$"
+        name = rf"$b = {shift:+.0f}$" if shift else r"$b = 0$"
         im = _contour_panel(axes[k], F_mu, None, cap, ylabel=(k == 0),
                             shift=shift, lim=lim, ticks=ticks)
         axes[k].set_xlabel("")

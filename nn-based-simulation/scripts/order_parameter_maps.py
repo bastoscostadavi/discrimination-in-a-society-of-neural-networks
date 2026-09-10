@@ -28,7 +28,7 @@ from correlation_maps import agenda_sweeps  # noqa: E402
 from ednna.plotting import phase_map, save, text_width  # noqa: E402
 
 KEYS = ("R_wmu", "R_muc", "R_cw", "B_rho", "B_eta")
-CORRELATIONS = ("R_wmu", "R_muc", "R_cw")
+CORRELATIONS = ("R_muc", "R_cw", "R_wmu")
 BALANCES = ("B_rho", "B_eta")
 
 

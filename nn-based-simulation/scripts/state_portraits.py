@@ -54,7 +54,7 @@ length is how much of ``kappa`` lies in the plane at all, which is near zero exa
 where the population has not organized around the label.
 
 Filled arrowheads mark the prejudiced agents and open ones the class-blind
-majority they learn from, which is what makes ``f_p`` visible in a picture of a
+majority they learn from, which is what makes ``f_b`` visible in a picture of a
 single population: in (IV) the two groups point different ways.
 
 
@@ -85,7 +85,7 @@ from ednna.sweep import DATA_DIR  # noqa: E402
 #: least equivocal: a corner of the plane says what the state *is*, and how far it
 #: reaches back towards the neutral axis is the phase diagram's job to say, not this
 #: figure's.  (II) is the extreme case of that argument --- it is drawn at
-#: ``p = f_p = 0``, a population with no prejudiced agent in it at all, so the
+#: ``b = f_b = 0``, a population with no prejudiced agent in it at all, so the
 #: column is a control rather than a sample of a region.
 STATES = {
     "(I)": ("frustrated", -1.0, 1.0),
@@ -107,7 +107,7 @@ def run(preset, P, use_cache=True):
     This figure needs the states, so it re-runs the four points it draws --- four
     societies rather than the sweep's forty thousand, which is seconds of work.
     The four are run as one :class:`SocietyBatch`, so they share an interaction
-    schedule and differ only in ``(p, f_p)`` and their own draws, exactly as
+    schedule and differ only in ``(b, f_b)`` and their own draws, exactly as
     neighbouring pixels of the sweep do.
     """
     model = preset.model.with_(n_issues=P)
@@ -172,7 +172,7 @@ ROW_LABELS = (r"opinion  $\hat{w}_I$", r"trust  $\eta_{\cdot|I}$")
 def _column_title(data, r):
     label = data["labels"][r]
     return (f"{label} {STATES[label][0]}\n"
-            f"$p={data['p'][r]:+.1f}$,  $f_p={data['fp'][r]:.1f}$")
+            f"$b={data['p'][r]:+.1f}$,  $f_b={data['fp'][r]:.1f}$")
 
 
 def _legend(fig, y=-0.01):

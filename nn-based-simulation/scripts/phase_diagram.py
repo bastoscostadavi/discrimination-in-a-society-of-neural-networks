@@ -146,12 +146,12 @@ def _line_cut(ax, data, fractions=CUT_FRACTIONS, half=CUT_HALFWIDTH):
     ax.set_xlim(d[0], d[-1])
     ax.set_ylim(-1.05, 1.05)
     ax.set_yticks((-1.0, -0.5, 0.0, 0.5, 1.0))
-    ax.set_xlabel("$p$")
+    ax.set_xlabel("$b$")
     ax.set_ylabel(f"{LABELS['R_muc']},  {LABELS['R_cw']}")
     ax.set_box_aspect(1)
 
     style = [Line2D([], [], color="0.35", ls=ls, lw=1.1) for ls in ("-", ":")]
-    first = ax.legend(title="$f_p$", fontsize=6, title_fontsize=6.5,
+    first = ax.legend(title="$f_b$", fontsize=6, title_fontsize=6.5,
                       loc="upper left", frameon=False, handlelength=1.1,
                       labelspacing=0.22, borderpad=0.2)
     first._legend_box.align = "left"
@@ -199,6 +199,8 @@ def figure_with_maps(data, style, name="correlations_and_phase", regions=REGIONS
         ax = fig.add_subplot(gs[0, j])
         im = phase_map(ax, data[key], d, fd, key, ylabel=(j == 0),
                        colorbar=False, sparse_ticks=True)
+        if j > 0:
+            ax.set_yticklabels(["0.0", "", "1.0"])
         cax = fig.add_subplot(gs[1, j])
         cb = fig.colorbar(im, cax=cax, orientation="horizontal")
         cb.ax.tick_params(labelsize=5.5, width=0.4, length=1.8, pad=1)
@@ -209,9 +211,6 @@ def figure_with_maps(data, style, name="correlations_and_phase", regions=REGIONS
     ax.imshow(rgb, origin="lower", extent=[d[0], d[-1], fd[0], fd[-1]], aspect="auto")
     add_phase_axes(ax, ylabel=False, sparse_ticks=True)
     ax.tick_params(labelleft=False)
-    # the three to the left carry math labels, which sit lower than upright text of
-    # the same size, so the word is set a little smaller to read as the same weight
-    ax.set_title("composite", pad=3, fontsize=8.5)
     _draw_regions(ax, rgb, d, fd, regions)
     return save(fig, name, style)
 
