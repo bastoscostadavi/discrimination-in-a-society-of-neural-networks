@@ -13,11 +13,12 @@ society it produces, and maps the result as a phase diagram.
 
 <img src="assets/headline_states.png" width="900" alt="Phase diagram and representative opinion and trust configurations for the four collective states">
 
-Now add a group-bias field of strength `b`, carried by a fraction `f_b` of the
-agents, which shifts where blame for a surprise falls. The phase diagram combines
-three order parameters measuring opinion–trust, trust–class, and opinion–class
-alignment. The portraits show representative opinion and trust configurations
-from each of the four collective states:
+We assign agents an irrelevant group label and give a fraction `f_b` of them a
+group bias of strength `b`. Although the label contains no information about the
+issues, repeated interactions can organize both trust and opinion around it. We
+map the resulting collective states using three order parameters that measure
+opinion–trust, trust–class, and opinion–class alignment. The portraits show
+representative opinion and trust configurations from each of the four states:
 
 - **(I) Frustrated out-group favoritism.** For `b < 0`, sufficiently common bias
   makes agents favor the out-group: members of the same class tend to distrust
@@ -55,8 +56,8 @@ order parameters.
 | [`paper/`](paper/) | The manuscript. `main.tex` builds `main.pdf`; every figure in it is produced by a script here. |
 | [`nn-based-simulation/`](nn-based-simulation/) | The society of perceptron agents, the order parameters, the sweeps, and the figure above. |
 | [`llm-agent-modulation/`](llm-agent-modulation/) | The modulation functions measured on LLM in-context learning, with frozen weights. Appendix E of the paper. |
-| [`directional-prejudice/`](directional-prejudice/) | The other components of the prejudice field. A class-dependent shift has four; the paper studies one, and this one studies `c`, the status field, in which a class is believed more by everyone including its own members. Invisible to every order parameter above. Exploratory. |
-| [`credulity-asymmetry/`](credulity-asymmetry/) | The mirror of that: `b`, in which one class believes everyone and the other believes nobody, itself included. Invisible for the same reason, and to the paper's parameters *indistinguishable* from `c` -- the two trust matrices are transposes, and the published five use only the symmetric part. `(b, f_b)` at the paper's own resolution. Exploratory. |
+| [`directional-prejudice/`](directional-prejudice/) | The other components of the group-bias field. A class-dependent shift has four; the paper studies one, and this one studies `c`, the status field, in which a class is believed more by everyone including its own members. Invisible to every order parameter above. Exploratory. |
+| [`credulity-asymmetry/`](credulity-asymmetry/) | The mirror of that: `d`, in which one class believes everyone and the other believes nobody, itself included. Invisible for the same reason, and to the paper's parameters *indistinguishable* from `c` -- the two trust matrices are transposes, and the published five use only the symmetric part. `(d, f_d)` at the paper's own resolution. Exploratory. |
 | [`uniform-credulity/`](uniform-credulity/) | The fourth component, the one that refers to no label: a uniform shift of the trust separatrix. Its plane is credulity against suspicion, and it is also the control the class order parameters are read against. Exploratory. |
 | [`landau-small-cv-phase/`](landau-small-cv-phase/) | A toy Landau-style derivation of the small-`C`, small-`V` corner. |
 
@@ -73,19 +74,3 @@ pytest
 and `full`. Sweeps are cached, so restyling a figure does not re-simulate it.
 Then [`nn-based-simulation/README.md`](nn-based-simulation/README.md) for what
 each figure shows and where every parameter comes from.
-
-## A note on provenance
-
-The model comes from an unpublished manuscript by Caticha et al., which is not
-committed here. That draft is the guide for this work, not its organizing
-principle: the simulation stands on its own, and where a literal reading of the
-draft does not work, the code follows the model and the discrepancy is recorded
-in the paper's appendices rather than silently reproduced. Two are worth knowing
-about before reading anything else — the sign of the discrimination field is
-inconsistent between the draft's equations and its own figures, and the draft
-states no simulation parameters at all, so they are calibrated against features
-of its published figures and tabulated with their provenance.
-
-The PNGs in [`assets/`](assets/) exist only so this page renders on GitHub, which
-cannot display PDFs inline. They are rasterized from `paper/figures/*.pdf`, which
-remain the figures of record.
