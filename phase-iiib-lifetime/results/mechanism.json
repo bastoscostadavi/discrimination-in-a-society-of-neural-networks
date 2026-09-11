@@ -1,0 +1,2423 @@
+[
+  {
+    "file": "N40_P5_b_reference_s202609110.npz",
+    "time": 100000.0,
+    "biased_norm": 0.978050520458855,
+    "unbiased_norm": 6.974619265525742,
+    "biased_trust_class": 0.9996015901815609,
+    "biased_trust_opinion_sign": 0.589543428317253,
+    "unbiased_trust_class": 0.04271686137128151,
+    "unbiased_trust_opinion_sign": 0.9994448690091513,
+    "biased_agents": [
+      {
+        "agent": 4,
+        "norm": 0.9783551882462915,
+        "equilibrium_norm": 0.9780430265202725,
+        "distance_to_conditional_equilibrium": 0.0019793961196400717,
+        "gradient_norm_now": 0.00010408240153287409,
+        "gradient_norm_equilibrium": 1.2176261279153408e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028683465275194744
+      },
+      {
+        "agent": 5,
+        "norm": 0.978274164121485,
+        "equilibrium_norm": 0.9780630211077069,
+        "distance_to_conditional_equilibrium": 0.002951456534257477,
+        "gradient_norm_now": 0.00015117133133535904,
+        "gradient_norm_equilibrium": 8.594091690825066e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02868247926481951
+      },
+      {
+        "agent": 8,
+        "norm": 0.9775892729522785,
+        "equilibrium_norm": 0.9780765509176003,
+        "distance_to_conditional_equilibrium": 0.002585184458099469,
+        "gradient_norm_now": 0.0001389587605375568,
+        "gradient_norm_equilibrium": 1.016775744452093e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028682182298630447
+      },
+      {
+        "agent": 10,
+        "norm": 0.978249827647517,
+        "equilibrium_norm": 0.9780659946453348,
+        "distance_to_conditional_equilibrium": 0.0031630587356934964,
+        "gradient_norm_now": 0.00014595752835719065,
+        "gradient_norm_equilibrium": 1.0594589845233498e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028683012479089463
+      },
+      {
+        "agent": 12,
+        "norm": 0.9773616106581124,
+        "equilibrium_norm": 0.9780799633783136,
+        "distance_to_conditional_equilibrium": 0.0016180487136668912,
+        "gradient_norm_now": 0.00011666830335859721,
+        "gradient_norm_equilibrium": 2.358341473165611e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028682033816300682
+      },
+      {
+        "agent": 13,
+        "norm": 0.9783171108728216,
+        "equilibrium_norm": 0.9780278626703447,
+        "distance_to_conditional_equilibrium": 0.0027534846446578484,
+        "gradient_norm_now": 0.00010385070332338844,
+        "gradient_norm_equilibrium": 3.148812393679458e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028683391693720688
+      },
+      {
+        "agent": 14,
+        "norm": 0.9780101767955454,
+        "equilibrium_norm": 0.9780548079037921,
+        "distance_to_conditional_equilibrium": 0.0030751750389029268,
+        "gradient_norm_now": 0.00011347716843671604,
+        "gradient_norm_equilibrium": 3.444124376676807e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028682596219393123
+      },
+      {
+        "agent": 15,
+        "norm": 0.9781224438878469,
+        "equilibrium_norm": 0.978090113201494,
+        "distance_to_conditional_equilibrium": 0.0029680259192950823,
+        "gradient_norm_now": 0.00013215577769111383,
+        "gradient_norm_equilibrium": 1.3427432851790257e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028681867155353494
+      },
+      {
+        "agent": 17,
+        "norm": 0.9785561974152617,
+        "equilibrium_norm": 0.9780531166304849,
+        "distance_to_conditional_equilibrium": 0.00197904738254453,
+        "gradient_norm_now": 8.208415119047783e-05,
+        "gradient_norm_equilibrium": 1.1519244035750205e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028682619009617258
+      },
+      {
+        "agent": 18,
+        "norm": 0.976551685719743,
+        "equilibrium_norm": 0.9780479738012395,
+        "distance_to_conditional_equilibrium": 0.0035220268195256333,
+        "gradient_norm_now": 0.0001869888270898462,
+        "gradient_norm_equilibrium": 5.948064765189149e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.02868199773025514
+      },
+      {
+        "agent": 19,
+        "norm": 0.978493378018734,
+        "equilibrium_norm": 0.9780982990245223,
+        "distance_to_conditional_equilibrium": 0.00126278782076998,
+        "gradient_norm_now": 7.362668962917678e-05,
+        "gradient_norm_equilibrium": 2.6040567884542592e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028681541593068384
+      },
+      {
+        "agent": 20,
+        "norm": 0.9783808122285614,
+        "equilibrium_norm": 0.9780717701474597,
+        "distance_to_conditional_equilibrium": 0.0026666157568728277,
+        "gradient_norm_now": 0.00010807842638268905,
+        "gradient_norm_equilibrium": 1.4616569112321903e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028682292022652822
+      },
+      {
+        "agent": 22,
+        "norm": 0.9782640389581112,
+        "equilibrium_norm": 0.9780509431667286,
+        "distance_to_conditional_equilibrium": 0.0022398100868276758,
+        "gradient_norm_now": 9.618301421852241e-05,
+        "gradient_norm_equilibrium": 3.8480685871867506e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.028682948075656967
+      },
+      {
+        "agent": 26,
+        "norm": 0.9774970905680715,
+        "equilibrium_norm": 0.9780594745904022,
+        "distance_to_conditional_equilibrium": 0.002403227876628698,
+        "gradient_norm_now": 0.0001306205191626836,
+        "gradient_norm_equilibrium": 6.038919355537121e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02868286049726123
+      },
+      {
+        "agent": 27,
+        "norm": 0.9776992915882463,
+        "equilibrium_norm": 0.9780927380699401,
+        "distance_to_conditional_equilibrium": 0.002618767284030541,
+        "gradient_norm_now": 0.0001759128021565516,
+        "gradient_norm_equilibrium": 5.194196708993023e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028682223161292646
+      },
+      {
+        "agent": 28,
+        "norm": 0.9789871899811621,
+        "equilibrium_norm": 0.9780926638736435,
+        "distance_to_conditional_equilibrium": 0.0031715859435148906,
+        "gradient_norm_now": 0.0001253393665814876,
+        "gradient_norm_equilibrium": 7.282605381747792e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028681284028063435
+      },
+      {
+        "agent": 29,
+        "norm": 0.9778792969177441,
+        "equilibrium_norm": 0.9780662822509592,
+        "distance_to_conditional_equilibrium": 0.001681498386194908,
+        "gradient_norm_now": 6.313705215617157e-05,
+        "gradient_norm_equilibrium": 4.272394526531438e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028681854674589106
+      },
+      {
+        "agent": 30,
+        "norm": 0.9775433254887028,
+        "equilibrium_norm": 0.9780728409750763,
+        "distance_to_conditional_equilibrium": 0.00313163580695942,
+        "gradient_norm_now": 0.00011404604553218748,
+        "gradient_norm_equilibrium": 4.861574973106572e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028681480443021455
+      },
+      {
+        "agent": 32,
+        "norm": 0.9794660270315204,
+        "equilibrium_norm": 0.9780451315884647,
+        "distance_to_conditional_equilibrium": 0.002700761809892524,
+        "gradient_norm_now": 0.00013206089186715007,
+        "gradient_norm_equilibrium": 2.1205339880101565e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028682965321572138
+      },
+      {
+        "agent": 36,
+        "norm": 0.9782894716636579,
+        "equilibrium_norm": 0.9780655581007937,
+        "distance_to_conditional_equilibrium": 0.002693553309422429,
+        "gradient_norm_now": 0.00012713045443455036,
+        "gradient_norm_equilibrium": 2.1830790553969297e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02868270484388507
+      },
+      {
+        "agent": 37,
+        "norm": 0.9779614749436449,
+        "equilibrium_norm": 0.9780173594201784,
+        "distance_to_conditional_equilibrium": 0.0014565752861007545,
+        "gradient_norm_now": 5.6647367993123104e-05,
+        "gradient_norm_equilibrium": 8.32576080439592e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.028683127024597667
+      },
+      {
+        "agent": 38,
+        "norm": 0.9772623743897494,
+        "equilibrium_norm": 0.9781039730819572,
+        "distance_to_conditional_equilibrium": 0.002072300523128299,
+        "gradient_norm_now": 8.098977817791896e-05,
+        "gradient_norm_equilibrium": 8.210208754529305e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.028681814954833844
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609111.npz",
+    "time": 100000.0,
+    "biased_norm": 1.2284400403568387,
+    "unbiased_norm": 9.594960815805551,
+    "biased_trust_class": 0.99960234821979,
+    "biased_trust_opinion_sign": 0.5382766099188432,
+    "unbiased_trust_class": 0.004091625148003943,
+    "unbiased_trust_opinion_sign": 0.9994009073645022,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 1.227187573680964,
+        "equilibrium_norm": 1.2280387242194053,
+        "distance_to_conditional_equilibrium": 0.0028993893060344335,
+        "gradient_norm_now": 9.797457153654758e-05,
+        "gradient_norm_equilibrium": 9.524895441425313e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02333810117660825
+      },
+      {
+        "agent": 2,
+        "norm": 1.2295533462369814,
+        "equilibrium_norm": 1.2280864717772166,
+        "distance_to_conditional_equilibrium": 0.0022817083888903482,
+        "gradient_norm_now": 8.154739287499367e-05,
+        "gradient_norm_equilibrium": 1.4182538319170156e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.023336887265604143
+      },
+      {
+        "agent": 4,
+        "norm": 1.2279075297139417,
+        "equilibrium_norm": 1.2280286177282596,
+        "distance_to_conditional_equilibrium": 0.001097199169065471,
+        "gradient_norm_now": 7.115620876552691e-05,
+        "gradient_norm_equilibrium": 4.5681907089598065e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.023337881801243163
+      },
+      {
+        "agent": 7,
+        "norm": 1.2276445826418716,
+        "equilibrium_norm": 1.2280860936059528,
+        "distance_to_conditional_equilibrium": 0.001550514379423315,
+        "gradient_norm_now": 0.00011497873011799743,
+        "gradient_norm_equilibrium": 6.20432588549806e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.023337360373196912
+      },
+      {
+        "agent": 8,
+        "norm": 1.2294815997496662,
+        "equilibrium_norm": 1.2280356200982363,
+        "distance_to_conditional_equilibrium": 0.0019376037995873481,
+        "gradient_norm_now": 0.0001341255359521332,
+        "gradient_norm_equilibrium": 7.901870614655426e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.02333710958739315
+      },
+      {
+        "agent": 11,
+        "norm": 1.2300136114811244,
+        "equilibrium_norm": 1.2280569896607594,
+        "distance_to_conditional_equilibrium": 0.002849863454210855,
+        "gradient_norm_now": 0.00021275790646254958,
+        "gradient_norm_equilibrium": 1.2160849660710511e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.023337723239490564
+      },
+      {
+        "agent": 15,
+        "norm": 1.2287335300696018,
+        "equilibrium_norm": 1.228033735606483,
+        "distance_to_conditional_equilibrium": 0.0023054589915364057,
+        "gradient_norm_now": 0.00014300260815449875,
+        "gradient_norm_equilibrium": 6.149451082769599e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.02333746223336216
+      },
+      {
+        "agent": 16,
+        "norm": 1.2258084493023453,
+        "equilibrium_norm": 1.2280528547282645,
+        "distance_to_conditional_equilibrium": 0.0032523465454229834,
+        "gradient_norm_now": 0.0001654517894298798,
+        "gradient_norm_equilibrium": 6.868998717741263e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.023337894625801346
+      },
+      {
+        "agent": 18,
+        "norm": 1.2281928729310712,
+        "equilibrium_norm": 1.2280326555241459,
+        "distance_to_conditional_equilibrium": 0.00304406782556599,
+        "gradient_norm_now": 0.00014590468625223053,
+        "gradient_norm_equilibrium": 3.894169253383651e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.023337921992176165
+      },
+      {
+        "agent": 20,
+        "norm": 1.2305925293165791,
+        "equilibrium_norm": 1.2280997648734062,
+        "distance_to_conditional_equilibrium": 0.004672218939003853,
+        "gradient_norm_now": 0.000270326610914711,
+        "gradient_norm_equilibrium": 7.165081269126927e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.023337076303050895
+      },
+      {
+        "agent": 21,
+        "norm": 1.2288926283158483,
+        "equilibrium_norm": 1.2280909724667477,
+        "distance_to_conditional_equilibrium": 0.0019077419505606917,
+        "gradient_norm_now": 0.00016513404976473557,
+        "gradient_norm_equilibrium": 2.7044614812485615e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02333729268351096
+      },
+      {
+        "agent": 24,
+        "norm": 1.2293276184928117,
+        "equilibrium_norm": 1.2280362771563518,
+        "distance_to_conditional_equilibrium": 0.003515233696881765,
+        "gradient_norm_now": 0.00019302652740119076,
+        "gradient_norm_equilibrium": 6.533199844683445e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.023337973016617185
+      },
+      {
+        "agent": 26,
+        "norm": 1.2298117535535527,
+        "equilibrium_norm": 1.2280719736353627,
+        "distance_to_conditional_equilibrium": 0.0033111942732453013,
+        "gradient_norm_now": 0.0002673690537477325,
+        "gradient_norm_equilibrium": 4.578544360126708e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02333728570972116
+      },
+      {
+        "agent": 28,
+        "norm": 1.2285314207182019,
+        "equilibrium_norm": 1.2280255556275121,
+        "distance_to_conditional_equilibrium": 0.0019861639746245846,
+        "gradient_norm_now": 0.00013287008988335946,
+        "gradient_norm_equilibrium": 1.3391074860989446e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.0233380173605499
+      },
+      {
+        "agent": 29,
+        "norm": 1.2285217605261218,
+        "equilibrium_norm": 1.2280849478808142,
+        "distance_to_conditional_equilibrium": 0.004703647497006491,
+        "gradient_norm_now": 0.0001984148719925607,
+        "gradient_norm_equilibrium": 1.1925684562132514e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.023336648819428006
+      },
+      {
+        "agent": 30,
+        "norm": 1.2287913724343333,
+        "equilibrium_norm": 1.2280483316305997,
+        "distance_to_conditional_equilibrium": 0.0016680432454211378,
+        "gradient_norm_now": 8.096292739230503e-05,
+        "gradient_norm_equilibrium": 1.5711844787510615e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.023338004453530722
+      },
+      {
+        "agent": 31,
+        "norm": 1.227731227482858,
+        "equilibrium_norm": 1.228037147406597,
+        "distance_to_conditional_equilibrium": 0.0012428834124994222,
+        "gradient_norm_now": 6.628391037057248e-05,
+        "gradient_norm_equilibrium": 2.3448023480477552e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.023338141643743295
+      },
+      {
+        "agent": 32,
+        "norm": 1.2284877760655228,
+        "equilibrium_norm": 1.2280633870621651,
+        "distance_to_conditional_equilibrium": 0.0020490085023998164,
+        "gradient_norm_now": 0.00014112258909119432,
+        "gradient_norm_equilibrium": 2.1838458976364997e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.023337674966238644
+      },
+      {
+        "agent": 33,
+        "norm": 1.227151113158439,
+        "equilibrium_norm": 1.2280703079273925,
+        "distance_to_conditional_equilibrium": 0.0013523582356458601,
+        "gradient_norm_now": 5.594561317531862e-05,
+        "gradient_norm_equilibrium": 7.80346101714531e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.023337911357720315
+      },
+      {
+        "agent": 37,
+        "norm": 1.2285790174718172,
+        "equilibrium_norm": 1.2280740636595355,
+        "distance_to_conditional_equilibrium": 0.0021201787678527826,
+        "gradient_norm_now": 0.00015564471762993096,
+        "gradient_norm_equilibrium": 1.8427891288105103e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02333732463963348
+      },
+      {
+        "agent": 38,
+        "norm": 1.2262995341499556,
+        "equilibrium_norm": 1.2280347850284128,
+        "distance_to_conditional_equilibrium": 0.0030142132759042434,
+        "gradient_norm_now": 0.0001449288335794497,
+        "gradient_norm_equilibrium": 2.3293913991695054e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02333726658510593
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609112.npz",
+    "time": 100000.0,
+    "biased_norm": 1.3595879354650076,
+    "unbiased_norm": 8.641220959649367,
+    "biased_trust_class": 0.9996063495514925,
+    "biased_trust_opinion_sign": 0.6408124268413892,
+    "unbiased_trust_class": 0.12245456073980625,
+    "unbiased_trust_opinion_sign": 0.9994636994788241,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 1.3597369538729687,
+        "equilibrium_norm": 1.3592553215301877,
+        "distance_to_conditional_equilibrium": 0.0029977311890611955,
+        "gradient_norm_now": 0.00022159823345764898,
+        "gradient_norm_equilibrium": 4.88462679917815e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592339089438065
+      },
+      {
+        "agent": 1,
+        "norm": 1.3591920822855308,
+        "equilibrium_norm": 1.3593227961650862,
+        "distance_to_conditional_equilibrium": 0.0015937299221094564,
+        "gradient_norm_now": 4.8718281867330586e-05,
+        "gradient_norm_equilibrium": 5.465216055061395e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025921144527162716
+      },
+      {
+        "agent": 3,
+        "norm": 1.3604156439523816,
+        "equilibrium_norm": 1.3592783502522894,
+        "distance_to_conditional_equilibrium": 0.0021339839022042214,
+        "gradient_norm_now": 0.00011692426655400223,
+        "gradient_norm_equilibrium": 8.061527606373561e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025922754617268888
+      },
+      {
+        "agent": 5,
+        "norm": 1.358092184720267,
+        "equilibrium_norm": 1.3592713856155096,
+        "distance_to_conditional_equilibrium": 0.0017003227546437208,
+        "gradient_norm_now": 9.495698539970865e-05,
+        "gradient_norm_equilibrium": 1.0044520469068357e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.02592301830931626
+      },
+      {
+        "agent": 6,
+        "norm": 1.3594464541268778,
+        "equilibrium_norm": 1.3592626142294324,
+        "distance_to_conditional_equilibrium": 0.0030422417192921725,
+        "gradient_norm_now": 0.0001385659778908405,
+        "gradient_norm_equilibrium": 1.0359969657708698e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025922943561094324
+      },
+      {
+        "agent": 7,
+        "norm": 1.3596858167655235,
+        "equilibrium_norm": 1.359319600295516,
+        "distance_to_conditional_equilibrium": 0.0018317028916334493,
+        "gradient_norm_now": 6.884297508714269e-05,
+        "gradient_norm_equilibrium": 8.939741035499951e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.02592154982837673
+      },
+      {
+        "agent": 8,
+        "norm": 1.3583788798306557,
+        "equilibrium_norm": 1.3592766518867487,
+        "distance_to_conditional_equilibrium": 0.0027019149271782605,
+        "gradient_norm_now": 0.00010220714753755474,
+        "gradient_norm_equilibrium": 1.1620358204165195e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592240723811297
+      },
+      {
+        "agent": 10,
+        "norm": 1.3617792846669114,
+        "equilibrium_norm": 1.3592792443961117,
+        "distance_to_conditional_equilibrium": 0.0029061174812840176,
+        "gradient_norm_now": 0.000148471155812267,
+        "gradient_norm_equilibrium": 3.071303708482794e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.0259220213643121
+      },
+      {
+        "agent": 11,
+        "norm": 1.3589081710455004,
+        "equilibrium_norm": 1.3593087182375865,
+        "distance_to_conditional_equilibrium": 0.001283513396513385,
+        "gradient_norm_now": 9.583366400795871e-05,
+        "gradient_norm_equilibrium": 6.238784525891677e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025922049582415972
+      },
+      {
+        "agent": 13,
+        "norm": 1.3586006723129533,
+        "equilibrium_norm": 1.3593180189974057,
+        "distance_to_conditional_equilibrium": 0.003704088518096543,
+        "gradient_norm_now": 0.00012036939529606773,
+        "gradient_norm_equilibrium": 6.464440741238375e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025921202456441104
+      },
+      {
+        "agent": 14,
+        "norm": 1.3608654350027098,
+        "equilibrium_norm": 1.3593165246636145,
+        "distance_to_conditional_equilibrium": 0.0019704915743756633,
+        "gradient_norm_now": 9.319263608563616e-05,
+        "gradient_norm_equilibrium": 3.5946945497375925e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592173211458218
+      },
+      {
+        "agent": 19,
+        "norm": 1.359440466721576,
+        "equilibrium_norm": 1.359288338731534,
+        "distance_to_conditional_equilibrium": 0.002023810420426349,
+        "gradient_norm_now": 9.157376709636372e-05,
+        "gradient_norm_equilibrium": 3.294285313326602e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592264858734725
+      },
+      {
+        "agent": 20,
+        "norm": 1.3590362271494059,
+        "equilibrium_norm": 1.3592899213881782,
+        "distance_to_conditional_equilibrium": 0.0014904447833566721,
+        "gradient_norm_now": 6.0390337130257565e-05,
+        "gradient_norm_equilibrium": 4.5085485014258985e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592255803275127
+      },
+      {
+        "agent": 23,
+        "norm": 1.3578949845833237,
+        "equilibrium_norm": 1.3592793305299025,
+        "distance_to_conditional_equilibrium": 0.004294238646809739,
+        "gradient_norm_now": 0.00018099925490084492,
+        "gradient_norm_equilibrium": 6.216286243032604e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.025923005037556235
+      },
+      {
+        "agent": 28,
+        "norm": 1.3595355278677457,
+        "equilibrium_norm": 1.3592844787295617,
+        "distance_to_conditional_equilibrium": 0.002445021621428518,
+        "gradient_norm_now": 0.000115063814786338,
+        "gradient_norm_equilibrium": 9.13876737562005e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025922062562690917
+      },
+      {
+        "agent": 30,
+        "norm": 1.3594734181616903,
+        "equilibrium_norm": 1.3592674742587458,
+        "distance_to_conditional_equilibrium": 0.002068023084768301,
+        "gradient_norm_now": 0.00015107691691164951,
+        "gradient_norm_equilibrium": 5.696999175374422e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025923265008958526
+      },
+      {
+        "agent": 33,
+        "norm": 1.362188519911352,
+        "equilibrium_norm": 1.3592927140195068,
+        "distance_to_conditional_equilibrium": 0.003288103948366027,
+        "gradient_norm_now": 0.0001658646860506655,
+        "gradient_norm_equilibrium": 1.1784631518475669e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025922214986617422
+      },
+      {
+        "agent": 34,
+        "norm": 1.3583403900364004,
+        "equilibrium_norm": 1.3593375205218994,
+        "distance_to_conditional_equilibrium": 0.0028009674582150216,
+        "gradient_norm_now": 0.00015188681890212832,
+        "gradient_norm_equilibrium": 6.02641223105921e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592158309444402
+      },
+      {
+        "agent": 36,
+        "norm": 1.3586579482049104,
+        "equilibrium_norm": 1.3592791207473238,
+        "distance_to_conditional_equilibrium": 0.002412803052713294,
+        "gradient_norm_now": 0.00011497537256452482,
+        "gradient_norm_equilibrium": 5.3841418150932735e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025922816081185525
+      },
+      {
+        "agent": 37,
+        "norm": 1.360451327556522,
+        "equilibrium_norm": 1.3592976832145354,
+        "distance_to_conditional_equilibrium": 0.0016477105369581242,
+        "gradient_norm_now": 8.13437295720223e-05,
+        "gradient_norm_equilibrium": 2.8514972116475616e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025922252435340538
+      },
+      {
+        "agent": 38,
+        "norm": 1.360316089085438,
+        "equilibrium_norm": 1.3592669421079109,
+        "distance_to_conditional_equilibrium": 0.002421094039697717,
+        "gradient_norm_now": 0.00010027971008125354,
+        "gradient_norm_equilibrium": 9.118862783629155e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.025922981942184724
+      },
+      {
+        "agent": 39,
+        "norm": 1.3604981023695177,
+        "equilibrium_norm": 1.3592908145865283,
+        "distance_to_conditional_equilibrium": 0.0035430679314108113,
+        "gradient_norm_now": 0.00014718843489000682,
+        "gradient_norm_equilibrium": 1.279626388543696e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02592263871495215
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609113.npz",
+    "time": 100000.0,
+    "biased_norm": 1.3461004625099806,
+    "unbiased_norm": 7.625136406189863,
+    "biased_trust_class": 0.9995975404912628,
+    "biased_trust_opinion_sign": 0.6920787374288534,
+    "unbiased_trust_class": 0.21354354301727574,
+    "unbiased_trust_opinion_sign": 0.9993649319346565,
+    "biased_agents": [
+      {
+        "agent": 2,
+        "norm": 1.345598168308486,
+        "equilibrium_norm": 1.345929372493914,
+        "distance_to_conditional_equilibrium": 0.0035006438163855827,
+        "gradient_norm_now": 0.00017102709502232234,
+        "gradient_norm_equilibrium": 6.33258077455297e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263324916668953
+      },
+      {
+        "agent": 3,
+        "norm": 1.3462062805993646,
+        "equilibrium_norm": 1.3459161029370383,
+        "distance_to_conditional_equilibrium": 0.0024867444867199082,
+        "gradient_norm_now": 0.00011739163023306265,
+        "gradient_norm_equilibrium": 2.2979997139325587e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025264053855076997
+      },
+      {
+        "agent": 5,
+        "norm": 1.3462194034120518,
+        "equilibrium_norm": 1.3458883034813076,
+        "distance_to_conditional_equilibrium": 0.0036132463639436717,
+        "gradient_norm_now": 0.00015773877982400432,
+        "gradient_norm_equilibrium": 4.993045697472051e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025264683804913236
+      },
+      {
+        "agent": 9,
+        "norm": 1.344548672752555,
+        "equilibrium_norm": 1.3459459882829734,
+        "distance_to_conditional_equilibrium": 0.0020602391611232672,
+        "gradient_norm_now": 9.793532646552412e-05,
+        "gradient_norm_equilibrium": 1.1986511318602647e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263145252821275
+      },
+      {
+        "agent": 10,
+        "norm": 1.34523196616056,
+        "equilibrium_norm": 1.3459270032272381,
+        "distance_to_conditional_equilibrium": 0.002387357477288077,
+        "gradient_norm_now": 0.0001435505551953409,
+        "gradient_norm_equilibrium": 3.2831258401387796e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263937767722466
+      },
+      {
+        "agent": 13,
+        "norm": 1.3474732767640658,
+        "equilibrium_norm": 1.3459314160247804,
+        "distance_to_conditional_equilibrium": 0.002343852436662244,
+        "gradient_norm_now": 0.0001290755577351354,
+        "gradient_norm_equilibrium": 2.825764695498439e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02526344904624565
+      },
+      {
+        "agent": 15,
+        "norm": 1.3476404590185156,
+        "equilibrium_norm": 1.3458896510723906,
+        "distance_to_conditional_equilibrium": 0.0023464375926541873,
+        "gradient_norm_now": 0.00012453009731098726,
+        "gradient_norm_equilibrium": 6.395649775409668e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02526354276039295
+      },
+      {
+        "agent": 17,
+        "norm": 1.344811353844043,
+        "equilibrium_norm": 1.3458811205767165,
+        "distance_to_conditional_equilibrium": 0.0013188749694908995,
+        "gradient_norm_now": 8.117034485394695e-05,
+        "gradient_norm_equilibrium": 5.310716699618139e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263941594475647
+      },
+      {
+        "agent": 19,
+        "norm": 1.346173655841805,
+        "equilibrium_norm": 1.345920979416492,
+        "distance_to_conditional_equilibrium": 0.0028184937594313577,
+        "gradient_norm_now": 0.00013854330569926465,
+        "gradient_norm_equilibrium": 5.7856192587021026e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263059214407108
+      },
+      {
+        "agent": 20,
+        "norm": 1.3487173544616684,
+        "equilibrium_norm": 1.345874557533419,
+        "distance_to_conditional_equilibrium": 0.00357694068329115,
+        "gradient_norm_now": 0.00020432948048518205,
+        "gradient_norm_equilibrium": 2.1103673905560118e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025265285171278337
+      },
+      {
+        "agent": 23,
+        "norm": 1.3451054166935648,
+        "equilibrium_norm": 1.3459152868442583,
+        "distance_to_conditional_equilibrium": 0.0020576485396462387,
+        "gradient_norm_now": 8.683972503159288e-05,
+        "gradient_norm_equilibrium": 1.0157365212642092e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263533102684074
+      },
+      {
+        "agent": 24,
+        "norm": 1.3454868345200102,
+        "equilibrium_norm": 1.3459270130094432,
+        "distance_to_conditional_equilibrium": 0.0024087006478313183,
+        "gradient_norm_now": 9.592135018050262e-05,
+        "gradient_norm_equilibrium": 1.4098379386341266e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.0252642902341617
+      },
+      {
+        "agent": 26,
+        "norm": 1.346589296664614,
+        "equilibrium_norm": 1.3458915949725332,
+        "distance_to_conditional_equilibrium": 0.0026684923308332932,
+        "gradient_norm_now": 9.72170553856597e-05,
+        "gradient_norm_equilibrium": 1.2781668482032452e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025264665950445013
+      },
+      {
+        "agent": 27,
+        "norm": 1.343039806517102,
+        "equilibrium_norm": 1.3459639398643624,
+        "distance_to_conditional_equilibrium": 0.0033301820905045462,
+        "gradient_norm_now": 0.00017388579869274113,
+        "gradient_norm_equilibrium": 1.2445975933284261e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025262371785886164
+      },
+      {
+        "agent": 31,
+        "norm": 1.3455241315973914,
+        "equilibrium_norm": 1.345936420426419,
+        "distance_to_conditional_equilibrium": 0.002416161927564649,
+        "gradient_norm_now": 0.00010573795997396213,
+        "gradient_norm_equilibrium": 1.8949650015557876e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263434854547236
+      },
+      {
+        "agent": 32,
+        "norm": 1.3466234308333882,
+        "equilibrium_norm": 1.345937676654106,
+        "distance_to_conditional_equilibrium": 0.00392239028727759,
+        "gradient_norm_now": 0.00011860443230560538,
+        "gradient_norm_equilibrium": 1.1187915682771642e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263603426919065
+      },
+      {
+        "agent": 33,
+        "norm": 1.3459721182964777,
+        "equilibrium_norm": 1.3459099201842033,
+        "distance_to_conditional_equilibrium": 0.002973677918070293,
+        "gradient_norm_now": 0.00013874437909643203,
+        "gradient_norm_equilibrium": 1.8599129040613202e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025264196855620213
+      },
+      {
+        "agent": 34,
+        "norm": 1.347187082134766,
+        "equilibrium_norm": 1.3459483808488313,
+        "distance_to_conditional_equilibrium": 0.0026198400410504166,
+        "gradient_norm_now": 0.00011999083262372128,
+        "gradient_norm_equilibrium": 1.7180156944026678e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025263090581529497
+      },
+      {
+        "agent": 35,
+        "norm": 1.3449074604530573,
+        "equilibrium_norm": 1.34589729357641,
+        "distance_to_conditional_equilibrium": 0.0014492757390156532,
+        "gradient_norm_now": 6.718436970301901e-05,
+        "gradient_norm_equilibrium": 1.1051141558211138e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025264548938809056
+      },
+      {
+        "agent": 36,
+        "norm": 1.3479909741078515,
+        "equilibrium_norm": 1.3459066223707596,
+        "distance_to_conditional_equilibrium": 0.0028840657426882736,
+        "gradient_norm_now": 0.00016508701151116034,
+        "gradient_norm_equilibrium": 1.2791106065015868e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025264328146482575
+      },
+      {
+        "agent": 38,
+        "norm": 1.346551992985028,
+        "equilibrium_norm": 1.3459414901592104,
+        "distance_to_conditional_equilibrium": 0.0016628925478082276,
+        "gradient_norm_now": 7.503014744170914e-05,
+        "gradient_norm_equilibrium": 1.6174708549684014e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.025263348501295507
+      },
+      {
+        "agent": 39,
+        "norm": 1.3466110392532082,
+        "equilibrium_norm": 1.345874392564078,
+        "distance_to_conditional_equilibrium": 0.003839132061073143,
+        "gradient_norm_now": 0.00017413747836997557,
+        "gradient_norm_equilibrium": 2.1697250280407154e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.025265096644542934
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609114.npz",
+    "time": 100000.0,
+    "biased_norm": 0.9532463264159656,
+    "unbiased_norm": 8.500901506174555,
+    "biased_trust_class": 0.9996050236022566,
+    "biased_trust_opinion_sign": 0.4870184408357929,
+    "unbiased_trust_class": -0.025622470781990012,
+    "unbiased_trust_opinion_sign": 0.9993545235471336,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 0.952388855731246,
+        "equilibrium_norm": 0.9531547245268279,
+        "distance_to_conditional_equilibrium": 0.002877187437297612,
+        "gradient_norm_now": 0.0001893645963438051,
+        "gradient_norm_equilibrium": 1.0880120482506419e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03795752137581662
+      },
+      {
+        "agent": 2,
+        "norm": 0.9522371849070261,
+        "equilibrium_norm": 0.9530942686704079,
+        "distance_to_conditional_equilibrium": 0.0014327580715960669,
+        "gradient_norm_now": 7.542734646330502e-05,
+        "gradient_norm_equilibrium": 6.322150149424539e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.037958050926050854
+      },
+      {
+        "agent": 4,
+        "norm": 0.953587021446369,
+        "equilibrium_norm": 0.9531132884308355,
+        "distance_to_conditional_equilibrium": 0.002521798967510551,
+        "gradient_norm_now": 0.00020393389328804678,
+        "gradient_norm_equilibrium": 6.449065306879773e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795906080688409
+      },
+      {
+        "agent": 9,
+        "norm": 0.9532096022497017,
+        "equilibrium_norm": 0.9530847921517167,
+        "distance_to_conditional_equilibrium": 0.001314191645268749,
+        "gradient_norm_now": 8.742319058345541e-05,
+        "gradient_norm_equilibrium": 1.4749739293767328e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.037959017019973354
+      },
+      {
+        "agent": 10,
+        "norm": 0.9544487459922705,
+        "equilibrium_norm": 0.9531138682320666,
+        "distance_to_conditional_equilibrium": 0.0021310385681305743,
+        "gradient_norm_now": 0.0001464439058679609,
+        "gradient_norm_equilibrium": 8.170774701803014e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.0379580964030501
+      },
+      {
+        "agent": 12,
+        "norm": 0.9523227024855436,
+        "equilibrium_norm": 0.9531274641625183,
+        "distance_to_conditional_equilibrium": 0.0017669594243477813,
+        "gradient_norm_now": 0.00011089911396587044,
+        "gradient_norm_equilibrium": 2.1878314931281482e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795792741702088
+      },
+      {
+        "agent": 14,
+        "norm": 0.9532749733126775,
+        "equilibrium_norm": 0.9531198062199413,
+        "distance_to_conditional_equilibrium": 0.002703237986612415,
+        "gradient_norm_now": 0.00013235577675546674,
+        "gradient_norm_equilibrium": 7.034776883067656e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795843156445434
+      },
+      {
+        "agent": 15,
+        "norm": 0.9524935845778895,
+        "equilibrium_norm": 0.9531224483668531,
+        "distance_to_conditional_equilibrium": 0.0011216095890386718,
+        "gradient_norm_now": 8.029370942222893e-05,
+        "gradient_norm_equilibrium": 4.91443766328196e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795839231711833
+      },
+      {
+        "agent": 16,
+        "norm": 0.954329806267843,
+        "equilibrium_norm": 0.9531098432384045,
+        "distance_to_conditional_equilibrium": 0.001774458305538621,
+        "gradient_norm_now": 0.0001116251679212386,
+        "gradient_norm_equilibrium": 6.625438417955946e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.037958512271555146
+      },
+      {
+        "agent": 17,
+        "norm": 0.9532429052506499,
+        "equilibrium_norm": 0.9531416834207493,
+        "distance_to_conditional_equilibrium": 0.002095987062669397,
+        "gradient_norm_now": 0.00016903131180438867,
+        "gradient_norm_equilibrium": 3.696144960711453e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.037957901871242844
+      },
+      {
+        "agent": 18,
+        "norm": 0.9532439169722942,
+        "equilibrium_norm": 0.9531164735726304,
+        "distance_to_conditional_equilibrium": 0.001262718941829135,
+        "gradient_norm_now": 6.991661343227056e-05,
+        "gradient_norm_equilibrium": 4.908958317624922e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03795794928876183
+      },
+      {
+        "agent": 19,
+        "norm": 0.9523541800928798,
+        "equilibrium_norm": 0.9531176221684481,
+        "distance_to_conditional_equilibrium": 0.004125646807976768,
+        "gradient_norm_now": 0.00018421418995986696,
+        "gradient_norm_equilibrium": 1.4525065467461125e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.037957915678432846
+      },
+      {
+        "agent": 24,
+        "norm": 0.9531221533503397,
+        "equilibrium_norm": 0.9531405064979782,
+        "distance_to_conditional_equilibrium": 0.001401654875598337,
+        "gradient_norm_now": 7.147147731912577e-05,
+        "gradient_norm_equilibrium": 6.536543819407417e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795747634414199
+      },
+      {
+        "agent": 27,
+        "norm": 0.9527868619981763,
+        "equilibrium_norm": 0.9531379820687036,
+        "distance_to_conditional_equilibrium": 0.0033818118048935127,
+        "gradient_norm_now": 0.00014639673174000545,
+        "gradient_norm_equilibrium": 5.77797055009179e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03795603012604609
+      },
+      {
+        "agent": 28,
+        "norm": 0.9548898515273212,
+        "equilibrium_norm": 0.953118528292798,
+        "distance_to_conditional_equilibrium": 0.0024023981174773217,
+        "gradient_norm_now": 0.00015657064069381595,
+        "gradient_norm_equilibrium": 5.526783702817502e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03795785785974944
+      },
+      {
+        "agent": 29,
+        "norm": 0.95424380220252,
+        "equilibrium_norm": 0.953124126110687,
+        "distance_to_conditional_equilibrium": 0.0020451945829530094,
+        "gradient_norm_now": 8.663698612117365e-05,
+        "gradient_norm_equilibrium": 1.894624022886129e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03795781205332794
+      },
+      {
+        "agent": 30,
+        "norm": 0.953152142427276,
+        "equilibrium_norm": 0.953129621308533,
+        "distance_to_conditional_equilibrium": 0.00244148416024046,
+        "gradient_norm_now": 0.00013212699494996613,
+        "gradient_norm_equilibrium": 8.537090262281564e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.0379577508306684
+      },
+      {
+        "agent": 32,
+        "norm": 0.9520530561941785,
+        "equilibrium_norm": 0.9531271886137758,
+        "distance_to_conditional_equilibrium": 0.0026761276281113073,
+        "gradient_norm_now": 0.000196710877320174,
+        "gradient_norm_equilibrium": 1.3651157866615441e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.037958560454030225
+      },
+      {
+        "agent": 36,
+        "norm": 0.953546927455545,
+        "equilibrium_norm": 0.9531686097308752,
+        "distance_to_conditional_equilibrium": 0.0020343982831600663,
+        "gradient_norm_now": 9.681778458499653e-05,
+        "gradient_norm_equilibrium": 3.4115300144279317e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03795538570203524
+      },
+      {
+        "agent": 38,
+        "norm": 0.9539982538775664,
+        "equilibrium_norm": 0.9530979529584164,
+        "distance_to_conditional_equilibrium": 0.0023258339075491546,
+        "gradient_norm_now": 0.00015239833729093852,
+        "gradient_norm_equilibrium": 1.2348531894856571e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03795909501517923
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609115.npz",
+    "time": 100000.0,
+    "biased_norm": 1.2691160032137525,
+    "unbiased_norm": 8.209843642015253,
+    "biased_trust_class": 0.9995912666469604,
+    "biased_trust_opinion_sign": 0.6408040368852985,
+    "unbiased_trust_class": 0.19646022754136644,
+    "unbiased_trust_opinion_sign": 0.9994802467186047,
+    "biased_agents": [
+      {
+        "agent": 1,
+        "norm": 1.2683495831490241,
+        "equilibrium_norm": 1.2685708536000517,
+        "distance_to_conditional_equilibrium": 0.0016379822262937306,
+        "gradient_norm_now": 7.251586285653276e-05,
+        "gradient_norm_equilibrium": 6.56748441815875e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562689983615679
+      },
+      {
+        "agent": 2,
+        "norm": 1.2684385757980234,
+        "equilibrium_norm": 1.2685716158206988,
+        "distance_to_conditional_equilibrium": 0.0032248548516232243,
+        "gradient_norm_now": 0.00015594948739709686,
+        "gradient_norm_equilibrium": 9.022256316187463e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.035626370186569875
+      },
+      {
+        "agent": 3,
+        "norm": 1.267148742359876,
+        "equilibrium_norm": 1.2686191287725483,
+        "distance_to_conditional_equilibrium": 0.003376250876989803,
+        "gradient_norm_now": 0.00017348076781395928,
+        "gradient_norm_equilibrium": 9.180890619157524e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562492802463228
+      },
+      {
+        "agent": 5,
+        "norm": 1.2710508883147225,
+        "equilibrium_norm": 1.268631994925341,
+        "distance_to_conditional_equilibrium": 0.002955963212883546,
+        "gradient_norm_now": 0.00015582236073853747,
+        "gradient_norm_equilibrium": 5.904260532775703e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.035624664241386717
+      },
+      {
+        "agent": 8,
+        "norm": 1.2690480152270058,
+        "equilibrium_norm": 1.2686361982730476,
+        "distance_to_conditional_equilibrium": 0.0014995022094105525,
+        "gradient_norm_now": 9.657008851004323e-05,
+        "gradient_norm_equilibrium": 9.060340706100348e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562402316341108
+      },
+      {
+        "agent": 9,
+        "norm": 1.2701398444920602,
+        "equilibrium_norm": 1.2685384474332926,
+        "distance_to_conditional_equilibrium": 0.0018071653572581206,
+        "gradient_norm_now": 0.00010289301656381402,
+        "gradient_norm_equilibrium": 1.9149683036032487e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.035627261727494926
+      },
+      {
+        "agent": 10,
+        "norm": 1.2693633505066793,
+        "equilibrium_norm": 1.268618064099577,
+        "distance_to_conditional_equilibrium": 0.0028804010988182274,
+        "gradient_norm_now": 0.00011931733015630259,
+        "gradient_norm_equilibrium": 3.0116772009177226e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.035625327790654096
+      },
+      {
+        "agent": 12,
+        "norm": 1.2681738169910377,
+        "equilibrium_norm": 1.268599789840054,
+        "distance_to_conditional_equilibrium": 0.0020095357680652583,
+        "gradient_norm_now": 0.0001275568246879238,
+        "gradient_norm_equilibrium": 2.355466290841499e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.035626002612858025
+      },
+      {
+        "agent": 13,
+        "norm": 1.2700441885907081,
+        "equilibrium_norm": 1.2685586757515235,
+        "distance_to_conditional_equilibrium": 0.0033040864219146585,
+        "gradient_norm_now": 0.0001617790616178519,
+        "gradient_norm_equilibrium": 6.90026545352199e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562645389763779
+      },
+      {
+        "agent": 22,
+        "norm": 1.2682201535435014,
+        "equilibrium_norm": 1.268544634488706,
+        "distance_to_conditional_equilibrium": 0.0019643281988621273,
+        "gradient_norm_now": 0.0001072389715471727,
+        "gradient_norm_equilibrium": 1.604387203607367e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03562671013412943
+      },
+      {
+        "agent": 24,
+        "norm": 1.268417363081864,
+        "equilibrium_norm": 1.268573010448745,
+        "distance_to_conditional_equilibrium": 0.0014924609791285225,
+        "gradient_norm_now": 6.0586039186049905e-05,
+        "gradient_norm_equilibrium": 1.0287809876513364e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03562524377780622
+      },
+      {
+        "agent": 25,
+        "norm": 1.2687992625977569,
+        "equilibrium_norm": 1.2686052750243373,
+        "distance_to_conditional_equilibrium": 0.005166702873879257,
+        "gradient_norm_now": 0.00022488306749108653,
+        "gradient_norm_equilibrium": 2.183155595485204e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03562566834201608
+      },
+      {
+        "agent": 26,
+        "norm": 1.2693391170461783,
+        "equilibrium_norm": 1.2685952061029142,
+        "distance_to_conditional_equilibrium": 0.0023711333646762355,
+        "gradient_norm_now": 0.000152183238238271,
+        "gradient_norm_equilibrium": 1.046341100211361e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03562436148215885
+      },
+      {
+        "agent": 28,
+        "norm": 1.2684129567927063,
+        "equilibrium_norm": 1.2685960001251197,
+        "distance_to_conditional_equilibrium": 0.0013717711903171409,
+        "gradient_norm_now": 5.100876792216409e-05,
+        "gradient_norm_equilibrium": 1.4535208049744026e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03562554951238347
+      },
+      {
+        "agent": 29,
+        "norm": 1.2722625917531822,
+        "equilibrium_norm": 1.2685938812663886,
+        "distance_to_conditional_equilibrium": 0.004390824034179603,
+        "gradient_norm_now": 0.0002145030249960217,
+        "gradient_norm_equilibrium": 1.1002278730567167e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562610266387968
+      },
+      {
+        "agent": 32,
+        "norm": 1.2677736504321926,
+        "equilibrium_norm": 1.2685489232659946,
+        "distance_to_conditional_equilibrium": 0.0028816682249547354,
+        "gradient_norm_now": 0.00014928962178431773,
+        "gradient_norm_equilibrium": 2.7665601008813435e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.035627670206678105
+      },
+      {
+        "agent": 33,
+        "norm": 1.2705748959450673,
+        "equilibrium_norm": 1.2685863853802875,
+        "distance_to_conditional_equilibrium": 0.002807976606177208,
+        "gradient_norm_now": 0.0001659011127749889,
+        "gradient_norm_equilibrium": 2.360589458517921e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03562600396883512
+      },
+      {
+        "agent": 36,
+        "norm": 1.2701454864496493,
+        "equilibrium_norm": 1.2685594691846034,
+        "distance_to_conditional_equilibrium": 0.0028016195921848636,
+        "gradient_norm_now": 0.00017527353493170528,
+        "gradient_norm_equilibrium": 9.964353891441638e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562622862686497
+      },
+      {
+        "agent": 38,
+        "norm": 1.2675015779900642,
+        "equilibrium_norm": 1.2685691902629985,
+        "distance_to_conditional_equilibrium": 0.0022690336739514703,
+        "gradient_norm_now": 0.00013121367200916268,
+        "gradient_norm_equilibrium": 1.674044799247929e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03562635713447201
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609116.npz",
+    "time": 100000.0,
+    "biased_norm": 1.1787433157537854,
+    "unbiased_norm": 7.611928737527878,
+    "biased_trust_class": 0.9996009521144688,
+    "biased_trust_opinion_sign": 0.6408134560024732,
+    "unbiased_trust_class": 0.0919797445377522,
+    "unbiased_trust_opinion_sign": 0.999415392610328,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 1.1779740438406947,
+        "equilibrium_norm": 1.178353266426385,
+        "distance_to_conditional_equilibrium": 0.0026537925317607447,
+        "gradient_norm_now": 0.00010606259134952049,
+        "gradient_norm_equilibrium": 4.1801774142500094e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650906499371543
+      },
+      {
+        "agent": 1,
+        "norm": 1.18057202596188,
+        "equilibrium_norm": 1.1783890507737635,
+        "distance_to_conditional_equilibrium": 0.0027475852783935832,
+        "gradient_norm_now": 0.00016766051173660627,
+        "gradient_norm_equilibrium": 6.811621239853028e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.013650925591440329
+      },
+      {
+        "agent": 4,
+        "norm": 1.1790458003768791,
+        "equilibrium_norm": 1.1783741716794063,
+        "distance_to_conditional_equilibrium": 0.0029840520935759374,
+        "gradient_norm_now": 8.825199968039525e-05,
+        "gradient_norm_equilibrium": 9.847486295677995e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650242718366123
+      },
+      {
+        "agent": 5,
+        "norm": 1.178750932566176,
+        "equilibrium_norm": 1.1783669998088973,
+        "distance_to_conditional_equilibrium": 0.003005514084764246,
+        "gradient_norm_now": 0.00014889491284049344,
+        "gradient_norm_equilibrium": 3.972516105420811e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.013650860415896623
+      },
+      {
+        "agent": 6,
+        "norm": 1.1791682885639956,
+        "equilibrium_norm": 1.1783776599467388,
+        "distance_to_conditional_equilibrium": 0.0016408177316333422,
+        "gradient_norm_now": 0.0001186090950891149,
+        "gradient_norm_equilibrium": 6.230657162092165e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.01365029717115527
+      },
+      {
+        "agent": 10,
+        "norm": 1.1773688610535846,
+        "equilibrium_norm": 1.1784753730909667,
+        "distance_to_conditional_equilibrium": 0.0030578612974057427,
+        "gradient_norm_now": 0.0001715194509693782,
+        "gradient_norm_equilibrium": 1.188524516065787e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013648900994049128
+      },
+      {
+        "agent": 13,
+        "norm": 1.179201040394304,
+        "equilibrium_norm": 1.178394944874334,
+        "distance_to_conditional_equilibrium": 0.00168980271425363,
+        "gradient_norm_now": 6.138731636831219e-05,
+        "gradient_norm_equilibrium": 1.0853210822201405e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650359418517138
+      },
+      {
+        "agent": 15,
+        "norm": 1.177600000399131,
+        "equilibrium_norm": 1.1783790989510108,
+        "distance_to_conditional_equilibrium": 0.002922567614932985,
+        "gradient_norm_now": 0.00011270958412327084,
+        "gradient_norm_equilibrium": 1.1926161909618564e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.013650573393888137
+      },
+      {
+        "agent": 17,
+        "norm": 1.1806524976891393,
+        "equilibrium_norm": 1.1783971185479942,
+        "distance_to_conditional_equilibrium": 0.0030872371186969837,
+        "gradient_norm_now": 0.00011595583987000115,
+        "gradient_norm_equilibrium": 3.444699673348917e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650626777370672
+      },
+      {
+        "agent": 20,
+        "norm": 1.1799857717376234,
+        "equilibrium_norm": 1.1783938080989298,
+        "distance_to_conditional_equilibrium": 0.002990614680149343,
+        "gradient_norm_now": 0.00017621954270936118,
+        "gradient_norm_equilibrium": 6.0421760622981e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.01365073274069914
+      },
+      {
+        "agent": 21,
+        "norm": 1.1786870180254883,
+        "equilibrium_norm": 1.1783430722275035,
+        "distance_to_conditional_equilibrium": 0.002688476264664946,
+        "gradient_norm_now": 0.00015769110259252075,
+        "gradient_norm_equilibrium": 9.651056561921773e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013651367778117537
+      },
+      {
+        "agent": 24,
+        "norm": 1.1791506853610736,
+        "equilibrium_norm": 1.1783325714241577,
+        "distance_to_conditional_equilibrium": 0.0014281490469125757,
+        "gradient_norm_now": 7.337053093316307e-05,
+        "gradient_norm_equilibrium": 3.029937321268735e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013651325131563277
+      },
+      {
+        "agent": 27,
+        "norm": 1.1768996938472047,
+        "equilibrium_norm": 1.1783307574447217,
+        "distance_to_conditional_equilibrium": 0.0017258574996390143,
+        "gradient_norm_now": 0.00014809590119059562,
+        "gradient_norm_equilibrium": 1.5247577774739774e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.013651135499539904
+      },
+      {
+        "agent": 29,
+        "norm": 1.1767272318574238,
+        "equilibrium_norm": 1.1783579446466101,
+        "distance_to_conditional_equilibrium": 0.0037937606664330916,
+        "gradient_norm_now": 0.00017147512889162318,
+        "gradient_norm_equilibrium": 9.131762012007487e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.01365103167717419
+      },
+      {
+        "agent": 30,
+        "norm": 1.1787190828822636,
+        "equilibrium_norm": 1.1784119536499245,
+        "distance_to_conditional_equilibrium": 0.0022854751918825514,
+        "gradient_norm_now": 0.0001476454103880904,
+        "gradient_norm_equilibrium": 8.639057068257288e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650109754084167
+      },
+      {
+        "agent": 31,
+        "norm": 1.178896279400037,
+        "equilibrium_norm": 1.1784006108171932,
+        "distance_to_conditional_equilibrium": 0.0022309464715620556,
+        "gradient_norm_now": 0.00010912909727733089,
+        "gradient_norm_equilibrium": 7.047069779358104e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.01365043171524275
+      },
+      {
+        "agent": 32,
+        "norm": 1.1792823893145905,
+        "equilibrium_norm": 1.178397906658671,
+        "distance_to_conditional_equilibrium": 0.0015886590042853755,
+        "gradient_norm_now": 6.547912790486076e-05,
+        "gradient_norm_equilibrium": 8.607201659540425e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650657870787078
+      },
+      {
+        "agent": 33,
+        "norm": 1.1785108924634133,
+        "equilibrium_norm": 1.1783498299761768,
+        "distance_to_conditional_equilibrium": 0.002363346076146773,
+        "gradient_norm_now": 0.00011180045684079377,
+        "gradient_norm_equilibrium": 5.033320123334874e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013651002789431951
+      },
+      {
+        "agent": 34,
+        "norm": 1.1808333018637638,
+        "equilibrium_norm": 1.1783713737215196,
+        "distance_to_conditional_equilibrium": 0.004101156441390703,
+        "gradient_norm_now": 0.00011467346916027383,
+        "gradient_norm_equilibrium": 2.154512650100424e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.01365072936530606
+      },
+      {
+        "agent": 36,
+        "norm": 1.1769738744772473,
+        "equilibrium_norm": 1.1783657003418118,
+        "distance_to_conditional_equilibrium": 0.001557102974801583,
+        "gradient_norm_now": 0.00013229548189036222,
+        "gradient_norm_equilibrium": 5.514092861137632e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.013651110918170044
+      },
+      {
+        "agent": 37,
+        "norm": 1.1773125243726033,
+        "equilibrium_norm": 1.178390611467261,
+        "distance_to_conditional_equilibrium": 0.00250159153766136,
+        "gradient_norm_now": 8.719371449044674e-05,
+        "gradient_norm_equilibrium": 9.574000062857025e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.013650227889567552
+      },
+      {
+        "agent": 38,
+        "norm": 1.1802497225511062,
+        "equilibrium_norm": 1.1783387963183316,
+        "distance_to_conditional_equilibrium": 0.0024206085600543313,
+        "gradient_norm_now": 0.000127659503750864,
+        "gradient_norm_equilibrium": 8.568249871484217e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013651351808342198
+      },
+      {
+        "agent": 39,
+        "norm": 1.178534303337435,
+        "equilibrium_norm": 1.1783594336609233,
+        "distance_to_conditional_equilibrium": 0.0033752374419980307,
+        "gradient_norm_now": 9.3192240184253e-05,
+        "gradient_norm_equilibrium": 2.8633749696882946e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.013650924919399602
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609117.npz",
+    "time": 100000.0,
+    "biased_norm": 1.3259004072178102,
+    "unbiased_norm": 8.333767083238307,
+    "biased_trust_class": 0.9995988477392966,
+    "biased_trust_opinion_sign": 0.6408061503004824,
+    "unbiased_trust_class": 0.12244840461426984,
+    "unbiased_trust_opinion_sign": 0.9993806765690934,
+    "biased_agents": [
+      {
+        "agent": 1,
+        "norm": 1.3276009317736033,
+        "equilibrium_norm": 1.3262370190009958,
+        "distance_to_conditional_equilibrium": 0.0019924703636319792,
+        "gradient_norm_now": 0.00012248344036541736,
+        "gradient_norm_equilibrium": 1.6169689952268333e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321741098368714
+      },
+      {
+        "agent": 2,
+        "norm": 1.325886973491931,
+        "equilibrium_norm": 1.3262241821680314,
+        "distance_to_conditional_equilibrium": 0.0027635976148939873,
+        "gradient_norm_now": 0.00013452173839168316,
+        "gradient_norm_equilibrium": 2.7894931735655175e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321782965034898
+      },
+      {
+        "agent": 3,
+        "norm": 1.3257025051487055,
+        "equilibrium_norm": 1.3262186243319698,
+        "distance_to_conditional_equilibrium": 0.0019891205835645383,
+        "gradient_norm_now": 0.00012373087793690979,
+        "gradient_norm_equilibrium": 4.97865127285687e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033217235987094126
+      },
+      {
+        "agent": 6,
+        "norm": 1.3255586148367993,
+        "equilibrium_norm": 1.3262694555216663,
+        "distance_to_conditional_equilibrium": 0.0021582730588236227,
+        "gradient_norm_now": 0.00010043097169910749,
+        "gradient_norm_equilibrium": 4.487764534959457e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.033216275284901925
+      },
+      {
+        "agent": 7,
+        "norm": 1.3267776957283723,
+        "equilibrium_norm": 1.3262241882625494,
+        "distance_to_conditional_equilibrium": 0.0035173123524325257,
+        "gradient_norm_now": 0.0001714664106350349,
+        "gradient_norm_equilibrium": 1.0239812296893298e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321762341196191
+      },
+      {
+        "agent": 14,
+        "norm": 1.325912034903862,
+        "equilibrium_norm": 1.326218945049912,
+        "distance_to_conditional_equilibrium": 0.002242658518698731,
+        "gradient_norm_now": 0.00014142061249543028,
+        "gradient_norm_equilibrium": 1.1355046208072757e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03321793398103203
+      },
+      {
+        "agent": 15,
+        "norm": 1.327415881704858,
+        "equilibrium_norm": 1.3262389491438349,
+        "distance_to_conditional_equilibrium": 0.002755133520134824,
+        "gradient_norm_now": 0.00012750700174706716,
+        "gradient_norm_equilibrium": 9.360560801382502e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033217411289898455
+      },
+      {
+        "agent": 18,
+        "norm": 1.3270871956481043,
+        "equilibrium_norm": 1.3262350133524041,
+        "distance_to_conditional_equilibrium": 0.0019488444229852377,
+        "gradient_norm_now": 0.00010300716250493477,
+        "gradient_norm_equilibrium": 3.1138729462771885e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033217520336929825
+      },
+      {
+        "agent": 19,
+        "norm": 1.325842561027251,
+        "equilibrium_norm": 1.326231961669053,
+        "distance_to_conditional_equilibrium": 0.001054781678751668,
+        "gradient_norm_now": 6.233205827205978e-05,
+        "gradient_norm_equilibrium": 1.6300236544571176e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03321795854978576
+      },
+      {
+        "agent": 21,
+        "norm": 1.3245072091437282,
+        "equilibrium_norm": 1.3262297425833152,
+        "distance_to_conditional_equilibrium": 0.002938892554179006,
+        "gradient_norm_now": 0.00017935486813684396,
+        "gradient_norm_equilibrium": 4.746003588920069e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033216876507432075
+      },
+      {
+        "agent": 22,
+        "norm": 1.324428452423388,
+        "equilibrium_norm": 1.3262607854978197,
+        "distance_to_conditional_equilibrium": 0.0027425145907839623,
+        "gradient_norm_now": 0.00011939334808663776,
+        "gradient_norm_equilibrium": 1.9357034647684735e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03321653300280729
+      },
+      {
+        "agent": 23,
+        "norm": 1.3253834636639301,
+        "equilibrium_norm": 1.3262672913949103,
+        "distance_to_conditional_equilibrium": 0.0023086050168001078,
+        "gradient_norm_now": 0.00014204809094952152,
+        "gradient_norm_equilibrium": 4.500257181648865e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321657030507458
+      },
+      {
+        "agent": 24,
+        "norm": 1.3250332937605978,
+        "equilibrium_norm": 1.326217482940993,
+        "distance_to_conditional_equilibrium": 0.0024987130419352513,
+        "gradient_norm_now": 0.00014641903358850482,
+        "gradient_norm_equilibrium": 3.179233866913678e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03321752477035148
+      },
+      {
+        "agent": 25,
+        "norm": 1.326942717522833,
+        "equilibrium_norm": 1.3262780587888858,
+        "distance_to_conditional_equilibrium": 0.0017685866588153837,
+        "gradient_norm_now": 9.767163892020625e-05,
+        "gradient_norm_equilibrium": 6.281421202611738e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03321614998770754
+      },
+      {
+        "agent": 26,
+        "norm": 1.3261809305072902,
+        "equilibrium_norm": 1.3262876672902115,
+        "distance_to_conditional_equilibrium": 0.0007365006921890623,
+        "gradient_norm_now": 4.664014228919019e-05,
+        "gradient_norm_equilibrium": 3.24450254581866e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321614270260798
+      },
+      {
+        "agent": 27,
+        "norm": 1.3267133831229123,
+        "equilibrium_norm": 1.3262666179542182,
+        "distance_to_conditional_equilibrium": 0.0024668073454160782,
+        "gradient_norm_now": 0.00013444507305117472,
+        "gradient_norm_equilibrium": 2.929278096071552e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03321683190065341
+      },
+      {
+        "agent": 28,
+        "norm": 1.3250252200009323,
+        "equilibrium_norm": 1.3262470254789203,
+        "distance_to_conditional_equilibrium": 0.002629288176407925,
+        "gradient_norm_now": 0.00012650834901747332,
+        "gradient_norm_equilibrium": 5.220979630720822e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321609193767323
+      },
+      {
+        "agent": 30,
+        "norm": 1.3260943776786676,
+        "equilibrium_norm": 1.326289569804936,
+        "distance_to_conditional_equilibrium": 0.0008272417995631221,
+        "gradient_norm_now": 4.464619561997627e-05,
+        "gradient_norm_equilibrium": 2.555088014580114e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.0332144987689007
+      },
+      {
+        "agent": 31,
+        "norm": 1.3231549352321716,
+        "equilibrium_norm": 1.3262039235184395,
+        "distance_to_conditional_equilibrium": 0.005351690977040785,
+        "gradient_norm_now": 0.00021766328850078272,
+        "gradient_norm_equilibrium": 2.0338794584167013e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321802585290837
+      },
+      {
+        "agent": 33,
+        "norm": 1.3276034181170198,
+        "equilibrium_norm": 1.3262015435972845,
+        "distance_to_conditional_equilibrium": 0.0021170282684547896,
+        "gradient_norm_now": 0.0001230615547615428,
+        "gradient_norm_equilibrium": 3.487855100487994e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03321807042616999
+      },
+      {
+        "agent": 37,
+        "norm": 1.3264483839351735,
+        "equilibrium_norm": 1.3262489699264026,
+        "distance_to_conditional_equilibrium": 0.003178528342690559,
+        "gradient_norm_now": 0.00014271009497198627,
+        "gradient_norm_equilibrium": 1.0828452733337543e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033215483948105
+      },
+      {
+        "agent": 39,
+        "norm": 1.3245087794196968,
+        "equilibrium_norm": 1.3262516118395038,
+        "distance_to_conditional_equilibrium": 0.0023587704170339673,
+        "gradient_norm_now": 0.00013196153804245883,
+        "gradient_norm_equilibrium": 1.8583100499030084e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03321717894305061
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609118.npz",
+    "time": 100000.0,
+    "biased_norm": 1.2735216650735053,
+    "unbiased_norm": 8.008725717306847,
+    "biased_trust_class": 0.9995995372524462,
+    "biased_trust_opinion_sign": 0.6408129219848826,
+    "unbiased_trust_class": 0.12244761424276729,
+    "unbiased_trust_opinion_sign": 0.9994621669877615,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 1.2728083718908463,
+        "equilibrium_norm": 1.273180594705554,
+        "distance_to_conditional_equilibrium": 0.0019543419361695326,
+        "gradient_norm_now": 9.744815823118874e-05,
+        "gradient_norm_equilibrium": 1.0033901020250884e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.029128461597693354
+      },
+      {
+        "agent": 1,
+        "norm": 1.2740185213355988,
+        "equilibrium_norm": 1.2731574474637624,
+        "distance_to_conditional_equilibrium": 0.001667397101239189,
+        "gradient_norm_now": 9.844712691476148e-05,
+        "gradient_norm_equilibrium": 2.332980474821838e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02912960683664826
+      },
+      {
+        "agent": 4,
+        "norm": 1.2727681955420864,
+        "equilibrium_norm": 1.273155343446195,
+        "distance_to_conditional_equilibrium": 0.0020290135703188513,
+        "gradient_norm_now": 0.00011287330411411963,
+        "gradient_norm_equilibrium": 2.330321214386312e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.029129646866618765
+      },
+      {
+        "agent": 6,
+        "norm": 1.2733131597260359,
+        "equilibrium_norm": 1.2731529717094652,
+        "distance_to_conditional_equilibrium": 0.0008007523731773972,
+        "gradient_norm_now": 4.605751194654996e-05,
+        "gradient_norm_equilibrium": 3.927136725633917e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.02913039197964985
+      },
+      {
+        "agent": 8,
+        "norm": 1.2747475230890337,
+        "equilibrium_norm": 1.273147433045905,
+        "distance_to_conditional_equilibrium": 0.0027749607211457524,
+        "gradient_norm_now": 0.00011228411869911932,
+        "gradient_norm_equilibrium": 2.778308551890834e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029129315160456682
+      },
+      {
+        "agent": 10,
+        "norm": 1.2730118406217392,
+        "equilibrium_norm": 1.2731467005500625,
+        "distance_to_conditional_equilibrium": 0.001708430972558948,
+        "gradient_norm_now": 8.989943261547307e-05,
+        "gradient_norm_equilibrium": 1.4846418492290519e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.029130322540400773
+      },
+      {
+        "agent": 14,
+        "norm": 1.2751479511128987,
+        "equilibrium_norm": 1.2731817060713566,
+        "distance_to_conditional_equilibrium": 0.0032247035588343445,
+        "gradient_norm_now": 0.00014807386827632815,
+        "gradient_norm_equilibrium": 7.518747659452272e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.0291295119835017
+      },
+      {
+        "agent": 16,
+        "norm": 1.2731314870030335,
+        "equilibrium_norm": 1.273107639258337,
+        "distance_to_conditional_equilibrium": 0.00291191870253954,
+        "gradient_norm_now": 0.00014469392151642078,
+        "gradient_norm_equilibrium": 1.338869203920879e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.02913168005086247
+      },
+      {
+        "agent": 19,
+        "norm": 1.2722068291826767,
+        "equilibrium_norm": 1.2731567407206152,
+        "distance_to_conditional_equilibrium": 0.0017607395243960688,
+        "gradient_norm_now": 9.304004405055483e-05,
+        "gradient_norm_equilibrium": 6.146859479996562e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02913041596199805
+      },
+      {
+        "agent": 21,
+        "norm": 1.2735049162436651,
+        "equilibrium_norm": 1.2731772413636726,
+        "distance_to_conditional_equilibrium": 0.0025431655256427173,
+        "gradient_norm_now": 0.00013089326805297945,
+        "gradient_norm_equilibrium": 6.939231744694084e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02912933597662205
+      },
+      {
+        "agent": 22,
+        "norm": 1.27214272246406,
+        "equilibrium_norm": 1.27313209847546,
+        "distance_to_conditional_equilibrium": 0.0025012123971785848,
+        "gradient_norm_now": 8.523539730426454e-05,
+        "gradient_norm_equilibrium": 3.7600574951572375e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029130653416808972
+      },
+      {
+        "agent": 23,
+        "norm": 1.2739395739767472,
+        "equilibrium_norm": 1.2731717477581515,
+        "distance_to_conditional_equilibrium": 0.0019270682359734679,
+        "gradient_norm_now": 0.00010785553664421887,
+        "gradient_norm_equilibrium": 1.6674428736570727e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029129448177980917
+      },
+      {
+        "agent": 25,
+        "norm": 1.2733088017319052,
+        "equilibrium_norm": 1.2731586108793735,
+        "distance_to_conditional_equilibrium": 0.0026832769734215383,
+        "gradient_norm_now": 0.00013979768430863495,
+        "gradient_norm_equilibrium": 7.0573954535632e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.02912912437781324
+      },
+      {
+        "agent": 26,
+        "norm": 1.2732320553812082,
+        "equilibrium_norm": 1.2731968298340224,
+        "distance_to_conditional_equilibrium": 0.00192090233486639,
+        "gradient_norm_now": 0.00011282110391929257,
+        "gradient_norm_equilibrium": 1.4588268200432402e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029128984014024667
+      },
+      {
+        "agent": 27,
+        "norm": 1.273701867744892,
+        "equilibrium_norm": 1.2731588860118044,
+        "distance_to_conditional_equilibrium": 0.0025845476945410475,
+        "gradient_norm_now": 0.00013783011852099616,
+        "gradient_norm_equilibrium": 2.1635228234488918e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.029129537559863018
+      },
+      {
+        "agent": 28,
+        "norm": 1.272795629087958,
+        "equilibrium_norm": 1.27316297601587,
+        "distance_to_conditional_equilibrium": 0.0009475867172165843,
+        "gradient_norm_now": 5.165705083515673e-05,
+        "gradient_norm_equilibrium": 1.9430920662543442e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029130142689684637
+      },
+      {
+        "agent": 30,
+        "norm": 1.2748103947136589,
+        "equilibrium_norm": 1.273132643393936,
+        "distance_to_conditional_equilibrium": 0.002074928212590367,
+        "gradient_norm_now": 0.00012391739109913116,
+        "gradient_norm_equilibrium": 7.959709171889357e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029131223169467663
+      },
+      {
+        "agent": 31,
+        "norm": 1.274205588643512,
+        "equilibrium_norm": 1.2731430325209185,
+        "distance_to_conditional_equilibrium": 0.0016297820734078434,
+        "gradient_norm_now": 8.492949382379097e-05,
+        "gradient_norm_equilibrium": 4.199300715594594e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.029129360899991075
+      },
+      {
+        "agent": 32,
+        "norm": 1.2732475418966027,
+        "equilibrium_norm": 1.2731394863042116,
+        "distance_to_conditional_equilibrium": 0.0018866483207810943,
+        "gradient_norm_now": 8.922660973719966e-05,
+        "gradient_norm_equilibrium": 1.2083364933025237e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.029131080368365404
+      },
+      {
+        "agent": 36,
+        "norm": 1.2739388234149196,
+        "equilibrium_norm": 1.2731757559671555,
+        "distance_to_conditional_equilibrium": 0.0027103282312659523,
+        "gradient_norm_now": 9.122311713127266e-05,
+        "gradient_norm_equilibrium": 3.9656079768497817e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.02913000617085303
+      },
+      {
+        "agent": 38,
+        "norm": 1.2755746436242013,
+        "equilibrium_norm": 1.2731365529941288,
+        "distance_to_conditional_equilibrium": 0.0036075756135649215,
+        "gradient_norm_now": 0.00011296184045228581,
+        "gradient_norm_equilibrium": 3.1769150460310706e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029130405348392265
+      },
+      {
+        "agent": 39,
+        "norm": 1.271920193189844,
+        "equilibrium_norm": 1.2731715219854725,
+        "distance_to_conditional_equilibrium": 0.0023263217971933167,
+        "gradient_norm_now": 0.00016592032432885006,
+        "gradient_norm_equilibrium": 3.205662011370627e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.029129736472885807
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609119.npz",
+    "time": 100000.0,
+    "biased_norm": 0.9415504400102911,
+    "unbiased_norm": 7.563683901701542,
+    "biased_trust_class": 0.9995932353932594,
+    "biased_trust_opinion_sign": 0.5382718949655964,
+    "unbiased_trust_class": 0.054917128542179394,
+    "unbiased_trust_opinion_sign": 0.999476316052924,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 0.9422809993113279,
+        "equilibrium_norm": 0.9410383636975416,
+        "distance_to_conditional_equilibrium": 0.0016990068917691725,
+        "gradient_norm_now": 7.185243318315629e-05,
+        "gradient_norm_equilibrium": 1.1632276140561357e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03142582308115077
+      },
+      {
+        "agent": 2,
+        "norm": 0.9410015013371607,
+        "equilibrium_norm": 0.9410007360931303,
+        "distance_to_conditional_equilibrium": 0.003977854867941413,
+        "gradient_norm_now": 0.00016626759321945639,
+        "gradient_norm_equilibrium": 2.3124580509434332e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.031426728163754726
+      },
+      {
+        "agent": 5,
+        "norm": 0.9399703877717719,
+        "equilibrium_norm": 0.9409999550900597,
+        "distance_to_conditional_equilibrium": 0.0034749158917696255,
+        "gradient_norm_now": 0.00012357274006460342,
+        "gradient_norm_equilibrium": 4.950743553318791e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03142636754061977
+      },
+      {
+        "agent": 6,
+        "norm": 0.9413409271815851,
+        "equilibrium_norm": 0.9410024611017654,
+        "distance_to_conditional_equilibrium": 0.0017596746901195246,
+        "gradient_norm_now": 0.0001094286039751401,
+        "gradient_norm_equilibrium": 8.442410516426416e-13,
+        "max_eigenvalue_log_evidence_hessian": -0.03142624801698052
+      },
+      {
+        "agent": 8,
+        "norm": 0.9437001023442994,
+        "equilibrium_norm": 0.9410226323836125,
+        "distance_to_conditional_equilibrium": 0.00361088880915845,
+        "gradient_norm_now": 0.00015440868150124558,
+        "gradient_norm_equilibrium": 1.5644859035303287e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.031425076723107195
+      },
+      {
+        "agent": 9,
+        "norm": 0.9414423773654331,
+        "equilibrium_norm": 0.9410102808242935,
+        "distance_to_conditional_equilibrium": 0.0010015144322348152,
+        "gradient_norm_now": 4.3195982152891516e-05,
+        "gradient_norm_equilibrium": 4.0667638552615185e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03142674354042287
+      },
+      {
+        "agent": 10,
+        "norm": 0.9425207163997371,
+        "equilibrium_norm": 0.9410029671041125,
+        "distance_to_conditional_equilibrium": 0.0015750743781209238,
+        "gradient_norm_now": 0.00011982246330740694,
+        "gradient_norm_equilibrium": 3.9539735306326015e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.031426984311405705
+      },
+      {
+        "agent": 11,
+        "norm": 0.9406099144054134,
+        "equilibrium_norm": 0.9410705063056625,
+        "distance_to_conditional_equilibrium": 0.00360806068563349,
+        "gradient_norm_now": 0.00020268851564115683,
+        "gradient_norm_equilibrium": 1.2040833445197646e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.031422966147261325
+      },
+      {
+        "agent": 12,
+        "norm": 0.9407698999937879,
+        "equilibrium_norm": 0.9410027208220789,
+        "distance_to_conditional_equilibrium": 0.0014533409823603116,
+        "gradient_norm_now": 5.340329412117769e-05,
+        "gradient_norm_equilibrium": 7.208578200557591e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03142622983348334
+      },
+      {
+        "agent": 13,
+        "norm": 0.9421925927905316,
+        "equilibrium_norm": 0.9410041503793776,
+        "distance_to_conditional_equilibrium": 0.0016902485343936397,
+        "gradient_norm_now": 8.358784360816363e-05,
+        "gradient_norm_equilibrium": 1.2053116826344327e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03142615259845323
+      },
+      {
+        "agent": 17,
+        "norm": 0.9416917634535102,
+        "equilibrium_norm": 0.9410315811567732,
+        "distance_to_conditional_equilibrium": 0.0014364110496459673,
+        "gradient_norm_now": 9.835958908568733e-05,
+        "gradient_norm_equilibrium": 3.3758946354136606e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.031424374947078296
+      },
+      {
+        "agent": 20,
+        "norm": 0.9431595869447092,
+        "equilibrium_norm": 0.9410081956850945,
+        "distance_to_conditional_equilibrium": 0.0025200064926562023,
+        "gradient_norm_now": 0.00012878318136656824,
+        "gradient_norm_equilibrium": 7.2568036792307445e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03142647576626321
+      },
+      {
+        "agent": 24,
+        "norm": 0.9411451020415832,
+        "equilibrium_norm": 0.9409924294355606,
+        "distance_to_conditional_equilibrium": 0.001434200791142843,
+        "gradient_norm_now": 9.724685631943556e-05,
+        "gradient_norm_equilibrium": 7.968650027285067e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.031426909838697045
+      },
+      {
+        "agent": 25,
+        "norm": 0.9420042071821088,
+        "equilibrium_norm": 0.9410190211992976,
+        "distance_to_conditional_equilibrium": 0.0018246231637260317,
+        "gradient_norm_now": 0.00011245687049532031,
+        "gradient_norm_equilibrium": 4.955800408291647e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03142602541728505
+      },
+      {
+        "agent": 27,
+        "norm": 0.941153217104434,
+        "equilibrium_norm": 0.9409982962500117,
+        "distance_to_conditional_equilibrium": 0.0014738026170389347,
+        "gradient_norm_now": 7.795639661675952e-05,
+        "gradient_norm_equilibrium": 2.0845359972387022e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03142668085549042
+      },
+      {
+        "agent": 28,
+        "norm": 0.9413579493075105,
+        "equilibrium_norm": 0.9409962579398818,
+        "distance_to_conditional_equilibrium": 0.001559167222390659,
+        "gradient_norm_now": 6.277338044991969e-05,
+        "gradient_norm_equilibrium": 1.497867980740517e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03142713532938747
+      },
+      {
+        "agent": 30,
+        "norm": 0.939654853136646,
+        "equilibrium_norm": 0.9409903714626622,
+        "distance_to_conditional_equilibrium": 0.0033197531217456105,
+        "gradient_norm_now": 0.00016379619177997733,
+        "gradient_norm_equilibrium": 1.3856057489935672e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03142559803027277
+      },
+      {
+        "agent": 34,
+        "norm": 0.9415671300338276,
+        "equilibrium_norm": 0.94097303076868,
+        "distance_to_conditional_equilibrium": 0.002050193188269669,
+        "gradient_norm_now": 0.00011178468011558408,
+        "gradient_norm_equilibrium": 1.7688982902177162e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03142752437037973
+      },
+      {
+        "agent": 36,
+        "norm": 0.9418951320901533,
+        "equilibrium_norm": 0.9410445052940188,
+        "distance_to_conditional_equilibrium": 0.0013916082443245306,
+        "gradient_norm_now": 7.67642915547653e-05,
+        "gradient_norm_equilibrium": 1.1881667683433222e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.0314255842496214
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609120.npz",
+    "time": 100000.0,
+    "biased_norm": 1.0503859572780958,
+    "unbiased_norm": 8.335447555823723,
+    "biased_trust_class": 0.9996034625531206,
+    "biased_trust_opinion_sign": 0.5382809257591611,
+    "unbiased_trust_class": 0.03075509022089804,
+    "unbiased_trust_opinion_sign": 0.9994697809417312,
+    "biased_agents": [
+      {
+        "agent": 0,
+        "norm": 1.049544552851335,
+        "equilibrium_norm": 1.0500437944441003,
+        "distance_to_conditional_equilibrium": 0.001740349297062924,
+        "gradient_norm_now": 8.802116170770452e-05,
+        "gradient_norm_equilibrium": 1.960757017591171e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.036944102123991525
+      },
+      {
+        "agent": 1,
+        "norm": 1.0499170604696153,
+        "equilibrium_norm": 1.0500383279496472,
+        "distance_to_conditional_equilibrium": 0.002442553790173898,
+        "gradient_norm_now": 0.0001505416333421514,
+        "gradient_norm_equilibrium": 7.82497760066115e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.036944403893724644
+      },
+      {
+        "agent": 3,
+        "norm": 1.0517556939178891,
+        "equilibrium_norm": 1.0500361436910643,
+        "distance_to_conditional_equilibrium": 0.0025101943811600765,
+        "gradient_norm_now": 0.00012386236731099252,
+        "gradient_norm_equilibrium": 2.3105945386269198e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.036943650423621806
+      },
+      {
+        "agent": 6,
+        "norm": 1.0512215086772065,
+        "equilibrium_norm": 1.0500616961465314,
+        "distance_to_conditional_equilibrium": 0.0013324358751180237,
+        "gradient_norm_now": 6.609384012606205e-05,
+        "gradient_norm_equilibrium": 3.766858907648623e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694357433466879
+      },
+      {
+        "agent": 8,
+        "norm": 1.0505393066204443,
+        "equilibrium_norm": 1.0500258079987346,
+        "distance_to_conditional_equilibrium": 0.0028212221194173722,
+        "gradient_norm_now": 0.00014880540457010497,
+        "gradient_norm_equilibrium": 4.768928258887366e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694452970839435
+      },
+      {
+        "agent": 9,
+        "norm": 1.0507298629478763,
+        "equilibrium_norm": 1.050023780189926,
+        "distance_to_conditional_equilibrium": 0.0009561541308367946,
+        "gradient_norm_now": 5.459303769614795e-05,
+        "gradient_norm_equilibrium": 5.523120296008889e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03694544303475956
+      },
+      {
+        "agent": 10,
+        "norm": 1.0488620020400237,
+        "equilibrium_norm": 1.0500469574343263,
+        "distance_to_conditional_equilibrium": 0.001343092093704418,
+        "gradient_norm_now": 8.702292033753109e-05,
+        "gradient_norm_equilibrium": 1.619180978250615e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694432159605283
+      },
+      {
+        "agent": 11,
+        "norm": 1.0491344543130345,
+        "equilibrium_norm": 1.050012798971457,
+        "distance_to_conditional_equilibrium": 0.0028486308788616284,
+        "gradient_norm_now": 0.00017024530336031532,
+        "gradient_norm_equilibrium": 9.230613664014785e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694460306158557
+      },
+      {
+        "agent": 12,
+        "norm": 1.0511127612647029,
+        "equilibrium_norm": 1.0500347504372893,
+        "distance_to_conditional_equilibrium": 0.002009081528013169,
+        "gradient_norm_now": 0.00013700998670392682,
+        "gradient_norm_equilibrium": 1.0048435909948656e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694398915703202
+      },
+      {
+        "agent": 15,
+        "norm": 1.050166830987826,
+        "equilibrium_norm": 1.0500360022685649,
+        "distance_to_conditional_equilibrium": 0.0009231890177548506,
+        "gradient_norm_now": 5.2391767453281725e-05,
+        "gradient_norm_equilibrium": 1.0063607594062001e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694301589407014
+      },
+      {
+        "agent": 18,
+        "norm": 1.051789783723925,
+        "equilibrium_norm": 1.0500790840336525,
+        "distance_to_conditional_equilibrium": 0.001994623095850414,
+        "gradient_norm_now": 0.00010007477837451503,
+        "gradient_norm_equilibrium": 3.256802274543672e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694206417501586
+      },
+      {
+        "agent": 20,
+        "norm": 1.0507654681567784,
+        "equilibrium_norm": 1.0500734214247127,
+        "distance_to_conditional_equilibrium": 0.0010271022775148447,
+        "gradient_norm_now": 6.932966715268382e-05,
+        "gradient_norm_equilibrium": 8.296448968556842e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694247717958433
+      },
+      {
+        "agent": 22,
+        "norm": 1.0513670279382425,
+        "equilibrium_norm": 1.05003696813508,
+        "distance_to_conditional_equilibrium": 0.0032232018432665393,
+        "gradient_norm_now": 0.00020921427458789137,
+        "gradient_norm_equilibrium": 5.51572871597417e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694397700836822
+      },
+      {
+        "agent": 24,
+        "norm": 1.0496851825094622,
+        "equilibrium_norm": 1.050050400579711,
+        "distance_to_conditional_equilibrium": 0.0007139231136851831,
+        "gradient_norm_now": 3.14034043029137e-05,
+        "gradient_norm_equilibrium": 1.275101315035801e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694354810975503
+      },
+      {
+        "agent": 27,
+        "norm": 1.0502454358217577,
+        "equilibrium_norm": 1.050026955066849,
+        "distance_to_conditional_equilibrium": 0.001073556477292249,
+        "gradient_norm_now": 8.026052996026081e-05,
+        "gradient_norm_equilibrium": 1.07868069773812e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.036944552532898155
+      },
+      {
+        "agent": 28,
+        "norm": 1.0515949280913166,
+        "equilibrium_norm": 1.050062544741712,
+        "distance_to_conditional_equilibrium": 0.0019744149680239738,
+        "gradient_norm_now": 0.00014284158777003907,
+        "gradient_norm_equilibrium": 1.2633129671026653e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03694309458205929
+      },
+      {
+        "agent": 29,
+        "norm": 1.049663006578958,
+        "equilibrium_norm": 1.0500327483942977,
+        "distance_to_conditional_equilibrium": 0.0022548746067480746,
+        "gradient_norm_now": 0.00010709656902814092,
+        "gradient_norm_equilibrium": 1.2919465054356058e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694451682609502
+      },
+      {
+        "agent": 31,
+        "norm": 1.0487638711921308,
+        "equilibrium_norm": 1.050050635522943,
+        "distance_to_conditional_equilibrium": 0.003124120950413015,
+        "gradient_norm_now": 0.00014180008943919794,
+        "gradient_norm_equilibrium": 3.078709855588725e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.036943642270665836
+      },
+      {
+        "agent": 33,
+        "norm": 1.0500439035480489,
+        "equilibrium_norm": 1.0500375326299656,
+        "distance_to_conditional_equilibrium": 0.0007422521642484534,
+        "gradient_norm_now": 3.823131104038441e-05,
+        "gradient_norm_equilibrium": 1.397287235709302e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.036944393362399464
+      },
+      {
+        "agent": 35,
+        "norm": 1.0508165039113462,
+        "equilibrium_norm": 1.0500355839836766,
+        "distance_to_conditional_equilibrium": 0.002079361253482629,
+        "gradient_norm_now": 0.00012181662912382483,
+        "gradient_norm_equilibrium": 1.537878658855987e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03694386563760084
+      }
+    ]
+  },
+  {
+    "file": "N40_P5_b_reference_s202609121.npz",
+    "time": 100000.0,
+    "biased_norm": 1.1583420738315187,
+    "unbiased_norm": 7.49549540190201,
+    "biased_trust_class": 0.999604985525352,
+    "biased_trust_opinion_sign": 0.6408104932464823,
+    "unbiased_trust_class": 0.14973072350844774,
+    "unbiased_trust_opinion_sign": 0.9994679173668214,
+    "biased_agents": [
+      {
+        "agent": 3,
+        "norm": 1.1579118293115325,
+        "equilibrium_norm": 1.1583767629471493,
+        "distance_to_conditional_equilibrium": 0.0022518848622606552,
+        "gradient_norm_now": 0.00011049758615348471,
+        "gradient_norm_equilibrium": 1.2093224401727852e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309797575654126
+      },
+      {
+        "agent": 4,
+        "norm": 1.1576221823321453,
+        "equilibrium_norm": 1.1583556850295513,
+        "distance_to_conditional_equilibrium": 0.002067871936950811,
+        "gradient_norm_now": 9.159803249684353e-05,
+        "gradient_norm_equilibrium": 9.31509255012595e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309770249122073
+      },
+      {
+        "agent": 6,
+        "norm": 1.1587469015490481,
+        "equilibrium_norm": 1.1583647541996118,
+        "distance_to_conditional_equilibrium": 0.0027010822437700793,
+        "gradient_norm_now": 0.00016527467331394914,
+        "gradient_norm_equilibrium": 3.8794307299944596e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309752607172628
+      },
+      {
+        "agent": 8,
+        "norm": 1.1591375283610208,
+        "equilibrium_norm": 1.1583741299215438,
+        "distance_to_conditional_equilibrium": 0.0016223219834058937,
+        "gradient_norm_now": 7.346517834451819e-05,
+        "gradient_norm_equilibrium": 2.046318497085455e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03309732491882495
+      },
+      {
+        "agent": 11,
+        "norm": 1.159161187992341,
+        "equilibrium_norm": 1.1583449492872684,
+        "distance_to_conditional_equilibrium": 0.0017938799878418666,
+        "gradient_norm_now": 0.00010926265379177208,
+        "gradient_norm_equilibrium": 1.6382434979632848e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.0330985105910589
+      },
+      {
+        "agent": 12,
+        "norm": 1.1596048331520794,
+        "equilibrium_norm": 1.1583779211814824,
+        "distance_to_conditional_equilibrium": 0.0032530938156184997,
+        "gradient_norm_now": 0.00011374831361878305,
+        "gradient_norm_equilibrium": 1.5605356582699422e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03309726704564707
+      },
+      {
+        "agent": 13,
+        "norm": 1.1561276626473551,
+        "equilibrium_norm": 1.1583622927566113,
+        "distance_to_conditional_equilibrium": 0.00273534026348841,
+        "gradient_norm_now": 0.00018210272924516392,
+        "gradient_norm_equilibrium": 1.1907139296193076e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309752857997513
+      },
+      {
+        "agent": 14,
+        "norm": 1.1582048127464828,
+        "equilibrium_norm": 1.1583961708659696,
+        "distance_to_conditional_equilibrium": 0.0007949937439980736,
+        "gradient_norm_now": 3.304385782520741e-05,
+        "gradient_norm_equilibrium": 7.753856919630687e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033096289077976876
+      },
+      {
+        "agent": 15,
+        "norm": 1.156538449893585,
+        "equilibrium_norm": 1.1583791172607052,
+        "distance_to_conditional_equilibrium": 0.0027828737103229506,
+        "gradient_norm_now": 0.0001617948581344122,
+        "gradient_norm_equilibrium": 5.405211916431687e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.0330966414232175
+      },
+      {
+        "agent": 18,
+        "norm": 1.1596741472656775,
+        "equilibrium_norm": 1.1584112944468286,
+        "distance_to_conditional_equilibrium": 0.0023949608406335175,
+        "gradient_norm_now": 0.00015320050205488078,
+        "gradient_norm_equilibrium": 3.3207075013905476e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03309544395437155
+      },
+      {
+        "agent": 19,
+        "norm": 1.159418037700615,
+        "equilibrium_norm": 1.1583542564311482,
+        "distance_to_conditional_equilibrium": 0.00406975735873438,
+        "gradient_norm_now": 0.00018718326652843238,
+        "gradient_norm_equilibrium": 2.2159150826319357e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033097957691669615
+      },
+      {
+        "agent": 20,
+        "norm": 1.157993674023157,
+        "equilibrium_norm": 1.158347435116446,
+        "distance_to_conditional_equilibrium": 0.0018821925556624908,
+        "gradient_norm_now": 9.806623895713645e-05,
+        "gradient_norm_equilibrium": 9.751368736837763e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309876117678804
+      },
+      {
+        "agent": 21,
+        "norm": 1.1587346895090054,
+        "equilibrium_norm": 1.1583533599905944,
+        "distance_to_conditional_equilibrium": 0.0023314951025828635,
+        "gradient_norm_now": 9.635023954953517e-05,
+        "gradient_norm_equilibrium": 1.5617166922471076e-10,
+        "max_eigenvalue_log_evidence_hessian": -0.03309832484998423
+      },
+      {
+        "agent": 22,
+        "norm": 1.1571172252034911,
+        "equilibrium_norm": 1.1583541174677148,
+        "distance_to_conditional_equilibrium": 0.001827722328365375,
+        "gradient_norm_now": 0.00012436248677876453,
+        "gradient_norm_equilibrium": 6.976485855188771e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03309810629207694
+      },
+      {
+        "agent": 23,
+        "norm": 1.1586711728321069,
+        "equilibrium_norm": 1.1583689960125716,
+        "distance_to_conditional_equilibrium": 0.0024270831166287557,
+        "gradient_norm_now": 0.00010257794597480232,
+        "gradient_norm_equilibrium": 1.3663412136896559e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309833913251851
+      },
+      {
+        "agent": 28,
+        "norm": 1.1581107880315769,
+        "equilibrium_norm": 1.1583575363271772,
+        "distance_to_conditional_equilibrium": 0.0016498896740269795,
+        "gradient_norm_now": 8.03434285130071e-05,
+        "gradient_norm_equilibrium": 1.7212460961300163e-09,
+        "max_eigenvalue_log_evidence_hessian": -0.03309767371356698
+      },
+      {
+        "agent": 29,
+        "norm": 1.158329096094636,
+        "equilibrium_norm": 1.1584040843462131,
+        "distance_to_conditional_equilibrium": 0.0031372332288732937,
+        "gradient_norm_now": 0.000124785522391842,
+        "gradient_norm_equilibrium": 6.652720646274088e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03309579060026356
+      },
+      {
+        "agent": 31,
+        "norm": 1.1581026760165476,
+        "equilibrium_norm": 1.1583291759602328,
+        "distance_to_conditional_equilibrium": 0.0014078992366777878,
+        "gradient_norm_now": 8.601427199073158e-05,
+        "gradient_norm_equilibrium": 8.56361283539734e-12,
+        "max_eigenvalue_log_evidence_hessian": -0.03309857839530223
+      },
+      {
+        "agent": 32,
+        "norm": 1.1601002147836736,
+        "equilibrium_norm": 1.158401400845312,
+        "distance_to_conditional_equilibrium": 0.0029181207295829923,
+        "gradient_norm_now": 0.00020017587655273895,
+        "gradient_norm_equilibrium": 3.0783275524211353e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309651905497141
+      },
+      {
+        "agent": 36,
+        "norm": 1.1577741529313268,
+        "equilibrium_norm": 1.1583546510940375,
+        "distance_to_conditional_equilibrium": 0.0024526484979345477,
+        "gradient_norm_now": 0.00010767162710882737,
+        "gradient_norm_equilibrium": 8.803639576314711e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.033098647456161784
+      },
+      {
+        "agent": 37,
+        "norm": 1.1581022880844856,
+        "equilibrium_norm": 1.1583439292602593,
+        "distance_to_conditional_equilibrium": 0.0017611146473169629,
+        "gradient_norm_now": 9.430029456727564e-05,
+        "gradient_norm_equilibrium": 1.1972297590691071e-11,
+        "max_eigenvalue_log_evidence_hessian": -0.03309829000815552
+      }
+    ]
+  }
+]

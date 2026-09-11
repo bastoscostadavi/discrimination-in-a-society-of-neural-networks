@@ -1,0 +1,18 @@
+{
+  "git_commit": "a9ece31bb956dcb4f98c2610914b6ab3e9387fad",
+  "copied_from": "paper/main.tex and nn-based-simulation/ednna/*.py",
+  "sha256": {
+    "ednna/order_params.py": "ea9003d2b586481c943ce029d970b5380b0bb17de3c7cfc7c623954f3c0a9dff",
+    "ednna/config.py": "23b6d43201da2b7104ebb66ab35046c44a8a83a7c3433756267c98945cb9593a",
+    "ednna/reduction.py": "8b8eeb7dfbe81bb771f25908a2574e3e4b3aa982fab15ed2f1f7baeb5af8e752",
+    "ednna/plotting.py": "c458dee9cf9ecdee2f446e6cf7e943fa67234a20e363848c2d2c769686899366",
+    "ednna/__init__.py": "9b52cb876aef1dc3522d7f8667875a5c2f94be782408101fc97c38964a07ce73",
+    "ednna/discrimination.py": "f1adb52c9da54d7686fa98dceb458d3e9d6ea84898352b0bb6dde5184d725e92",
+    "ednna/society.py": "9adbc2020c14ec92e4b2f91955e305430d4a49f8150c204576a1b8106aba5c0f",
+    "ednna/sweep.py": "fc675a9ea2b26139c122a3c1107ce2ed21d8d0743255cdeedbee57fa3780a4e2",
+    "ednna/modulation.py": "56a21ea4157e5c2f6eaf007868b7c5ff2bfaa3f58c6e8d3aa32a1dd0fc0b408c",
+    "reference/paper-main.tex": "fa67305205a03e16f5e7bd4b9276f7cab3d5fb941b5bb178021650a7b34c1a5f"
+  },
+  "python": "3.13.5",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+}
