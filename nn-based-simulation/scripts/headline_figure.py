@@ -79,10 +79,9 @@ def figure(phase, portraits, style, name="headline_states"):
     short = {
         "(I)": "Frustration",
         "(II)": "Polarization",
-        "(III)": "Coupled",
-        "(IV)": "Decoupled",
     }
     display_label = {"(III)": "(IIIa)", "(IV)": "(IIIb)"}
+    top_axes = []
     for col, label in enumerate(portraits["labels"]):
         prejudiced = np.asarray(portraits["prejudiced"][col], bool)
         for row, (coords, _, ref) in enumerate(
@@ -91,11 +90,19 @@ def figure(phase, portraits, style, name="headline_states"):
             _portrait(pax, coords, ref, kappa, prejudiced)
             if row == 0:
                 shown = display_label.get(label, label)
-                pax.set_title(f"{shown}\n{short[label]}", fontsize=6.2, pad=2,
+                # The two discrimination subphases share one heading; the other
+                # regimes retain an individual name above their Roman numeral.
+                heading = short.get(label, "")
+                pax.set_title(f"{heading}\n{shown}", fontsize=6.2, pad=2,
                               linespacing=0.9)
+                top_axes.append(pax)
             if col == 0:
                 pax.set_ylabel(("opinion", "trust")[row], fontsize=7,
                                labelpad=2)
+    discrimination_axes = top_axes[2:]
+    left, right = (axis.get_position() for axis in discrimination_axes)
+    fig.text((left.x0 + right.x1) / 2, left.y1 + 0.032, "Discrimination",
+             ha="center", va="bottom", fontsize=6.2)
     _portrait_legend(fig)
     return save(fig, name, style, bbox=None)
 

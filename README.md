@@ -11,7 +11,7 @@ society it produces, and maps the result as a phase diagram.
 
 ## Four phases, and a sharp move between them
 
-<img src="assets/headline_states.png" width="900" alt="Phase diagram and representative opinion and trust configurations for the four collective states">
+<img src="assets/headline_states.png" width="900" alt="Phase diagram and representative opinion and trust configurations for the four collective states, with a shared Discrimination heading for IIIa and IIIb">
 
 We assign agents an irrelevant group label and give a fraction `f_b` of them a
 group bias of strength `b`. Although the label contains no information about the
