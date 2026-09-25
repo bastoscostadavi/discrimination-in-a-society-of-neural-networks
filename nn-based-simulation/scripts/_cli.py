@@ -70,6 +70,27 @@ def parser(description):
         "rather than reusing an existing one",
     )
     p.add_argument(
+        "--n-d",
+        type=int,
+        default=None,
+        help="number of grid points along the discrimination-strength axis, "
+        "overriding the preset",
+    )
+    p.add_argument(
+        "--n-fd",
+        type=int,
+        default=None,
+        help="number of grid points along the discriminating-fraction axis, "
+        "overriding the preset",
+    )
+    p.add_argument(
+        "--repeats",
+        type=int,
+        default=None,
+        help="independent societies per grid point, averaged before plotting; "
+        "increasing this reduces single-realization speckle",
+    )
+    p.add_argument(
         "--no-cache",
         action="store_true",
         help="re-simulate even if a cached sweep exists",
@@ -77,9 +98,12 @@ def parser(description):
     return p
 
 
-def setup(description):
+def setup(description, add_arguments=None):
     """Parse arguments, activate the style, and return ``(args, preset)``."""
-    args = parser(description).parse_args()
+    p = parser(description)
+    if add_arguments is not None:
+        add_arguments(p)
+    args = p.parse_args()
     use_style(args.style)
     preset = get_preset(args.preset)
 
@@ -94,5 +118,11 @@ def setup(description):
         sweep_cfg = sweep_cfg.with_(batch_size=args.batch_size)
     if args.workers is not None:
         sweep_cfg = sweep_cfg.with_(n_workers=args.workers)
+    if args.n_d is not None:
+        sweep_cfg = sweep_cfg.with_(n_d=args.n_d)
+    if args.n_fd is not None:
+        sweep_cfg = sweep_cfg.with_(n_fd=args.n_fd)
+    if args.repeats is not None:
+        sweep_cfg = sweep_cfg.with_(n_repeats=args.repeats)
 
     return args, replace(preset, model=model, sweep=sweep_cfg)

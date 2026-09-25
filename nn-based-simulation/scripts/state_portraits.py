@@ -180,7 +180,7 @@ def _legend(fig, y=-0.01):
                for k in (+1, -1)]
     handles += [
         plt.Line2D([], [], color="0.35", lw=0, marker="o", ms=3.0,
-                   label="prejudiced"),
+                   label="biased"),
         plt.Line2D([], [], color="0.35", lw=0, marker="o", ms=3.0, mfc="white",
                    mew=0.5, label="class-blind"),
         plt.Line2D([], [], color="0.45", lw=0.9, ls=(0, (3, 2)),

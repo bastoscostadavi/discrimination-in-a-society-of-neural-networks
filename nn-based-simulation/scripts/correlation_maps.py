@@ -32,10 +32,12 @@ from ednna.sweep import sweep  # noqa: E402
 KEYS = ("R_wmu", "R_muc", "R_cw")
 
 
-def agenda_sweeps(preset, use_cache=True):
+def agenda_sweeps(preset, use_cache=True, issues=None):
     """Sweeps for the small and large agenda, as ``[(label, data), ...]``."""
     out = []
     for label, P in (("small agenda", preset.p_small), ("large agenda", preset.p_large)):
+        if issues is not None and P not in issues:
+            continue
         model = preset.model.with_(n_issues=P)
         print(f"[correlations] {label}: P={P}, alpha={model.alpha:.3g}")
         data = sweep(model, preset.sweep, tag=f"P{P}", use_cache=use_cache)

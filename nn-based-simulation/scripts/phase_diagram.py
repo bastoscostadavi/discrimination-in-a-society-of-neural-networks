@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import numpy as np
 from matplotlib import pyplot as plt
+from matplotlib import patheffects
 from matplotlib.lines import Line2D
 
 from _cli import setup  # noqa: E402
@@ -67,19 +68,12 @@ def figure(data, style, name="phase_diagram", regions=REGIONS):
 
 
 def _draw_regions(ax, rgb, d, fd, regions):
-    """Roman numerals at their (d, f_d) placements.
-
-    Region (IIIa) is nearly white for a complex agenda and the frustrated corner is
-    nearly black, so each label takes its colour from the pixel underneath rather
-    than being fixed.
-    """
+    """Draw white Roman numerals at their ``(d, f_d)`` placements."""
     for label, (x, y) in (regions or {}).items():
-        i = int(np.clip(np.searchsorted(fd, y), 0, len(fd) - 1))
-        j = int(np.clip(np.searchsorted(d, x), 0, len(d) - 1))
-        luma = float(rgb[i, j] @ (0.299, 0.587, 0.114))
         ax.text(
-            x, y, label, color="black" if luma > 0.55 else "white",
-            fontsize=8, ha="center", va="center", path_effects=None,
+            x, y, label, color="white",
+            fontsize=8, ha="center", va="center",
+            path_effects=[patheffects.withStroke(linewidth=0.7, foreground="0.15")],
         )
 
 
@@ -216,12 +210,27 @@ def figure_with_maps(data, style, name="correlations_and_phase", regions=REGIONS
 
 
 def main():
-    args, preset = setup(__doc__)
+    def add_arguments(parser):
+        parser.add_argument(
+            "--issues", type=int, nargs="+", default=None,
+            help="agenda sizes to plot; omit to plot both preset agendas",
+        )
+
+    args, preset = setup(__doc__, add_arguments=add_arguments)
     # one panel per agenda: the paper carries the simple agenda and sends the complex
     # one to an appendix, since the four regions are the same and only their extents
     # differ
-    for P, regions, name in ((preset.p_small, REGIONS, "phase_diagram"),
-                             (preset.p_large, REGIONS_COMPLEX, "phase_diagram_large_agenda")):
+    agendas = ((preset.p_small, REGIONS, "phase_diagram"),
+               (preset.p_large, REGIONS_COMPLEX, "phase_diagram_large_agenda"))
+    requested = set(args.issues) if args.issues is not None else {P for P, _, _ in agendas}
+    available = {P for P, _, _ in agendas}
+    if not requested <= available:
+        raise SystemExit(
+            f"--issues must be drawn from {sorted(available)}, got {sorted(requested)}"
+        )
+    for P, regions, name in agendas:
+        if P not in requested:
+            continue
         model = preset.model.with_(n_issues=P)
         data = sweep(model, preset.sweep, tag=f"P{P}", use_cache=not args.no_cache)
         figure(data, args.style, name=name, regions=regions)

@@ -86,9 +86,28 @@ def figure(rows, style, name="order_parameter_maps", keys=KEYS):
 
 
 def main():
-    args, preset = setup(__doc__)
-    rows = agenda_sweeps(preset, use_cache=not args.no_cache)
-    for row, tag in zip(rows, ("small", "large")):
+    def add_arguments(parser):
+        parser.add_argument(
+            "--issues", type=int, nargs="+", default=None,
+            help="agenda sizes to plot; omit to plot both preset agendas",
+        )
+
+    args, preset = setup(__doc__, add_arguments=add_arguments)
+    requested = set(args.issues) if args.issues is not None else None
+    available = {preset.p_small, preset.p_large}
+    if requested is not None:
+        unknown = requested - available
+        if unknown:
+            raise ValueError(
+                f"--issues must be drawn from {sorted(available)}, "
+                f"got {sorted(requested)}"
+            )
+    rows = agenda_sweeps(
+        preset, use_cache=not args.no_cache, issues=requested
+    )
+    tags = {preset.p_small: "small", preset.p_large: "large"}
+    for row in rows:
+        tag = tags[row[1]]
         figure([row], args.style, name=f"correlation_maps_{tag}", keys=CORRELATIONS)
         figure([row], args.style, name=f"balance_maps_{tag}", keys=BALANCES)
     figure(rows, args.style)

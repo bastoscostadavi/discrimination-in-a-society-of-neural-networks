@@ -45,7 +45,7 @@ def _portrait_legend(fig):
         plt.Line2D([], [], color=HIST_RED[1], lw=0.9, label="class $A$"),
         plt.Line2D([], [], color=HIST_BLUE[1], lw=0.9, label="class $B$"),
         plt.Line2D([], [], color="0.35", lw=0, marker="o", ms=2.5,
-                   label="prejudiced"),
+                   label="biased"),
         plt.Line2D([], [], color="0.35", lw=0, marker="o", ms=2.5,
                    mfc="white", mew=0.45, label="class-blind"),
     ]

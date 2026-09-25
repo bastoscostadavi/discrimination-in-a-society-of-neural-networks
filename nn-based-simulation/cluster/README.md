@@ -58,30 +58,46 @@ ssh midway3
 cd ~/ednna/nn-based-simulation
 module load python
 python3 -m pip install --user -r requirements.txt
-python3 -m pytest -q        # 77 tests, ~15 s: confirms the port
+python3 -m pytest -q        # 80 tests, ~15 s: confirms the port
 ```
 
 ## 3. Submit
 
-One caslake node (48 cores, 180 GB) per agenda size, as a two-task array:
+The main-paper run uses `N=100`, a 300x300 grid, two independent societies per
+grid point, and only the paper's `P=5` agenda.  `SAVE_SNAPSHOTS=1` retains the lightweight
+final state (`w`, derived `eta`, agenda `X`, biased-agent mask, `d`, and `f_d`)
+as compressed, batch-wise float32 files.  It does not retain the much larger
+restart state (`C`, `mu`, `V`, or RNG state).
 
 ```sh
-sbatch --account=pi-YOURPI cluster/midway3.sbatch                        # N=200
-sbatch --account=pi-YOURPI --export=ALL,N_AGENTS=100 cluster/midway3.sbatch
+RUN_EXPORT=ALL,N_AGENTS=100,N_D=300,N_FD=300,N_REPEATS=2,SHARDS=8,SAVE_SNAPSHOTS=1,BATCH_SIZE=16
+ARRAY_JOB=$(sbatch --parsable --account=pi-davicosta --array=0-7%8 --time=12:00:00 \
+  --export="$RUN_EXPORT" cluster/midway3.sbatch)
+sbatch --account=pi-davicosta --dependency="afterok:$ARRAY_JOB" \
+  --export="$RUN_EXPORT,ISSUES=5" cluster/midway3_merge.sbatch
 ```
 
-`cluster/sweep_one.py` runs exactly one `(d, f_d)` sweep and writes it under the
-same cache tag the figure scripts read, so the array's two tasks are the two
-sweeps `make_all.py` would otherwise do back to back in one process. Watch them
-with `squeue -u $USER` and `tail -f cluster/logs/*.out`.
+Array tasks 0 through 7 run the eight `P=5` shards.  Tasks 8 through 15 would select
+`P=100`, but are deliberately not submitted because the existing
+smaller-society result is enough for that appendix agenda.  Each snapshot batch
+is written atomically and reused if a task is resubmitted, so a later failure
+does not throw away completed batches.  The dependent job merges only `P=5`.
+Watch the jobs with `squeue -u $USER` and `tail -f cluster/logs/*.out`.
+
+Before the publication run, use the same path with `N_D=32,N_FD=32` and a
+one-hour walltime as a low-cost end-to-end pilot.
 
 ## 4. Bring the caches home and draw
 
 ```sh
-rsync -av midway3:~/ednna/nn-based-simulation/data/ data/
-python scripts/make_all.py --preset full --n-agents 200 \
-    --batch-size 256 --workers 48
+rsync -av midway3:~/projects/discrimination-in-multi-agent-systems/nn-based-simulation/data/ data/
+python scripts/phase_diagram.py --preset full --n-agents 100 \
+  --n-d 300 --n-fd 300 --repeats 2 --batch-size 16 --workers 48 --issues 5
 ```
+
+The same transfer brings home the aggregate cache and the `.snapshots/`
+directory.  At `N=100`, `P=5`, 300x300, and two repeats the snapshots are
+about 9.5 GB before compression (typically less on disk).
 
 The `--batch-size` and `--workers` here are not doing any work locally --- they
 are part of the cache filename, so they have to match what the job ran or the

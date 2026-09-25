@@ -200,9 +200,11 @@ def _decorate(ax, lim, xlabel=True, ticks=None):
     else:
         ax.set_xticks(list(ticks))
         ax.set_yticks(list(ticks))
-    ax.axhline(0.0, color="0.55", lw=0.5)
-    ax.axvline(0.0, color="0.55", lw=0.5)
-    ax.plot([-lim, lim], [-lim, lim], color="#5aa469", lw=0.9)
+    # No furniture over the field: the only line wanted here is the zero contour,
+    # which the contour set already draws, and it is a different line in each
+    # panel -- F_w vanishes on h_mu = 0, F_mu on h_w = 0.  Crosshairs at the two
+    # origins put the other one there as well, and the diagonal h_mu = h_w is not
+    # a contour of either.
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-lim, lim)
     if xlabel:
@@ -397,13 +399,16 @@ def figure_pair(sectors, figure_dir, name="llm_modulation", nest=False,
     the data, so the caller is told how many points each panel loses.
     ``show_points=False`` leaves the analytic backgrounds unchanged and removes
     only the measured markers, which is how Figure 1 is obtained from Figure 2.
-    ``show_panel_labels=False`` omits the redundant sector names when the shared
-    colour bar itself identifies both fields.
+    Each panel is titled with the field it draws.  ``show_panel_labels=False``
+    drops the older in-panel copy of that name, which the title replaces.
     """
     from ednna.plotting import matched_colorbar, text_width
     if cap is None:
         cap = 1.6
-    left, right, bottom, top, wspace = 0.115, 0.87, 0.20, 0.98, 0.20
+    # ``top`` leaves the strip the titles sit in.  The panels are square and their
+    # width is fixed by the text width, so the figure grows in height to make the
+    # room rather than the panels shrinking into it.
+    left, right, bottom, top, wspace = 0.115, 0.87, 0.19, 0.925, 0.20
     W = 0.86 * text_width()
     panel_w = W * (right - left) / (2 + wspace)
     fig, axes = plt.subplots(1, 2, figsize=(W, panel_w / (top - bottom)))
@@ -423,13 +428,15 @@ def figure_pair(sectors, figure_dir, name="llm_modulation", nest=False,
                          name=label if show_panel_labels else None,
                          lim=panel_lim, cap=cap, ticks=panel_ticks,
                          show_points=show_points)
+        ax.set_title(label, fontsize=AXIS_LABEL_PT + 1.5, color="#2f4f7f", pad=3)
         ax.set_xlabel("")            # one shared label below, or the two collide
         if ax is not axes[0]:
             ax.set_ylabel("")
     fig.supxlabel(r"disagree $\leftarrow h_w \rightarrow$ agree",
-                  fontsize=AXIS_LABEL_PT, y=0.045)
+                  fontsize=AXIS_LABEL_PT, y=0.040)
     fig.subplots_adjust(left=left, right=right, bottom=bottom, top=top,
                         wspace=wspace)
-    cb = matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-cap, cap, 5))
-    cb.set_label(r"$F_w,\ F_\mu$", fontsize=7)
+    # No label on the bar: the titles now say which field each panel is, and the
+    # two share one scale, so a label there would only repeat them both.
+    matched_colorbar(fig, im, axes[-1], ticks=np.linspace(-cap, cap, 5))
     return save(fig, name, figure_dir, nest=nest)
